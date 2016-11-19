@@ -11,7 +11,7 @@ final class PhabricatorDashboardApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Tạo trang');
+    return pht('Create Custom Pages');
   }
 
   public function getIcon() {

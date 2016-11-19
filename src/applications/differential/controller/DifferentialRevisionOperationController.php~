@@ -94,10 +94,10 @@ final class DifferentialRevisionOperationController
       ->setUser($viewer)
       ->appendRemarkupInstructions(
         pht(
-          '(Chú ý) Chức năng này mới và đang thử nghiệm.'))
+          '(NOTE) This feature is new and experimental.'))
       ->appendControl(
         id(new AphrontFormTokenizerControl())
-          ->setLabel(pht('Nhánh'))
+          ->setLabel(pht('Onto Branch'))
           ->setName('refPHIDs')
           ->setLimit(1)
           ->setError($e_ref)query/edit/
@@ -106,11 +106,11 @@ final class DifferentialRevisionOperationController
 
     return $this->newDialog()
       ->setWidth(AphrontDialogView::WIDTH_FORM)
-      ->setTitle(pht('Bản sửa đổi'))
+      ->setTitle(pht('Land Revision'))
       ->setErrors($errors)
       ->appendForm($form)
       ->addCancelButton($detail_uri)
-      ->addSubmitButton(pht('Đặt ở đây'));
+      ->addSubmitButton(pht('Land Revision'));
   }
 
   private function newRefQuery(PhabricatorRepository $repository) {

@@ -7,11 +7,11 @@ final class PhabricatorDifferentialApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Differential');
+    return pht('Sự khác biệt');
   }
 
   public function getShortDescription() {
-    return pht('Review Code');
+    return pht('Duyệt mã nguồn');
   }
 
   public function getIcon() {
@@ -25,7 +25,7 @@ final class PhabricatorDifferentialApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Differential User Guide'),
+        'name' => pht('Hướng dẫn'),
         'href' => PhabricatorEnv::getDoclink('Differential User Guide'),
       ),
     );

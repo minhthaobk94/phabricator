@@ -3,11 +3,11 @@
 final class PhabricatorManiphestApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('The Hien');
+    return pht('Thể hiện');
   }
 
   public function getShortDescription() {
-    return pht('Phan cong va Loi');
+    return pht('Phân công công việc và lỗi');
   }
 
   public function getBaseURI() {

@@ -15,7 +15,7 @@ final class PhabricatorAuditApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Kiểm soáts commits');
+    return pht('Kiểm soát commits');
   }
 
   public function isPinnedByDefault(PhabricatorUser $viewer) {

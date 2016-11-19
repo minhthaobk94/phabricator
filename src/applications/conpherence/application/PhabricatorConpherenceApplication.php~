@@ -11,7 +11,7 @@ final class PhabricatorConpherenceApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Nói chuyện với người khác');
+    return pht('Chat with Others');
   }
 
   public function getIcon() {

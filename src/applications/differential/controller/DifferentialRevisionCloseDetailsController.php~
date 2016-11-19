@@ -95,7 +95,7 @@ final class DifferentialRevisionCloseDetailsController
         $obj_handle->getName());
       $body_why[] = pht(
         'Commit này và điểm khác biệt đã kích hoạt của %s giống với %s hàm băm '.
-        '(%s) cho nên chúng tôi dẫn commit này tới %s.',
+        '(%s) so we linked this commit toăm %s.',
         $diff_link,
         $hash_type,
         $revision_match_data['matchHashValue'],

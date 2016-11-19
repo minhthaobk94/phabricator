@@ -25,7 +25,7 @@ final class PhabricatorPhrictionApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Hướng dẫn sử dụng'),
+        'name' => pht('Phriction User Guide'),
         'href' => PhabricatorEnv::getDoclink('Phriction User Guide'),
       ),
     );

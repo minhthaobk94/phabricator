@@ -7,11 +7,11 @@ final class PhabricatorSontxApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Sontx');
+    return pht('Vấn đề');
   }
 
   public function getShortDescription() {
-    return pht('Son dep trai');
+    return pht('Quản lý vấn đề');
   }
 
   public function getIcon() {
@@ -25,7 +25,7 @@ final class PhabricatorSontxApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Differential User Guide'),
+        'name' => pht('Hướng dẫn sử dụng'),
         'href' => PhabricatorEnv::getDoclink('Differential User Guide'),
       ),
     );

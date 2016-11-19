@@ -1153,7 +1153,7 @@ final class DifferentialRevisionViewController extends DifferentialController {
     }
 
     return id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Chi tiết sự khác biệt'))
+      ->setHeaderText(pht('Diff Detail'))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->setUser($viewer)
       ->addTabGroup($tab_group);
@@ -1220,7 +1220,7 @@ final class DifferentialRevisionViewController extends DifferentialController {
     }
 
     $box_view = id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Những hoạt động tích cực'))
+      ->setHeaderText(pht('Active Operations'))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY);
 
     return id(new DrydockRepositoryOperationStatusView())

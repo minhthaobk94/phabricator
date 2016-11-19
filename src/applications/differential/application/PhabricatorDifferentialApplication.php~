@@ -1,17 +1,17 @@
 <?php
 
-final class PhabricatorSontxApplication extends PhabricatorApplication {
+final class PhabricatorDifferentialApplication extends PhabricatorApplication {
 
   public function getBaseURI() {
-    return '/sontx/';
+    return '/differential/';
   }
 
   public function getName() {
-    return pht('Vấn đề');
+    return pht('Sự khác biệt');
   }
 
   public function getShortDescription() {
-    return pht('Quản lý vấn đề');
+    return pht('Duyệt mã nguồn');
   }
 
   public function getIcon() {
@@ -25,7 +25,7 @@ final class PhabricatorSontxApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Differential User Guide'),
+        'name' => pht('Hướng dẫn dùng "Sự khác biệt"'),
         'href' => PhabricatorEnv::getDoclink('Differential User Guide'),
       ),
     );
@@ -55,7 +55,39 @@ final class PhabricatorSontxApplication extends PhabricatorApplication {
 
   public function getRoutes() {
     return array(
-      '/sontx/' => 'PhabricatorSontx1Controller'
+      '/D(?P<id>[1-9]\d*)' => 'DifferentialRevisionViewController',
+      '/differential/' => array(
+        '(?:query/(?P<queryKey>[^/]+)/)?'
+          => 'DifferentialRevisionListController',
+        'diff/' => array(
+          '(?P<id>[1-9]\d*)/' => 'DifferentialDiffViewController',
+          'create/' => 'DifferentialDiffCreateController',
+        ),
+        'changeset/' => 'DifferentialChangesetViewController',
+        'revision/' => array(
+          'edit/(?:(?P<id>[1-9]\d*)/)?'
+            => 'DifferentialRevisionEditController',
+          'land/(?:(?P<id>[1-9]\d*))/(?P<strategy>[^/]+)/'
+            => 'DifferentialRevisionLandController',
+          'closedetails/(?P<phid>[^/]+)/'
+            => 'DifferentialRevisionCloseDetailsController',
+          'update/(?P<revisionID>[1-9]\d*)/'
+            => 'DifferentialDiffCreateController',
+          'operation/(?P<id>[1-9]\d*)/'
+            => 'DifferentialRevisionOperationController',
+        ),
+        'comment/' => array(
+          'preview/(?P<id>[1-9]\d*)/' => 'DifferentialCommentPreviewController',
+          'save/(?P<id>[1-9]\d*)/' => 'DifferentialCommentSaveController',
+          'inline/' => array(
+            'preview/(?P<id>[1-9]\d*)/'
+              => 'DifferentialInlineCommentPreviewController',
+            'edit/(?P<id>[1-9]\d*)/'
+              => 'DifferentialInlineCommentEditController',
+          ),
+        ),
+        'preview/' => 'PhabricatorMarkupPreviewController',
+      ),
     );
   }
 

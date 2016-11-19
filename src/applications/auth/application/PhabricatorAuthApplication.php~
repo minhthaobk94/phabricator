@@ -23,7 +23,7 @@ final class PhabricatorAuthApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Đăng nhập/Đăng ký');
+    return pht('Login/Registration');
   }
 
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {

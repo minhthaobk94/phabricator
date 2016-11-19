@@ -3,7 +3,7 @@
 final class PhabricatorManiphestApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Maniphest');
+    return pht('Maniphest VN');
   }
 
   public function getShortDescription() {
