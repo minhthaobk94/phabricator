@@ -1,0 +1,103 @@
+/**
+ * @provides lightbox-attachment-css
+ */
+
+
+.lightbox-attached {
+  overflow: hidden;
+}
+
+.lightbox-attachment {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: auto;
+}
+
+.lightbox-attachment img {
+  max-width: calc(100% - 44px);
+  max-height: calc(100% - 44px);
+  position: absolute;
+  top: 44px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.jx-mask + .lightbox-attachment {
+  background: {$lightgreybackground};
+}
+
+.lightbox-attachment .loading {
+  position: absolute;
+  top: -9999px;
+}
+
+.lightbox-attachment .attachment-name {
+  width: 100%;
+  line-height: 30px;
+  text-align: center;
+}
+
+.lightbox-attachment .lightbox-status {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  padding: 0 20px;
+  line-height: 44px;
+  border-bottom: 1px solid {$thinblueborder};
+}
+
+.lightbox-attachment .lightbox-status .lightbox-download {
+  float: right;
+}
+
+.lightbox-attachment .lightbox-status .lightbox-download
+  .lightbox-download-form {
+    display: inline;
+}
+
+.lightbox-attachment .lightbox-close {
+  float: right;
+  margin: 9px 0 0px 8px;
+}
+
+.lightbox-attachment .lightbox-left {
+  top: 46%;
+  left: 12px;
+  position: fixed;
+  display: block;
+  height: 40px;
+  width: 40px;
+}
+
+.lightbox-attachment .lightbox-left .phui-icon-view {
+  font-size: 40px;
+}
+
+.lightbox-attachment .lightbox-left:hover .phui-icon-view {
+  color: {$sky};
+}
+
+.lightbox-attachment .lightbox-right .phui-icon-view {
+  top: 46%;
+  right: 12px;
+  position: fixed;
+  display: block;
+  height: 38px;
+  width: 21px;
+}
+
+.lightbox-attachment .lightbox-right .phui-icon-view {
+  font-size: 40px;
+}
+
+.lightbox-attachment .lightbox-right:hover .phui-icon-view {
+  color: {$sky};
+}

@@ -1,0 +1,8 @@
+<?php
+
+abstract class PhabricatorHomeController extends PhabricatorController {
+
+  public function buildNav() {
+  }
+
+}
