@@ -8,7 +8,7 @@ final class DifferentialCloseConduitAPIMethod
   }
 
   public function getMethodDescription() {
-    return pht('Close a Differential revision.');
+    return pht('Phiên bản khác biệt gần đây.');
   }
 
   protected function defineParamTypes() {
@@ -23,7 +23,7 @@ final class DifferentialCloseConduitAPIMethod
 
   protected function defineErrorTypes() {
     return array(
-      'ERR_NOT_FOUND' => pht('Revision was not found.'),
+      'ERR_NOT_FOUND' => pht('Phiên bản không được tìm thấy.'),
     );
   }
 

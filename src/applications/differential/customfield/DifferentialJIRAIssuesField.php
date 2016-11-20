@@ -35,11 +35,11 @@ final class DifferentialJIRAIssuesField
   }
 
   public function getFieldName() {
-    return pht('JIRA Issues');
+    return pht('Vấn đề JIRA');
   }
 
   public function getFieldDescription() {
-    return pht('Lists associated JIRA issues.');
+    return pht('Chức năng liên quan vấn đề JIRA.');
   }
 
   public function shouldAppearInPropertyView() {
@@ -111,9 +111,9 @@ final class DifferentialJIRAIssuesField
 
   public function renderEditControl(array $handles) {
     return id(new AphrontFormTextControl())
-      ->setLabel(pht('JIRA Issues'))
+      ->setLabel(pht('Vấn đề JIRA'))
       ->setCaption(
-        pht('Example: %s', phutil_tag('tt', array(), 'JIS-3, JIS-9')))
+        pht('Ví dụ : %s', phutil_tag('tt', array(), 'JIS-3, JIS-9')))
       ->setName($this->getFieldKey())
       ->setValue(implode(', ', nonempty($this->getValue(), array())))
       ->setError($this->error);
@@ -160,13 +160,13 @@ final class DifferentialJIRAIssuesField
           ->setThrowOnMissingLink(true)
           ->execute();
       } catch (DoorkeeperMissingLinkException $ex) {
-        $this->error = pht('Not Linked');
+        $this->error = pht('Không liên kết');
         $errors[] = new PhabricatorApplicationTransactionValidationError(
           $type,
-          pht('Not Linked'),
+          pht('Không liên kết'),
           pht(
-            'You can not add JIRA issues (%s) to this revision because your '.
-            'Phabricator account is not linked to a JIRA account.',
+            'Bạn không thể thêm các vấn đề JIRA (%s) để xem lại này vì bạn '.
+            'tài khoản Phabricator không được liên kết với một tài khoản JIRA.',
             implode(', ', $add)),
           $xaction);
         continue;
@@ -181,14 +181,14 @@ final class DifferentialJIRAIssuesField
 
       if ($bad) {
         $bad = implode(', ', $bad);
-        $this->error = pht('Invalid');
+        $this->error = pht('Không hợp lệ ');
 
         $errors[] = new PhabricatorApplicationTransactionValidationError(
           $type,
-          pht('Invalid'),
+          pht('Không hợp lệ'),
           pht(
-            'Some JIRA issues could not be loaded. They may not exist, or '.
-            'you may not have permission to view them: %s',
+            'Một số vấn đề JIRA không thể được nạp. Họ có thể không tồn tại, hoặc'.
+            'bạn có thể không được phép xem chúng: %s',
             $bad),
           $xaction);
       }
@@ -216,7 +216,7 @@ final class DifferentialJIRAIssuesField
     $author_phid = $xaction->getAuthorPHID();
     if ($add && $rem) {
       return pht(
-        '%s updated JIRA issue(s): added %d %s; removed %d %s.',
+        '%s cập nhật vấn đề JIRA (s): thêm %d %s; di chuyển %d %s.',
         $xaction->renderHandleLink($author_phid),
         phutil_count($add),
         implode(', ', $add),
@@ -224,13 +224,13 @@ final class DifferentialJIRAIssuesField
         implode(', ', $rem));
     } else if ($add) {
       return pht(
-        '%s added %d JIRA issue(s): %s.',
+        '%s thêm %d vấn đề JIRA (s): %s.',
         $xaction->renderHandleLink($author_phid),
         phutil_count($add),
         implode(', ', $add));
     } else if ($rem) {
       return pht(
-        '%s removed %d JIRA issue(s): %s.',
+        '%s di chuyển %d  vấn đề JIRA (s): %s.',
         $xaction->renderHandleLink($author_phid),
         phutil_count($rem),
         implode(', ', $rem));

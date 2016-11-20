@@ -8,7 +8,7 @@ final class DifferentialParentRevisionsField
   }
 
   public function getFieldName() {
-    return pht('Parent Revisions');
+    return pht('Bản sửa đổi chính');
   }
 
   public function canDisableField() {
@@ -16,15 +16,15 @@ final class DifferentialParentRevisionsField
   }
 
   public function getFieldDescription() {
-    return pht('Lists revisions this one depends on.');
+    return pht('Danh sách các sửa đổi này phụ thuộc vào.');
   }
 
   public function getProTips() {
     return array(
       pht(
-        'Create a dependency between revisions by writing '.
-        '"%s" in your summary.',
-        'Depends on D123'),
+        'Tạo một sự phụ thuộc giữa các bản bằng cách viết '.
+        '"%s" trong bản tóm tắt của bạn.',
+        'Phụ thuộc vào D123'),
     );
   }
 

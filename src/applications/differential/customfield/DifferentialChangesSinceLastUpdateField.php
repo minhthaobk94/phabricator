@@ -8,11 +8,11 @@ final class DifferentialChangesSinceLastUpdateField
   }
 
   public function getFieldName() {
-    return pht('Changes Since Last Update');
+    return pht('Thay đổi Kể từ Cập nhật cuối');
   }
 
   public function getFieldDescription() {
-    return pht('Links to changes since the last update in email.');
+    return pht('Liên kết để thay đổi kể từ lần cập nhật cuối trong email.');
   }
 
   public function shouldAppearInTransactionMail() {
@@ -54,7 +54,7 @@ final class DifferentialChangesSinceLastUpdateField
     $uri = '/'.$revision->getMonogram().'?vs='.$old_id.'&id='.$new_id;
     $uri = PhabricatorEnv::getProductionURI($uri);
 
-    $body->addLinkSection(pht('CHANGES SINCE LAST UPDATE'), $uri);
+    $body->addLinkSection(pht('THAY ĐỔI TỪ CẬP NHẬT CUỐI'), $uri);
   }
 
 }

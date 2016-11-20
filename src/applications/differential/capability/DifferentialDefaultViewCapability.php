@@ -6,7 +6,7 @@ final class DifferentialDefaultViewCapability
   const CAPABILITY = 'differential.default.view';
 
   public function getCapabilityName() {
-    return pht('Default View Policy');
+    return pht('Xem chính sách mặc định');
   }
 
   public function shouldAllowPublicPolicySetting() {

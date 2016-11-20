@@ -46,10 +46,10 @@ final class PhabricatorAuthRegisterController
 
         return $this->renderError(
           pht(
-            'The account you are attempting to register with uses an '.
-            'authentication provider ("%s") which does not allow '.
-            'registration. An administrator may have recently disabled '.
-            'registration with this provider.',
+            'Các tài khoản bạn đang cố gắng đăng ký với sử dụng một '.
+            'cung cấp dịch vụ xác thực ("% s") mà không cho phép'.
+            'đăng ký. Người quản trị có thể đã bị vô hiệu hóa gần đây'.
+            'đăng ký với nhà cung cấp này.',
             $provider->getProviderName()));
       }
     }
@@ -93,9 +93,9 @@ final class PhabricatorAuthRegisterController
         return $this->renderError(
           array(
             pht(
-              'The account you are attempting to register with has an invalid '.
-              'email address (%s). This Phabricator install only allows '.
-              'registration with specific email addresses:',
+              'Các tài khoản bạn đang cố gắng đăng ký với có một không hợp lệ'.
+              'địa chỉ email (% s). Phabricator này cài đặt chỉ cho phép '.
+              '	đăng ký với địa chỉ email cụ thể:',
               $debug_email),
             phutil_tag('br'),
             phutil_tag('br'),
@@ -197,22 +197,22 @@ final class PhabricatorAuthRegisterController
       $unguarded = AphrontWriteGuard::beginScopedUnguardedWrites();
 
       if ($must_set_password && !$skip_captcha) {
-        $e_captcha = pht('Again');
+        $e_captcha = pht('Làm lại');
 
         $captcha_ok = AphrontFormRecaptchaControl::processCaptcha($request);
         if (!$captcha_ok) {
-          $errors[] = pht('Captcha response is incorrect, try again.');
-          $e_captcha = pht('Invalid');
+          $errors[] = pht('Trả về Captcha là không chính xác, hãy thử lại.');
+          $e_captcha = pht('Không hợp lệ ');
         }
       }
 
       if ($can_edit_username) {
         $value_username = $request->getStr('username');
         if (!strlen($value_username)) {
-          $e_username = pht('Required');
-          $errors[] = pht('Username is required.');
+          $e_username = pht('Bắt buộc');
+          $errors[] = pht('Tên người dùng bắt buộc.');
         } else if (!PhabricatorUser::validateUsername($value_username)) {
-          $e_username = pht('Invalid');
+          $e_username = pht('Không hợp lệ');
           $errors[] = PhabricatorUser::describeValidUsername();
         } else {
           $e_username = null;
@@ -223,24 +223,24 @@ final class PhabricatorAuthRegisterController
         $value_password = $request->getStr('password');
         $value_confirm = $request->getStr('confirm');
         if (!strlen($value_password)) {
-          $e_password = pht('Required');
-          $errors[] = pht('You must choose a password.');
+          $e_password = pht('Bắt buộc');
+          $errors[] = pht('Bạn phải chọn mật khẩu.');
         } else if ($value_password !== $value_confirm) {
-          $e_password = pht('No Match');
-          $errors[] = pht('Password and confirmation must match.');
+          $e_password = pht('Không khớp');
+          $errors[] = pht('Mật khẩu phải trùng nhau.');
         } else if (strlen($value_password) < $min_len) {
-          $e_password = pht('Too Short');
+          $e_password = pht('Quá ngắn');
           $errors[] = pht(
-            'Password is too short (must be at least %d characters long).',
+            'Mật khẩu quá ngắn (dài tối thiểu là  %d kí tự ).',
             $min_len);
         } else if (
           PhabricatorCommonPasswords::isCommonPassword($value_password)) {
 
-          $e_password = pht('Very Weak');
+          $e_password = pht('Rất yếu');
           $errors[] = pht(
-            'Password is pathologically weak. This password is one of the '.
-            'most common passwords in use, and is extremely easy for '.
-            'attackers to guess. You must choose a stronger password.');
+            'Mật khẩu yếu. Mật khẩu này là một trong những'.
+            'hầu hết các mật khẩu phổ biến được sử dụng, và là vô cùng dễ dàng cho '.
+            'kẻ tấn công để đoán. Bạn phải chọn một mật khẩu mạnh.');
         } else {
           $e_password = null;
         }
@@ -249,13 +249,13 @@ final class PhabricatorAuthRegisterController
       if ($can_edit_email) {
         $value_email = $request->getStr('email');
         if (!strlen($value_email)) {
-          $e_email = pht('Required');
-          $errors[] = pht('Email is required.');
+          $e_email = pht('Bắt buộc');
+          $errors[] = pht('Email là bắt buộc.');
         } else if (!PhabricatorUserEmail::isValidAddress($value_email)) {
-          $e_email = pht('Invalid');
+          $e_email = pht('Không hợp lệ');
           $errors[] = PhabricatorUserEmail::describeValidAddresses();
         } else if (!PhabricatorUserEmail::isAllowedAddress($value_email)) {
-          $e_email = pht('Disallowed');
+          $e_email = pht('Không cho phép');
           $errors[] = PhabricatorUserEmail::describeAllowedAddresses();
         } else {
           $e_email = null;
@@ -265,8 +265,8 @@ final class PhabricatorAuthRegisterController
       if ($can_edit_realname) {
         $value_realname = $request->getStr('realName');
         if (!strlen($value_realname) && $require_real_name) {
-          $e_realname = pht('Required');
-          $errors[] = pht('Real name is required.');
+          $e_realname = pht('Bắt buộc');
+          $errors[] = pht('Tên thật là bắt buộc.');
         } else {
           $e_realname = null;
         }
@@ -382,14 +382,14 @@ final class PhabricatorAuthRegisterController
             $value_email);
 
           if ($same_username) {
-            $e_username = pht('Duplicate');
-            $errors[] = pht('Another user already has that username.');
+            $e_username = pht('Trùng lặp');
+            $errors[] = pht('Một người dùng khác đã có tên này.');
           }
 
           if ($same_email) {
             // TODO: See T3340.
-            $e_email = pht('Duplicate');
-            $errors[] = pht('Another user already has that email.');
+            $e_email = pht('Trùng lặp');
+            $errors[] = pht('Một người dùng khác đã có email này.');
           }
 
           if (!$same_username && !$same_email) {
@@ -407,7 +407,7 @@ final class PhabricatorAuthRegisterController
     if (!$is_default) {
       $form->appendChild(
         id(new AphrontFormMarkupControl())
-          ->setLabel(pht('External Account'))
+          ->setLabel(pht('Tài khoản bên ngoài'))
           ->setValue(
             id(new PhabricatorAuthAccountView())
               ->setUser($request->getUser())
@@ -419,14 +419,14 @@ final class PhabricatorAuthRegisterController
     if ($can_edit_username) {
       $form->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel(pht('Phabricator Username'))
+          ->setLabel(pht('Tên người dùng Phabricator'))
           ->setName('username')
           ->setValue($value_username)
           ->setError($e_username));
     } else {
       $form->appendChild(
         id(new AphrontFormMarkupControl())
-          ->setLabel(pht('Phabricator Username'))
+          ->setLabel(pht('Tên người dùng Phabricator'))
           ->setValue($value_username)
           ->setError($e_username));
     }
@@ -434,7 +434,7 @@ final class PhabricatorAuthRegisterController
     if ($can_edit_realname) {
       $form->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel(pht('Real Name'))
+          ->setLabel(pht('Tên thật'))
           ->setName('realName')
           ->setValue($value_realname)
           ->setError($e_realname));
@@ -443,17 +443,17 @@ final class PhabricatorAuthRegisterController
     if ($must_set_password) {
       $form->appendChild(
         id(new AphrontFormPasswordControl())
-          ->setLabel(pht('Password'))
+          ->setLabel(pht('Mật khẩu'))
           ->setName('password')
           ->setError($e_password));
       $form->appendChild(
         id(new AphrontFormPasswordControl())
-          ->setLabel(pht('Confirm Password'))
+          ->setLabel(pht('Xác nhận mật khẩu'))
           ->setName('confirm')
           ->setError($e_password)
           ->setCaption(
             $min_len
-              ? pht('Minimum length of %d characters.', $min_len)
+              ? pht('Chiều dài tối thiểu %d kí tự.', $min_len)
               : null));
     }
 
@@ -478,11 +478,11 @@ final class PhabricatorAuthRegisterController
 
     if ($is_setup) {
       $submit
-        ->setValue(pht('Create Admin Account'));
+        ->setValue(pht('Tạo tài khoản Admin'));
     } else {
       $submit
         ->addCancelButton($this->getApplicationURI('start/'))
-        ->setValue(pht('Register Phabricator Account'));
+        ->setValue(pht('Đăng ký tài khoản Phabricator'));
     }
 
 
@@ -491,12 +491,12 @@ final class PhabricatorAuthRegisterController
     $crumbs = $this->buildApplicationCrumbs();
 
     if ($is_setup) {
-      $crumbs->addTextCrumb(pht('Setup Admin Account'));
-        $title = pht('Welcome to Phabricator');
+      $crumbs->addTextCrumb(pht('Thiết lập tài khoản Admin'));
+        $title = pht('Chào mừng đến với Phabricator');
     } else {
-      $crumbs->addTextCrumb(pht('Register'));
+      $crumbs->addTextCrumb(pht('Đăng ký'));
       $crumbs->addTextCrumb($provider->getProviderName());
-        $title = pht('Phabricator Registration');
+        $title = pht('Đăng ký Phabricator');
     }
     $crumbs->setBorder(true);
 
@@ -504,12 +504,12 @@ final class PhabricatorAuthRegisterController
     if ($is_setup) {
       $welcome_view = id(new PHUIInfoView())
         ->setSeverity(PHUIInfoView::SEVERITY_NOTICE)
-        ->setTitle(pht('Welcome to Phabricator'))
+        ->setTitle(pht('Chào mừng đến với Phabricator'))
         ->appendChild(
           pht(
-            'Installation is complete. Register your administrator account '.
-            'below to log in. You will be able to configure options and add '.
-            'other authentication mechanisms (like LDAP or OAuth) later on.'));
+            'Cài đặt hoàn tất. Đăng ký tài khoản quản trị của bạn'.
+            'dưới đây để đăng nhập. Bạn sẽ có thể cấu hình tùy chọn và thêm '.
+            'cơ chế xác thực khác (như LDAP hoặc OAuth) sau này.'));
     }
 
     $object_box = id(new PHUIObjectBoxView())
@@ -557,11 +557,11 @@ final class PhabricatorAuthRegisterController
     if (!$providers) {
       $response = $this->renderError(
         pht(
-          'There are no configured default registration providers.'));
+          'Không có nhà cung cấp đăng ký mặc định cấu hình.'));
       return array($account, $provider, $response);
     } else if (count($providers) > 1) {
       $response = $this->renderError(
-        pht('There are too many configured default registration providers.'));
+        pht('Có quá nhiều nhà cung cấp đăng ký mặc định cấu hình.'));
       return array($account, $provider, $response);
     }
 
@@ -611,30 +611,30 @@ final class PhabricatorAuthRegisterController
 
   protected function renderError($message) {
     return $this->renderErrorPage(
-      pht('Registration Failed'),
+      pht('Đăng ký thất bại'),
       array($message));
   }
 
   private function sendWaitingForApprovalEmail(PhabricatorUser $user) {
     $title = '[Phabricator] '.pht(
-      'New User "%s" Awaiting Approval',
+      'Người dùng mới "% s" Đang chờ phê duyệt',
       $user->getUsername());
 
     $body = new PhabricatorMetaMTAMailBody();
 
     $body->addRawSection(
       pht(
-        'Newly registered user "%s" is awaiting account approval by an '.
-        'administrator.',
+        'Đăng ký mới dùng "% s" đang chờ phê duyệt tài khoản bằng một '.
+        'quản trị.',
         $user->getUsername()));
 
     $body->addLinkSection(
-      pht('APPROVAL QUEUE'),
+      pht('PHÊ DUYỆT HÀNG ĐỢI'),
       PhabricatorEnv::getProductionURI(
         '/people/query/approval/'));
 
     $body->addLinkSection(
-      pht('DISABLE APPROVAL QUEUE'),
+      pht('ẨN HÀNG ĐỢI PHÊ DUYỆT'),
       PhabricatorEnv::getProductionURI(
         '/config/edit/auth.require-approval/'));
 

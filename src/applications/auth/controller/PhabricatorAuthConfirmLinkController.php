@@ -15,7 +15,7 @@ final class PhabricatorAuthConfirmLinkController
     }
 
     if (!$provider->shouldAllowAccountLink()) {
-      return $this->renderError(pht('This account is not linkable.'));
+      return $this->renderError(pht('Tài khoản này không thể kết nối.'));
     }
 
     $panel_uri = '/settings/panel/external/';
@@ -39,9 +39,9 @@ final class PhabricatorAuthConfirmLinkController
 
     $dialog = id(new AphrontDialogView())
       ->setUser($viewer)
-      ->setTitle(pht('Confirm %s Account Link', $provider->getProviderName()))
+      ->setTitle(pht('Xác nhận  %s tài khoản liên kết', $provider->getProviderName()))
       ->addCancelButton($panel_uri)
-      ->addSubmitButton(pht('Confirm Account Link'));
+      ->addSubmitButton(pht('Xác nhận tài khản liên kết'));
 
     $form = id(new PHUIFormLayoutView())
       ->setFullWidth(true)
@@ -52,8 +52,8 @@ final class PhabricatorAuthConfirmLinkController
             'class' => 'aphront-form-instructions',
           ),
           pht(
-            'Confirm the link with this %s account. This account will be '.
-            'able to log in to your Phabricator account.',
+            'Xác nhận liên kết với tài khoản này % s. Tài khoản này sẽ được '.
+             'Có thể đăng nhập vào tài khoản của bạn Phabricator.',
             $provider->getProviderName())))
       ->appendChild(
         id(new PhabricatorAuthAccountView())
@@ -64,12 +64,12 @@ final class PhabricatorAuthConfirmLinkController
     $dialog->appendChild($form);
 
     $crumbs = $this->buildApplicationCrumbs();
-    $crumbs->addTextCrumb(pht('Confirm Link'), $panel_uri);
+    $crumbs->addTextCrumb(pht('Xác nhận liên kết'), $panel_uri);
     $crumbs->addTextCrumb($provider->getProviderName());
     $crumbs->setBorder(true);
 
     return $this->newPage()
-      ->setTitle(pht('Confirm External Account Link'))
+      ->setTitle(pht('Xác nhận liên kết tài khoản ngoài'))
       ->setCrumbs($crumbs)
       ->appendChild($dialog);
   }

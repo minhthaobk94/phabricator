@@ -12,11 +12,11 @@ final class DifferentialReviewedByField
   }
 
   public function getFieldName() {
-    return pht('Reviewed By');
+    return pht('Xem xét bởi');
   }
 
   public function getFieldDescription() {
-    return pht('Records accepting reviewers in the durable message.');
+    return pht('Ghi nhận xét trong thông điệp lâu dài.');
   }
 
   public function shouldAppearInApplicationTransactions() {

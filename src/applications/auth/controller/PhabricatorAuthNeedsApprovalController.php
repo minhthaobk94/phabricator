@@ -19,17 +19,17 @@ final class PhabricatorAuthNeedsApprovalController
     $viewer = $this->getViewer();
 
     $wait_for_approval = pht(
-      "Your account has been created, but needs to be approved by an ".
-      "administrator. You'll receive an email once your account is approved.");
+      "Tài khoản của bạn đã được tạo ra, nhưng cần phải được phê duyệt bởi một ".
+      " người quản trị. Bạn sẽ nhận được một email khi tài khoản của bạn được chấp thuận.");
 
     $dialog = id(new AphrontDialogView())
       ->setUser($viewer)
-      ->setTitle(pht('Wait for Approval'))
+      ->setTitle(pht('Chờ phê duyệt'))
       ->appendChild($wait_for_approval)
-      ->addCancelButton('/', pht('Wait Patiently'));
+      ->addCancelButton('/', pht('Chờ kiên nhẫn'));
 
     return $this->newPage()
-      ->setTitle(pht('Wait For Approval'))
+      ->setTitle(pht('Chờ để chấp thuận'))
       ->appendChild($dialog);
 
   }

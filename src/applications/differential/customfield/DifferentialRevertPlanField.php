@@ -12,11 +12,11 @@ final class DifferentialRevertPlanField
   }
 
   public function getFieldName() {
-    return pht('Revert Plan');
+    return pht('Phục hồi kế hoạch');
   }
 
   public function getFieldDescription() {
-    return pht('Instructions for reverting/undoing this change.');
+    return pht('Hướng dẫn quay trở lại / hoàn tác thay đổi này.');
   }
 
   public function shouldDisableByDefault() {
@@ -93,7 +93,7 @@ final class DifferentialRevertPlanField
     $new = $xaction->getNewValue();
 
     return pht(
-      '%s updated the revert plan for this revision.',
+      '%s cập nhật các kế hoạch hoàn nguyên cho phiên bản này.',
       $xaction->renderHandleLink($author_phid));
   }
 
@@ -106,7 +106,7 @@ final class DifferentialRevertPlanField
     $new = $xaction->getNewValue();
 
     return pht(
-      '%s updated the revert plan for %s.',
+      '%s cập nhật các kế hoạch hoàn nguyên cho %s.',
       $xaction->renderHandleLink($author_phid),
       $xaction->renderHandleLink($object_phid));
   }

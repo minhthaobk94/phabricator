@@ -18,7 +18,7 @@ final class DifferentialRevisionHasCommitEdgeType extends PhabricatorEdgeType {
     $add_edges) {
 
     return pht(
-      '%s added %s commit(s): %s.',
+      '%s thêm %s commit(s): %s.',
       $actor,
       $add_count,
       $add_edges);
@@ -30,7 +30,7 @@ final class DifferentialRevisionHasCommitEdgeType extends PhabricatorEdgeType {
     $rem_edges) {
 
     return pht(
-      '%s removed %s commit(s): %s.',
+      '%s xóa %s commit(s): %s.',
       $actor,
       $rem_count,
       $rem_edges);
@@ -45,7 +45,7 @@ final class DifferentialRevisionHasCommitEdgeType extends PhabricatorEdgeType {
     $rem_edges) {
 
     return pht(
-      '%s edited commit(s), added %s: %s; removed %s: %s.',
+      '%s sửa commit(s), thêm %s: %s; xóa %s: %s.',
       $actor,
       $add_count,
       $add_edges,
@@ -60,7 +60,7 @@ final class DifferentialRevisionHasCommitEdgeType extends PhabricatorEdgeType {
     $add_edges) {
 
     return pht(
-      '%s added %s commit(s) for %s: %s.',
+      '%s thêm %s commit(s) vào %s: %s.',
       $actor,
       $add_count,
       $object,
@@ -74,7 +74,7 @@ final class DifferentialRevisionHasCommitEdgeType extends PhabricatorEdgeType {
     $rem_edges) {
 
     return pht(
-      '%s removed %s commit(s) for %s: %s.',
+      '%s xóa %s commit(s) vào %s: %s.',
       $actor,
       $rem_count,
       $object,
@@ -91,7 +91,7 @@ final class DifferentialRevisionHasCommitEdgeType extends PhabricatorEdgeType {
     $rem_edges) {
 
     return pht(
-      '%s edited commit(s) for %s, added %s: %s; removed %s: %s.',
+      '%s sửa commit(s) vào %s, thêm %s: %s; xóa %s: %s.',
       $actor,
       $object,
       $add_count,

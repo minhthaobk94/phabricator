@@ -20,11 +20,11 @@ final class DifferentialManiphestTasksField
   }
 
   public function getFieldName() {
-    return pht('Maniphest Tasks');
+    return pht('Nhiệm vụ Maniphest');
   }
 
   public function getFieldDescription() {
-    return pht('Lists associated tasks.');
+    return pht('Danh sách nhiệm vụ liên quan.');
   }
 
   public function shouldAppearInPropertyView() {
@@ -106,8 +106,8 @@ final class DifferentialManiphestTasksField
   public function getProTips() {
     return array(
       pht(
-        'Write "%s" in your summary to automatically close the '.
-        'corresponding task when this change lands.',
+        'Viết "%s" trong bản tóm tắt của bạn để tự động đóng '.
+        'nhiệm vụ tương ứng khi thay đổi này đất.',
         'Fixes T123'),
     );
   }

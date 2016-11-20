@@ -52,14 +52,14 @@ final class PhabricatorAuthTerminateSessionController
     }
 
     if ($is_all) {
-      $title = pht('Terminate Sessions?');
-      $short = pht('Terminate Sessions');
+      $title = pht('Chấm dứt phiên?');
+      $short = pht('Chấm dứt phiên');
       $body = pht(
         'Really terminate all sessions? (Your current login session will '.
         'not be terminated.)');
     } else {
-      $title = pht('Terminate Session?');
-      $short = pht('Terminate Session');
+      $title = pht('Chấm dứt phiên?');
+      $short = pht('Chấm dứt phiên');
       $body = pht(
         'Really terminate session %s?',
         phutil_tag('strong', array(), substr($session->getSessionKey(), 0, 6)));
@@ -69,7 +69,7 @@ final class PhabricatorAuthTerminateSessionController
       ->setTitle($title)
       ->setShortTitle($short)
       ->appendParagraph($body)
-      ->addSubmitButton(pht('Terminate'))
+      ->addSubmitButton(pht('Chấm dứt'))
       ->addCancelButton($panel_uri);
   }
 

@@ -12,7 +12,7 @@ final class DifferentialLintField
   }
 
   public function getFieldDescription() {
-    return pht('Shows lint results.');
+    return pht('Hiển thị kết quả lint.');
   }
 
   public function shouldAppearInPropertyView() {
@@ -72,9 +72,9 @@ final class DifferentialLintField
     $warnings = array();
     if ($status == DifferentialLintStatus::LINT_SKIP) {
       $warnings[] = pht(
-        'Lint was skipped when generating these changes.');
+        'Lint đã được bỏ qua khi tạo ra những thay đổi.');
     } else {
-      $warnings[] = pht('These changes have lint problems.');
+      $warnings[] = pht('Những thay đổi này có vấn đề lint.');
     }
 
     return $warnings;

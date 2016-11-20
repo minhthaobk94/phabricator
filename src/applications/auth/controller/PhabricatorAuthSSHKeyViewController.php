@@ -33,15 +33,15 @@ final class PhabricatorAuthSSHKeyViewController
       ->setHeaderIcon('fa-key');
 
     if ($ssh_key->getIsActive()) {
-      $header->setStatus('fa-check', 'bluegrey', pht('Active'));
+      $header->setStatus('fa-check', 'bluegrey', pht('Hoạt động'));
     } else {
-      $header->setStatus('fa-ban', 'dark', pht('Deactivated'));
+      $header->setStatus('fa-ban', 'dark', pht('Ngừng hoạt động'));
     }
 
     $header->addActionLink(
       id(new PHUIButtonView())
         ->setTag('a')
-        ->setText(pht('View Active Keys'))
+        ->setText(pht(''))
         ->setHref($ssh_key->getObject()->getSSHPublicKeyManagementURI($viewer))
         ->setIcon('fa-list-ul'));
 
@@ -87,7 +87,7 @@ final class PhabricatorAuthSSHKeyViewController
     $curtain->addAction(
       id(new PhabricatorActionView())
         ->setIcon('fa-pencil')
-        ->setName(pht('Edit SSH Key'))
+        ->setName(pht('Sửa SSH Key'))
         ->setHref($edit_uri)
         ->setWorkflow(true)
         ->setDisabled(!$can_edit));
@@ -95,7 +95,7 @@ final class PhabricatorAuthSSHKeyViewController
     $curtain->addAction(
       id(new PhabricatorActionView())
         ->setIcon('fa-times')
-        ->setName(pht('Deactivate SSH Key'))
+        ->setName(pht('Ngưng hoạt động SSH Key'))
         ->setHref($deactivate_uri)
         ->setWorkflow(true)
         ->setDisabled(!$can_edit));
@@ -110,13 +110,13 @@ final class PhabricatorAuthSSHKeyViewController
     $properties = id(new PHUIPropertyListView())
       ->setUser($viewer);
 
-    $properties->addProperty(pht('SSH Key Type'), $ssh_key->getKeyType());
+    $properties->addProperty(pht('Loại SSH Key'), $ssh_key->getKeyType());
     $properties->addProperty(
-      pht('Created'),
+      pht('Tạo'),
       phabricator_datetime($ssh_key->getDateCreated(), $viewer));
 
     return id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Details'))
+      ->setHeaderText(pht('Chi tiết'))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->appendChild($properties);
   }

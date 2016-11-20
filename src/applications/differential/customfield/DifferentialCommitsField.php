@@ -16,7 +16,7 @@ final class DifferentialCommitsField
   }
 
   public function getFieldDescription() {
-    return pht('Shows associated commits.');
+    return pht('Cho thấy cam kết liên quan.');
   }
 
   public function shouldAppearInPropertyView() {

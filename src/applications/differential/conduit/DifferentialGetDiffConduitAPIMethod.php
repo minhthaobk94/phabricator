@@ -17,15 +17,15 @@ final class DifferentialGetDiffConduitAPIMethod
 
   public function getMethodStatusDescription() {
     return pht(
-      'This method has been deprecated in favor of %s.',
+      'Phương pháp này đã được yêu cầu ủng hộ  bởi %s.',
       'differential.querydiffs');
   }
 
 
   public function getMethodDescription() {
     return pht(
-      'Load the content of a diff from Differential by revision ID '.
-      'or diff ID.');
+      'Tải nội dung của khác nhau từ sự khác biệt bởi ID sửa đổi'.
+      'or ID khác.');
   }
 
   protected function defineParamTypes() {
@@ -41,7 +41,7 @@ final class DifferentialGetDiffConduitAPIMethod
 
   protected function defineErrorTypes() {
     return array(
-      'ERR_BAD_DIFF' => pht('No such diff exists.'),
+      'ERR_BAD_DIFF' => pht('Không tìm thấy khác nhau.'),
     );
   }
 

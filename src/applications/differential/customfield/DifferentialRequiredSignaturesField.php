@@ -8,11 +8,11 @@ final class DifferentialRequiredSignaturesField
   }
 
   public function getFieldName() {
-    return pht('Required Signatures');
+    return pht('Chữ ký bắt buộc');
   }
 
   public function getFieldDescription() {
-    return pht('Display required legal agreements.');
+    return pht('Hiển thị cần thỏa thuận pháp lý.');
   }
 
   public function shouldAppearInPropertyView() {
@@ -114,9 +114,9 @@ final class DifferentialRequiredSignaturesField
 
     return array(
       pht(
-        'The author of this revision has not signed all the required '.
-        'legal documents. The revision can not be accepted until the '.
-        'documents are signed.'),
+        'Tác giả của phiên bản này không có chữ ký tất cả các yêu cầu '.
+         'tài liệu hợp pháp. Việc sửa đổi không thể được chấp nhận cho đến khi '.
+         'Văn bản được ký kết.'),
     );
   }
 
@@ -136,9 +136,7 @@ final class DifferentialRequiredSignaturesField
     }
 
     return array(
-      pht(
-        'This revision can not be accepted until the required legal '.
-        'agreements have been signed.'),
+      pht('Việc sửa đổi này không thể được chấp nhận cho đến khi các yêu cầu pháp lý.Thỏa thuận đã được ký kết.'),
     );
   }
 

@@ -12,7 +12,7 @@ final class DifferentialRepositoryField
   }
 
   public function getFieldDescription() {
-    return pht('Associates a revision with a repository.');
+    return pht('Liên kết một phiên bản với một kho lưu trữ.');
   }
 
   protected function readValueFromRevision(
@@ -74,18 +74,18 @@ final class DifferentialRepositoryField
 
     if ($old && $new) {
       return pht(
-        '%s changed the repository for this revision from %s to %s.',
+        '%sthay đổi kho cho phiên bản này từ  %s đến %s.',
         $xaction->renderHandleLink($author_phid),
         $xaction->renderHandleLink($old),
         $xaction->renderHandleLink($new));
     } else if ($new) {
       return pht(
-        '%s set the repository for this revision to %s.',
+        '%s thiết lập các kho lưu trữ cho phiên bản này để%s.',
         $xaction->renderHandleLink($author_phid),
         $xaction->renderHandleLink($new));
     } else {
       return pht(
-        '%s removed %s as the repository for this revision.',
+        '%s loại bỏ %s như kho cho phiên bản này.',
         $xaction->renderHandleLink($author_phid),
         $xaction->renderHandleLink($old));
     }
@@ -101,20 +101,20 @@ final class DifferentialRepositoryField
 
     if ($old && $new) {
       return pht(
-        '%s updated the repository for %s from %s to %s.',
+        '%scập nhật kho cho %s từ %s đến %s.',
         $xaction->renderHandleLink($author_phid),
         $xaction->renderHandleLink($object_phid),
         $xaction->renderHandleLink($old),
         $xaction->renderHandleLink($new));
     } else if ($new) {
       return pht(
-        '%s set the repository for %s to %s.',
+        '%sthiết lập các kho lưu trữ cho %s đến %s.',
         $xaction->renderHandleLink($author_phid),
         $xaction->renderHandleLink($object_phid),
         $xaction->renderHandleLink($new));
     } else {
       return pht(
-        '%s removed the repository for %s. (Repository was %s.)',
+        '%s loại bỏ các kho lưu trữ cho %s. (Repository là %s.)',
         $xaction->renderHandleLink($author_phid),
         $xaction->renderHandleLink($object_phid),
         $xaction->renderHandleLink($old));

@@ -8,11 +8,11 @@ final class DifferentialBranchField
   }
 
   public function getFieldName() {
-    return pht('Branch');
+    return pht('Nhánh');
   }
 
   public function getFieldDescription() {
-    return pht('Shows the branch a diff came from.');
+    return pht('Hiển thị các chi nhánh khác đến từ.');
   }
 
   public function shouldAppearInPropertyView() {
@@ -40,14 +40,14 @@ final class DifferentialBranchField
     $bookmark = $diff->getBookmark();
 
     if (strlen($branch) && strlen($bookmark)) {
-      return pht('%s (bookmark) on %s (branch)', $bookmark, $branch);
+      return pht('%s (bookmark) trên %s (nhánh)', $bookmark, $branch);
     } else if (strlen($bookmark)) {
       return pht('%s (bookmark)', $bookmark);
     } else if (strlen($branch)) {
       $onto = $diff->loadTargetBranch();
       if (strlen($onto) && ($onto !== $branch)) {
         return pht(
-          '%s (branched from %s)',
+          '%s (nhánh từ  %s)',
           $branch,
           $onto);
       } else {
@@ -61,8 +61,8 @@ final class DifferentialBranchField
   public function getProTips() {
     return array(
       pht(
-        'In Git and Mercurial, use a branch like "%s" to automatically '.
-        'associate changes with the corresponding task.',
+        'Trong Git và Mercurial, sử dụng một chi nhánh như"%s" tự động '.
+        'thay đổi liên kết với các nhiệm vụ tương ứng.',
         'T123'),
     );
   }
@@ -90,7 +90,7 @@ final class DifferentialBranchField
       return;
     }
 
-    $body->addTextSection(pht('BRANCH'), $branch);
+    $body->addTextSection(pht('NHÁNH'), $branch);
   }
 
 }

@@ -15,7 +15,7 @@ final class DifferentialRevisionHasReviewerEdgeType
     $add_edges) {
 
     return pht(
-      '%s added %s reviewer(s): %s.',
+      '%s thêm %s người xem xét: %s.',
       $actor,
       $add_count,
       $add_edges);
@@ -27,7 +27,7 @@ final class DifferentialRevisionHasReviewerEdgeType
     $rem_edges) {
 
     return pht(
-      '%s removed %s reviewer(s): %s.',
+      '%s xóa %s  người xem xét: %s.',
       $actor,
       $rem_count,
       $rem_edges);
@@ -42,7 +42,7 @@ final class DifferentialRevisionHasReviewerEdgeType
     $rem_edges) {
 
     return pht(
-      '%s edited %s reviewer(s), added %s: %s; removed %s: %s.',
+      '%s sửa %s  người xem xét, thêm %s: %s; xóa %s: %s.',
       $actor,
       $total_count,
       $add_count,
@@ -58,7 +58,7 @@ final class DifferentialRevisionHasReviewerEdgeType
     $add_edges) {
 
     return pht(
-      '%s added %s reviewer(s) for %s: %s.',
+      '%s thêm %s  người xem xét vào  %s: %s.',
       $actor,
       $add_count,
       $object,
@@ -72,7 +72,7 @@ final class DifferentialRevisionHasReviewerEdgeType
     $rem_edges) {
 
     return pht(
-      '%s removed %s reviewer(s) for %s: %s.',
+      '%s xóa  %s  người xem xét vào  %s: %s.',
       $actor,
       $rem_count,
       $object,
@@ -89,7 +89,7 @@ final class DifferentialRevisionHasReviewerEdgeType
     $rem_edges) {
 
     return pht(
-      '%s edited %s reviewer(s) for %s, added %s: %s; removed %s: %s.',
+      '%s sửa  %s  người xem xét vào  %s, thêm %s: %s; xóa %s: %s.',
       $actor,
       $total_count,
       $object,

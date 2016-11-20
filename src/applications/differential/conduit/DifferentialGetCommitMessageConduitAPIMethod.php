@@ -8,7 +8,7 @@ final class DifferentialGetCommitMessageConduitAPIMethod
   }
 
   public function getMethodDescription() {
-    return pht('Retrieve Differential commit messages or message templates.');
+    return pht('Khôi phục Sự  khác biệt tin nhắn commit hoặc mẫu tin nhắn.');
   }
 
   protected function defineParamTypes() {
@@ -27,7 +27,7 @@ final class DifferentialGetCommitMessageConduitAPIMethod
 
   protected function defineErrorTypes() {
     return array(
-      'ERR_NOT_FOUND' => pht('Revision was not found.'),
+      'ERR_NOT_FOUND' => pht('Sự thay đổi không tìm thấy.'),
     );
   }
 
@@ -88,8 +88,8 @@ final class DifferentialGetCommitMessageConduitAPIMethod
       if (!is_array($field_phids)) {
         throw new Exception(
           pht(
-            'Custom field "%s" was expected to return an array of handle '.
-            'PHIDs required for commit message rendering, but returned "%s" '.
+            'Trường mặc định  "%s" được mong đợi trở lại chuỗi điều khiển '.
+            'PHIDs yêu cầu trả lại tin nhắn commit ,nhưng đã trả về "%s" '.
             'instead.',
             $field->getFieldKey(),
             gettype($field_phids)));
@@ -120,8 +120,8 @@ final class DifferentialGetCommitMessageConduitAPIMethod
       if (!is_string($value) && !is_null($value)) {
         throw new Exception(
           pht(
-            'Custom field "%s" was expected to render a string or null value, '.
-            'but rendered a "%s" instead.',
+            'Trường mặc định  "%s" được yêu cầu trả lại thành chuỗi hoặc không có giá trị , '.
+            'nhưng thay vào đó đã trả lại  "%s" .',
             $field->getFieldKey(),
             gettype($value)));
       }

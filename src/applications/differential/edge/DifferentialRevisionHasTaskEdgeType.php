@@ -18,7 +18,7 @@ final class DifferentialRevisionHasTaskEdgeType extends PhabricatorEdgeType {
     $add_edges) {
 
     return pht(
-      '%s added %s task(s): %s.',
+      '%s thêm %s task(s): %s.',
       $actor,
       $add_count,
       $add_edges);
@@ -30,7 +30,7 @@ final class DifferentialRevisionHasTaskEdgeType extends PhabricatorEdgeType {
     $rem_edges) {
 
     return pht(
-      '%s removed %s task(s): %s.',
+      '%s xóa %s task(s): %s.',
       $actor,
       $rem_count,
       $rem_edges);
@@ -45,7 +45,7 @@ final class DifferentialRevisionHasTaskEdgeType extends PhabricatorEdgeType {
     $rem_edges) {
 
     return pht(
-      '%s edited %s task(s), added %s: %s; removed %s: %s.',
+      '%s sửa %s task(s), thêm %s: %s; xóa %s: %s.',
       $actor,
       $total_count,
       $add_count,
@@ -61,7 +61,7 @@ final class DifferentialRevisionHasTaskEdgeType extends PhabricatorEdgeType {
     $add_edges) {
 
     return pht(
-      '%s added %s task(s) to %s: %s.',
+      '%s thêm %s task(s) đến %s: %s.',
       $actor,
       $add_count,
       $object,
@@ -75,7 +75,7 @@ final class DifferentialRevisionHasTaskEdgeType extends PhabricatorEdgeType {
     $rem_edges) {
 
     return pht(
-      '%s removed %s task(s) from %s: %s.',
+      '%s xóa %s task(s) từ %s: %s.',
       $actor,
       $rem_count,
       $object,
@@ -92,7 +92,7 @@ final class DifferentialRevisionHasTaskEdgeType extends PhabricatorEdgeType {
     $rem_edges) {
 
     return pht(
-      '%s edited %s task(s) for %s, added %s: %s; removed %s: %s.',
+      '%s sửa %s task(s) từ %s, thêm %s: %s; xóa %s: %s.',
       $actor,
       $total_count,
       $object,

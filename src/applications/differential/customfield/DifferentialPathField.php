@@ -8,11 +8,11 @@ final class DifferentialPathField
   }
 
   public function getFieldName() {
-    return pht('Path');
+    return pht('Đường dẫn');
   }
 
   public function getFieldDescription() {
-    return pht('Shows the local path where the diff came from.');
+    return pht('Hiển thị các đường dẫn địa phương nơi khác đến từ.');
   }
 
   public function shouldDisableByDefault() {

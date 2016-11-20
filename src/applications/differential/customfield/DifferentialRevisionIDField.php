@@ -14,12 +14,12 @@ final class DifferentialRevisionIDField
   }
 
   public function getFieldName() {
-    return pht('Differential Revision');
+    return pht('Phiên bản sự khác biệt');
   }
 
   public function getFieldDescription() {
     return pht(
-      'Ties commits to revisions and provides a permanent link between them.');
+      'Ties cam kết sửa đổi và cung cấp một liên kết lâu dài giữa chúng.');
   }
 
   public function canDisableField() {

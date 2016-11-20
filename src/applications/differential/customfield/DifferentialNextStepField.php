@@ -8,11 +8,11 @@ final class DifferentialNextStepField
   }
 
   public function getFieldName() {
-    return pht('Next Step');
+    return pht('Bước tiếp theo');
   }
 
   public function getFieldDescription() {
-    return pht('Provides a hint for the next step to take.');
+    return pht('Cung cấp một gợi ý cho các bước tiếp theo để có.');
   }
 
   public function shouldAppearInPropertyView() {

@@ -12,11 +12,11 @@ final class DifferentialSubscribersField
   }
 
   public function getFieldName() {
-    return pht('Subscribers');
+    return pht('Đăng ký');
   }
 
   public function getFieldDescription() {
-    return pht('Manage subscribers.');
+    return pht('Quản lý đăng ký.');
   }
 
   protected function readValueFromRevision(

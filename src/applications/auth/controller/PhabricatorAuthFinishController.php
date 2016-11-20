@@ -48,19 +48,19 @@ final class PhabricatorAuthFinishController
         $request);
 
       return $this->newDialog()
-        ->setTitle(pht('Provide Multi-Factor Credentials'))
-        ->setShortTitle(pht('Multi-Factor Login'))
+        ->setTitle(pht('Cung cấp Quyền Đa Người Dùng'))
+        ->setShortTitle(pht('Đăng nhập đa người dùng'))
         ->setWidth(AphrontDialogView::WIDTH_FORM)
         ->addHiddenInput(AphrontRequest::TYPE_HISEC, true)
         ->appendParagraph(
           pht(
-            'Welcome, %s. To complete the login process, provide your '.
-            'multi-factor credentials.',
+            'Chào mừng, %s. Để hoàn tất quá trình đăng nhập, cung cấp cho bạn '.
+            'quyền đa người dùng.',
             phutil_tag('strong', array(), $viewer->getUsername())))
         ->appendChild($form->buildLayoutView())
         ->setSubmitURI($request->getPath())
         ->addCancelButton($ex->getCancelURI())
-        ->addSubmitButton(pht('Continue'));
+        ->addSubmitButton(pht('Tiếp tục'));
     }
 
     // Upgrade the partial session to a full session.

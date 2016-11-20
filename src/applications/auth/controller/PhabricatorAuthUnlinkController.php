@@ -71,7 +71,7 @@ final class PhabricatorAuthUnlinkController
   private function renderNoAccountErrorDialog() {
     $dialog = id(new AphrontDialogView())
       ->setUser($this->getRequest()->getUser())
-      ->setTitle(pht('No Such Account'))
+      ->setTitle(pht('Không tìm thấy tài khoản'))
       ->appendChild(
         pht(
           'You can not unlink this account because it is not linked.'))
@@ -85,7 +85,7 @@ final class PhabricatorAuthUnlinkController
 
     $dialog = id(new AphrontDialogView())
       ->setUser($this->getRequest()->getUser())
-      ->setTitle(pht('Permanent Account Link'))
+      ->setTitle(pht('Liên kết tài khoản vĩnh viễn '))
       ->appendChild(
         pht(
           'You can not unlink this account because the administrator has '.
@@ -99,7 +99,7 @@ final class PhabricatorAuthUnlinkController
   private function renderLastUsableAccountErrorDialog() {
     $dialog = id(new AphrontDialogView())
       ->setUser($this->getRequest()->getUser())
-      ->setTitle(pht('Last Valid Account'))
+      ->setTitle(pht('Tài khoản hợp lệ cuối'))
       ->appendChild(
         pht(
           'You can not unlink this account because you have no other '.
@@ -116,13 +116,13 @@ final class PhabricatorAuthUnlinkController
     $provider = PhabricatorAuthProvider::getEnabledProviderByKey($provider_key);
 
     if ($provider) {
-      $title = pht('Unlink "%s" Account?', $provider->getProviderName());
+      $title = pht('Bỏ liên kết "% s" Tài khoản?', $provider->getProviderName());
       $body = pht(
         'You will no longer be able to use your %s account to '.
         'log in to Phabricator.',
         $provider->getProviderName());
     } else {
-      $title = pht('Unlink Account?');
+      $title = pht('Bỏ liên kết Tài khoản?');
       $body = pht(
         'You will no longer be able to use this account to log in '.
         'to Phabricator.');

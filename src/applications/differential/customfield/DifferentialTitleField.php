@@ -12,15 +12,15 @@ final class DifferentialTitleField
   }
 
   public function getFieldName() {
-    return pht('Title');
+    return pht('Tiêu đề ');
   }
 
   public function getFieldDescription() {
-    return pht('Stores the revision title.');
+    return pht('Lưu trữ các tiêu đề sửa đổi.');
   }
 
   public static function getDefaultTitle() {
-    return pht('<<Replace this line with your Revision Title>>');
+    return pht('<<Thay thế dòng này với sửa đổi Tiêu đề của bạn>>');
   }
 
   protected function readValueFromRevision(
@@ -35,7 +35,7 @@ final class DifferentialTitleField
   }
 
   protected function getCoreFieldRequiredErrorString() {
-    return pht('You must choose a title for this revision.');
+    return pht('Bạn phải chọn một tiêu đề cho phiên bản này.');
   }
 
   public function readValueFromRequest(AphrontRequest $request) {
@@ -63,13 +63,13 @@ final class DifferentialTitleField
 
     if (strlen($old)) {
       return pht(
-        '%s retitled this revision from "%s" to "%s".',
+        '%s đổi tên thành phiên bản này từ "%s" đến "%s".',
         $xaction->renderHandleLink($author_phid),
         $old,
         $new);
     } else {
       return pht(
-        '%s created this revision.',
+        '%s tạo ra phiên bản này.',
         $xaction->renderHandleLink($author_phid));
     }
   }
@@ -84,14 +84,14 @@ final class DifferentialTitleField
 
     if (strlen($old)) {
       return pht(
-        '%s retitled %s, from "%s" to "%s".',
+        '%s đổi tên thành từ %s,  "%s" đến "%s".',
         $xaction->renderHandleLink($author_phid),
         $xaction->renderHandleLink($object_phid),
         $old,
         $new);
     } else {
       return pht(
-        '%s created %s.',
+        '%s tạo %s.',
         $xaction->renderHandleLink($author_phid),
         $xaction->renderHandleLink($object_phid));
     }
@@ -109,15 +109,15 @@ final class DifferentialTitleField
     if (!strlen($value)) {
       throw new DifferentialFieldValidationException(
         pht(
-          'You must provide a revision title in the first line '.
-          'of your commit message.'));
+          'Bạn phải cung cấp một tiêu đề sửa đổi trong dòng đầu tiên '.
+           'Thông điệp cam kết của bạn.'));
     }
 
     if (preg_match('/^<<.*>>$/', $value)) {
       throw new DifferentialFieldValidationException(
         pht(
-          'Replace the line "%s" with a human-readable revision title which '.
-          'describes the changes you are making.',
+          'Thay thế dòng "% s" với một tiêu đề sửa đổi con người có thể đọc được mà '.
+           'Mô tả các thay đổi mà bạn đang làm.',
           self::getDefaultTitle()));
     }
   }
