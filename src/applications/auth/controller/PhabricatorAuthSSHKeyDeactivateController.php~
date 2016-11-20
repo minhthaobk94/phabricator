@@ -1,0 +1,60 @@
+<?php
+
+final class PhabricatorAuthSSHKeyDeactivateController
+  extends PhabricatorAuthSSHKeyController {
+
+  public function handleRequest(AphrontRequest $request) {
+    $viewer = $this->getViewer();
+
+    $key = id(new PhabricatorAuthSSHKeyQuery())
+      ->setViewer($viewer)
+      ->withIDs(array($request->getURIData('id')))
+      ->requireCapabilities(
+        array(
+          PhabricatorPolicyCapability::CAN_VIEW,
+          PhabricatorPolicyCapability::CAN_EDIT,
+        ))
+      ->executeOne();
+    if (!$key) {
+      return new Aphront404Response();
+    }
+
+    $cancel_uri = $key->getURI();
+
+    $token = id(new PhabricatorAuthSessionEngine())->requireHighSecuritySession(
+      $viewer,
+      $request,
+      $cancel_uri);
+
+    if ($request->isFormPost()) {
+      $xactions = array();
+
+      $xactions[] = id(new PhabricatorAuthSSHKeyTransaction())
+        ->setTransactionType(PhabricatorAuthSSHKeyTransaction::TYPE_DEACTIVATE)
+        ->setNewValue(true);
+
+      id(new PhabricatorAuthSSHKeyEditor())
+        ->setActor($viewer)
+        ->setContentSourceFromRequest($request)
+        ->setContinueOnNoEffect(true)
+        ->setContinueOnMissingFields(true)
+        ->applyTransactions($key, $xactions);
+
+      return id(new AphrontRedirectResponse())->setURI($cancel_uri);
+    }
+
+    $name = phutil_tag('strong', array(), $key->getName());
+
+    return $this->newDialog()
+      ->setTitle(pht('Tắt SSH Public Key '))
+      ->appendParagraph(
+        pht(
+          'Chìa khóa "% s" sẽ bị ngừng hoạt động vĩnh viễn, và bạn sẽ không có'.
+          'còn có thể sử dụng khóa riêng tương ứng với '.
+          'xác nhận.',
+          $name))
+      ->addSubmitButton(pht('Tắt Khóa Ngoại'))
+      ->addCancelButton($cancel_uri);
+  }
+
+}

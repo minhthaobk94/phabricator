@@ -8,11 +8,11 @@ final class DifferentialProjectsField
   }
 
   public function getFieldName() {
-    return pht('Tags');
+    return pht('Nhãn');
   }
 
   public function getFieldDescription() {
-    return pht('Tag projects.');
+    return pht('Nhãn dự án.');
   }
 
   public function shouldAppearInPropertyView() {

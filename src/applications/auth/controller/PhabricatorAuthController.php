@@ -108,7 +108,7 @@ abstract class PhabricatorAuthController extends PhabricatorController {
 
   protected function renderError($message) {
     return $this->renderErrorPage(
-      pht('Authentication Error'),
+      pht('Lỗi xác thực'),
       array(
         $message,
       ));
@@ -124,7 +124,7 @@ abstract class PhabricatorAuthController extends PhabricatorController {
 
     if (!$account_key) {
       $response = $this->renderError(
-        pht('Request did not include account key.'));
+        pht('Yêu cầu không bao gồm khóa tài khoản.'));
       return array($account, $provider, $response);
     }
 
@@ -148,7 +148,7 @@ abstract class PhabricatorAuthController extends PhabricatorController {
       ->executeOne();
 
     if (!$account) {
-      $response = $this->renderError(pht('No valid linkable account.'));
+      $response = $this->renderError(pht('Chưa có tài khoản có thể kết nối hợp lệ.'));
       return array($account, $provider, $response);
     }
 
@@ -156,13 +156,13 @@ abstract class PhabricatorAuthController extends PhabricatorController {
       if ($account->getUserPHID() != $viewer->getPHID()) {
         $response = $this->renderError(
           pht(
-            'The account you are attempting to register or link is already '.
-            'linked to another user.'));
+            'Các tài khoản bạn đang cố gắng đăng ký hoặc liên kết đã được'.
+            ' liên kết với một người dùng khác.'));
       } else {
         $response = $this->renderError(
           pht(
-            'The account you are attempting to link is already linked '.
-            'to your account.'));
+            'Các tài khoản bạn đang cố gắng để liên kết đã được liên kết '.
+            'với tài khoản của bạn.'));
       }
       return array($account, $provider, $response);
     }
@@ -183,9 +183,9 @@ abstract class PhabricatorAuthController extends PhabricatorController {
     if (!$registration_key) {
       $response = $this->renderError(
         pht(
-          'Your browser did not submit a registration key with the request. '.
-          'You must use the same browser to begin and complete registration. '.
-          'Check that cookies are enabled and try again.'));
+          'Trình duyệt của bạn đã không nộp một khóa đăng ký với yêu cầu. 
+           "Bạn phải sử dụng cùng một trình duyệt để bắt đầu đăng ký và hoàn tất.
+           Kiểm tra xem các tập tin cookie được kích hoạt và thử lại.'));
       return array($account, $provider, $response);
     }
 
@@ -198,8 +198,8 @@ abstract class PhabricatorAuthController extends PhabricatorController {
     if (!phutil_hashes_are_identical($actual, $expect)) {
       $response = $this->renderError(
         pht(
-          'Your browser submitted a different registration key than the one '.
-          'associated with this account. You may need to clear your cookies.'));
+          'Trình duyệt của bạn gửi một khóa đăng ký khác với một
+           Được kết hợp với tài khoản này. Bạn có thể cần để xóa các tập tin cookie của bạn.'));
       return array($account, $provider, $response);
     }
 
@@ -214,8 +214,8 @@ abstract class PhabricatorAuthController extends PhabricatorController {
     if ($other_account) {
       $response = $this->renderError(
         pht(
-          'The account you are attempting to register with already belongs '.
-          'to another user.'));
+          'Các tài khoản bạn đang cố gắng đăng ký đã thuộc về '.
+           ' người dùng khác.'));
       return array($account, $provider, $response);
     }
 
@@ -225,9 +225,9 @@ abstract class PhabricatorAuthController extends PhabricatorController {
     if (!$provider) {
       $response = $this->renderError(
         pht(
-          'The account you are attempting to register with uses a nonexistent '.
-          'or disabled authentication provider (with key "%s"). An '.
-          'administrator may have recently disabled this provider.',
+          'Các tài khoản bạn đang cố gắng đăng ký sử dụng không tồn tại '.
+           'Hoặc không thấy nhà cung cấp xác thực (với phím "% s").'
+           'Một quản trị viên có thể đã bị vô hiệu hóa gần đây bởi nhà cung cấp này.',
           $account->getProviderKey()));
       return array($account, $provider, $response);
     }
@@ -272,11 +272,11 @@ abstract class PhabricatorAuthController extends PhabricatorController {
     }
 
     $invite_item = id(new PHUIObjectItemView())
-      ->setHeader(pht('Welcome to Phabricator!'))
+      ->setHeader(pht('Chào mừng đến với Phabricator!'))
       ->setImageURI($invite_author->getProfileImageURI())
       ->addAttribute(
         pht(
-          '%s has invited you to join Phabricator.',
+          '%s mời bạn tham gia Phabricator.',
           $invite_author->getFullName()));
 
     $invite_list = id(new PHUIObjectItemListView())

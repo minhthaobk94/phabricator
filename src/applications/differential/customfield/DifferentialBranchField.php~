@@ -1,0 +1,96 @@
+<?php
+
+final class DifferentialBranchField
+  extends DifferentialCustomField {
+
+  public function getFieldKey() {
+    return 'differential:branch';
+  }
+
+  public function getFieldName() {
+    return pht('Nhánh');
+  }
+
+  public function getFieldDescription() {
+    return pht('Hiển thị các chi nhánh khác đến từ.');
+  }
+
+  public function shouldAppearInPropertyView() {
+    return true;
+  }
+
+  public function renderPropertyViewValue(array $handles) {
+    return null;
+  }
+
+  public function shouldAppearInDiffPropertyView() {
+    return true;
+  }
+
+  public function renderDiffPropertyViewLabel(DifferentialDiff $diff) {
+    return $this->getFieldName();
+  }
+
+  public function renderDiffPropertyViewValue(DifferentialDiff $diff) {
+    return $this->getBranchDescription($diff);
+  }
+
+  private function getBranchDescription(DifferentialDiff $diff) {
+    $branch = $diff->getBranch();
+    $bookmark = $diff->getBookmark();
+
+    if (strlen($branch) && strlen($bookmark)) {
+      return pht('%s (bookmark) trên %s (nhánh)', $bookmark, $branch);
+    } else if (strlen($bookmark)) {
+      return pht('%s (bookmark)', $bookmark);
+    } else if (strlen($branch)) {
+      $onto = $diff->loadTargetBranch();
+      if (strlen($onto) && ($onto !== $branch)) {
+        return pht(
+          '%s (nhánh từ  %s)',
+          $branch,
+          $onto);
+      } else {
+        return $branch;
+      }
+    } else {
+      return null;
+    }
+  }
+
+  public function getProTips() {
+    return array(
+      pht(
+        'Trong Git và Mercurial, sử dụng một chi nhánh như"%s" tự động '.
+        'thay đổi liên kết với các nhiệm vụ tương ứng.',
+        'T123'),
+    );
+  }
+
+  public function shouldAppearInTransactionMail() {
+    return true;
+  }
+
+  public function updateTransactionMailBody(
+    PhabricatorMetaMTAMailBody $body,
+    PhabricatorApplicationTransactionEditor $editor,
+    array $xactions) {
+
+    $status_accepted = ArcanistDifferentialRevisionStatus::ACCEPTED;
+
+    // Show the "BRANCH" section only if there's a new diff or the revision
+    // is "Accepted".
+    if ((!$editor->getDiffUpdateTransaction($xactions)) &&
+        ($this->getObject()->getStatus() != $status_accepted)) {
+      return;
+    }
+
+    $branch = $this->getBranchDescription($this->getObject()->getActiveDiff());
+    if ($branch === null) {
+      return;
+    }
+
+    $body->addTextSection(pht('BRANCH'), $branch);
+  }
+
+}

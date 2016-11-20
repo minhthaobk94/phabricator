@@ -16,7 +16,7 @@ final class PhabricatorAuthOneTimeLoginController
 
     if ($request->getUser()->isLoggedIn()) {
       return $this->renderError(
-        pht('You are already logged in.'));
+        pht('Bạn đã đăng nhập.'));
     }
 
     $target_user = id(new PhabricatorPeopleQuery())
@@ -68,35 +68,35 @@ final class PhabricatorAuthOneTimeLoginController
 
     if (!$token) {
       return $this->newDialog()
-        ->setTitle(pht('Unable to Login'))
-        ->setShortTitle(pht('Login Failure'))
+        ->setTitle(pht('Không thể đăng nhập'))
+        ->setShortTitle(pht('Đăng nhập thất bại '))
         ->appendParagraph(
           pht(
-            'The login link you clicked is invalid, out of date, or has '.
-            'already been used.'))
+            'Các liên kết đăng nhập bạn nhấp là không hợp lệ, hết hạn , hoặc '.
+            'đã được sử dụng.'))
         ->appendParagraph(
           pht(
-            'Make sure you are copy-and-pasting the entire link into '.
-            'your browser. Login links are only valid for 24 hours, and '.
-            'can only be used once.'))
+            'Hãy chắc chắn rằng bạn đang sao chép và dán toàn bộ liên kết vào'.
+            'trình duyệt của bạn. liên kết đăng nhập chỉ có giá trị trong 24 giờ, và'.
+            'chỉ được sử dụng một lần.'))
         ->appendParagraph(
-          pht('You can try again, or request a new link via email.'))
-        ->addCancelButton('/login/email/', pht('Send Another Email'));
+          pht('Bạn có thể thử lại, hoặc yêu cầu một liên kết mới qua email.'))
+        ->addCancelButton('/login/email/', pht('Gửi email khác'));
     }
 
     if (!$target_user->canEstablishWebSessions()) {
       return $this->newDialog()
-        ->setTitle(pht('Unable to Establish Web Session'))
-        ->setShortTitle(pht('Login Failure'))
+        ->setTitle(pht('Không thể lập Web Session'))
+        ->setShortTitle(pht('Đăng nhập thất bại'))
         ->appendParagraph(
           pht(
-            'You are trying to gain access to an account ("%s") that can not '.
-            'establish a web session.',
+            'Bạn đang cố gắng để đạt được quyền truy cập vào tài khoản("%s")  mà không thể'.
+            'thiết lập một phiên web.',
             $target_user->getUsername()))
         ->appendParagraph(
           pht(
-            'Special users like daemons and mailing lists are not permitted '.
-            'to log in via the web. Log in as a normal user instead.'))
+            'Người sử dụng đặc biệt như daemon và danh sách gửi thư không được phép'.
+            ' đăng nhập qua web. Thay vì đăng nhập như là một người dùng bình thường .'))
         ->addCancelButton('/');
     }
 
@@ -162,38 +162,38 @@ final class PhabricatorAuthOneTimeLoginController
 
     switch ($link_type) {
       case PhabricatorAuthSessionEngine::ONETIME_WELCOME:
-        $title = pht('Welcome to Phabricator');
+        $title = pht('Chào mừng đến với Phabricator');
         break;
       case PhabricatorAuthSessionEngine::ONETIME_RECOVER:
-        $title = pht('Account Recovery');
+        $title = pht('Phục hồi tài khoản');
         break;
       case PhabricatorAuthSessionEngine::ONETIME_USERNAME:
       case PhabricatorAuthSessionEngine::ONETIME_RESET:
       default:
-        $title = pht('Login to Phabricator');
+        $title = pht('Đăng nhập Phabricator');
         break;
     }
 
     $body = array();
     $body[] = pht(
-      'Use the button below to log in as: %s',
+      'Sử dụng các nút dưới đây để đăng nhập như: %s',
       phutil_tag('strong', array(), $target_user->getUsername()));
 
     if ($target_email && !$target_email->getIsVerified()) {
       $body[] = pht(
-        'Logging in will verify %s as an email address you own.',
+        'Đăng nhập sẽ xác minh% s là một địa chỉ email bạn sở hữu .',
         phutil_tag('strong', array(), $target_email->getAddress()));
 
     }
 
     $body[] = pht(
-      'After logging in you should set a password for your account, or '.
-      'link your account to an external account that you can use to '.
-      'authenticate in the future.');
+      'Sau khi đăng nhập, bạn nên thiết lập một mật khẩu cho tài khoản của bạn, hoặc'.
+      'liên kết tài khoản của bạn vào một tài khoản bên ngoài mà bạn có thể sử dụng để '.
+      'xác thực trong tương lai.');
 
     $dialog = $this->newDialog()
       ->setTitle($title)
-      ->addSubmitButton(pht('Login (%s)', $target_user->getUsername()))
+      ->addSubmitButton(pht('Đăng nhập(%s)', $target_user->getUsername()))
       ->addCancelButton('/');
 
     foreach ($body as $paragraph) {

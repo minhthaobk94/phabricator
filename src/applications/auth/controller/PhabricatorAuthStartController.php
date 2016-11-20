@@ -49,8 +49,8 @@ final class PhabricatorAuthStartController
           if ($did_clear) {
             return $this->renderError(
               pht(
-                'Your login session is invalid, and clearing the session '.
-                'cookie was unsuccessful. Try clearing your browser cookies.'));
+                'Phiên đăng nhập của bạn không hợp lệ, và thanh toán bù trừ phiên '.
+                'Cookie không thành công. Hãy thử xoá cookie của trình duyệt của bạn.'));
           }
 
           $redirect_uri = $request->getRequestURI();
@@ -85,10 +85,10 @@ final class PhabricatorAuthStartController
 
       return $this->renderError(
         pht(
-          'This Phabricator install is not configured with any enabled '.
-          'authentication providers which can be used to log in. If you '.
-          'have accidentally locked yourself out by disabling all providers, '.
-          'you can use `%s` to recover access to an administrative account.',
+          'Phabricator này cài đặt không được cấu hình với bất kỳ kích hoạt '.
+          'cung cấp dịch vụ chứng thực có thể được sử dụng để đăng nhập. Nếu bạn '.
+          'đã vô tình bị khóa mình ra bằng cách vô hiệu hóa tất cả các nhà cung cấp, '.
+          'bạn có thể sử dụng `% s` để khôi phục quyền truy cập vào tài khoản quản trị.',
           'phabricator/bin/auth recover <username>'));
     }
 
@@ -195,10 +195,10 @@ final class PhabricatorAuthStartController
     }
 
     $crumbs = $this->buildApplicationCrumbs();
-    $crumbs->addTextCrumb(pht('Login'));
+    $crumbs->addTextCrumb(pht('Đăng nhập'));
     $crumbs->setBorder(true);
 
-    $title = pht('Login to Phabricator');
+    $title = pht('Đăng nhập Phabricator');
     $view = array(
       $header,
       $invite_message,
@@ -238,9 +238,9 @@ final class PhabricatorAuthStartController
     }
 
     return $this->newDialog()
-      ->setTitle(pht('Login Required'))
-      ->appendParagraph(pht('You must login to take this action.'))
-      ->addSubmitButton(pht('Login'))
+      ->setTitle(pht('Yêu cầu đăng nhập'))
+      ->appendParagraph(pht('Bạn phải đăng nhập trước khi thực hiện.'))
+      ->addSubmitButton(pht('Đăng nhập'))
       ->addCancelButton('/');
   }
 
@@ -270,7 +270,7 @@ final class PhabricatorAuthStartController
 
   protected function renderError($message) {
     return $this->renderErrorPage(
-      pht('Authentication Failure'),
+      pht('Xác nhận thất bại'),
       array($message));
   }
 

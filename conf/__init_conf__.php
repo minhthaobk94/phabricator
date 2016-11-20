@@ -39,8 +39,8 @@ function phabricator_read_config_file($original_config) {
 
     throw new Exception(
       pht(
-        "CONFIGURATION ERROR\n".
-        "Config file '%s' does not exist. Valid config files are:\n\n%s",
+        "Cấu hình lỗi \n".
+        "File cấu hình '%s'Không tồn tại .File cấu hình hợp lệ là :\n\n%s",
         $original_config,
         $files));
   }

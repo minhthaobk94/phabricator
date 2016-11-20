@@ -8,7 +8,7 @@ final class DifferentialChildRevisionsField
   }
 
   public function getFieldName() {
-    return pht('Child Revisions');
+    return pht('Bản sửa đổi con');
   }
 
   public function canDisableField() {
@@ -16,7 +16,7 @@ final class DifferentialChildRevisionsField
   }
 
   public function getFieldDescription() {
-    return pht('Lists revisions this one is depended on by.');
+    return pht('Danh sách các phiên bản này là phụ thuộc vào bằng.');
   }
 
 }

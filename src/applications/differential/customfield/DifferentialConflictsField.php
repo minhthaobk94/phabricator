@@ -17,13 +17,13 @@ final class DifferentialConflictsField
   }
 
   public function getFieldName() {
-    return pht('Conflicts');
+    return pht('Xung đột');
   }
 
   public function getFieldDescription() {
     return pht(
-      'Parses the "%s" field which Git can inject into commit messages.',
-      'Conflicts');
+      'Chuyển đổi "%s" lĩnh vực mà Git có thể tiêm vào bài viết cam kết.',
+      'Xung đột');
   }
 
   public function canDisableField() {

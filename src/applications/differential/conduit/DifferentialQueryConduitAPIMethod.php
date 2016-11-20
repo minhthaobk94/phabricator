@@ -8,7 +8,7 @@ final class DifferentialQueryConduitAPIMethod
   }
 
   public function getMethodDescription() {
-    return pht('Query Differential revisions which match certain criteria.');
+    return pht('Truy vấn phiên bản sự khác biệt được kết hợp với kịch bản nhất định.');
   }
 
   protected function defineParamTypes() {
@@ -53,7 +53,7 @@ final class DifferentialQueryConduitAPIMethod
 
   protected function defineErrorTypes() {
     return array(
-      'ERR-INVALID-PARAMETER' => pht('Missing or malformed parameter.'),
+      'ERR-INVALID-PARAMETER' => pht('Thiếu hoặc sai thông số.'),
     );
   }
 
@@ -104,7 +104,7 @@ final class DifferentialQueryConduitAPIMethod
         throw id(new ConduitException('ERR-INVALID-PARAMETER'))
           ->setErrorDescription(
             pht(
-              'Unknown paths: %s',
+              'Không hiểu đường dẫn: %s',
               implode(', ', $unknown_paths)));
       }
 
@@ -121,7 +121,7 @@ final class DifferentialQueryConduitAPIMethod
             throw id(new ConduitException('ERR-INVALID-PARAMETER'))
               ->setErrorDescription(
                 pht(
-                  'Unknown repo callsign: %s',
+                  'Không hiểu repo callsign: %s',
                   $callsign));
           }
         }

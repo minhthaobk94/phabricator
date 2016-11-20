@@ -55,12 +55,12 @@ abstract class DifferentialCoreCustomField
         if ($this->isCoreFieldValueEmpty($value)) {
           $error = new PhabricatorApplicationTransactionValidationError(
             $type,
-            pht('Required'),
+            pht('Yêu cầu'),
             $this->getCoreFieldRequiredErrorString(),
             $xaction);
           $error->setIsMissingFieldError(true);
           $errors[] = $error;
-          $this->setFieldError(pht('Required'));
+          $this->setFieldError(pht('Yêu cầu'));
           continue;
         }
       }
@@ -77,15 +77,15 @@ abstract class DifferentialCoreCustomField
             $type,
             pht('Invalid'),
             pht(
-              'The value you have entered in "%s" can not be parsed '.
-              'unambiguously when rendered in a commit message. Edit the '.
-              'message so that keywords like "Summary:" and "Test Plan:" do '.
-              'not appear at the beginning of lines. Parsed keys: %s.',
+              'Các giá trị mà bạn đã nhập trong "%s" không thể được phân tích'.
+              '	rõ ràng khi kết xuất trong một cam kết.Chỉnh sửa '.
+               'tin nhắn để các từ khóa như "Tóm tắt:" và "kế hoạch thử nghiệm:" làm'.
+              'không xuất hiện ở đầu dòng.Chuyển đổi khóa: %s.',
               $this->getFieldName(),
               implode(', ', array_keys($result))),
             $xaction);
           $errors[] = $error;
-          $this->setFieldError(pht('Invalid'));
+          $this->setFieldError(pht('Không hợp lệ '));
           continue;
         }
       }

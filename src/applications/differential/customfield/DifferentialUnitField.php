@@ -8,11 +8,11 @@ final class DifferentialUnitField
   }
 
   public function getFieldName() {
-    return pht('Unit');
+    return pht('Đơn vị');
   }
 
   public function getFieldDescription() {
-    return pht('Shows unit test results.');
+    return pht('Hiển thị kết quả đơn vị thử nghiệm.');
   }
 
   public function shouldAppearInPropertyView() {
@@ -41,9 +41,9 @@ final class DifferentialUnitField
       // Don't show any warnings.
     } else if ($status == DifferentialUnitStatus::UNIT_SKIP) {
       $warnings[] = pht(
-        'Unit tests were skipped when generating these changes.');
+        'Đơn vị xét nghiệm đã bị bỏ qua khi tạo ra những thay đổi.');
     } else {
-      $warnings[] = pht('These changes have unit test problems.');
+      $warnings[] = pht('Những thay đổi này có vấn đề về đơn vị kiểm tra.');
     }
 
     return $warnings;

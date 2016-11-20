@@ -14,7 +14,7 @@ final class DifferentialTransactionEditor
   }
 
   public function getEditorObjectsDescription() {
-    return pht('Differential Revisions');
+    return pht('Phiên bản sự khác biệt');
   }
 
   public function getDiffUpdateTransaction(array $xactions) {
@@ -247,7 +247,7 @@ final class DifferentialTransactionEditor
           default:
             throw new Exception(
               pht(
-                'Differential action "%s" is not a valid action!',
+                'hành động khác biệt "% s" không phải là một hành động hợp lệ!',
                 $xaction->getNewValue()));
         }
         break;
@@ -588,8 +588,8 @@ final class DifferentialTransactionEditor
         if ($revision_id && ($revision_id != $object->getID())) {
           throw new Exception(
             pht(
-              'Diff is already attached to another revision. You lost '.
-              'a race?'));
+              'Diff đã được gắn liền với một phiên bản khác. Bạn bị mất ".
+               một cuộc đua?'));
         }
 
         // TODO: This can race with diff updates, particularly those from
@@ -686,7 +686,7 @@ final class DifferentialTransactionEditor
       ->executeOne();
     if (!$new_revision) {
       throw new Exception(
-        pht('Failed to load revision from transaction finalization.'));
+        pht('Không tải được sửa đổi từ quyết toán giao dịch.'));
     }
 
     $object->attachReviewerStatus($new_revision->getReviewerStatus());
@@ -825,8 +825,8 @@ final class DifferentialTransactionEditor
                   $errors[] =
                     new PhabricatorApplicationTransactionValidationError(
                       $type,
-                      pht('Invalid'),
-                      pht('The author of a revision can not be a reviewer.'),
+                      pht('Không hợp lệ '),
+                      pht('Các tác giả của một phiên bản không thể là một nhà phê bình.'),
                       $xaction);
                 }
               }
@@ -838,17 +838,17 @@ final class DifferentialTransactionEditor
           if (!$diff) {
             $errors[] = new PhabricatorApplicationTransactionValidationError(
               $type,
-              pht('Invalid'),
-              pht('The specified diff does not exist.'),
+              pht('Không hợp lệ '),
+              pht(' Không tồn tại.'),
               $xaction);
           } else if (($diff->getRevisionID()) &&
             ($diff->getRevisionID() != $object->getID())) {
             $errors[] = new PhabricatorApplicationTransactionValidationError(
               $type,
-              pht('Invalid'),
+              pht('Không hợp lệ '),
               pht(
-                'You can not update this revision to the specified diff, '.
-                'because the diff is already attached to another revision.'),
+                'Bạn không thể cập nhật phiên bản này để diff định,
+                 "Vì những khác biệt đã được gắn liền với một phiên bản khác.'),
               $xaction);
           }
           break;
@@ -861,7 +861,7 @@ final class DifferentialTransactionEditor
           if ($error) {
             $errors[] = new PhabricatorApplicationTransactionValidationError(
               $type,
-              pht('Invalid'),
+              pht('Không hợp lệ '),
               $error,
               $xaction);
           }
@@ -904,13 +904,13 @@ final class DifferentialTransactionEditor
       case DifferentialAction::ACTION_ACCEPT:
         if ($actor_is_author && !$allow_self_accept) {
           return pht(
-            'You can not accept this revision because you are the owner.');
+            'Bạn không thể chấp nhận sửa đổi này bởi vì bạn là chủ sở hữu.');
         }
 
         if ($revision_status == $status_abandoned) {
           return pht(
-            'You can not accept this revision because it has been '.
-            'abandoned.');
+            'Bạn không thể chấp nhận sửa đổi này vì nó đã được '.
+             'Bỏ .');
         }
 
         if ($revision_status == $status_closed) {

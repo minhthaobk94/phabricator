@@ -31,13 +31,13 @@ final class PhabricatorAuthRevokeTokenController
 
     if (!$tokens) {
       return $this->newDialog()
-        ->setTitle(pht('No Matching Tokens'))
+        ->setTitle(pht('Mã kết nối không hợp'))
         ->appendParagraph(
-          pht('There are no matching tokens to revoke.'))
+          pht('Không có thẻ phù hợp để thu hồi.'))
         ->appendParagraph(
           pht(
-            '(Some types of token can not be revoked, and you can not revoke '.
-            'tokens which have already expired.)'))
+            '(Một số loại thẻ không thể bị thu hồi, và bạn không thể thu hồi'.
+            'thẻ đã hết hạn.)'))
         ->addCancelButton($panel_uri);
     }
 
@@ -49,25 +49,25 @@ final class PhabricatorAuthRevokeTokenController
     }
 
     if ($is_all) {
-      $title = pht('Revoke Tokens?');
-      $short = pht('Revoke Tokens');
+      $title = pht('Thu hồi Tokens?');
+      $short = pht('Thu hồi Tokens');
       $body = pht(
-        'Really revoke all tokens? Among other temporary authorizations, '.
-        'this will disable any outstanding password reset or account '.
-        'recovery links.');
+        'Thực sự thu hồi tất cả các thẻ? Trong số ủy quyền tạm thời khác, '.
+        'này sẽ vô hiệu hóa bất kỳ thiết lập lại mật khẩu nổi bật hoặc tài khoản'.
+        'liên kết phục hồi.');
     } else {
-      $title = pht('Revoke Token?');
-      $short = pht('Revoke Token');
+      $title = pht('Thu hồi Tokens?');
+      $short = pht('Thu hồi Tokens');
       $body = pht(
-        'Really revoke this token? Any temporary authorization it enables '.
-        'will be disabled.');
+        'Thực sự thu hồi thẻ này? Bất kỳ ủy quyền tạm thời nó cho phép'.
+        'sẽ bị vô hiệu.');
     }
 
     return $this->newDialog()
       ->setTitle($title)
       ->setShortTitle($short)
       ->appendParagraph($body)
-      ->addSubmitButton(pht('Revoke'))
+      ->addSubmitButton(pht('Thu hồi '))
       ->addCancelButton($panel_uri);
   }
 

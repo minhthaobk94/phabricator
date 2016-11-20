@@ -8,7 +8,7 @@ final class DifferentialQueryDiffsConduitAPIMethod
   }
 
   public function getMethodDescription() {
-    return pht('Query differential diffs which match certain criteria.');
+    return pht('Truy vấn sự khác biệt được kết hợp với kịch bản nhất định.');
   }
 
   protected function defineParamTypes() {

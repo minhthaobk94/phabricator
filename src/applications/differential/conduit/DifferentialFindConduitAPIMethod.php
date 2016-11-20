@@ -12,11 +12,11 @@ final class DifferentialFindConduitAPIMethod
   }
 
   public function getMethodStatusDescription() {
-    return pht("Replaced by '%s'.", 'differential.query');
+    return pht("Thay thế bởi '%s'.", 'differential.query');
   }
 
   public function getMethodDescription() {
-    return pht('Query Differential revisions which match certain criteria.');
+    return pht('Phiên bản Sửa đổi truy vấn mà phù hợp với tiêu chí nhất định.');
   }
 
   protected function defineParamTypes() {

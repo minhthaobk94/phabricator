@@ -8,11 +8,11 @@ final class DifferentialProjectReviewersField
   }
 
   public function getFieldName() {
-    return pht('Group Reviewers');
+    return pht('Nhóm phản biện');
   }
 
   public function getFieldDescription() {
-    return pht('Display project reviewers.');
+    return pht('Hiển thị phê bình dự án .');
   }
 
   public function shouldAppearInPropertyView() {
@@ -60,8 +60,8 @@ final class DifferentialProjectReviewersField
   public function getProTips() {
     return array(
       pht(
-        'You can add a project as a subscriber or reviewer by writing '.
-        '"%s" in the appropriate field.',
+        'Bạn có thể thêm một dự án như một thuê bao hoặc người nhận xét bằng văn bản'.
+        '"%s"trong lĩnh vực thích hợp.',
         '#projectname'),
     );
   }

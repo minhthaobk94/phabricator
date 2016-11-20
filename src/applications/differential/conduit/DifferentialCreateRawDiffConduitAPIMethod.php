@@ -8,7 +8,7 @@ final class DifferentialCreateRawDiffConduitAPIMethod
   }
 
   public function getMethodDescription() {
-    return pht('Create a new Differential diff from a raw diff source.');
+    return pht('Tạo một Sự khác biệt  khác mới từ một nguồn khác.');
   }
 
   protected function defineParamTypes() {
@@ -55,11 +55,11 @@ final class DifferentialCreateRawDiffConduitAPIMethod
     if ($size > $raw_limit) {
       throw new Exception(
         pht(
-          'The raw diff you have submitted is too large to parse (it affects '.
-          'more than %s paths and hunks). Differential should only be used '.
-          'for changes which are small enough to receive detailed human '.
-          'review. See "Differential User Guide: Large Changes" in the '.
-          'documentation for more information.',
+          'Dữ liệu khác  bạn được gửi quá lớn để phân tích (Nó ảnh hưởng  '.
+          'nhiều hơn  %s đường dẫn và hunks). Sự khác biệt nên sử dụng một lần  '.
+          'cho thay đổi mà nó nhỏ hơn cái mà con người xem xét '.
+          '. Xem "Hướng dẫn sử dụng sự khác biệt : Thay đổi ngôn ngữ" trong'.
+          'tài liệu thông tin .',
           new PhutilNumber($raw_limit)));
     }
 

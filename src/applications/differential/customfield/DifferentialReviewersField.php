@@ -12,11 +12,11 @@ final class DifferentialReviewersField
   }
 
   public function getFieldName() {
-    return pht('Reviewers');
+    return pht('Người xem xét');
   }
 
   public function getFieldDescription() {
-    return pht('Manage reviewers.');
+    return pht('Quản lý người xem xét.');
   }
 
   protected function readValueFromRevision(
@@ -278,11 +278,11 @@ final class DifferentialReviewersField
     $warnings = array();
     if ($this->getValue()) {
       $warnings[] = pht(
-        'This revision needs review, but all specified reviewers are '.
-        'disabled or inactive.');
+        'Sửa đổi này cần xem xét lại, nhưng tất cả nhận xét chỉ định là '.
+         'Vô hiệu hóa hoặc không hoạt động.');
     } else {
       $warnings[] = pht(
-        'This revision needs review, but there are no reviewers specified.');
+        'Sửa đổi này cần xem xét lại, nhưng không có người nhận xét quy định.');
     }
 
     return $warnings;
@@ -291,8 +291,8 @@ final class DifferentialReviewersField
   public function getProTips() {
     return array(
       pht(
-        'You can mark a reviewer as blocking by adding an exclamation '.
-        'mark ("!") after their name.'),
+        'Bạn có thể đánh dấu một người xem như chặn bằng cách thêm một dấu chấm than'.
+        '("!") sau tên của họ.'),
     );
   }
 

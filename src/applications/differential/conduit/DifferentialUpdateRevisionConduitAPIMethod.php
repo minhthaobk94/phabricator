@@ -8,7 +8,7 @@ final class DifferentialUpdateRevisionConduitAPIMethod
   }
 
   public function getMethodDescription() {
-    return pht('Update a Differential revision.');
+    return pht('Cập nhật phiên bản sự khác biệt.');
   }
 
   protected function defineParamTypes() {
@@ -26,10 +26,10 @@ final class DifferentialUpdateRevisionConduitAPIMethod
 
   protected function defineErrorTypes() {
     return array(
-      'ERR_BAD_DIFF'     => pht('Bad diff ID.'),
-      'ERR_BAD_REVISION' => pht('Bad revision ID.'),
-      'ERR_WRONG_USER'   => pht('You are not the author of this revision.'),
-      'ERR_CLOSED'       => pht('This revision has already been closed.'),
+      'ERR_BAD_DIFF'     => pht('ID khác nhau kém.'),
+      'ERR_BAD_REVISION' => pht('ID sửa đổi kém.'),
+      'ERR_WRONG_USER'   => pht('Bạn không phải tác giả cho sự sửa đổi này.'),
+      'ERR_CLOSED'       => pht('Sự sửa đổi này đã bị đóng.'),
     );
   }
 

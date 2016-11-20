@@ -13,12 +13,12 @@ final class DifferentialGetAllDiffsConduitAPIMethod
 
   public function getMethodStatusDescription() {
     return pht(
-      'This method has been deprecated in favor of %s.',
+      'Phương pháp này đã được yêu cầu ủng hộ bởi %s.',
       'differential.querydiffs');
   }
 
   public function getMethodDescription() {
-    return pht('Load all diffs for given revisions from Differential.');
+    return pht('Tải tất cả các khác biệt cho các phiên bản được đưa ra từ  Sự khác biệt.');
   }
 
   protected function defineParamTypes() {

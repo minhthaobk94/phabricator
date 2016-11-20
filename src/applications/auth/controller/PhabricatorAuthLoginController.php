@@ -51,10 +51,10 @@ final class PhabricatorAuthLoginController
       // User explicitly hit "Cancel".
       $dialog = id(new AphrontDialogView())
         ->setUser($viewer)
-        ->setTitle(pht('Authentication Canceled'))
+        ->setTitle(pht('Hủy xác thực '))
         ->appendChild(
-          pht('You canceled authentication.'))
-        ->addCancelButton($next_uri, pht('Continue'));
+          pht('Bạn hủy xác thực.'))
+        ->addCancelButton($next_uri, pht('Tiếp tục'));
       return id(new AphrontDialogResponse())->setDialog($dialog);
     }
 
@@ -65,7 +65,7 @@ final class PhabricatorAuthLoginController
     if (!$account) {
       throw new Exception(
         pht(
-          'Auth provider failed to load an account from %s!',
+          'Nhà cung cấp Auth thất bại khi tải một tài khoản từ  %s!',
           'processLoginRequest()'));
     }
 
@@ -78,9 +78,9 @@ final class PhabricatorAuthLoginController
         } else {
           return $this->renderError(
             pht(
-              'The external account ("%s") you just authenticated with is '.
-              'not configured to allow logins on this Phabricator install. '.
-              'An administrator may have recently disabled it.',
+              'Các tài khoản bên ngoài ("%s")bạn chỉ cần xác thực là'.
+              'không được cấu hình để cho phép đăng nhập vào Phabricator này cài đặt. '.
+              'Quản trị viên có thể đã bị vô hiệu hóa nó gần đây.',
               $provider->getProviderName()));
         }
       } else if ($viewer->getPHID() == $account->getUserPHID()) {
@@ -92,10 +92,10 @@ final class PhabricatorAuthLoginController
       } else {
         return $this->renderError(
           pht(
-            'The external account ("%s") you just used to login is already '.
-            'associated with another Phabricator user account. Login to the '.
-            'other Phabricator account and unlink the external account before '.
-            'linking it to a new Phabricator account.',
+            'Các tài khoản bên ngoài("%s") bạn chỉ được sử dụng để đăng nhập '.
+            'kết hợp với một tài khoản người dùng Phabricator.Đăng nhập vào'.
+            'tài khoản Phabricator khác và bỏ liên kết các tài khoản bên ngoài trước'.
+            'khi kết nối nó với một tài khoản Phabricator mới.',
             $provider->getProviderName()));
       }
     } else {
@@ -107,9 +107,9 @@ final class PhabricatorAuthLoginController
         } else {
           return $this->renderError(
             pht(
-              'The external account ("%s") you just authenticated with is '.
-              'not configured to allow registration on this Phabricator '.
-              'install. An administrator may have recently disabled it.',
+              'Các tài khoản bên ngoài ("%s") bạn chỉ cần xác thực với là '.
+              'không được cấu hình để cho phép đăng ký trên Phabricator này'.
+              'cài đặt. Người quản trị có thể đã bị vô hiệu hóa nó gần đây.',
               $provider->getProviderName()));
         }
       } else {
@@ -126,11 +126,11 @@ final class PhabricatorAuthLoginController
         if ($existing_accounts) {
           return $this->renderError(
             pht(
-              'Your Phabricator account is already connected to an external '.
-              'account on this provider ("%s"), but you are currently logged '.
-              'in to the provider with a different account. Log out of the '.
-              'external service, then log back in with the correct account '.
-              'before refreshing the account link.',
+              'Tài khoản Phabricator của bạn đã được kết nối với một bên ngoài '.
+              'tài khoản cung cấp này ("% s"), nhưng hiện tại bạn đang đăng nhập '.
+              'vào nhà cung cấp với một tài khoản khác. Đăng xuất khỏi các '.
+              'dịch vụ bên ngoài, sau đó đăng nhập trở lại với đúng tài khoản '.
+              'trước khi làm mới liên kết tài khoản.',
               $provider->getProviderName()));
         }
 
@@ -139,9 +139,9 @@ final class PhabricatorAuthLoginController
         } else {
           return $this->renderError(
             pht(
-              'The external account ("%s") you just authenticated with is '.
-              'not configured to allow account linking on this Phabricator '.
-              'install. An administrator may have recently disabled it.',
+              'Các tài khoản bên ngoài ccount ("%s") bạn chỉ cần xác thực với là '.
+              'không được cấu hình để cho phép liên kết tài khoản trên Phabricator này'.
+              'cài đặt, dựng lên. Người quản trị có thể đã bị vô hiệu hóa nó gần đây.',
               $provider->getProviderName()));
         }
       }
@@ -159,8 +159,8 @@ final class PhabricatorAuthLoginController
     if (!$user) {
       return $this->renderError(
         pht(
-          'The external account you just logged in with is not associated '.
-          'with a valid Phabricator user.'));
+          'Các tài khoản bên ngoài, bạn chỉ cần đăng nhập với không liên quan '.
+          'với một người dùng hợp lệ Phabricator.'));
     }
 
     return $this->loginUser($user);
@@ -183,7 +183,7 @@ final class PhabricatorAuthLoginController
     $next_uri) {
 
     if ($account->getUserPHID()) {
-      throw new Exception(pht('Account is already registered or linked.'));
+      throw new Exception(pht('Tài khoản đã được đăng ký hoặc liên kết.'));
     }
 
     // Regenerate the registration secret key, set it on the external account,
@@ -214,9 +214,9 @@ final class PhabricatorAuthLoginController
     if (!$provider) {
       return $this->renderError(
         pht(
-          'The account you are attempting to login with uses a nonexistent '.
-          'or disabled authentication provider (with key "%s"). An '.
-          'administrator may have recently disabled this provider.',
+          'Các tài khoản bạn đang cố gắng đăng nhập với sử dụng không tồn tại '.
+          'hay vô hiệu hóa nhà cung cấp xác thực (với phím "% s"). Một'.
+          'quản trị viên có thể đã bị vô hiệu hóa gần đây nhà cung cấp này.',
           $this->providerKey));
     }
 
@@ -227,7 +227,7 @@ final class PhabricatorAuthLoginController
 
   protected function renderError($message) {
     return $this->renderErrorPage(
-      pht('Login Failed'),
+      pht('Đăng nhập thât bại'),
       array($message));
   }
 
@@ -238,16 +238,16 @@ final class PhabricatorAuthLoginController
     $crumbs = $this->buildApplicationCrumbs();
 
     if ($this->getRequest()->getUser()->isLoggedIn()) {
-      $crumbs->addTextCrumb(pht('Link Account'), $provider->getSettingsURI());
+      $crumbs->addTextCrumb(pht('Liên kết tài khoản'), $provider->getSettingsURI());
     } else {
-      $crumbs->addTextCrumb(pht('Login'), $this->getApplicationURI('start/'));
+      $crumbs->addTextCrumb(pht('Đăng nhập'), $this->getApplicationURI('start/'));
     }
 
     $crumbs->addTextCrumb($provider->getProviderName());
     $crumbs->setBorder(true);
 
     return $this->newPage()
-      ->setTitle(pht('Login'))
+      ->setTitle(pht('Đăng nhập'))
       ->setCrumbs($crumbs)
       ->appendChild($content);
   }
@@ -257,7 +257,7 @@ final class PhabricatorAuthLoginController
     $message) {
 
     $message = pht(
-      'Authentication provider ("%s") encountered an error during login. %s',
+      'Dịch vụ cung cấp xác thực("%s")gặp phải một lỗi trong khi đăng nhập. %s',
       $provider->getProviderName(),
       $message);
 

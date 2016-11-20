@@ -12,11 +12,11 @@ final class DifferentialTestPlanField
   }
 
   public function getFieldName() {
-    return pht('Test Plan');
+    return pht('Kế hoạch kiểm tra');
   }
 
   public function getFieldDescription() {
-    return pht('Actions performed to verify the behavior of the change.');
+    return pht('Hành động thực hiện để xác minh hành vi của sự thay đổi.');
   }
 
   protected function readValueFromRevision(
@@ -43,8 +43,8 @@ final class DifferentialTestPlanField
 
   protected function getCoreFieldRequiredErrorString() {
     return pht(
-      'You must provide a test plan. Describe the actions you performed '.
-      'to verify the behavior of this change.');
+      'Bạn phải cung cấp một kế hoạch kiểm tra. Mô tả các hành động mà bạn thực hiện.
+       Để xác minh hành vi của các thay đổi này.');
   }
 
   public function readValueFromRequest(AphrontRequest $request) {
@@ -67,7 +67,7 @@ final class DifferentialTestPlanField
     $new = $xaction->getNewValue();
 
     return pht(
-      '%s updated the test plan for this revision.',
+      '%s cập nhật các kế hoạch thử nghiệm cho phiên bản này.',
       $xaction->renderHandleLink($author_phid));
   }
 
@@ -80,7 +80,7 @@ final class DifferentialTestPlanField
     $new = $xaction->getNewValue();
 
     return pht(
-      '%s updated the test plan for %s.',
+      '%s cập nhật các kế hoạch kiểm tra cho%s.',
       $xaction->renderHandleLink($author_phid),
       $xaction->renderHandleLink($object_phid));
   }
@@ -190,7 +190,7 @@ final class DifferentialTestPlanField
       return;
     }
 
-    $body->addRemarkupSection(pht('TEST PLAN'), $test_plan);
+    $body->addRemarkupSection(pht('KẾ HOẠCH KIỂM TRA '), $test_plan);
   }
 
 

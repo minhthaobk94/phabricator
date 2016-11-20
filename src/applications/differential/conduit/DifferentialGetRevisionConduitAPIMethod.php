@@ -12,11 +12,11 @@ final class DifferentialGetRevisionConduitAPIMethod
   }
 
   public function getMethodStatusDescription() {
-    return pht("Replaced by '%s'.", 'differential.query');
+    return pht("Được thay thể bởi '%s'.", 'differential.query');
   }
 
   public function getMethodDescription() {
-    return pht('Load the content of a revision from Differential.');
+    return pht('Tải nội dung của sự sửa đổi từ Sự khác biệt.');
   }
 
   protected function defineParamTypes() {
