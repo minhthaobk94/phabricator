@@ -15,7 +15,7 @@ final class PhabricatorPhameApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Blog');
+    return pht('Bài viết');
   }
 
   public function getTitleGlyph() {
@@ -25,7 +25,7 @@ final class PhabricatorPhameApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Phame User Guide'),
+        'name' => pht('Hướng dẫn sử dụng'),
         'href' => PhabricatorEnv::getDoclink('Phame User Guide'),
       ),
     );

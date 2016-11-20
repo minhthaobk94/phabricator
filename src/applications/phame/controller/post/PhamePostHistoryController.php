@@ -27,13 +27,13 @@ final class PhamePostHistoryController extends PhamePostController {
         $this->getApplicationURI('blog/view/'.$blog->getID().'/'));
     } else {
       $crumbs->addTextCrumb(
-        pht('[No Blog]'),
+        pht('[Không có Blog]'),
         null);
     }
     $crumbs->addTextCrumb(
       $post->getTitle(),
       $this->getApplicationURI('post/view/'.$post->getID().'/'));
-    $crumbs->addTextCrumb(pht('Post History'));
+    $crumbs->addTextCrumb(pht('Lịch sử bài đăng'));
     $crumbs->setBorder(true);
 
     $timeline = $this->buildTransactionTimeline(

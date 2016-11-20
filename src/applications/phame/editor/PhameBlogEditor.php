@@ -153,8 +153,8 @@ final class PhameBlogEditor
         if ($missing) {
           $error = new PhabricatorApplicationTransactionValidationError(
             $type,
-            pht('Required'),
-            pht('Name is required.'),
+            pht('Bắt buộc'),
+            pht('Tên được bắt buộc.'),
             nonempty(last($xactions), null));
 
           $error->setIsMissingFieldError(true);
@@ -166,10 +166,9 @@ final class PhameBlogEditor
           if (phutil_utf8_strlen($new) > 64) {
             $errors[] = new PhabricatorApplicationTransactionValidationError(
               $type,
-              pht('Invalid'),
+              pht('Không hợp lệ'),
               pht(
-                'The selected blog title is too long. The maximum length '.
-                'of a blog title is 64 characters.'),
+                'Tiêu đề blog quá dài.Chiều dài tối đa là 64 ký tự.'),
               $xaction);
           }
         }
@@ -180,10 +179,9 @@ final class PhameBlogEditor
           if (phutil_utf8_strlen($new) > 64) {
             $errors[] = new PhabricatorApplicationTransactionValidationError(
               $type,
-              pht('Invalid'),
+              pht('Không hợp lệ'),
               pht(
-                'The selected blog subtitle is too long. The maximum length '.
-                'of a blog subtitle is 64 characters.'),
+                'Tiêu đề con blog quá dài.Chiều dài tối đa là 64 ký tự.'),
               $xaction);
           }
         }
@@ -201,8 +199,8 @@ final class PhameBlogEditor
         } catch (Exception $ex) {
           $error = new PhabricatorApplicationTransactionValidationError(
             $type,
-            pht('Invalid URI'),
-            pht('Parent Domain must be set to a valid Remote URI.'),
+            pht('URI không hợp lệ'),
+            pht('Parent Domain phải được tạo từ Remote URI hợp lệ.'),
             nonempty(last($xactions), null));
           $errors[] = $error;
         }
@@ -227,11 +225,10 @@ final class PhameBlogEditor
         }
         if ($object->getViewPolicy() != PhabricatorPolicies::POLICY_PUBLIC) {
           $error_text = pht(
-            'For custom domains to work, the blog must have a view policy of '.
-            'public.');
+            'Đối với lĩnh vực tùy chỉnh để làm việc, blog phải có một chính sách "public"');
           $error = new PhabricatorApplicationTransactionValidationError(
             PhabricatorTransactions::TYPE_VIEW_POLICY,
-            pht('Invalid Policy'),
+            pht('Chính sách không hợp lệ'),
             $error_text,
             nonempty(last($xactions), null));
           $errors[] = $error;
@@ -245,8 +242,8 @@ final class PhameBlogEditor
         if ($duplicate_blog && $duplicate_blog->getID() != $object->getID()) {
           $error = new PhabricatorApplicationTransactionValidationError(
             $type,
-            pht('Not Unique'),
-            pht('Domain must be unique; another blog already has this domain.'),
+            pht('Không duy nhất'),
+            pht('Domain phải là duy nhất ; Blog khác đã có Domain này.'),
             nonempty(last($xactions), null));
           $errors[] = $error;
         }
@@ -306,11 +303,11 @@ final class PhameBlogEditor
   public function getMailTagsMap() {
     return array(
       PhameBlogTransaction::MAILTAG_DETAILS =>
-        pht("A blog's details change."),
+        pht("Chi tiết thay đổi của Blog."),
       PhameBlogTransaction::MAILTAG_SUBSCRIBERS =>
-        pht("A blog's subscribers change."),
+        pht("Thay đổi người đăng kí của Blog."),
       PhameBlogTransaction::MAILTAG_OTHER =>
-        pht('Other blog activity not listed above occurs.'),
+        pht('Hoạt động blog khác không được liệt kê ở trên xảy ra.'),
     );
   }
 

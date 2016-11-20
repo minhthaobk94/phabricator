@@ -14,11 +14,11 @@ final class PhameBlogEditEngine
   }
 
   public function getSummaryHeader() {
-    return pht('Configure Phame Blog Forms');
+    return pht('Cấu hình Phame Blog Forms');
   }
 
   public function getSummaryText() {
-    return pht('Configure how blogs in Phame are created and edited.');
+    return pht('Cấu hình như thế nào blog trong Phame được tạo ra và chỉnh sửa.');
   }
 
   protected function newEditableObject() {
@@ -31,11 +31,11 @@ final class PhameBlogEditEngine
   }
 
   protected function getObjectCreateTitleText($object) {
-    return pht('Create New Blog');
+    return pht('Tạo mới Blog');
   }
 
   protected function getObjectEditTitleText($object) {
-    return pht('Edit %s', $object->getName());
+    return pht('Sửa %s', $object->getName());
   }
 
   protected function getObjectEditShortText($object) {
@@ -43,7 +43,7 @@ final class PhameBlogEditEngine
   }
 
   protected function getObjectCreateShortText() {
-    return pht('Create Blog');
+    return pht('Tạo mới Blog');
   }
 
   protected function getObjectName() {
@@ -73,63 +73,63 @@ final class PhameBlogEditEngine
         ->setKey('name')
         ->setLabel(pht('Name'))
         ->setDescription(pht('Blog name.'))
-        ->setConduitDescription(pht('Retitle the blog.'))
-        ->setConduitTypeDescription(pht('New blog title.'))
+        ->setConduitDescription(pht('Trở về tiêu đề cũ Blog.'))
+        ->setConduitTypeDescription(pht('Tiêu đề mới Blog.'))
         ->setTransactionType(PhameBlogTransaction::TYPE_NAME)
         ->setValue($object->getName()),
       id(new PhabricatorTextEditField())
         ->setKey('subtitle')
-        ->setLabel(pht('Subtitle'))
-        ->setDescription(pht('Blog subtitle.'))
-        ->setConduitDescription(pht('Change the blog subtitle.'))
-        ->setConduitTypeDescription(pht('New blog subtitle.'))
+        ->setLabel(pht('Tiêu đề con'))
+        ->setDescription(pht('Tiêu đề con Blog .'))
+        ->setConduitDescription(pht('Thay đổi tiêu đề con Blog .'))
+        ->setConduitTypeDescription(pht('Tiêu đề con Blog mới.'))
         ->setTransactionType(PhameBlogTransaction::TYPE_SUBTITLE)
         ->setValue($object->getSubtitle()),
      id(new PhabricatorRemarkupEditField())
         ->setKey('description')
-        ->setLabel(pht('Description'))
-        ->setDescription(pht('Blog description.'))
-        ->setConduitDescription(pht('Change the blog description.'))
-        ->setConduitTypeDescription(pht('New blog description.'))
+        ->setLabel(pht('Mô tả'))
+        ->setDescription(pht('Mô tả Blog.'))
+        ->setConduitDescription(pht('Thay đổi mô tả Blog.'))
+        ->setConduitTypeDescription(pht('Mô tả mới.'))
         ->setTransactionType(PhameBlogTransaction::TYPE_DESCRIPTION)
         ->setValue($object->getDescription()),
       id(new PhabricatorTextEditField())
         ->setKey('domainFullURI')
-        ->setLabel(pht('Full Domain URI'))
-        ->setControlInstructions(pht('Set Full Domain URI if you plan to '.
-          'serve this blog on another hosted domain. Parent Site Name and '.
-          'Parent Site URI are optional but helpful since they provide '.
-          'a link from the blog back to your parent site.'))
-        ->setDescription(pht('Blog full domain URI.'))
-        ->setConduitDescription(pht('Change the blog full domain URI.'))
-        ->setConduitTypeDescription(pht('New blog full domain URI.'))
+        ->setLabel(pht('Miền đầy đủ URI'))
+        ->setControlInstructions(pht('Tạo miền  URI đầy đủ  nếu bạn có kế hoạch '.
+          'phục vụ blog này trên một tên miền khác . Tên trang chủ và  '.
+          'Parent Site URI được tùy chọn nhưng hữu ích vì chúng cung cấp các liên kết'.
+          'từ blog trở lại trang chủ của bạn.'))
+        ->setDescription(pht('Miền đầy đủ Blog URI.'))
+        ->setConduitDescription(pht('Thay đổi tên miền đầy đủ Blog URI.'))
+        ->setConduitTypeDescription(pht('Tên miền đầy đủ mới Blog URI.'))
         ->setValue($object->getDomainFullURI())
         ->setTransactionType(PhameBlogTransaction::TYPE_FULLDOMAIN),
       id(new PhabricatorTextEditField())
         ->setKey('parentSite')
         ->setLabel(pht('Parent Site Name'))
         ->setDescription(pht('Blog parent site name.'))
-        ->setConduitDescription(pht('Change the blog parent site name.'))
-        ->setConduitTypeDescription(pht('New blog parent site name.'))
+        ->setConduitDescription(pht('Thay đổi blog parent site name.'))
+        ->setConduitTypeDescription(pht('Tạo mới blog parent site name.'))
         ->setValue($object->getParentSite())
         ->setTransactionType(PhameBlogTransaction::TYPE_PARENTSITE),
       id(new PhabricatorTextEditField())
         ->setKey('parentDomain')
         ->setLabel(pht('Parent Site URI'))
         ->setDescription(pht('Blog parent domain name.'))
-        ->setConduitDescription(pht('Change the blog parent domain.'))
-        ->setConduitTypeDescription(pht('New blog parent domain.'))
+        ->setConduitDescription(pht('Thay đổi blog parent domain.'))
+        ->setConduitTypeDescription(pht('Tạo mới  blog parent domain.'))
         ->setValue($object->getParentDomain())
         ->setTransactionType(PhameBlogTransaction::TYPE_PARENTDOMAIN),
       id(new PhabricatorSelectEditField())
         ->setKey('status')
-        ->setLabel(pht('Status'))
+        ->setLabel(pht('Trạng thái'))
         ->setTransactionType(PhameBlogTransaction::TYPE_STATUS)
         ->setIsConduitOnly(true)
         ->setOptions(PhameBlog::getStatusNameMap())
-        ->setDescription(pht('Active or archived status.'))
-        ->setConduitDescription(pht('Active or archive the blog.'))
-        ->setConduitTypeDescription(pht('New blog status constant.'))
+        ->setDescription(pht('Hoạt động hoặc lưu trữ.'))
+        ->setConduitDescription(pht('Hoạt động hoặc lưu trữ blog.'))
+        ->setConduitTypeDescription(pht('Tình trạng Blog mới.'))
         ->setValue($object->getStatus()),
     );
   }

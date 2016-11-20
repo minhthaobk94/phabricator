@@ -101,8 +101,8 @@ final class PhameBlog extends PhameDAO
 
   public static function getStatusNameMap() {
     return array(
-      self::STATUS_ACTIVE => pht('Active'),
-      self::STATUS_ARCHIVED => pht('Archived'),
+      self::STATUS_ACTIVE => pht('Hoạt động'),
+      self::STATUS_ARCHIVED => pht('Lưu trữ'),
     );
   }
 
@@ -130,8 +130,8 @@ final class PhameBlog extends PhameDAO
       return array(
         $label,
         pht(
-          'The custom domain should include a valid protocol in the URI '.
-          '(for example, "%s"). Valid protocols are "http" or "https".',
+          'Custom domain nên bao gồm giao thức URI '.
+          '(ví dụ, "%s").Các gia thức hợp lệ là  "http" or "https".',
           $example_domain),
         );
     }
@@ -140,9 +140,9 @@ final class PhameBlog extends PhameDAO
       return array(
         $label,
         pht(
-          'The custom domain should not specify a path (hosting a Phame '.
-          'blog at a path is currently not supported). Instead, just provide '.
-          'the bare domain name (for example, "%s").',
+          'Các tên miền tùy chỉnh không nên có một đường dẫn (hosting a Phame '.
+          'blog tại đường dẫn này không được hỗ trợ ).Thay vào đó,chỉ cung cấp  '.
+          'tên miền (ví dụ, "%s").',
           $example_domain),
         );
     }
@@ -151,9 +151,9 @@ final class PhameBlog extends PhameDAO
       return array(
         $label,
         pht(
-          'The custom domain should contain at least one dot (.) because '.
-          'some browsers fail to set cookies on domains without a dot. '.
-          'Instead, use a normal looking domain name like "%s".',
+          'Tên miền tùy chỉnh nên có ít nhất một (.) bởi vì  '.
+          'một số trình duyệt không đặt cookie trên các lĩnh vực mà không có một dấu chấm.'.
+          'Thay vào đó, sử dụng một tên miền tìm kiếm bình thường như "%s".',
           $example_domain),
         );
     }
@@ -162,13 +162,12 @@ final class PhameBlog extends PhameDAO
       $href = PhabricatorEnv::getProductionURI(
         '/config/edit/policy.allow-public/');
       return array(
-        pht('Fix Configuration'),
+        pht('Sửa cấu hình'),
         pht(
-          'For custom domains to work, this Phabricator instance must be '.
-          'configured to allow the public access policy. Configure this '.
-          'setting %s, or ask an administrator to configure this setting. '.
-          'The domain can be specified later once this setting has been '.
-          'changed.',
+          'Đối với miền làm việc,  Phabricator này phải được cấu hình để được  '.
+          'truy cập.Cấu hình này  '.
+          'thiết lập  %s, hoặc yêu cầu một quản trị viên để cấu hình thiết lập này. '.
+          'Tên miền có thể được xác định sau khi thiết lập này đã được thay đổi.',
           phutil_tag(
             'a',
             array('href' => $href),
@@ -278,7 +277,7 @@ final class PhameBlog extends PhameDAO
     switch ($capability) {
       case PhabricatorPolicyCapability::CAN_VIEW:
         return pht(
-          'Users who can edit a blog can always view it.');
+          'Người dùng có thể chỉnh sửa một blog có thể luôn luôn xem nó.');
     }
 
     return null;
@@ -373,15 +372,15 @@ final class PhameBlog extends PhameDAO
       id(new PhabricatorConduitSearchFieldSpecification())
         ->setKey('name')
         ->setType('string')
-        ->setDescription(pht('The name of the blog.')),
+        ->setDescription(pht('Tên của  blog.')),
       id(new PhabricatorConduitSearchFieldSpecification())
         ->setKey('description')
         ->setType('string')
-        ->setDescription(pht('Blog description.')),
+        ->setDescription(pht('Mô tả Blog.')),
       id(new PhabricatorConduitSearchFieldSpecification())
         ->setKey('status')
         ->setType('string')
-        ->setDescription(pht('Archived or active status.')),
+        ->setDescription(pht('Trạng thái lưu trữ hoặc hoạt động .')),
     );
   }
 

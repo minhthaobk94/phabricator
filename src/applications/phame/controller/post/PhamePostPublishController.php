@@ -49,15 +49,15 @@ final class PhamePostPublishController extends PhamePostController {
     }
 
     if ($is_publish) {
-      $title = pht('Publish Post');
-      $body = pht('This post will go live once you publish it.');
-      $button = pht('Publish');
+      $title = pht('Xuất bản bài viết');
+      $body = pht('Bài viết này sẽ đi trực tiếp khi bạn xuất bản nó.');
+      $button = pht('Xuất bản');
     } else {
-      $title = pht('Unpublish Post');
+      $title = pht('Không xuất bản bài viết ');
       $body = pht(
-        'This post will revert to draft status and no longer be visible '.
+        'Bài này sẽ phục hổi để soạn thảo và tình trạng không còn được nhìn thấy '.
         'to other users.');
-      $button = pht('Unpublish');
+      $button = pht('Không xuất bản ');
     }
 
     return $this->newDialog()

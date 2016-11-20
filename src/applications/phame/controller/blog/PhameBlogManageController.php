@@ -22,11 +22,11 @@ final class PhameBlogManageController extends PhameBlogController {
 
     if ($blog->isArchived()) {
       $header_icon = 'fa-ban';
-      $header_name = pht('Archived');
+      $header_name = pht('Đã hoàn thành');
       $header_color = 'dark';
     } else {
       $header_icon = 'fa-check';
-      $header_name = pht('Active');
+      $header_name = pht('Hoàn thành');
       $header_color = 'bluegrey';
     }
 
@@ -34,7 +34,7 @@ final class PhameBlogManageController extends PhameBlogController {
 
     $view = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('View Live'))
+      ->setText(pht('Xem trực tiếp'))
       ->setIcon('fa-external-link')
       ->setHref($blog->getLiveURI())
       ->setDisabled($blog->isArchived());
@@ -83,8 +83,8 @@ final class PhameBlogManageController extends PhameBlogController {
     $view = id(new PHUITwoColumnView())
       ->setHeader($header)
       ->setCurtain($curtain)
-      ->addPropertySection(pht('Details'), $properties)
-      ->addPropertySection(pht('Header'), $file)
+      ->addPropertySection(pht('Chi tiết'), $properties)
+      ->addPropertySection(pht('Tiêu đề'), $file)
       ->setMainColumn(
         array(
           $timeline,
@@ -112,21 +112,21 @@ final class PhameBlogManageController extends PhameBlogController {
     if (!$full_domain) {
       $full_domain = phutil_tag('em', array(), pht('No external domain'));
     }
-    $properties->addProperty(pht('Full Domain'), $full_domain);
+    $properties->addProperty(pht('Tên miền đầy đủ'), $full_domain);
 
     $parent_site = $blog->getParentSite();
     if (!$parent_site) {
-      $parent_site = phutil_tag('em', array(), pht('No parent site'));
+      $parent_site = phutil_tag('em', array(), pht('Không có trang web chủ'));
     }
 
-    $properties->addProperty(pht('Parent Site'), $parent_site);
+    $properties->addProperty(pht('Web chủ'), $parent_site);
 
     $parent_domain = $blog->getParentDomain();
     if (!$parent_domain) {
-      $parent_domain = phutil_tag('em', array(), pht('No parent domain'));
+      $parent_domain = phutil_tag('em', array(), pht('Không có miền chủ'));
     }
 
-    $properties->addProperty(pht('Parent Domain'), $parent_domain);
+    $properties->addProperty(pht('Miền chủ'), $parent_domain);
 
     $feed_uri = PhabricatorEnv::getProductionURI(
       $this->getApplicationURI('blog/feed/'.$blog->getID().'/'));
@@ -137,7 +137,7 @@ final class PhameBlogManageController extends PhameBlogController {
           'href' => $feed_uri,
           'sigil' => 'has-tooltip',
           'meta' => array(
-            'tip' => pht('Atom URI does not support custom domains.'),
+            'tip' => pht('Atom URI không hỗ trợ các lĩnh vực tùy chỉnh.'),
             'size' => 320,
           ),
         ),
@@ -148,7 +148,7 @@ final class PhameBlogManageController extends PhameBlogController {
       $blog);
 
     $properties->addProperty(
-      pht('Editable By'),
+      pht('Chỉnh sửa bởi'),
       $descriptions[PhabricatorPolicyCapability::CAN_EDIT]);
 
     $engine = id(new PhabricatorMarkupEngine())
@@ -160,7 +160,7 @@ final class PhameBlogManageController extends PhameBlogController {
     if (strlen($description)) {
       $description = new PHUIRemarkupView($viewer, $description);
       $properties->addSectionHeader(
-        pht('Description'),
+        pht('Mô tả'),
         PHUIPropertyListView::ICON_SUMMARY);
       $properties->addTextContent($description);
     }
@@ -186,7 +186,7 @@ final class PhameBlogManageController extends PhameBlogController {
       id(new PhabricatorActionView())
         ->setIcon('fa-pencil')
         ->setHref($this->getApplicationURI('blog/edit/'.$blog->getID().'/'))
-        ->setName(pht('Edit Blog'))
+        ->setName(pht('Sửa Blog'))
         ->setDisabled(!$can_edit)
         ->setWorkflow(!$can_edit));
 
@@ -194,7 +194,7 @@ final class PhameBlogManageController extends PhameBlogController {
       id(new PhabricatorActionView())
         ->setIcon('fa-camera')
         ->setHref($this->getApplicationURI('blog/header/'.$blog->getID().'/'))
-        ->setName(pht('Edit Blog Header'))
+        ->setName(pht('Sửa tiêu đề Blog'))
         ->setDisabled(!$can_edit)
         ->setWorkflow(!$can_edit));
 
@@ -202,14 +202,14 @@ final class PhameBlogManageController extends PhameBlogController {
       id(new PhabricatorActionView())
         ->setIcon('fa-picture-o')
         ->setHref($this->getApplicationURI('blog/picture/'.$blog->getID().'/'))
-        ->setName(pht('Edit Blog Picture'))
+        ->setName(pht('Sửa ảnh Blog'))
         ->setDisabled(!$can_edit)
         ->setWorkflow(!$can_edit));
 
     if ($blog->isArchived()) {
       $curtain->addAction(
         id(new PhabricatorActionView())
-          ->setName(pht('Activate Blog'))
+          ->setName(pht('Kích hoạt Blog'))
           ->setIcon('fa-check')
           ->setHref(
             $this->getApplicationURI('blog/archive/'.$blog->getID().'/'))
@@ -218,7 +218,7 @@ final class PhameBlogManageController extends PhameBlogController {
     } else {
       $curtain->addAction(
         id(new PhabricatorActionView())
-          ->setName(pht('Archive Blog'))
+          ->setName(pht('Lưu trữ  Blog'))
           ->setIcon('fa-ban')
           ->setHref(
             $this->getApplicationURI('blog/archive/'.$blog->getID().'/'))

@@ -7,7 +7,7 @@ final class PhabricatorAlmanacApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Almanac');
+    return pht('sdh');
   }
 
   public function getShortDescription() {

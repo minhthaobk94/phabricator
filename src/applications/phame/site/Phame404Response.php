@@ -28,9 +28,9 @@ final class Phame404Response extends AphrontHTMLResponse {
       array(
         phutil_tag('strong', array(), pht('404 Not Found')),
         phutil_tag('br'),
-        pht('Wherever you go, there you are.'),
+        pht('Bất cứ nơi nào bạn đi, nơi đó có bạn.'),
         phutil_tag('br'),
-        pht('But the page you seek is elsewhere.'),
+        pht('Nhưng các trang web mà bạn tìm được ở nơi khác.'),
       ));
 
     $page = $this->getPage()

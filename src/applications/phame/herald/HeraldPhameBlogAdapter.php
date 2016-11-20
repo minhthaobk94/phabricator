@@ -13,7 +13,7 @@ final class HeraldPhameBlogAdapter extends HeraldAdapter {
   }
 
   public function getAdapterContentDescription() {
-    return pht('React to Phame Blogs being created or updated.');
+    return pht('Đáp lại Phame Blogs được tạo ra hoặc cập nhật.');
   }
 
   protected function initializeNewAdapter() {

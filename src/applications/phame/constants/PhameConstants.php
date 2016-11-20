@@ -8,19 +8,19 @@ final class PhameConstants extends Phobject {
 
   public static function getPhamePostStatusMap() {
     return array(
-      self::VISIBILITY_PUBLISHED  => pht('Published'),
-      self::VISIBILITY_DRAFT => pht('Draft'),
-      self::VISIBILITY_ARCHIVED => pht('Archived'),
+      self::VISIBILITY_PUBLISHED  => pht('Được phát hành'),
+      self::VISIBILITY_DRAFT => pht('Bản nháp'),
+      self::VISIBILITY_ARCHIVED => pht('Lưu trữ'),
     );
   }
 
   public static function getPhamePostStatusName($status) {
     $map = array(
-      self::VISIBILITY_PUBLISHED => pht('Published'),
-      self::VISIBILITY_DRAFT => pht('Draft'),
-      self::VISIBILITY_ARCHIVED => pht('Archived'),
+      self::VISIBILITY_PUBLISHED => pht('Được phát hành'),
+      self::VISIBILITY_DRAFT => pht('Bản nháp'),
+      self::VISIBILITY_ARCHIVED => pht('Lưu trữ'),
     );
-    return idx($map, $status, pht('Unknown'));
+    return idx($map, $status, pht('Không biết'));
   }
 
 }

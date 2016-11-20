@@ -82,7 +82,7 @@ final class PhamePostListView extends AphrontTagView {
         $phame_post = PhabricatorMarkupEngine::summarize($post->getBody());
         $phame_post = new PHUIRemarkupView($viewer, $phame_post);
       } else {
-        $phame_post = phutil_tag('em', array(), pht('(Empty Post)'));
+        $phame_post = phutil_tag('em', array(), pht('(Bài đăng rỗng)'));
       }
 
       $date = phabricator_datetime($post->getDatePublished(), $viewer);
@@ -112,21 +112,21 @@ final class PhamePostListView extends AphrontTagView {
       if ($this->showBlog) {
         if ($post->isDraft()) {
           $subtitle = pht(
-            'Unpublished draft by %s in %s.',
+            'Không công khai bản phác thảo bởi %s ở %s.',
             $blogger,
             $blog_link);
         } else {
           $subtitle = pht(
-            'Written by %s on %s in %s.',
+            'Được viết bởi %s vào %s ở %s.',
             $blogger,
             $date,
             $blog_link);
         }
       } else {
         if ($post->isDraft()) {
-          $subtitle = pht('Unpublished draft by %s.', $blogger);
+          $subtitle = pht('Không công khai phác thảo bởi %s.', $blogger);
         } else {
-          $subtitle = pht('Written by %s on %s.', $blogger, $date);
+          $subtitle = pht('Được viết bởi %s vào  %s.', $blogger, $date);
         }
       }
 

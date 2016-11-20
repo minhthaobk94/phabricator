@@ -49,15 +49,15 @@ final class PhameBlogProfilePictureController
         } else {
           $e_file = pht('Required');
           $errors[] = pht(
-            'You must choose a file when uploading a new blog picture.');
+            'Bạn phải chọn một tập tin khi tải lên một hình ảnh blog mới.');
         }
       }
 
       if (!$errors && !$is_default) {
         if (!$file->isTransformableImage()) {
-          $e_file = pht('Not Supported');
+          $e_file = pht('Không hỗ trợ');
           $errors[] = pht(
-            'This server only supports these image formats: %s.',
+            'Máy chủ này chỉ hỗ trợ các định dạng hình ảnh: %s.',
             implode(', ', $supported_formats));
         } else {
           $xform = PhabricatorFileTransform::getTransformByKey(
@@ -91,7 +91,7 @@ final class PhameBlogProfilePictureController
       }
     }
 
-    $title = pht('Edit Blog Picture');
+    $title = pht('Sửa hình ảnh Blog');
 
     $form = id(new PHUIFormLayoutView())
       ->setUser($viewer);
@@ -121,7 +121,7 @@ final class PhameBlogProfilePictureController
 
     $images[PhabricatorPHIDConstants::PHID_VOID] = array(
       'uri' => $default_image->getBestURI(),
-      'tip' => pht('Default Picture'),
+      'tip' => pht('Ảnh mặc định'),
     );
 
     require_celerity_resource('people-profile-css');
@@ -172,13 +172,13 @@ final class PhameBlogProfilePictureController
     if ($has_current) {
       $form->appendChild(
         id(new AphrontFormMarkupControl())
-          ->setLabel(pht('Current Picture'))
+          ->setLabel(pht('Hình ảnh hiện tại'))
           ->setValue(array_shift($buttons)));
     }
 
     $form->appendChild(
       id(new AphrontFormMarkupControl())
-        ->setLabel(pht('Use Picture'))
+        ->setLabel(pht('Sử dụng hình ảnh'))
         ->setValue($buttons));
 
     $form_box = id(new PHUIObjectBoxView())
@@ -193,17 +193,17 @@ final class PhameBlogProfilePictureController
       ->appendChild(
         id(new AphrontFormFileControl())
           ->setName('picture')
-          ->setLabel(pht('Upload Picture'))
+          ->setLabel(pht('Tải ảnh lên'))
           ->setError($e_file)
           ->setCaption(
-            pht('Supported formats: %s', implode(', ', $supported_formats))))
+            pht('Được hỗ trợ các định dạng: %s', implode(', ', $supported_formats))))
       ->appendChild(
         id(new AphrontFormSubmitControl())
           ->addCancelButton($blog_uri)
-          ->setValue(pht('Upload Picture')));
+          ->setValue(pht('Tải ảnh lên')));
 
     $upload_box = id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Upload New Picture'))
+      ->setHeaderText(pht('Tải lên ảnh mới'))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->setForm($upload_form);
 
@@ -214,11 +214,11 @@ final class PhameBlogProfilePictureController
     $crumbs->addTextCrumb(
       $blog->getName(),
       $this->getApplicationURI('blog/view/'.$id));
-    $crumbs->addTextCrumb(pht('Blog Picture'));
+    $crumbs->addTextCrumb(pht('Hình ảnh Blog'));
     $crumbs->setBorder(true);
 
     $header = id(new PHUIHeaderView())
-      ->setHeader(pht('Edit Blog Picture'))
+      ->setHeader(pht('Sửa hình ảnh Blog'))
       ->setHeaderIcon('fa-camera');
 
     $view = id(new PHUITwoColumnView())

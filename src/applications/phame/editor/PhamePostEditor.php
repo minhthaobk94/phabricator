@@ -8,7 +8,7 @@ final class PhamePostEditor
   }
 
   public function getEditorObjectsDescription() {
-    return pht('Phame Posts');
+    return pht(' Các bài đăng Phame ');
   }
 
   public function getTransactionTypes() {
@@ -123,8 +123,8 @@ final class PhamePostEditor
         if ($missing) {
           $error = new PhabricatorApplicationTransactionValidationError(
             $type,
-            pht('Required'),
-            pht('Title is required.'),
+            pht('Bắt buộc'),
+            pht('Tiêu đề bắt buộc.'),
             nonempty(last($xactions), null));
 
           $error->setIsMissingFieldError(true);
@@ -136,10 +136,9 @@ final class PhamePostEditor
           if (!$xactions) {
             $error = new PhabricatorApplicationTransactionValidationError(
               $type,
-              pht('Required'),
+              pht('Bắt buộc'),
               pht(
-                'When creating a post, you must specify which blog it '.
-                'should belong to.'),
+                'Khi tạo bài đăng, bạn phải xác định Blog của nó.'),
               null);
 
             $error->setIsMissingFieldError(true);
@@ -168,11 +167,10 @@ final class PhamePostEditor
 
           $errors[] = new PhabricatorApplicationTransactionValidationError(
             $type,
-            pht('Invalid'),
+            pht('Không hợp lệ'),
             pht(
-              'The specified blog PHID ("%s") is not valid. You can only '.
-              'create a post on (or move a post into) a blog which you '.
-              'have permission to see and edit.',
+              'Blog được xác định  PHID ("%s") không hợp lệ. Bạn cỏ thể tạo duy nhất bài đăng '.
+              ' (hoặc di chuyển bài đăng)tới blog mà bạn được phép thấy hoặc sửa.',
               $new_phid),
             $xaction);
         }
@@ -263,13 +261,13 @@ final class PhamePostEditor
   public function getMailTagsMap() {
     return array(
       PhamePostTransaction::MAILTAG_CONTENT =>
-        pht("A post's content changes."),
+        pht("Thay đổi nội dung của bài đăng."),
       PhamePostTransaction::MAILTAG_SUBSCRIBERS =>
-        pht("A post's subscribers change."),
+        pht("Thay đổi nội dung của tiêu đề con của bài đăng."),
       PhamePostTransaction::MAILTAG_COMMENT =>
-        pht('Someone comments on a post.'),
+        pht('Một vài người bình luận trên bài đăng.'),
       PhamePostTransaction::MAILTAG_OTHER =>
-        pht('Other post activity not listed above occurs.'),
+        pht('Một số hoạt động khác.'),
     );
   }
 

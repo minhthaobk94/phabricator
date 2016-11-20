@@ -40,11 +40,11 @@ final class PhamePostArchiveController extends PhamePostController {
         ->setURI($cancel_uri);
     }
 
-    $title = pht('Archive Post');
+    $title = pht('Lưu trữ bài viết');
     $body = pht(
-      'This post will revert to archived status and no longer be visible '.
-      'to other users or members of this blog.');
-    $button = pht('Archive Post');
+      'Bài này sẽ trở lại tình trạng lưu trữ và không còn được hiển thị '.
+      'cho người dùng khác hoặc các thành viên của blog này.');
+    $button = pht('Lưu trữ  bài viết');
 
     return $this->newDialog()
       ->setTitle($title)

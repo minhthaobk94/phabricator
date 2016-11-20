@@ -47,32 +47,32 @@ final class PhameHomeController extends PhamePostController {
       } else {
         $post_list = id(new PHUIBigInfoView())
           ->setIcon('fa-star')
-          ->setTitle('No Visible Posts')
+          ->setTitle('Không nhìn thấy bài đăng')
           ->setDescription(
-            pht('There aren\'t any visible blog posts.'));
+            pht('Không có bài đăng nào được tìm thấy trên Blog.'));
       }
     } else {
       $create_button = id(new PHUIButtonView())
         ->setTag('a')
-        ->setText(pht('Create a Blog'))
+        ->setText(pht('Tạo mới Blog'))
         ->setHref('/phame/blog/edit/')
         ->setColor(PHUIButtonView::GREEN);
 
       $post_list = id(new PHUIBigInfoView())
         ->setIcon('fa-star')
-        ->setTitle('Welcome to Phame')
+        ->setTitle('Chào mừng đến Phame')
         ->setDescription(
-          pht('There aren\'t any visible blog posts.'))
+          pht('Không có bài đăng nào được tìm thấy trên Blog.'))
         ->addAction($create_button);
     }
 
     $view_all = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('View All'))
+      ->setText(pht('Hiển thị tất cả'))
       ->setHref($this->getApplicationURI('post/'))
       ->setIcon('fa-list-ul');
 
-    $title = pht('Recent Posts');
+    $title = pht('Các bài đăng hiện tại');
 
     $header = id(new PHUIHeaderView())
       ->setHeader($title)
@@ -81,7 +81,7 @@ final class PhameHomeController extends PhamePostController {
     $crumbs = $this->buildApplicationCrumbs();
     $crumbs->setBorder(true);
     $crumbs->addTextCrumb(
-      pht('Recent Posts'),
+      pht('Các bài đăng gần đây'),
       $this->getApplicationURI('post/'));
 
     $page = id(new PHUIDocumentViewPro())

@@ -132,16 +132,16 @@ final class PhameBlogTransaction
     switch ($type) {
       case PhabricatorTransactions::TYPE_CREATE:
         return pht(
-          '%s created this blog.',
+          '%s tạo blog.',
           $this->renderHandleLink($author_phid));
       case self::TYPE_NAME:
         if ($old === null) {
           return pht(
-            '%s created this blog.',
+            '%s tạo blog.',
             $this->renderHandleLink($author_phid));
         } else {
           return pht(
-            '%s updated the blog\'s name to "%s".',
+            '%s cập nhật tên blog thành "%s".',
             $this->renderHandleLink($author_phid),
             $new);
         }
@@ -149,36 +149,36 @@ final class PhameBlogTransaction
       case self::TYPE_SUBTITLE:
         if ($old === null) {
           return pht(
-            '%s set this blog\'s subtitle to "%s".',
+            '%s Tạo tiêu đề con blog này thành  "%s".',
             $this->renderHandleLink($author_phid),
             $new);
         } else {
           return pht(
-            '%s updated the blog\'s subtitle to "%s".',
+            '%s Cập nhật tiêu đề con blog này thành  "%s".',
             $this->renderHandleLink($author_phid),
             $new);
         }
         break;
       case self::TYPE_DESCRIPTION:
         return pht(
-          '%s updated the blog\'s description.',
+          '%s Cập nhật mô tả blog .',
           $this->renderHandleLink($author_phid));
         break;
       case self::TYPE_FULLDOMAIN:
         return pht(
-          '%s updated the blog\'s full domain to "%s".',
+          '%s Cập nhật tê miền blog này thành "%s".',
           $this->renderHandleLink($author_phid),
           $new);
         break;
       case self::TYPE_PARENTSITE:
         if ($old === null) {
           return pht(
-            '%s set this blog\'s parent site to "%s".',
+            '%s Thiết lập trang web chủ này thành "%s".',
             $this->renderHandleLink($author_phid),
             $new);
         } else {
           return pht(
-            '%s updated the blog\'s parent site to "%s".',
+            '%s Cập nhật trang web chủ này thành "%s".',
             $this->renderHandleLink($author_phid),
             $new);
         }
@@ -186,12 +186,12 @@ final class PhameBlogTransaction
       case self::TYPE_PARENTDOMAIN:
         if ($old === null) {
           return pht(
-            '%s set this blog\'s parent domain to "%s".',
+            '%s  Thiết lập miền trang web chủ này thành "%s".',
             $this->renderHandleLink($author_phid),
             $new);
         } else {
           return pht(
-            '%s updated the blog\'s parent domain to "%s".',
+            '%s  Cập nhật trang web chủ này thành "%s".',
             $this->renderHandleLink($author_phid),
             $new);
         }
@@ -199,16 +199,16 @@ final class PhameBlogTransaction
       case self::TYPE_HEADERIMAGE:
         if (!$old) {
           return pht(
-            "%s set this blog's header image to %s.",
+            "%s  Thiết lập tiêu đề hình ảnh blog  này thành %s.",
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($new));
         } else if (!$new) {
           return pht(
-            "%s removed this blog's header image.",
+            "%s Di chuyển  tiêu đề hình ảnh blog  này đến.",
             $this->renderHandleLink($author_phid));
         } else {
           return pht(
-            "%s updated this blog's header image from %s to %s.",
+            "%s Cập nhật tiêu đề hình ảnh blog  này từ %s đến %s.",
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($old),
             $this->renderHandleLink($new));
@@ -217,16 +217,16 @@ final class PhameBlogTransaction
       case self::TYPE_PROFILEIMAGE:
         if (!$old) {
           return pht(
-            "%s set this blog's profile image to %s.",
+            "%s Thiết lập tiêu đề hình ảnh cá nhân blog này thành %s.",
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($new));
         } else if (!$new) {
           return pht(
-            "%s removed this blog's profile image.",
+            "%s Di chuyển tiêu đề hình ảnh cá nhân blog.",
             $this->renderHandleLink($author_phid));
         } else {
           return pht(
-            "%s updated this blog's profile image from %s to %s.",
+            "%s Cập nhật tiêu đề hình ảnh cá nhân blog này từ %s đến %s.",
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($old),
             $this->renderHandleLink($new));
@@ -236,11 +236,11 @@ final class PhameBlogTransaction
         switch ($new) {
           case PhameBlog::STATUS_ACTIVE:
             return pht(
-              '%s published this blog.',
+              '%s Công khai blog này .',
               $this->renderHandleLink($author_phid));
           case PhameBlog::STATUS_ARCHIVED:
             return pht(
-              '%s archived this blog.',
+              '%s lưu blog này.',
               $this->renderHandleLink($author_phid));
         }
 
@@ -261,12 +261,12 @@ final class PhameBlogTransaction
       case self::TYPE_NAME:
         if ($old === null) {
           return pht(
-            '%s created %s.',
+            '%s được tạo %s.',
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($object_phid));
         } else {
           return pht(
-            '%s updated the name for %s.',
+            '%s cập nhật tên cho %s.',
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($object_phid));
         }
@@ -274,49 +274,49 @@ final class PhameBlogTransaction
       case self::TYPE_SUBTITLE:
         if ($old === null) {
           return pht(
-            '%s set the subtitle for %s.',
+            '%s thiết lập tiêu đề con cho %s.',
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($object_phid));
         } else {
           return pht(
-            '%s updated the subtitle for %s.',
+            '%s cập nhật tiêu đề con cho %s.',
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($object_phid));
         }
         break;
       case self::TYPE_DESCRIPTION:
         return pht(
-          '%s updated the description for %s.',
+          '%s cập nhật mô tả cho %s.',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($object_phid));
         break;
       case self::TYPE_FULLDOMAIN:
         return pht(
-          '%s updated the full domain for %s.',
+          '%s cập nhật tên miền cho %s.',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($object_phid));
         break;
       case self::TYPE_PARENTSITE:
         return pht(
-          '%s updated the parent site for %s.',
+          '%s cập nhật trang chủ cho %s.',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($object_phid));
         break;
       case self::TYPE_PARENTDOMAIN:
         return pht(
-          '%s updated the parent domain for %s.',
+          '%s cập nhật tên miền trang chủ cho %s.',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($object_phid));
         break;
       case self::TYPE_HEADERIMAGE:
         return pht(
-          '%s updated the header image for %s.',
+          '%s cập nhật tiêu đề hình ảnh cho %s.',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($object_phid));
         break;
       case self::TYPE_PROFILEIMAGE:
         return pht(
-          '%s updated the profile image for %s.',
+          '%s cập nhật hình ảnh cá nhân cho %s.',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($object_phid));
         break;
@@ -324,12 +324,12 @@ final class PhameBlogTransaction
         switch ($new) {
           case PhameBlog::STATUS_ACTIVE:
             return pht(
-              '%s published the blog %s.',
+              '%s blog được công khai %s.',
               $this->renderHandleLink($author_phid),
               $this->renderHandleLink($object_phid));
           case PhameBlog::STATUS_ARCHIVED:
             return pht(
-              '%s archived the blog %s.',
+              '%s blog được lưu %s.',
               $this->renderHandleLink($author_phid),
               $this->renderHandleLink($object_phid));
         }

@@ -8,15 +8,15 @@ final class PhamePostEditEngine
   const ENGINECONST = 'phame.post';
 
   public function getEngineName() {
-    return pht('Blog Posts');
+    return pht('Các bài đăng Blog');
   }
 
   public function getSummaryHeader() {
-    return pht('Configure Blog Post Forms');
+    return pht('Cấu hình Blog Post Forms');
   }
 
   public function getSummaryText() {
-    return pht('Configure creation and editing blog posts in Phame.');
+    return pht('Cấu hình và chỉnh sửa các bài viết của blog trong Phame.');
   }
 
   public function setBlog(PhameBlog $blog) {
@@ -45,11 +45,11 @@ final class PhamePostEditEngine
   }
 
   protected function getObjectCreateTitleText($object) {
-    return pht('Create New Post');
+    return pht('Tạo bài đăng mới');
   }
 
   protected function getObjectEditTitleText($object) {
-    return pht('Edit %s', $object->getTitle());
+    return pht('Sửa %s', $object->getTitle());
   }
 
   protected function getObjectEditShortText($object) {
@@ -57,11 +57,11 @@ final class PhamePostEditEngine
   }
 
   protected function getObjectCreateShortText() {
-    return pht('Create Post');
+    return pht('Tạo bài đăng mới');
   }
 
   protected function getObjectName() {
-    return pht('Post');
+    return pht('Đăng');
   }
 
   protected function getObjectViewURI($object) {
@@ -79,10 +79,10 @@ final class PhamePostEditEngine
       id(new PhabricatorHandlesEditField())
         ->setKey('blog')
         ->setLabel(pht('Blog'))
-        ->setDescription(pht('Blog to publish this post to.'))
+        ->setDescription(pht('Blog để đăng bài viết này để.'))
         ->setConduitDescription(
-          pht('Choose a blog to create a post on (or move a post to).'))
-        ->setConduitTypeDescription(pht('PHID of the blog.'))
+          pht('Chọn một blog để tạo một bài đăng trên (hoặc di chuyển một bài viết).'))
+        ->setConduitTypeDescription(pht('PHID của Blog.'))
         ->setAliases(array('blogPHID'))
         ->setTransactionType(PhamePostTransaction::TYPE_BLOG)
         ->setHandleParameterType(new AphrontPHIDListHTTPParameterType())
@@ -93,40 +93,40 @@ final class PhamePostEditEngine
         ->setIsLocked(true),
       id(new PhabricatorTextEditField())
         ->setKey('title')
-        ->setLabel(pht('Title'))
-        ->setDescription(pht('Post title.'))
-        ->setConduitDescription(pht('Retitle the post.'))
-        ->setConduitTypeDescription(pht('New post title.'))
+        ->setLabel(pht('Tiêu đề '))
+        ->setDescription(pht('Đăng tiêu đề.'))
+        ->setConduitDescription(pht('Lặp lại tiêu đề.'))
+        ->setConduitTypeDescription(pht('Tiêu đề mới.'))
         ->setTransactionType(PhamePostTransaction::TYPE_TITLE)
         ->setValue($object->getTitle()),
       id(new PhabricatorTextEditField())
         ->setKey('subtitle')
-        ->setLabel(pht('Subtitle'))
-        ->setDescription(pht('Post subtitle.'))
-        ->setConduitDescription(pht('Change the post subtitle.'))
-        ->setConduitTypeDescription(pht('New post subtitle.'))
+        ->setLabel(pht('Tiêu đề con'))
+        ->setDescription(pht('Đăng tiêu đề con.'))
+        ->setConduitDescription(pht('Thay đổi tiêu đề con.'))
+        ->setConduitTypeDescription(pht('Tiêu đề con mới.'))
         ->setTransactionType(PhamePostTransaction::TYPE_SUBTITLE)
         ->setValue($object->getSubtitle()),
       id(new PhabricatorSelectEditField())
         ->setKey('visibility')
-        ->setLabel(pht('Visibility'))
-        ->setDescription(pht('Post visibility.'))
-        ->setConduitDescription(pht('Change post visibility.'))
-        ->setConduitTypeDescription(pht('New post visibility constant.'))
+        ->setLabel(pht('Tầm nhìn'))
+        ->setDescription(pht('Đăng tầm nhìn.'))
+        ->setConduitDescription(pht('Thay đổi tầm nhìn.'))
+        ->setConduitTypeDescription(pht('Tầm nhìn mới.'))
         ->setTransactionType(PhamePostTransaction::TYPE_VISIBILITY)
         ->setValue($object->getVisibility())
         ->setOptions(PhameConstants::getPhamePostStatusMap()),
       id(new PhabricatorRemarkupEditField())
         ->setKey('body')
-        ->setLabel(pht('Body'))
-        ->setDescription(pht('Post body.'))
-        ->setConduitDescription(pht('Change post body.'))
-        ->setConduitTypeDescription(pht('New post body.'))
+        ->setLabel(pht('Thân bài'))
+        ->setDescription(pht('Đăng thân bài.'))
+        ->setConduitDescription(pht('Thay đổi thân bài.'))
+        ->setConduitTypeDescription(pht('Thân bài mới.'))
         ->setTransactionType(PhamePostTransaction::TYPE_BODY)
         ->setValue($object->getBody())
         ->setPreviewPanel(
           id(new PHUIRemarkupPreviewPanel())
-            ->setHeader(pht('Blog Post'))
+            ->setHeader(pht('Đăng Blog'))
             ->setPreviewType(PHUIRemarkupPreviewPanel::DOCUMENT)),
     );
   }

@@ -67,9 +67,9 @@ final class PhamePostMoveController extends PhamePostController {
           ->setValue($v_blog));
 
     return $this->newDialog()
-      ->setTitle(pht('Move Post'))
+      ->setTitle(pht('Di chuyển bài đăng'))
       ->appendChild($form)
-      ->addSubmitButton(pht('Move Post'))
+      ->addSubmitButton(pht('Di chuyển bài đăng'))
       ->addCancelButton($view_uri);
     }
 

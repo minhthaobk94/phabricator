@@ -46,13 +46,13 @@ final class PhameBlogArchiveController
     }
 
     if ($blog->isArchived()) {
-      $title = pht('Activate Blog');
-      $body = pht('This blog will become active again.');
-      $button = pht('Activate Blog');
+      $title = pht('Kích hoạt  Blog');
+      $body = pht('Blog này sẽ hoạt động trở lại.');
+      $button = pht('Kích hoạt Blog');
     } else {
-      $title = pht('Archive Blog');
-      $body = pht('This blog will be marked as archived.');
-      $button = pht('Archive Blog');
+      $title = pht('Kích hoạt  Blog');
+      $body = pht('Blog này sẽ được đánh dấu là lưu trữ.');
+      $button = pht('Kích hoạt Blog');
     }
 
     $dialog = id(new AphrontDialogView())

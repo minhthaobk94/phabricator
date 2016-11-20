@@ -233,7 +233,7 @@ final class PhamePost extends PhameDAO
   }
 
   public function describeAutomaticCapability($capability) {
-    return pht('The author of a blog post can always view and edit it.');
+    return pht('Tác giả của bài đăng blog này luôn có thể xem và sửa nó.');
   }
 
 
@@ -331,27 +331,27 @@ final class PhamePost extends PhameDAO
       id(new PhabricatorConduitSearchFieldSpecification())
         ->setKey('title')
         ->setType('string')
-        ->setDescription(pht('Title of the post.')),
+        ->setDescription(pht('Tiêu đề của bài đăng.')),
       id(new PhabricatorConduitSearchFieldSpecification())
         ->setKey('slug')
         ->setType('string')
-        ->setDescription(pht('Slug for the post.')),
+        ->setDescription(pht('Chi tiết của bài đăng.')),
       id(new PhabricatorConduitSearchFieldSpecification())
         ->setKey('blogPHID')
         ->setType('phid')
-        ->setDescription(pht('PHID of the blog that the post belongs to.')),
+        ->setDescription(pht('PHID của blog rằng bài đăng thuộc về .')),
       id(new PhabricatorConduitSearchFieldSpecification())
         ->setKey('authorPHID')
         ->setType('phid')
-        ->setDescription(pht('PHID of the author of the post.')),
+        ->setDescription(pht('PHID của tác giả.')),
       id(new PhabricatorConduitSearchFieldSpecification())
         ->setKey('body')
         ->setType('string')
-        ->setDescription(pht('Body of the post.')),
+        ->setDescription(pht('Thân bài đăng.')),
       id(new PhabricatorConduitSearchFieldSpecification())
         ->setKey('datePublished')
         ->setType('epoch?')
-        ->setDescription(pht('Publish date, if the post has been published.')),
+        ->setDescription(pht('Ngày đăng ,nếu bài đăng được công khai.')),
 
     );
   }
