@@ -11,7 +11,7 @@ final class PhabricatorFeedApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Review Recent Activity');
+    return pht('Xem lại hoạt động gần đây');
   }
 
   public function getIcon() {

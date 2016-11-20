@@ -11,7 +11,7 @@ final class PhabricatorPhluxApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Key/Value Configuration Store');
+    return pht('Khóa / Cấu hình cửa hàng giá trị gia tăng');
   }
 
   public function getIcon() {

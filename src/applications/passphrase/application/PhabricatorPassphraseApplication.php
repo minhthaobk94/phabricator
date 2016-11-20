@@ -11,7 +11,7 @@ final class PhabricatorPassphraseApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Credential Store');
+    return pht('Cửa hàng ủy nhiệm');
   }
 
   public function getIcon() {
@@ -23,7 +23,7 @@ final class PhabricatorPassphraseApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Put your secrets in a lockbox.');
+    return pht('Đặt bí mật của bạn trong một hộp khóa.');
   }
 
   public function getApplicationGroup() {

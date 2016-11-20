@@ -3,7 +3,7 @@
 final class PhabricatorPasteApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Paste');
+    return pht('Dán');
   }
 
   public function getBaseURI() {
@@ -23,7 +23,7 @@ final class PhabricatorPasteApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Share Text Snippets');
+    return pht('Chia sẻ Tiêu đề Snippets ');
   }
 
   public function getRemarkupRules() {

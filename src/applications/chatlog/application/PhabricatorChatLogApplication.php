@@ -11,7 +11,7 @@ final class PhabricatorChatLogApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('(Deprecated)');
+    return pht('(Phản đối)');
   }
 
   public function getIcon() {

@@ -15,7 +15,7 @@ final class PhabricatorHeraldApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Create Notification Rules');
+    return pht('Tạo Quy tắc Thông báo');
   }
 
   public function getTitleGlyph() {
@@ -25,14 +25,14 @@ final class PhabricatorHeraldApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Herald User Guide'),
+        'name' => pht('Hướng dẫn sử dụng Herald Guide'),
         'href' => PhabricatorEnv::getDoclink('Herald User Guide'),
       ),
     );
   }
 
   public function getFlavorText() {
-    return pht('Watch for danger!');
+    return pht('Quan sát các nguy hiểm!');
   }
 
   public function getApplicationGroup() {

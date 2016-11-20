@@ -3,7 +3,7 @@
 final class PhabricatorTransactionsApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Transactions');
+    return pht('Giao dịch');
   }
 
   public function isLaunchable() {

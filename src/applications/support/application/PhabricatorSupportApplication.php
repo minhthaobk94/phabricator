@@ -3,7 +3,7 @@
 final class PhabricatorSupportApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Support');
+    return pht('Hỗ trợ');
   }
 
   public function canUninstall() {

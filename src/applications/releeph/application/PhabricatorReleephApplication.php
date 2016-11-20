@@ -7,7 +7,7 @@ final class PhabricatorReleephApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Pull Requests');
+    return pht('Kéo yêu cầu về ');
   }
 
   public function getBaseURI() {

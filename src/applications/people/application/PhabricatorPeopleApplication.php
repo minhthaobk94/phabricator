@@ -27,7 +27,7 @@ final class PhabricatorPeopleApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Sort of a social utility.');
+    return pht('Phân loại của một tiện ích xã hội.');
   }
 
   public function getApplicationGroup() {

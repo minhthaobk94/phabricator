@@ -3,15 +3,15 @@
 final class PhabricatorCalendarApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Calendar');
+    return pht('Lịch');
   }
 
   public function getShortDescription() {
-    return pht('Upcoming Events');
+    return pht('sự kiện sắp tới');
   }
 
   public function getFlavorText() {
-    return pht('Never miss an episode ever again.');
+    return pht('Không bao giờ bỏ lỡ  trở lại.');
   }
 
   public function getBaseURI() {
@@ -103,16 +103,16 @@ final class PhabricatorCalendarApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Calendar User Guide'),
+        'name' => pht('Hướng dẫn sử dụng'),
         'href' => PhabricatorEnv::getDoclink('Calendar User Guide'),
       ),
       array(
-        'name' => pht('Importing Events'),
+        'name' => pht('Nhập Sự kiện'),
         'href' => PhabricatorEnv::getDoclink(
           'Calendar User Guide: Importing Events'),
       ),
       array(
-        'name' => pht('Exporting Events'),
+        'name' => pht('Xuất Sự kiện'),
         'href' => PhabricatorEnv::getDoclink(
           'Calendar User Guide: Exporting Events'),
       ),
@@ -122,8 +122,8 @@ final class PhabricatorCalendarApplication extends PhabricatorApplication {
   public function getMailCommandObjects() {
     return array(
       'event' => array(
-        'name' => pht('Email Commands: Events'),
-        'header' => pht('Interacting with Calendar Events'),
+        'name' => pht('Lệnh Email: Sự kiện'),
+        'header' => pht('Tương tác với Lịch sự kiện'),
         'object' => new PhabricatorCalendarEvent(),
         'summary' => pht(
           'This page documents the commands you can use to interact with '.
@@ -136,12 +136,12 @@ final class PhabricatorCalendarApplication extends PhabricatorApplication {
   protected function getCustomCapabilities() {
     return array(
       PhabricatorCalendarEventDefaultViewCapability::CAPABILITY => array(
-        'caption' => pht('Default view policy for newly created events.'),
+        'caption' => pht('Chính sách mặc định cho các sự kiện mới được tạo.'),
         'template' => PhabricatorCalendarEventPHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_VIEW,
       ),
       PhabricatorCalendarEventDefaultEditCapability::CAPABILITY => array(
-        'caption' => pht('Default edit policy for newly created events.'),
+        'caption' => pht('Chỉnh sửa chính sách mặc định cho các sự kiện mới được tạo.'),
         'template' => PhabricatorCalendarEventPHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_EDIT,
       ),

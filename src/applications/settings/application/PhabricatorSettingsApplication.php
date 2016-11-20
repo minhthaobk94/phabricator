@@ -7,11 +7,11 @@ final class PhabricatorSettingsApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Settings');
+    return pht('Cài đặt');
   }
 
   public function getShortDescription() {
-    return pht('User Preferences');
+    return pht('Sở thích của người sử dụng');
   }
 
   public function getIcon() {

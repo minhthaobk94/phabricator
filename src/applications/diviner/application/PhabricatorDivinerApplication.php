@@ -11,17 +11,17 @@ final class PhabricatorDivinerApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Diviner');
+    return pht(' Sự tiên đoán ');
   }
 
   public function getShortDescription() {
-    return pht('Documentation');
+    return pht('Tài liệu');
   }
 
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Diviner User Guide'),
+        'name' => pht('Hướng dẫn sử dụng'),
         'href' => PhabricatorEnv::getDoclink('Diviner User Guide'),
       ),
     );

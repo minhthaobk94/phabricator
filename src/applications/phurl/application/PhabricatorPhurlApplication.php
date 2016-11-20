@@ -7,11 +7,11 @@ final class PhabricatorPhurlApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('URL Shortener');
+    return pht('Rút ngắn URL ');
   }
 
   public function getFlavorText() {
-    return pht('Shorten your favorite URL.');
+    return pht('Rút ngắn URL ưa thích của bạn .');
   }
 
   public function getBaseURI() {

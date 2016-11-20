@@ -10,11 +10,11 @@ final class PhabricatorHomeApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Home');
+    return pht('Trang chủ');
   }
 
   public function getShortDescription() {
-    return pht('Command Center');
+    return pht('Trung tâm chỉ huy');
   }
 
   public function getIcon() {
