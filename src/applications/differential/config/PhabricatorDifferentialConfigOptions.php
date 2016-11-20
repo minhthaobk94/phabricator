@@ -95,7 +95,7 @@ EOHELP
           pht(
             "Chọn và tái đặt các trường của sự thay đổi .\n\n".
             "Chú ý: Tính năng này đang được phát triển và chủ đề".
-             "thay đổi".)),
+             "thay đổi")),
       $this->newOption(
         'differential.whitespace-matters',
         'list<regex>',
