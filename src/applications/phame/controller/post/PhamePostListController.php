@@ -27,7 +27,7 @@ final class PhamePostListController extends PhamePostController {
       ->addNavigationItems($nav->getMenu());
 
     $nav->addLabel(pht('Blogs'));
-    $nav->addFilter('blog/', pht('Manage Blogs'));
+    $nav->addFilter('blog/', pht('Quản lý Blogs'));
 
     $nav->selectFilter(null);
 

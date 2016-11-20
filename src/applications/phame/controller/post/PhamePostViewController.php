@@ -37,37 +37,36 @@ final class PhamePostViewController
       $document->appendChild(
         id(new PHUIInfoView())
           ->setSeverity(PHUIInfoView::SEVERITY_NOTICE)
-          ->appendChild(pht('Post moved successfully.')));
+          ->appendChild(pht('Bài đăng được chuyển thành công.')));
     }
 
     if ($post->isDraft()) {
       $document->appendChild(
         id(new PHUIInfoView())
           ->setSeverity(PHUIInfoView::SEVERITY_NOTICE)
-          ->setTitle(pht('Draft Post'))
+          ->setTitle(pht('Phác thảo bài đăng'))
           ->appendChild(
-            pht('Only you can see this draft until you publish it. '.
-                'Use "Publish" to publish this post.')));
+            pht('Chỉ có bạn mới có thể thấy dự thảo này cho đến khi bạn xuất bản nó. '.
+                'Sử dụng "Publish" để đăng bài viết này.')));
     }
 
     if ($post->isArchived()) {
       $document->appendChild(
         id(new PHUIInfoView())
           ->setSeverity(PHUIInfoView::SEVERITY_ERROR)
-          ->setTitle(pht('Archived Post'))
+          ->setTitle(pht('Lưu trữ bài đăng'))
           ->appendChild(
-            pht('Only you can see this archived post until you publish it. '.
-                'Use "Publish" to publish this post.')));
+            pht('Chỉ có bạn mới có thể thấy lưu trữ này cho đến khi bạn xuất bản nó. '.
+                'Sử dụng "Publish" để đăng bài viết này.')));
     }
 
     if (!$post->getBlog()) {
       $document->appendChild(
         id(new PHUIInfoView())
           ->setSeverity(PHUIInfoView::SEVERITY_WARNING)
-          ->setTitle(pht('Not On A Blog'))
+          ->setTitle(pht('Không có trên Blog'))
           ->appendChild(
-            pht('This post is not associated with a blog (the blog may have '.
-                'been deleted). Use "Move Post" to move it to a new blog.')));
+            pht('Bài này không liên kết với một blog (blog có thể đã bị xóa. Sử dụng "Di chuyển bài" để di chuyển nó đến một blog mới.')));
     }
 
     $engine = id(new PhabricatorMarkupEngine())
@@ -103,11 +102,11 @@ final class PhamePostViewController
 
     $date = phabricator_datetime($post->getDatePublished(), $viewer);
     if ($post->isDraft()) {
-      $subtitle = pht('Unpublished draft by %s.', $author);
+      $subtitle = pht('Dự thảo chưa được xuất bản bởi %s.', $author);
     } else if ($post->isArchived()) {
-      $subtitle = pht('Archived post by %s.', $author);
+      $subtitle = pht('Lưu trữ bài đăng bởi %s.', $author);
     } else {
-      $subtitle = pht('Written by %s on %s.', $author, $date);
+      $subtitle = pht('Được viết bởi %s vào %s.', $author, $date);
     }
 
     $user_icon = $blogger_profile->getIcon();
@@ -204,21 +203,21 @@ final class PhamePostViewController
       id(new PhabricatorActionView())
         ->setIcon('fa-pencil')
         ->setHref($this->getApplicationURI('post/edit/'.$id.'/'))
-        ->setName(pht('Edit Post'))
+        ->setName(pht('Sửa bài đăng'))
         ->setDisabled(!$can_edit));
 
     $actions->addAction(
       id(new PhabricatorActionView())
         ->setIcon('fa-camera-retro')
         ->setHref($this->getApplicationURI('post/header/'.$id.'/'))
-        ->setName(pht('Edit Header Image'))
+        ->setName(pht('Sửa tiêu đề ảnh'))
         ->setDisabled(!$can_edit));
 
     $actions->addAction(
       id(new PhabricatorActionView())
         ->setIcon('fa-arrows')
         ->setHref($this->getApplicationURI('post/move/'.$id.'/'))
-        ->setName(pht('Move Post'))
+        ->setName(pht('Di chuyển bài đăng'))
         ->setDisabled(!$can_edit)
         ->setWorkflow(true));
 
@@ -226,21 +225,21 @@ final class PhamePostViewController
       id(new PhabricatorActionView())
         ->setIcon('fa-history')
         ->setHref($this->getApplicationURI('post/history/'.$id.'/'))
-        ->setName(pht('View History')));
+        ->setName(pht('Hiển thị lịch sử')));
 
     if ($post->isDraft()) {
       $actions->addAction(
         id(new PhabricatorActionView())
           ->setIcon('fa-eye')
           ->setHref($this->getApplicationURI('post/publish/'.$id.'/'))
-          ->setName(pht('Publish'))
+          ->setName(pht('Xuất bản'))
           ->setDisabled(!$can_edit)
           ->setWorkflow(true));
       $actions->addAction(
         id(new PhabricatorActionView())
           ->setIcon('fa-ban')
           ->setHref($this->getApplicationURI('post/archive/'.$id.'/'))
-          ->setName(pht('Archive'))
+          ->setName(pht('Lưu trữ'))
           ->setDisabled(!$can_edit)
           ->setWorkflow(true));
     } else if ($post->isArchived()) {
@@ -248,7 +247,7 @@ final class PhamePostViewController
         id(new PhabricatorActionView())
           ->setIcon('fa-eye')
           ->setHref($this->getApplicationURI('post/publish/'.$id.'/'))
-          ->setName(pht('Publish'))
+          ->setName(pht('Xuất bản'))
           ->setDisabled(!$can_edit)
           ->setWorkflow(true));
     } else {
@@ -256,22 +255,22 @@ final class PhamePostViewController
         id(new PhabricatorActionView())
           ->setIcon('fa-eye-slash')
           ->setHref($this->getApplicationURI('post/unpublish/'.$id.'/'))
-          ->setName(pht('Unpublish'))
+          ->setName(pht('Không xuất bản'))
           ->setDisabled(!$can_edit)
           ->setWorkflow(true));
       $actions->addAction(
         id(new PhabricatorActionView())
           ->setIcon('fa-ban')
           ->setHref($this->getApplicationURI('post/archive/'.$id.'/'))
-          ->setName(pht('Archive'))
+          ->setName(pht('Lưu trữ'))
           ->setDisabled(!$can_edit)
           ->setWorkflow(true));
     }
 
     if ($post->isDraft()) {
-      $live_name = pht('Preview');
+      $live_name = pht('Trước đó');
     } else {
-      $live_name = pht('View Live');
+      $live_name = pht('Xem trực tiếp');
     }
 
     if (!$post->isArchived()) {

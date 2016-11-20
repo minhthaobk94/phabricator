@@ -12,7 +12,7 @@ final class PhamePostSearchConduitAPIMethod
   }
 
   public function getMethodSummary() {
-    return pht('Read information about blog posts.');
+    return pht('Đọc thông tin về các bài viết trên blogs.');
   }
 
 }

@@ -12,7 +12,7 @@ final class PhameBlogEditConduitAPIMethod
   }
 
   public function getMethodSummary() {
-    return pht('Create or edit blogs in Phame.');
+    return pht('Tạo mới hoặc sửa blog trong Phame.');
   }
 
 }

@@ -6,7 +6,7 @@ final class PhameBlogReplyHandler
   public function validateMailReceiver($mail_receiver) {
     if (!($mail_receiver instanceof PhameBlog)) {
       throw new Exception(
-        pht('Mail receiver is not a %s.', 'PhameBlog'));
+        pht('Thư nhận không phải là  %s.', 'PhameBlog'));
     }
   }
 

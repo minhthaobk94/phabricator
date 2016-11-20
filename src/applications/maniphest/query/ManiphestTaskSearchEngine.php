@@ -245,20 +245,20 @@ final class ManiphestTaskSearchEngine
     if ($this->baseURI) {
       return $this->baseURI.$path;
     }
-    return '/maniphest/'.$path;
+    return '/example/'.$path;
   }
 
   protected function getBuiltinQueryNames() {
     $names = array();
 
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['assigned'] = pht('Assigned');
+      //$names['assigned'] = pht('Assigned');
       $names['authored'] = pht('Authored');
-      $names['subscribed'] = pht('Subscribed');
+      //$names['subscribed'] = pht('Subscribed');
     }
 
-    $names['open'] = pht('Open Tasks');
-    $names['all'] = pht('All Tasks');
+    //$names['open'] = pht('Open Tasks');
+   // $names['all'] = pht('All Tasks');
 
     return $names;
   }

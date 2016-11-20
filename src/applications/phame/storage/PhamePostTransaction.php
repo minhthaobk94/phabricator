@@ -122,22 +122,22 @@ final class PhamePostTransaction
     switch ($type) {
       case PhabricatorTransactions::TYPE_CREATE:
         return pht(
-          '%s authored this post.',
+          '%s tác giả bài đăng.',
           $this->renderHandleLink($author_phid));
       case self::TYPE_BLOG:
         return pht(
-          '%s moved this post from "%s" to "%s".',
+          '%s di chuyển bài đăng từ "%s" đến "%s".',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($old),
           $this->renderHandleLink($new));
       case self::TYPE_TITLE:
         if ($old === null) {
           return pht(
-            '%s authored this post.',
+            '%s Tác giả của bài đăng.',
             $this->renderHandleLink($author_phid));
         } else {
           return pht(
-            '%s updated the post\'s name to "%s".',
+            '%s cập nhật tên bài đăng để "%s".',
             $this->renderHandleLink($author_phid),
             $new);
         }
@@ -145,38 +145,38 @@ final class PhamePostTransaction
       case self::TYPE_SUBTITLE:
         if ($old === null) {
           return pht(
-            '%s set the post\'s subtitle to "%s".',
+            '%s thiết lập tiêu đề con bài đăng để "%s".',
             $this->renderHandleLink($author_phid),
             $new);
         } else {
           return pht(
-            '%s updated the post\'s subtitle to "%s".',
+            '%s capaj nhật tiêu đề con của bài đăng để "%s".',
             $this->renderHandleLink($author_phid),
             $new);
         }
         break;
       case self::TYPE_BODY:
         return pht(
-          '%s updated the blog post.',
+          '%s cập nhật bài đăng của blog.',
           $this->renderHandleLink($author_phid));
         break;
       case self::TYPE_HEADERIMAGE:
         return pht(
-          '%s updated the header image.',
+          '%s cập nhật ảnh của tiêu đề.',
           $this->renderHandleLink($author_phid));
         break;
       case self::TYPE_VISIBILITY:
         if ($new == PhameConstants::VISIBILITY_DRAFT) {
           return pht(
-            '%s marked this post as a draft.',
+            '%s	đánh dấu bài này như một dự thảo.',
             $this->renderHandleLink($author_phid));
         } else if ($new == PhameConstants::VISIBILITY_ARCHIVED) {
           return pht(
-            '%s archived this post.',
+            '%s lưu bài đăng này.',
             $this->renderHandleLink($author_phid));
         } else {
           return pht(
-          '%s published this post.',
+          '%s Công khai bài đăng này.',
           $this->renderHandleLink($author_phid));
         }
         break;
@@ -196,12 +196,12 @@ final class PhamePostTransaction
     switch ($type) {
       case PhabricatorTransactions::TYPE_CREATE:
         return pht(
-          '%s authored %s.',
+          '%s tác giả %s.',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($object_phid));
       case self::TYPE_BLOG:
         return pht(
-          '%s moved post "%s" from "%s" to "%s".',
+          '%s di chuyển bài đăng "%s" từ "%s" đến "%s".',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($object_phid),
           $this->renderHandleLink($old),
@@ -209,48 +209,48 @@ final class PhamePostTransaction
       case self::TYPE_TITLE:
         if ($old === null) {
           return pht(
-            '%s authored %s.',
+            '%s tác giả %s.',
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($object_phid));
         } else {
           return pht(
-            '%s updated the name for %s.',
+            '%s cập nhật tên từ  %s.',
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($object_phid));
         }
         break;
       case self::TYPE_SUBTITLE:
         return pht(
-            '%s updated the subtitle for %s.',
+            '%s cập nhật tiêu đề con từ  %s.',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($object_phid));
         break;
       case self::TYPE_BODY:
         return pht(
-          '%s updated the blog post %s.',
+          '%s cập nhật bài đăng từ  %s.',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($object_phid));
         break;
       case self::TYPE_HEADERIMAGE:
         return pht(
-          '%s updated the header image for post %s.',
+          '%s capaj nhật tiêu để hình ảnh cho bài đăng %s.',
           $this->renderHandleLink($author_phid),
           $this->renderHandleLink($object_phid));
         break;
       case self::TYPE_VISIBILITY:
         if ($new == PhameConstants::VISIBILITY_DRAFT) {
           return pht(
-            '%s marked %s as a draft.',
+            '%s được đánh dấu  %s như phác thảo.',
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($object_phid));
         } else if ($new == PhameConstants::VISIBILITY_ARCHIVED) {
           return pht(
-            '%s marked %s as archived.',
+            '%s được đánh dấu %s như lưu trữ.',
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($object_phid));
         } else {
           return pht(
-            '%s published %s.',
+            '%s công khai %s.',
             $this->renderHandleLink($author_phid),
             $this->renderHandleLink($object_phid));
         }

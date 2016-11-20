@@ -41,11 +41,11 @@ final class PhameBlogViewController extends PhameLiveController {
     if (!$is_external) {
       if ($blog->isArchived()) {
         $header_icon = 'fa-ban';
-        $header_name = pht('Archived');
+        $header_name = pht('Lưu trữ');
         $header_color = 'dark';
       } else {
         $header_icon = 'fa-check';
-        $header_name = pht('Active');
+        $header_name = pht('Hoạt động');
         $header_color = 'bluegrey';
       }
       $header->setStatus($header_icon, $header_color, $header_name);
@@ -61,11 +61,11 @@ final class PhameBlogViewController extends PhameLiveController {
         ->setViewer($viewer)
         ->setIsExternal($is_external)
         ->setIsLive($is_live)
-        ->setNodata(pht('This blog has no visible posts.'));
+        ->setNodata(pht('Blog này không có bài viết nhìn thấy.'));
     } else {
       $create_button = id(new PHUIButtonView())
         ->setTag('a')
-        ->setText(pht('Write a Post'))
+        ->setText(pht('Viết một bài đăng'))
         ->setHref($this->getApplicationURI('post/edit/?blog='.$blog->getID()))
         ->setColor(PHUIButtonView::GREEN);
 
@@ -73,7 +73,7 @@ final class PhameBlogViewController extends PhameLiveController {
         ->setIcon('fa-star')
         ->setTitle($blog->getName())
         ->setDescription(
-          pht('No one has written any blog posts yet.'));
+          pht('Không có ai viết bất cứ bài đăng trên blog .'));
 
       $can_edit = PhabricatorPolicyFilter::hasCapability(
         $viewer,
@@ -95,11 +95,11 @@ final class PhameBlogViewController extends PhameLiveController {
         $viewer,
         $blog->getDescription());
     } else {
-      $description = phutil_tag('em', array(), pht('No description.'));
+      $description = phutil_tag('em', array(), pht('Không mô tả.'));
     }
 
     $about = id(new PhameDescriptionView())
-      ->setTitle(pht('About %s', $blog->getName()))
+      ->setTitle(pht('Về  %s', $blog->getName()))
       ->setDescription($description)
       ->setImage($blog->getProfileImageURI());
 
@@ -135,7 +135,7 @@ final class PhameBlogViewController extends PhameLiveController {
       id(new PhabricatorActionView())
         ->setIcon('fa-plus')
         ->setHref($this->getApplicationURI('post/edit/?blog='.$blog->getID()))
-        ->setName(pht('Write Post'))
+        ->setName(pht('Viết bài đăng'))
         ->setDisabled(!$can_edit)
         ->setWorkflow(!$can_edit));
 
@@ -145,20 +145,20 @@ final class PhameBlogViewController extends PhameLiveController {
         ->setIcon('fa-search')
         ->setHref(
           $this->getApplicationURI('post/?blog='.$blog->getPHID()))
-        ->setName(pht('Search Posts')));
+        ->setName(pht('Tìm kiếm các bài đăng')));
 
     $actions->addAction(
       id(new PhabricatorActionView())
         ->setUser($viewer)
         ->setIcon('fa-globe')
         ->setHref($blog->getLiveURI())
-        ->setName(pht('View Live')));
+        ->setName(pht('Xem trực tiếp')));
 
     $actions->addAction(
       id(new PhabricatorActionView())
         ->setIcon('fa-pencil')
         ->setHref($this->getApplicationURI('blog/manage/'.$blog->getID().'/'))
-        ->setName(pht('Manage Blog')));
+        ->setName(pht('Quản lý Blog')));
 
     return $actions;
   }

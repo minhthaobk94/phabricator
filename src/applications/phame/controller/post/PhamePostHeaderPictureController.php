@@ -39,14 +39,14 @@ final class PhamePostHeaderPictureController
       } else if (!$delete_header) {
         $e_file = pht('Required');
         $errors[] = pht(
-          'You must choose a file when uploading a new post header.');
+          'Bạn phải chọn một tập tin khi tải một  tiêu đề  bài đăng mới.');
       }
 
       if (!$errors && !$delete_header) {
         if (!$file->isTransformableImage()) {
-          $e_file = pht('Not Supported');
+          $e_file = pht('Không được hỗ trợ ');
           $errors[] = pht(
-            'This server only supports these image formats: %s.',
+            'Máy chủ này chỉ hỗ trợ các định dạng hình ảnh: %s.',
             implode(', ', $supported_formats));
         }
       }
@@ -76,7 +76,7 @@ final class PhamePostHeaderPictureController
       }
     }
 
-    $title = pht('Edit Post Header');
+    $title = pht('Sửa tiêu đề bài đăng');
 
     $upload_form = id(new AphrontFormView())
       ->setUser($viewer)
@@ -84,14 +84,14 @@ final class PhamePostHeaderPictureController
       ->appendChild(
         id(new AphrontFormFileControl())
           ->setName('header')
-          ->setLabel(pht('Upload Header'))
+          ->setLabel(pht('Tải lên tiêu đề'))
           ->setError($e_file)
           ->setCaption(
-            pht('Supported formats: %s', implode(', ', $supported_formats))))
+            pht('Hỗ trợ các định dạng : %s', implode(', ', $supported_formats))))
       ->appendChild(
         id(new AphrontFormCheckboxControl())
           ->setName('delete')
-          ->setLabel(pht('Delete Header'))
+          ->setLabel(pht('Xóa tiêu đề'))
           ->addCheckbox(
             'delete',
             1,
@@ -100,10 +100,10 @@ final class PhamePostHeaderPictureController
       ->appendChild(
         id(new AphrontFormSubmitControl())
           ->addCancelButton($post_uri)
-          ->setValue(pht('Upload Header')));
+          ->setValue(pht('Tải lên tiêu đề')));
 
     $upload_box = id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Upload New Header'))
+      ->setHeaderText(pht('Tải lên tiêu đề mới'))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->setForm($upload_form);
 
@@ -111,11 +111,11 @@ final class PhamePostHeaderPictureController
     $crumbs->addTextCrumb(
       $post->getTitle(),
       $this->getApplicationURI('post/view/'.$id));
-    $crumbs->addTextCrumb(pht('Post Header'));
+    $crumbs->addTextCrumb(pht('Đăng tiêu đề'));
     $crumbs->setBorder(true);
 
     $header = id(new PHUIHeaderView())
-      ->setHeader(pht('Edit Post Header'))
+      ->setHeader(pht('Sửa tiêu đề bài đăng'))
       ->setHeaderIcon('fa-camera');
 
     $view = id(new PHUITwoColumnView())

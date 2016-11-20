@@ -1,0 +1,9 @@
+<?php
+
+final class ExampleApplication extends PhutilLocale {
+
+  public function getName() {
+    return pht('Example');
+  }
+
+}

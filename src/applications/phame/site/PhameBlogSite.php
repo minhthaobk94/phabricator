@@ -49,8 +49,7 @@ final class PhameBlogSite extends PhameSite {
     } catch (PhabricatorPolicyException $ex) {
       throw new Exception(
         pht(
-          'This blog is not visible to logged out users, so it can not be '.
-          'visited from a custom domain.'));
+          'Blog này không được hiển thị cho người dùng đăng nhâp vì vậy nó không được truy cập từ một tùy chỉnh'));
     }
 
     if (!$blog) {
