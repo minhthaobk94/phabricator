@@ -1,17 +1,17 @@
 <?php
 
-final class ExampleApplication extends PhabricatorApplication {
+final class BugsApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Example');
+    return pht('Bugs tracker');
   }
 
   public function getIcon() {
-    return 'fa-cog';
+    return 'fa-bug';
   }
 
   public function getBaseURI() {
-    return '/example/';
+    return '/bugstracker/';
   }
   
   public function getOverview() {
@@ -21,15 +21,9 @@ final class ExampleApplication extends PhabricatorApplication {
   }
 
   public function getRoutes() {
-    /*return array(
-      '/example/' => array(
-        '' => 'ManiphestTaskListController',
-        'query/authored/' => 'ManiphestTaskListController',
-      ),
-    );*/
     return array(
       '/T(?P<id>[1-9]\d*)' => 'ManiphestTaskDetailController',
-      '/example/' => array(
+      '/bugstracker/' => array(
         '(?:query/(?P<queryKey>[^/]+)/)?' => 'ManiphestTaskListController',
         'report/(?:(?P<view>\w+)/)?' => 'ManiphestReportController',
         'batch/' => 'ManiphestBatchEditController',

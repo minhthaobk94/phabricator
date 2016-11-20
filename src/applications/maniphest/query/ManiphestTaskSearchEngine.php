@@ -245,7 +245,7 @@ final class ManiphestTaskSearchEngine
     if ($this->baseURI) {
       return $this->baseURI.$path;
     }
-    return '/example/'.$path;
+    return '/bugstracker/'.$path;
   }
 
   protected function getBuiltinQueryNames() {
