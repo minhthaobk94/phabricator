@@ -65,7 +65,7 @@ final class DrydockLeaseSearchEngine
   protected function getBuiltinQueryNames() {
     return array(
       'active' => pht('Kích hoạt'),
-      'all' => pht('Tất cả'),
+      'all' => pht('All Leases'),
     );
   }
 

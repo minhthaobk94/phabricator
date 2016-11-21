@@ -104,7 +104,7 @@ final class DrydockLogSearchEngine extends PhabricatorApplicationSearchEngine {
 
   protected function getBuiltinQueryNames() {
     return array(
-      'all' => pht('Tất cả bản ghi'),
+      'all' => pht('All Logs'),
     );
   }
 

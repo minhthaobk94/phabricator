@@ -146,7 +146,7 @@ final class DivinerAtomSearchEngine extends PhabricatorApplicationSearchEngine {
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('Không tìm thấy tài liệu.'));
+    $result->setNoDataString(pht('No books found.'));
 
     return $result;
   }

@@ -93,7 +93,7 @@ final class DrydockRepositoryOperationSearchEngine
 
     $result = id(new PhabricatorApplicationSearchResultView())
       ->setObjectList($view)
-      ->setNoDataString(pht('Hoạt động không khớp.'));
+      ->setNoDataString(pht('No matching operations.'));
 
     return $result;
   }

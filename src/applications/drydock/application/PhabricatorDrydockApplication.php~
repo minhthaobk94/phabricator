@@ -33,7 +33,7 @@ final class PhabricatorDrydockApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Hướng dẫn sử dụng'),
+        'name' => pht('Drydock User Guide'),
         'href' => PhabricatorEnv::getDoclink('Drydock User Guide'),
       ),
     );

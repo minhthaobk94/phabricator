@@ -19,7 +19,7 @@ final class PhabricatorDoorkeeperApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Kết nối tới phần mềm khác');
+    return pht('Connect to Other Software');
   }
 
   public function getRemarkupRules() {

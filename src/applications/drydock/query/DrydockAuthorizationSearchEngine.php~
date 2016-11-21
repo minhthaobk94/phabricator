@@ -63,7 +63,7 @@ final class DrydockAuthorizationSearchEngine
       id(new PhabricatorPHIDsSearchField())
         ->setLabel(pht('Đối tượng'))
         ->setKey('objectPHIDs')
-        ->setDescription(pht('Tìm theo đối tượng ủy quyền.'))
+        ->setDescription(pht('Search authorizations from specific objects.'))
         ->setAliases(array('object', 'objects')),
     );
   }

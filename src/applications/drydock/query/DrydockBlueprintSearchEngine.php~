@@ -41,7 +41,7 @@ final class DrydockBlueprintSearchEngine
         ->setOptions(
           pht('(Hiển thị tất cả)'),
           pht('Chỉ hiện thì những chứng từ vô hiệu hóa'),
-          pht('Ẩn chứng từ vô hiệu hóa')),
+          pht('Hide Disabled Blueprints')),
     );
   }
 

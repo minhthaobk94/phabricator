@@ -1,21 +1,21 @@
 <?php
 
-final class DrydockLeaseSearchEngine
+final class DrydockResourceSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
-  private $resource;
+  private $blueprint;
 
-  public function setResource($resource) {
-    $this->resource = $resource;
+  public function setBlueprint(DrydockBlueprint $blueprint) {
+    $this->blueprint = $blueprint;
     return $this;
   }
 
-  public function getResource() {
-    return $this->resource;
+  public function getBlueprint() {
+    return $this->blueprint;
   }
 
   public function getResultTypeDescription() {
-    return pht('Thuê');
+    return pht('Tài nguyên');
   }
 
   public function getApplicationClassName() {
@@ -23,11 +23,11 @@ final class DrydockLeaseSearchEngine
   }
 
   public function newQuery() {
-    $query = new DrydockLeaseQuery();
+    $query = new DrydockResourceQuery();
 
-    $resource = $this->getResource();
-    if ($resource) {
-      $query->withResourcePHIDs(array($resource->getPHID()));
+    $blueprint = $this->getBlueprint();
+    if ($blueprint) {
+      $query->withBlueprintPHIDs(array($blueprint->getPHID()));
     }
 
     return $query;
@@ -48,24 +48,24 @@ final class DrydockLeaseSearchEngine
       id(new PhabricatorSearchCheckboxesField())
         ->setLabel(pht('Trạng thái'))
         ->setKey('statuses')
-        ->setOptions(DrydockLeaseStatus::getStatusMap()),
+        ->setOptions(DrydockResourceStatus::getStatusMap()),
     );
   }
 
   protected function getURI($path) {
-    $resource = $this->getResource();
-    if ($resource) {
-      $id = $resource->getID();
-      return "/drydock/resource/{$id}/leases/".$path;
+    $blueprint = $this->getBlueprint();
+    if ($blueprint) {
+      $id = $blueprint->getID();
+      return "/drydock/blueprint/{$id}/resources/".$path;
     } else {
-      return '/drydock/lease/'.$path;
+      return '/drydock/resource/'.$path;
     }
   }
 
   protected function getBuiltinQueryNames() {
     return array(
-      'active' => pht('Kích hoạt'),
-      'all' => pht('Tất cả'),
+      'active' => pht('Tài nguyên được kích hoạt'),
+      'all' => pht('All Resources'),
     );
   }
 
@@ -78,9 +78,8 @@ final class DrydockLeaseSearchEngine
         return $query->setParameter(
           'statuses',
           array(
-            DrydockLeaseStatus::STATUS_PENDING,
-            DrydockLeaseStatus::STATUS_ACQUIRED,
-            DrydockLeaseStatus::STATUS_ACTIVE,
+            DrydockResourceStatus::STATUS_PENDING,
+            DrydockResourceStatus::STATUS_ACTIVE,
           ));
       case 'all':
         return $query;
@@ -90,16 +89,18 @@ final class DrydockLeaseSearchEngine
   }
 
   protected function renderResultList(
-    array $leases,
-    PhabricatorSavedQuery $saved,
+    array $resources,
+    PhabricatorSavedQuery $query,
     array $handles) {
 
-    $list = id(new DrydockLeaseListView())
+    $list = id(new DrydockResourceListView())
       ->setUser($this->requireViewer())
-      ->setLeases($leases);
+      ->setResources($resources);
 
-    return id(new PhabricatorApplicationSearchResultView())
-      ->setContent($list);
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setTable($list);
+
+    return $result;
   }
 
 }
