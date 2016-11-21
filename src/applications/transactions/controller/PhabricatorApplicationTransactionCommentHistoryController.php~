@@ -69,7 +69,7 @@ final class PhabricatorApplicationTransactionCommentHistoryController
       ->setUser($viewer)
       ->setWidth(AphrontDialogView::WIDTH_FULL)
       ->setFlush(true)
-      ->setTitle(pht('Lịch sử comment'));
+      ->setTitle(pht('Comment History'));
 
     $dialog->appendChild($view);
 

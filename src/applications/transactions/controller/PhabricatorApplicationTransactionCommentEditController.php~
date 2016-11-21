@@ -1,39 +1,42 @@
 <?php
 
-final class PhabricatorApplicationTransactionCommentRemoveController
+final class PhabricatorApplicationTransactionCommentEditController
   extends PhabricatorApplicationTransactionController {
 
   public function handleRequest(AphrontRequest $request) {
     $viewer = $this->getViewer();
-    $phid = $request->getURIData('phid');
 
     $xaction = id(new PhabricatorObjectQuery())
-      ->withPHIDs(array($phid))
       ->setViewer($viewer)
+      ->withPHIDs(array($request->getURIData('phid')))
       ->executeOne();
     if (!$xaction) {
       return new Aphront404Response();
     }
 
     if (!$xaction->getComment()) {
+      // You can't currently edit a transaction which doesn't have a comment.
+      // Some day you may be able to edit the visibility.
       return new Aphront404Response();
     }
 
     if ($xaction->getComment()->getIsRemoved()) {
-      // You can't remove an already-removed comment.
+      // You can't edit history of a transaction with a removed comment.
       return new Aphront400Response();
     }
 
-    $obj_phid = $xaction->getObjectPHID();
-    $obj_handle = id(new PhabricatorHandleQuery())
-      ->setViewer($viewer)
-      ->withPHIDs(array($obj_phid))
-      ->executeOne();
+    $phid = $xaction->getObjectPHID();
+    $handles = $viewer->loadHandles(array($phid));
+    $obj_handle = $handles[$phid];
 
     if ($request->isDialogFormPost()) {
-      $comment = $xaction->getApplicationTransactionCommentObject()
-        ->setContent('')
-        ->setIsRemoved(true);
+      $text = $request->getStr('text');
+
+      $comment = $xaction->getApplicationTransactionCommentObject();
+      $comment->setContent($text);
+      if (!strlen($text)) {
+        $comment->setIsDeleted(true);
+      }
 
       $editor = id(new PhabricatorApplicationTransactionCommentEditor())
         ->setActor($viewer)
@@ -48,26 +51,19 @@ final class PhabricatorApplicationTransactionCommentRemoveController
     }
 
     $form = id(new AphrontFormView())
-      ->setUser($viewer);
+      ->setUser($viewer)
+      ->setFullWidth(true)
+      ->appendControl(
+        id(new PhabricatorRemarkupControl())
+        ->setName('text')
+        ->setValue($xaction->getComment()->getContent()));
 
-    $dialog = $this->newDialog()
-      ->setTitle(pht('Xóa Comment'));
-
-    $dialog
+    return $this->newDialog()
+      ->setTitle(pht('Edit Comment'))
       ->addHiddenInput('anchor', $request->getStr('anchor'))
-      ->appendParagraph(
-        pht(
-          "Removing a comment prevents anyone (including you) from reading ".
-          "it. Removing a comment also hides the comment's edit history ".
-          "and prevents it from being edited."))
-      ->appendParagraph(
-        pht('Really remove this comment?'));
-
-    $dialog
-      ->addSubmitButton(pht('Xóa Comment'))
+      ->appendForm($form)
+      ->addSubmitButton(pht('Save Changes'))
       ->addCancelButton($obj_handle->getURI());
-
-    return $dialog;
   }
 
 }

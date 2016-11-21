@@ -36,11 +36,11 @@ final class PhabricatorApplicationTransactionDetailController
     if ($request->isAjax()) {
       $button_text = pht('Đã xong');
     } else {
-      $button_text = pht('Tiếp tục');
+      $button_text = pht('Continue');
     }
 
     return $this->newDialog()
-      ->setTitle(pht('Thay đổi chi tiết'))
+      ->setTitle(pht('Change Details'))
       ->setWidth(AphrontDialogView::WIDTH_FORM)
       ->setClass('aphront-dialog-tab-group')
       ->appendChild($details)

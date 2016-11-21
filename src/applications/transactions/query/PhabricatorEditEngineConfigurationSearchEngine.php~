@@ -136,7 +136,7 @@ final class PhabricatorEditEngineConfigurationSearchEngine
         $item->setDisabled(true);
         $item->setStatusIcon('fa-ban grey', pht('Vô hiệu hóa'));
       } else {
-        $item->setStatusIcon('fa-file-text-o green', pht('Kích hoạt'));
+        $item->setStatusIcon('fa-file-text-o green', pht('Enabled'));
       }
 
       $list->addItem($item);

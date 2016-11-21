@@ -51,7 +51,7 @@ final class PhabricatorApplicationTransactionCommentRemoveController
       ->setUser($viewer);
 
     $dialog = $this->newDialog()
-      ->setTitle(pht('Xóa Comment'));
+      ->setTitle(pht('Remove Comment'));
 
     $dialog
       ->addHiddenInput('anchor', $request->getStr('anchor'))
@@ -64,7 +64,7 @@ final class PhabricatorApplicationTransactionCommentRemoveController
         pht('Really remove this comment?'));
 
     $dialog
-      ->addSubmitButton(pht('Xóa Comment'))
+      ->addSubmitButton(pht('Remove Comment'))
       ->addCancelButton($obj_handle->getURI());
 
     return $dialog;
