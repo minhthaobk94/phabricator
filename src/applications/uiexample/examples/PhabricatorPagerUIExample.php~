@@ -8,8 +8,8 @@ final class PhabricatorPagerUIExample extends PhabricatorUIExample {
 
   public function getDescription() {
     return pht(
-      'Sử dụng %s để tạo một điều khiển được phép'.
-      'người dùng đánh số trang thông qua số lượng lớn về nội dung.',
+      'Use %s to create a control which allows '.
+      'users to paginate through large amounts of content.',
       phutil_tag('tt', array(), 'PHUIPagerView'));
   }
 
@@ -33,13 +33,13 @@ final class PhabricatorPagerUIExample extends PhabricatorUIExample {
         'Item',
       ));
     $panel = new PHUIObjectBoxView();
-    $panel->setHeaderText(pht('Ví dụ'));
+    $panel->setHeaderText(pht('Example'));
     $panel->appendChild($table);
 
     $panel->appendChild(hsprintf(
       '<p class="phabricator-ui-example-note">%s</p>',
       pht(
-        'Sử dụng %s để trả lại phần tử trang.',
+        'Use %s to render a pager element.',
         phutil_tag('tt', array(), 'PHUIPagerView'))));
 
     $pager = new PHUIPagerView();
@@ -51,7 +51,7 @@ final class PhabricatorPagerUIExample extends PhabricatorUIExample {
 
     $panel->appendChild(hsprintf(
       '<p class="phabricator-ui-example-note">%s</p>',
-      pht('Bạn có thể trình bày nhiều hoặc ít hơn số trang của nội dung.')));
+      pht('You can show more or fewer pages of surrounding context.')));
 
     $many_pages_pager = new PHUIPagerView();
     $many_pages_pager->setPageSize($page_size);
@@ -64,9 +64,9 @@ final class PhabricatorPagerUIExample extends PhabricatorUIExample {
     $panel->appendChild(hsprintf(
       '<p class="phabricator-ui-example-note">%s</p>',
       pht(
-        'Khi nó tốn kém hay phức tạp để hoàn thành '.
-        'đếm số thành phần, bạn có thể lựa chọn một hoặc thêm nhiều thành phần và cài đặt'.
-        '%s nêus nó tồn tại, tạo một trang không đúng.',
+        'When it is prohibitively expensive or complex to attain a complete '.
+        'count of the items, you can select one extra item and set '.
+        '%s if it exists, creating an inexact pager.',
         phutil_tag('tt', array(), 'hasMorePages(true)'))));
 
     $inexact_pager = new PHUIPagerView();

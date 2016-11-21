@@ -3,11 +3,11 @@
 final class PhabricatorSetupIssueUIExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Cài đặt vấn đề');
+    return pht('Setup Issue');
   }
 
   public function getDescription() {
-    return pht('Cài đặt lỗi và cảnh báo.');
+    return pht('Setup errors and warnings.');
   }
 
   public function renderExample() {
@@ -15,12 +15,12 @@ final class PhabricatorSetupIssueUIExample extends PhabricatorUIExample {
     $user = $request->getUser();
 
     $issue = id(new PhabricatorSetupIssue())
-      ->setShortName(pht('Tên ngắn'))
-      ->setName(pht('Tên'))
-      ->setSummary(pht('Ghi chú'))
-      ->setMessage(pht('Thông điệp'))
+      ->setShortName(pht('Short Name'))
+      ->setName(pht('Name'))
+      ->setSummary(pht('Summary'))
+      ->setMessage(pht('Message'))
       ->setIssueKey('example.key')
-      ->addCommand('$ # Thêm Command')
+      ->addCommand('$ # Add Command')
       ->addCommand(hsprintf('<tt>$</tt> %s', '$ ls -1 > /dev/null'))
       ->addPHPConfig('php.config.example')
       ->addPhabricatorConfig('test.value')

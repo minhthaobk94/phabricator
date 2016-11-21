@@ -35,30 +35,30 @@ final class PHUITimelineExample extends PhabricatorUIExample {
     $events[] = id(new PHUITimelineEventView())
       ->setUserHandle($handle)
       ->setTitle(pht('Sự kiện chính.'))
-      ->appendChild(pht('Đây là sự kiện dòng thời gian chính.'))
+      ->appendChild(pht('Đây là sự kiện dòng thời gian chínhThis is a major timeline event.'))
       ->addBadge($designer)
       ->addBadge($admin);
 
     $events[] = id(new PHUITimelineEventView())
       ->setUserHandle($handle)
       ->setIcon('fa-heart')
-      ->setTitle(pht('Sự kiện phụ.'));
+      ->setTitle(pht('A minor event.'));
 
     $events[] = id(new PHUITimelineEventView())
       ->setUserHandle($handle)
       ->setIcon('fa-comment')
-      ->appendChild(pht('Sự kiện phụ không có tiêu đề.'));
+      ->appendChild(pht('A major event with no title.'));
 
     $events[] = id(new PHUITimelineEventView())
       ->setUserHandle($handle)
       ->setIcon('fa-star')
-      ->setTitle(pht('Sự kiện phụ khác.'));
+      ->setTitle(pht('Another minor event.'));
 
     $events[] = id(new PHUITimelineEventView())
       ->setUserHandle($handle)
       ->setTitle(pht('Major Red Event'))
       ->setIcon('fa-heart-o')
-      ->appendChild(pht('Sự kiện này là đỏ!'))
+      ->appendChild(pht('This event is red!'))
       ->setColor(PhabricatorTransactions::COLOR_RED)
       ->addBadge($designer);
 

@@ -94,7 +94,7 @@ final class PHUIBoxExample extends PhabricatorUIExample {
       ->setHeader(pht('Plain Box'));
 
     $head2 = id(new PHUIHeaderView())
-      ->setHeader(pht('Làm rõ hộp với khoảng trống'));
+      ->setHeader(pht('Plain Box with space'));
 
     $head3 = id(new PHUIHeaderView())
       ->setHeader(pht('Viền hộp với khoảng trống'));

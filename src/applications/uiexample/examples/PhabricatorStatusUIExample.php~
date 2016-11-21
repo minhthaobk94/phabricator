@@ -34,16 +34,16 @@ final class PhabricatorStatusUIExample extends PhabricatorUIExample {
       id(new PHUIStatusItemView())
         ->setIcon(PHUIStatusItemView::ICON_WARNING, 'dark', pht('Caution'))
         ->setTarget(pht('Trái lựu'))
-        ->setNote(pht('Rất nhiều hạt.Coi chừng')));
+        ->setNote(pht('Lots of seeds. Watch out.')));
 
     $view->addItem(
       id(new PHUIStatusItemView())
         ->setIcon(PHUIStatusItemView::ICON_REJECT, 'red', pht('Bleh!'))
-        ->setTarget(pht('Quả bí'))
-        ->setNote(pht('Nhầy nhụa và gộp. Kinh quá')));
+        ->setTarget(pht('Zucchini'))
+        ->setNote(pht('Slimy and gross. Yuck!')));
 
     $out[] = id(new PHUIHeaderView())
-      ->setHeader(pht('Trái cây và rau'));
+      ->setHeader(pht('Fruit and Vegetable Status'));
 
     $out[] = id(new PHUIBoxView())
       ->addMargin(PHUI::MARGIN_LARGE)

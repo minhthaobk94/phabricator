@@ -3,11 +3,11 @@
 final class PhabricatorBusyUIExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Busy');
+    return pht('Bận');
   }
 
   public function getDescription() {
-    return pht('Busy.');
+    return pht('Bận.');
   }
 
   public function renderExample() {

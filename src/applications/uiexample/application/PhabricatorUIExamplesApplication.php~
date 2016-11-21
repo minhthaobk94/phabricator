@@ -7,11 +7,11 @@ final class PhabricatorUIExamplesApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Phát triển mẫu UI');
+    return pht('Developer UI Examples');
   }
 
   public function getName() {
-    return pht('Mẫu UI');
+    return pht('UIExamples');
   }
 
   public function getIcon() {
@@ -23,7 +23,7 @@ final class PhabricatorUIExamplesApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Một bộ sưu tập nghệ thuật');
+    return pht('A gallery of modern art.');
   }
 
   public function getApplicationGroup() {

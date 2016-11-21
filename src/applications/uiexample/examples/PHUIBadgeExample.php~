@@ -3,11 +3,11 @@
 final class PHUIBadgeExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Huy Hiệu ');
+    return pht('Badge');
   }
 
   public function getDescription() {
-    return pht('Tổ chức một lễ kỉ niệm cho cuộc đời bạn.');
+    return pht('Celebrate the moments of your life.');
   }
 
   public function renderExample() {
@@ -128,31 +128,31 @@ final class PHUIBadgeExample extends PhabricatorUIExample {
 
     $badges3[] = id(new PHUIBadgeMiniView())
       ->setIcon('fa-heart')
-      ->setHeader(pht('Nhà tài trợ'))
+      ->setHeader(pht('Funder'))
       ->setQuality(PhabricatorBadgesQuality::UNCOMMON);
 
     $badges3[] = id(new PHUIBadgeMiniView())
       ->setIcon('fa-user')
-      ->setHeader(pht('Người quản trị'))
+      ->setHeader(pht('Administrator'))
       ->setQuality(PhabricatorBadgesQuality::RARE);
 
     $badges3[] = id(new PHUIBadgeMiniView())
       ->setIcon('fa-camera-retro')
-      ->setHeader(pht('Nhà thiết kế'))
+      ->setHeader(pht('Designer'))
       ->setQuality(PhabricatorBadgesQuality::EPIC);
 
     $flex1 = new PHUIBadgeBoxView();
     $flex1->addItems($badges1);
 
     $box1 = id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Thành viên dự án'))
+      ->setHeaderText(pht('Project Membership'))
       ->appendChild($flex1);
 
     $flex2 = new PHUIBadgeBoxView();
     $flex2->addItems($badges2);
 
     $box2 = id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Thành tích'))
+      ->setHeaderText(pht('Achievements'))
       ->appendChild($flex2);
 
     $flex3 = new PHUIBadgeBoxView();
