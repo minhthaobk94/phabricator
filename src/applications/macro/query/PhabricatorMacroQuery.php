@@ -22,16 +22,16 @@ final class PhabricatorMacroQuery
 
   public static function getStatusOptions() {
     return array(
-      self::STATUS_ACTIVE   => pht('Active Macros'),
-      self::STATUS_DISABLED => pht('Disabled Macros'),
-      self::STATUS_ANY      => pht('Active and Disabled Macros'),
+      self::STATUS_ACTIVE   => pht('Hoạt động Macros '),
+      self::STATUS_DISABLED => pht('Ân Macros'),
+      self::STATUS_ANY      => pht('Hoạt động và ẩn Macros'),
     );
   }
 
   public static function getFlagColorsOptions() {
     $options = array(
-      '-1' => pht('(No Filtering)'),
-      '-2' => pht('(Marked With Any Flag)'),
+      '-1' => pht('(Không Lọc)'),
+      '-2' => pht('(Kết hợp với flag)'),
     );
 
     foreach (PhabricatorFlagColor::getColorNameMap() as $color => $name) {
@@ -194,7 +194,7 @@ final class PhabricatorMacroQuery
         ->execute();
 
       if (empty($flags)) {
-        throw new PhabricatorEmptyQueryException(pht('No matching flags.'));
+        throw new PhabricatorEmptyQueryException(pht('lags.'));
       } else {
         $where[] = qsprintf(
           $conn,
@@ -261,7 +261,7 @@ final class PhabricatorMacroQuery
     return array(
       'name' => array(
         'vector' => array('name'),
-        'name' => pht('Name'),
+        'name' => pht('Tên'),
       ),
     ) + parent::getBuiltinOrders();
   }

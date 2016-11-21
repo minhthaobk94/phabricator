@@ -3,7 +3,7 @@
 final class DarkConsoleRequestPlugin extends DarkConsolePlugin {
 
   public function getName() {
-    return pht('Request');
+    return pht('Yêu cầu');
   }
 
   public function getDescription() {
@@ -52,11 +52,11 @@ final class DarkConsoleRequestPlugin extends DarkConsolePlugin {
     $data = $this->getData();
 
     $special_map = array(
-      'site' => pht('Site'),
-      'controller' => pht('Controller'),
-      'machine' => pht('Machine'),
-      'host' => pht('Host'),
-      'hostname' => pht('Hostname'),
+      'site' => pht('Trang'),
+      'controller' => pht('Điều khiển'),
+      'machine' => pht('Máy'),
+      'host' => pht('Chủ'),
+      'hostname' => pht('Tên'),
     );
 
     $special = idx($data, 'special', array());

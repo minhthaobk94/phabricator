@@ -49,7 +49,7 @@ final class PhabricatorConduitSearchEngine
     $form
       ->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel(pht('Name Contains'))
+          ->setLabel(pht('Tên bao hàm'))
           ->setName('nameContains')
           ->setValue($saved->getParameter('nameContains')));
 
@@ -65,26 +65,26 @@ final class PhabricatorConduitSearchEngine
             1,
             hsprintf(
               '<strong>%s</strong>: %s',
-              pht('Stable Methods'),
-              pht('Show established API methods with stable interfaces.')),
+              pht('Phương pháp ổn định'),
+              pht('Hiện thành lập các phương pháp API với giao diện ổn định.')),
             $is_stable)
           ->addCheckbox(
             'isUnstable',
             1,
             hsprintf(
               '<strong>%s</strong>: %s',
-              pht('Unstable Methods'),
-              pht('Show new methods which are subject to change.')),
+              pht('Phương pháp không ổn định'),
+              pht('Hiện phương pháp mới mà có thể thay đổi.')),
             $is_unstable)
           ->addCheckbox(
             'isDeprecated',
             1,
             hsprintf(
               '<strong>%s</strong>: %s',
-              pht('Deprecated Methods'),
+              pht('Phương pháp phản đối'),
               pht(
-                'Show old methods which will be deleted in a future '.
-                'version of Phabricator.')),
+                'Hiện phương pháp cũ sẽ được xóa trong một tương lai'.
+                'phiên bản của Phabricator.')),
             $is_deprecated));
   }
 
@@ -94,8 +94,8 @@ final class PhabricatorConduitSearchEngine
 
   protected function getBuiltinQueryNames() {
     return array(
-      'modern' => pht('Modern Methods'),
-      'all'    => pht('All Methods'),
+      'modern' => pht('Phương pháp hiện đại'),
+      'all'    => pht('Tất cả phương pháp'),
     );
   }
 
@@ -159,11 +159,11 @@ final class PhabricatorConduitSearchEngine
         case ConduitAPIMethod::METHOD_STATUS_STABLE:
           break;
         case ConduitAPIMethod::METHOD_STATUS_UNSTABLE:
-          $item->addIcon('fa-warning', pht('Unstable'));
+          $item->addIcon('fa-warning', pht('Không ổn định'));
           $item->setStatusIcon('fa-warning yellow');
           break;
         case ConduitAPIMethod::METHOD_STATUS_DEPRECATED:
-          $item->addIcon('fa-warning', pht('Deprecated'));
+          $item->addIcon('fa-warning', pht('Phản đối'));
           $item->setStatusIcon('fa-warning red');
           break;
       }

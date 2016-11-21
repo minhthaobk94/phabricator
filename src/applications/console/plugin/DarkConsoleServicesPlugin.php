@@ -5,11 +5,11 @@ final class DarkConsoleServicesPlugin extends DarkConsolePlugin {
   protected $observations;
 
   public function getName() {
-    return pht('Services');
+    return pht('Dịch vụ');
   }
 
   public function getDescription() {
-    return pht('Information about services.');
+    return pht('Thông tin về dịch vụ.');
   }
 
   public static function getQueryAnalyzerHeader() {

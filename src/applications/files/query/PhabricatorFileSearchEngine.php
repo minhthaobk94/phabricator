@@ -20,20 +20,20 @@ final class PhabricatorFileSearchEngine
       id(new PhabricatorUsersSearchField())
         ->setKey('authorPHIDs')
         ->setAliases(array('author', 'authors'))
-        ->setLabel(pht('Authors')),
+        ->setLabel(pht('Tác giả')),
       id(new PhabricatorSearchThreeStateField())
         ->setKey('explicit')
-        ->setLabel(pht('Upload Source'))
+        ->setLabel(pht('Tải lên nguồn'))
         ->setOptions(
-          pht('(Show All)'),
-          pht('Show Only Manually Uploaded Files'),
-          pht('Hide Manually Uploaded Files')),
+          pht('(Hiển thị tất cả)'),
+          pht('Chỉ hiển thị những tệp tải lên'),
+          pht('Ânr những tệp tải lên')),
       id(new PhabricatorSearchDateField())
         ->setKey('createdStart')
-        ->setLabel(pht('Created After')),
+        ->setLabel(pht('Tạo sau')),
       id(new PhabricatorSearchDateField())
         ->setKey('createdEnd')
-        ->setLabel(pht('Created Before')),
+        ->setLabel(pht('Tạo trước')),
     );
   }
 
@@ -79,7 +79,7 @@ final class PhabricatorFileSearchEngine
     }
 
     $names += array(
-      'all' => pht('All'),
+      'all' => pht('Tất cả'),
     );
 
     return $names;
@@ -139,9 +139,9 @@ final class PhabricatorFileSearchEngine
       $author_phid = $file->getAuthorPHID();
       if ($author_phid) {
         $author_link = $handles[$author_phid]->renderLink();
-        $uploaded = pht('Uploaded by %s on %s', $author_link, $date_created);
+        $uploaded = pht('Tải lên bởi %s vào %s', $author_link, $date_created);
       } else {
-        $uploaded = pht('Uploaded on %s', $date_created);
+        $uploaded = pht('Tải lên vào %s', $date_created);
       }
 
       $item = id(new PHUIObjectItemView())
@@ -181,7 +181,7 @@ final class PhabricatorFileSearchEngine
   protected function getNewUserBody() {
     $create_button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('Upload a File'))
+      ->setText(pht('Tải lên file'))
       ->setHref('/file/upload/')
       ->setColor(PHUIButtonView::GREEN);
 

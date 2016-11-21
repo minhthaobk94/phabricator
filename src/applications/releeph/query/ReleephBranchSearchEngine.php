@@ -51,7 +51,7 @@ final class ReleephBranchSearchEngine
     $form->appendChild(
       id(new AphrontFormSelectControl())
         ->setName('active')
-        ->setLabel(pht('Show Branches'))
+        ->setLabel(pht('Hiển thị Branches'))
         ->setValue($saved_query->getParameter('active'))
         ->setOptions($this->getActiveOptions()));
   }
@@ -62,8 +62,8 @@ final class ReleephBranchSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'open' => pht('Open'),
-      'all' => pht('All'),
+      'open' => pht('Mở'),
+      'all' => pht('Tất cả'),
     );
 
     return $names;
@@ -87,8 +87,8 @@ final class ReleephBranchSearchEngine
 
   private function getActiveOptions() {
     return array(
-      'open' => pht('Open Branches'),
-      'all' => pht('Open and Closed Branches'),
+      'open' => pht('Mở Branches'),
+      'all' => pht('Mở và đóng Branches'),
     );
   }
 
@@ -183,7 +183,7 @@ final class ReleephBranchSearchEngine
         $item->addIcon(
           'fa-code-fork',
           pht(
-            '%s Open Pull Request(s)',
+            '%s Mở Pull Request(s)',
             new PhutilNumber($open_count)));
       }
 

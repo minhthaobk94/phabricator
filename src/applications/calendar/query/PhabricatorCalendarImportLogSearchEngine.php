@@ -4,7 +4,7 @@ final class PhabricatorCalendarImportLogSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Calendar Import Logs');
+    return pht(' Lịch nhập Logs');
   }
 
   public function getApplicationClassName() {
@@ -18,7 +18,7 @@ final class PhabricatorCalendarImportLogSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorPHIDsSearchField())
-        ->setLabel(pht('Import Sources'))
+        ->setLabel(pht('Nhập nguồn'))
         ->setKey('importSourcePHIDs')
         ->setAliases(array('importSourcePHID')),
     );
@@ -40,7 +40,7 @@ final class PhabricatorCalendarImportLogSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All Logs'),
+      'all' => pht('Tất cả Logs'),
     );
 
     return $names;

@@ -19,29 +19,29 @@ final class PhabricatorMacroSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchSelectField())
-        ->setLabel(pht('Status'))
+        ->setLabel(pht('Trạng thái'))
         ->setKey('status')
         ->setOptions(PhabricatorMacroQuery::getStatusOptions()),
       id(new PhabricatorUsersSearchField())
-        ->setLabel(pht('Authors'))
+        ->setLabel(pht('Tác giả'))
         ->setKey('authorPHIDs')
         ->setAliases(array('author', 'authors')),
       id(new PhabricatorSearchTextField())
-        ->setLabel(pht('Name Contains'))
+        ->setLabel(pht('Tên bao hám'))
         ->setKey('nameLike'),
       id(new PhabricatorSearchStringListField())
-        ->setLabel(pht('Exact Names'))
+        ->setLabel(pht('Tên chính xác'))
         ->setKey('names'),
       id(new PhabricatorSearchSelectField())
-        ->setLabel(pht('Marked with Flag'))
+        ->setLabel(pht('Nối với Flag'))
         ->setKey('flagColor')
         ->setDefault('-1')
         ->setOptions(PhabricatorMacroQuery::getFlagColorsOptions()),
       id(new PhabricatorSearchDateField())
-        ->setLabel(pht('Created After'))
+        ->setLabel(pht('Tạo sau '))
         ->setKey('createdStart'),
       id(new PhabricatorSearchDateField())
-        ->setLabel(pht('Created Before'))
+        ->setLabel(pht('Tạo trước'))
         ->setKey('createdEnd'),
     );
   }
@@ -94,12 +94,12 @@ final class PhabricatorMacroSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'active'  => pht('Active'),
-      'all'     => pht('All'),
+      'active'  => pht('Hoạt động'),
+      'all'     => pht('Tất cả'),
     );
 
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['authored'] = pht('Authored');
+      $names['authored'] = pht('Tác giả');
     }
 
     return $names;
@@ -192,7 +192,7 @@ final class PhabricatorMacroSearchEngine
   protected function getNewUserBody() {
     $create_button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('Create a Macro'))
+      ->setText(pht('Tạo a Macro'))
       ->setHref('/macro/create/')
       ->setColor(PHUIButtonView::GREEN);
 
@@ -202,7 +202,7 @@ final class PhabricatorMacroSearchEngine
       ->setIcon($icon)
       ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
-        pht('Create easy to remember shortcuts to images and memes.'))
+        pht('Tạo dễ nhớ các phím tắt để hình ảnh và memes.'))
       ->addAction($create_button);
 
       return $view;

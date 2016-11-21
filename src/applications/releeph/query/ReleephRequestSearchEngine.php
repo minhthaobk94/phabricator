@@ -7,7 +7,7 @@ final class ReleephRequestSearchEngine
   private $baseURI;
 
   public function getResultTypeDescription() {
-    return pht('Releeph Pull Requests');
+    return pht('Kéo yêu cầu  Rlph ');
   }
 
   public function getApplicationClassName() {
@@ -96,12 +96,12 @@ final class ReleephRequestSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'open' => pht('Open Requests'),
-      'all' => pht('All Requests'),
+      'open' => pht('Mở yêu cầu'),
+      'all' => pht('Tất cả yêu cầu'),
     );
 
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['requested'] = pht('Requested');
+      $names['requested'] = pht('Yêu cầu');
     }
 
     return $names;
@@ -128,15 +128,15 @@ final class ReleephRequestSearchEngine
 
   private function getStatusOptions() {
     return array(
-      ''              => pht('(All Requests)'),
-      'open'          => pht('Open Requests'),
-      'requested'     => pht('Pull Requested'),
-      'needs-pull'    => pht('Needs Pull'),
-      'rejected'      => pht('Rejected'),
-      'abandoned'     => pht('Abandoned'),
-      'pulled'        => pht('Pulled'),
-      'needs-revert'  => pht('Needs Revert'),
-      'reverted'      => pht('Reverted'),
+      ''              => pht('(Tất cả yêu cầu)'),
+      'open'          => pht('Mở yêu cầu'),
+      'requested'     => pht('Kéo yêu cầu'),
+      'needs-pull'    => pht('Cần kéo'),
+      'rejected'      => pht('Từ chối'),
+      'abandoned'     => pht('Bỏ'),
+      'pulled'        => pht('Kéo về'),
+      'needs-revert'  => pht('Cần chuyển đồi'),
+      'reverted'      => pht('Chuyển đổi'),
     );
   }
 
@@ -156,7 +156,7 @@ final class ReleephRequestSearchEngine
   private function getSeverityOptions() {
     if (ReleephDefaultFieldSelector::isFacebook()) {
       return array(
-        '' => pht('(All Severities)'),
+        '' => pht('(Tất cả các thử thách )'),
         11 => pht('HOTFIX'),
         12 => pht('PIGGYBACK'),
         13 => pht('RELEASE'),
@@ -167,7 +167,7 @@ final class ReleephRequestSearchEngine
       return array(
         '' => pht('(All Severities)'),
         ReleephSeverityFieldSpecification::HOTFIX => pht('Hotfix'),
-        ReleephSeverityFieldSpecification::RELEASE => pht('Release'),
+        ReleephSeverityFieldSpecification::RELEASE => pht('Phát hành'),
       );
     }
   }

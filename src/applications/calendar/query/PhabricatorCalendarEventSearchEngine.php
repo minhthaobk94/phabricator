@@ -8,7 +8,7 @@ final class PhabricatorCalendarEventSearchEngine
   private $calendarDay;
 
   public function getResultTypeDescription() {
-    return pht('Calendar Events');
+    return pht('Lịch sự kiện');
   }
 
   public function getApplicationClassName() {
@@ -29,37 +29,37 @@ final class PhabricatorCalendarEventSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Hosts'))
+        ->setLabel(pht('Chủ'))
         ->setKey('hostPHIDs')
         ->setAliases(array('host', 'hostPHID', 'hosts'))
         ->setDatasource(new PhabricatorPeopleUserFunctionDatasource()),
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Invited'))
+        ->setLabel(pht('Mời'))
         ->setKey('invitedPHIDs')
         ->setDatasource(new PhabricatorCalendarInviteeDatasource()),
       id(new PhabricatorSearchDateControlField())
-        ->setLabel(pht('Occurs After'))
+        ->setLabel(pht('Diễn ra sau'))
         ->setKey('rangeStart'),
       id(new PhabricatorSearchDateControlField())
-        ->setLabel(pht('Occurs Before'))
+        ->setLabel(pht('Diễn ra trước'))
         ->setKey('rangeEnd')
         ->setAliases(array('rangeEnd')),
       id(new PhabricatorSearchCheckboxesField())
         ->setKey('upcoming')
         ->setOptions(array(
-          'upcoming' => pht('Show only upcoming events.'),
+          'upcoming' => pht('Hiển thị sự kiện sắp tới .'),
           )),
       id(new PhabricatorSearchSelectField())
-        ->setLabel(pht('Cancelled Events'))
+        ->setLabel(pht('Hủy sự kiện'))
         ->setKey('isCancelled')
         ->setOptions($this->getCancelledOptions())
         ->setDefault('active'),
       id(new PhabricatorPHIDsSearchField())
-        ->setLabel(pht('Import Sources'))
+        ->setLabel(pht('Nhập nguồn'))
         ->setKey('importSourcePHIDs')
         ->setAliases(array('importSourcePHID')),
       id(new PhabricatorSearchSelectField())
-        ->setLabel(pht('Display Options'))
+        ->setLabel(pht('Hiển thị lựa chọn'))
         ->setKey('display')
         ->setOptions($this->getViewOptions())
         ->setDefault('month'),
@@ -68,17 +68,17 @@ final class PhabricatorCalendarEventSearchEngine
 
   private function getCancelledOptions() {
     return array(
-      'active' => pht('Active Events Only'),
-      'cancelled' => pht('Cancelled Events Only'),
-      'both' => pht('Both Cancelled and Active Events'),
+      'active' => pht('Chỉ có sự kiện hoạt động'),
+      'cancelled' => pht('Chỉ Hủy Bỏ'),
+      'both' => pht('Cả hai sự kiện bị hủy và Active'),
     );
   }
 
   private function getViewOptions() {
     return array(
-      'month' => pht('Month View'),
-      'day' => pht('Day View'),
-      'list'   => pht('List View'),
+      'month' => pht('Hiển thị tháng'),
+      'day' => pht('Hiển thị ngày'),
+      'list'   => pht('Hiển thị năm'),
     );
   }
 
@@ -225,10 +225,10 @@ final class PhabricatorCalendarEventSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'month' => pht('Month View'),
-      'day' => pht('Day View'),
-      'upcoming' => pht('Upcoming Events'),
-      'all' => pht('All Events'),
+      'month' => pht('Tháng'),
+      'day' => pht('Ngày'),
+      'upcoming' => pht('Sự kiện sắp tới'),
+      'all' => pht('Tất cả sự kiện'),
     );
 
     return $names;
@@ -326,7 +326,7 @@ final class PhabricatorCalendarEventSearchEngine
 
     return $this->newResultView()
       ->setObjectList($list)
-      ->setNoDataString(pht('No events found.'));
+      ->setNoDataString(pht('Không tìm thấy sự kiện.'));
   }
 
   private function buildCalendarMonthView(
@@ -594,7 +594,7 @@ final class PhabricatorCalendarEventSearchEngine
     return array(
       id(new PhabricatorActionView())
         ->setIcon('fa-download')
-        ->setName(pht('Export Query as .ics'))
+        ->setName(pht('Xuất lệnh như  .ics'))
         ->setDisabled(!$can_export)
         ->setHref('/calendar/export/edit/?queryKey='.$saved->getQueryKey()),
     );

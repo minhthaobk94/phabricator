@@ -32,14 +32,14 @@ final class PhabricatorCountdownSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorUsersSearchField())
-        ->setLabel(pht('Authors'))
+        ->setLabel(pht('Tác giả'))
         ->setKey('authorPHIDs')
         ->setAliases(array('author', 'authors')),
       id(new PhabricatorSearchCheckboxesField())
         ->setKey('upcoming')
         ->setOptions(
           array(
-            'upcoming' => pht('Show only upcoming countdowns.'),
+            'upcoming' => pht('Hiện chỉ sắp tới countdowns.'),
           )),
     );
   }
@@ -51,11 +51,11 @@ final class PhabricatorCountdownSearchEngine
   protected function getBuiltinQueryNames() {
     $names = array(
       'upcoming' => pht('Upcoming'),
-      'all' => pht('All'),
+      'all' => pht('Tất cả'),
     );
 
     if ($this->requireViewer()->getPHID()) {
-      $names['authored'] = pht('Authored');
+      $names['authored'] = pht('Tác giả');
     }
 
     return $names;
@@ -113,20 +113,20 @@ final class PhabricatorCountdownSearchEngine
         ->setHref($this->getApplicationURI("{$id}/"))
         ->addByline(
           pht(
-            'Created by %s',
+            'Tạo bởi %s',
             $handles[$countdown->getAuthorPHID()]->renderLink()));
 
       if ($ended) {
         $item->addAttribute(
-          pht('Launched on %s', phabricator_datetime($epoch, $viewer)));
+          pht('Ra mắt trên %s', phabricator_datetime($epoch, $viewer)));
         $item->setDisabled(true);
       } else {
         $time_left = ($epoch - PhabricatorTime::getNow());
         $num = round($time_left / (60 * 60 * 24));
-        $noun = pht('Days');
+        $noun = pht('Ngày');
         if ($num < 1) {
           $num = round($time_left / (60 * 60), 1);
-          $noun = pht('Hours');
+          $noun = pht('Giờ');
         }
         $item->setCountdown($num, $noun);
         $item->addAttribute(
@@ -138,7 +138,7 @@ final class PhabricatorCountdownSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No countdowns found.'));
+    $result->setNoDataString(pht('Không tìm thấy.'));
 
     return $result;
   }
@@ -146,7 +146,7 @@ final class PhabricatorCountdownSearchEngine
   protected function getNewUserBody() {
     $create_button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('Create a Countdown'))
+      ->setText(pht('Tạo Countdown'))
       ->setHref('/countdown/edit/')
       ->setColor(PHUIButtonView::GREEN);
 
@@ -156,8 +156,8 @@ final class PhabricatorCountdownSearchEngine
       ->setIcon($icon)
       ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
-        pht('Keep track of upcoming launch dates with '.
-            'embeddable counters.'))
+        pht('Theo dõi ngày ra mắt sắp tới với '.
+            ' với quầy nhúng.'))
       ->addAction($create_button);
 
       return $view;
