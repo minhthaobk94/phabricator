@@ -7,11 +7,11 @@ final class PhabricatorLegalpadApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Legalpad');
+    return pht('Pháp lý');
   }
 
   public function getShortDescription() {
-    return pht('Agreements and Signatures');
+    return pht('Các thỏa thuận và chữ ký');
   }
 
   public function getIcon() {
@@ -35,7 +35,7 @@ final class PhabricatorLegalpadApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Legalpad User Guide'),
+        'name' => pht('Hướng dẫn sử dụng'),
         'href' => PhabricatorEnv::getDoclink('Legalpad User Guide'),
       ),
     );
@@ -43,9 +43,7 @@ final class PhabricatorLegalpadApplication extends PhabricatorApplication {
 
   public function getOverview() {
     return pht(
-      '**Legalpad** is a simple application for tracking signatures and '.
-      'legal agreements. At the moment, it is primarily intended to help '.
-      'open source projects keep track of Contributor License Agreements.');
+      '**Pháp lý** là ứng dụng để quản lý chữ kí và các thỏa thuận pháp lý ');
   }
 
   public function getRoutes() {
@@ -89,12 +87,11 @@ final class PhabricatorLegalpadApplication extends PhabricatorApplication {
   public function getMailCommandObjects() {
     return array(
       'document' => array(
-        'name' => pht('Email Commands: Legalpad Documents'),
-        'header' => pht('Interacting with Legalpad Documents'),
+        'name' => pht('Lệnh email: Tài liệu'),
+        'header' => pht('Tương tác với tài liệu'),
         'object' => new LegalpadDocument(),
         'summary' => pht(
-          'This page documents the commands you can use to interact with '.
-          'documents in Legalpad.'),
+          'Tài liệu có thể sử dụng để tương tác với những tài liệu trong Pháp lý'),
       ),
     );
   }

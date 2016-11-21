@@ -11,11 +11,11 @@ final class PhabricatorSlowvoteApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Slowvote');
+    return pht('Bình chọn');
   }
 
   public function getShortDescription() {
-    return pht('Conduct Polls');
+    return pht('Bình chọn ứng xử');
   }
 
   public function getTitleGlyph() {
@@ -25,14 +25,14 @@ final class PhabricatorSlowvoteApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Slowvote User Guide'),
+        'name' => pht('Hướng dẫn sử dụng'),
         'href' => PhabricatorEnv::getDoclink('Slowvote User Guide'),
       ),
     );
   }
 
   public function getFlavorText() {
-    return pht('Design by committee.');
+    return pht('Thiết kế bởi người commit.');
   }
 
   public function getApplicationGroup() {
@@ -63,7 +63,7 @@ final class PhabricatorSlowvoteApplication extends PhabricatorApplication {
   protected function getCustomCapabilities() {
     return array(
       PhabricatorSlowvoteDefaultViewCapability::CAPABILITY => array(
-        'caption' => pht('Default view policy for new polls.'),
+        'caption' => pht('Mặc định chính sách xem bình chọn.'),
         'template' => PhabricatorSlowvotePollPHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_VIEW,
       ),

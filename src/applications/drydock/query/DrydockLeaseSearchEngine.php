@@ -15,7 +15,7 @@ final class DrydockLeaseSearchEngine
   }
 
   public function getResultTypeDescription() {
-    return pht('Drydock Leases');
+    return pht('Thuê');
   }
 
   public function getApplicationClassName() {
@@ -46,7 +46,7 @@ final class DrydockLeaseSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchCheckboxesField())
-        ->setLabel(pht('Statuses'))
+        ->setLabel(pht('Trạng thái'))
         ->setKey('statuses')
         ->setOptions(DrydockLeaseStatus::getStatusMap()),
     );
@@ -64,8 +64,8 @@ final class DrydockLeaseSearchEngine
 
   protected function getBuiltinQueryNames() {
     return array(
-      'active' => pht('Active Leases'),
-      'all' => pht('All Leases'),
+      'active' => pht('Kích hoạt'),
+      'all' => pht('Tất cả'),
     );
   }
 

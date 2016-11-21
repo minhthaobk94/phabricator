@@ -4,7 +4,7 @@ final class AlmanacDeviceSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Almanac Devices');
+    return pht('Thiết bị');
   }
 
   public function getApplicationClassName() {
@@ -18,13 +18,13 @@ final class AlmanacDeviceSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchTextField())
-        ->setLabel(pht('Name Contains'))
+        ->setLabel(pht('Tên'))
         ->setKey('match')
-        ->setDescription(pht('Search for devices by name substring.')),
+        ->setDescription(pht('Tìm theo tên.')),
       id(new PhabricatorSearchStringListField())
-        ->setLabel(pht('Exact Names'))
+        ->setLabel(pht('Tên chính xác'))
         ->setKey('names')
-        ->setDescription(pht('Search for devices with specific names.')),
+        ->setDescription(pht('Tìm theo kí tự đặc biệt.')),
     );
   }
 
@@ -48,7 +48,7 @@ final class AlmanacDeviceSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All Devices'),
+      'all' => pht('Tất cả thiết bị'),
     );
 
     return $names;
@@ -79,13 +79,13 @@ final class AlmanacDeviceSearchEngine
     $list->setUser($viewer);
     foreach ($devices as $device) {
       $item = id(new PHUIObjectItemView())
-        ->setObjectName(pht('Device %d', $device->getID()))
+        ->setObjectName(pht('Thiết bị %d', $device->getID()))
         ->setHeader($device->getName())
         ->setHref($device->getURI())
         ->setObject($device);
 
       if ($device->isClusterDevice()) {
-        $item->addIcon('fa-sitemap', pht('Cluster Device'));
+        $item->addIcon('fa-sitemap', pht('Cụm thiết bị'));
       }
 
       $list->addItem($item);
@@ -93,7 +93,7 @@ final class AlmanacDeviceSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No Almanac Devices found.'));
+    $result->setNoDataString(pht('Không tìm thấy thiết bị.'));
 
     return $result;
   }

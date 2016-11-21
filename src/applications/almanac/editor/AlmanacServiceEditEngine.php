@@ -21,15 +21,15 @@ final class AlmanacServiceEditEngine
   }
 
   public function getEngineName() {
-    return pht('Almanac Services');
+    return pht('Dịch vụ');
   }
 
   public function getSummaryHeader() {
-    return pht('Edit Almanac Service Configurations');
+    return pht('Chỉnh sửa cấu hình');
   }
 
   public function getSummaryText() {
-    return pht('This engine is used to edit Almanac services.');
+    return pht('Tính năng này để chínhr sửa dịch vụ.');
   }
 
   public function getEngineApplicationClass() {
@@ -46,27 +46,27 @@ final class AlmanacServiceEditEngine
   }
 
   protected function getObjectCreateTitleText($object) {
-    return pht('Create Service');
+    return pht('Tạo mới dịch vụ');
   }
 
   protected function getObjectCreateButtonText($object) {
-    return pht('Create Service');
+    return pht('Tạo mới dịch vụ');
   }
 
   protected function getObjectEditTitleText($object) {
-    return pht('Edit Service: %s', $object->getName());
+    return pht('Chỉnh sửa dịch vụ: %s', $object->getName());
   }
 
   protected function getObjectEditShortText($object) {
-    return pht('Edit Service');
+    return pht('Chỉnh sửa dịch vụ');
   }
 
   protected function getObjectCreateShortText() {
-    return pht('Create Service');
+    return pht('Tạo mới dịch vụ');
   }
 
   protected function getObjectName() {
-    return pht('Service');
+    return pht('Dịch vụ');
   }
 
   protected function getEditorURI() {
@@ -90,8 +90,8 @@ final class AlmanacServiceEditEngine
     return array(
       id(new PhabricatorTextEditField())
         ->setKey('name')
-        ->setLabel(pht('Name'))
-        ->setDescription(pht('Name of the service.'))
+        ->setLabel(pht('Tên'))
+        ->setDescription(pht('Tên dịch vụ.'))
         ->setTransactionType(AlmanacServiceTransaction::TYPE_NAME)
         ->setIsRequired(true)
         ->setValue($object->getName()),

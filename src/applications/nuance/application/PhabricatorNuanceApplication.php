@@ -3,7 +3,7 @@
 final class PhabricatorNuanceApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Nuance');
+    return pht('Trạng thái');
   }
 
   public function getIcon() {
@@ -32,7 +32,7 @@ final class PhabricatorNuanceApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('High-Volume Task Queues');
+    return pht('Lượng công việc');
   }
 
   public function getRoutes() {
@@ -66,12 +66,12 @@ final class PhabricatorNuanceApplication extends PhabricatorApplication {
   protected function getCustomCapabilities() {
     return array(
       NuanceSourceDefaultViewCapability::CAPABILITY => array(
-        'caption' => pht('Default view policy for newly created sources.'),
+        'caption' => pht('Mặc định chính sách  xem cho mã nguồn mới tạo.'),
         'template' => NuanceSourcePHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_VIEW,
       ),
       NuanceSourceDefaultEditCapability::CAPABILITY => array(
-        'caption' => pht('Default edit policy for newly created sources.'),
+        'caption' => pht('Mặc định chính sách  chỉnh sửa cho mã nguồn mới tạo.'),
         'template' => NuanceSourcePHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_EDIT,
       ),

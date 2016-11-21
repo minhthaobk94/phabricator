@@ -19,7 +19,7 @@ final class AlmanacNetworkViewController
       return new Aphront404Response();
     }
 
-    $title = pht('Network %s', $network->getName());
+    $title = pht('Mạng %s', $network->getName());
 
     $curtain = $this->buildCurtain($network);
 
@@ -71,7 +71,7 @@ final class AlmanacNetworkViewController
     $curtain->addAction(
       id(new PhabricatorActionView())
         ->setIcon('fa-pencil')
-        ->setName(pht('Edit Network'))
+        ->setName(pht('Chỉnh sửa mạng'))
         ->setHref($edit_uri)
         ->setWorkflow(!$can_edit)
         ->setDisabled(!$can_edit));

@@ -6,7 +6,7 @@ abstract class AlmanacNetworkController extends AlmanacController {
     $crumbs = parent::buildApplicationCrumbs();
 
     $list_uri = $this->getApplicationURI('network/');
-    $crumbs->addTextCrumb(pht('Networks'), $list_uri);
+    $crumbs->addTextCrumb(pht('Mạng'), $list_uri);
 
     return $crumbs;
   }

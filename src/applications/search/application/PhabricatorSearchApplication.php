@@ -7,15 +7,15 @@ final class PhabricatorSearchApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Search');
+    return pht('Tìm kiếm');
   }
 
   public function getShortDescription() {
-    return pht('Full-Text Search');
+    return pht('Tìm kiếm toàn bộ');
   }
 
   public function getFlavorText() {
-    return pht('Find stuff in big piles.');
+    return pht('Tìm kiếm ở đường ống lớn.');
   }
 
   public function getIcon() {

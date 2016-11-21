@@ -3,7 +3,7 @@
 final class BugsApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Bugs tracker');
+    return pht('Quản lý lỗi');
   }
 
   public function getIcon() {
@@ -16,8 +16,8 @@ final class BugsApplication extends PhabricatorApplication {
   
   public function getOverview() {
     return pht(
-      'Differential is a **code review application** which allows '.
-      'engineers to review, discuss and approve changes to software.');
+      	'Hỗ trợ quản lý issues. '.
+	'Tạo bug report để theo dõi.');
   }
 
   public function getRoutes() {

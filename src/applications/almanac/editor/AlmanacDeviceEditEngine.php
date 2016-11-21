@@ -10,15 +10,15 @@ final class AlmanacDeviceEditEngine
   }
 
   public function getEngineName() {
-    return pht('Almanac Devices');
+    return pht('Thiết bị Sách lịch');
   }
 
   public function getSummaryHeader() {
-    return pht('Edit Almanac Device Configurations');
+    return pht('Chỉnh sửa cấu hình');
   }
 
   public function getSummaryText() {
-    return pht('This engine is used to edit Almanac devices.');
+    return pht('Tính năng này được dùng để chỉnh sửa các thiết bị Sách lịch.');
   }
 
   public function getEngineApplicationClass() {
@@ -34,27 +34,27 @@ final class AlmanacDeviceEditEngine
   }
 
   protected function getObjectCreateTitleText($object) {
-    return pht('Create Device');
+    return pht('Tạo mới thiết bị');
   }
 
   protected function getObjectCreateButtonText($object) {
-    return pht('Create Device');
+    return pht('Tạo mới thiết bị');
   }
 
   protected function getObjectEditTitleText($object) {
-    return pht('Edit Device: %s', $object->getName());
+    return pht('Chỉnh sửa thiết bị: %s', $object->getName());
   }
 
   protected function getObjectEditShortText($object) {
-    return pht('Edit Device');
+    return pht('Chỉnh sửa thiết bị');
   }
 
   protected function getObjectCreateShortText() {
-    return pht('Create Device');
+    return pht('Tạo mới');
   }
 
   protected function getObjectName() {
-    return pht('Device');
+    return pht('Thiết bị');
   }
 
   protected function getEditorURI() {
@@ -78,8 +78,8 @@ final class AlmanacDeviceEditEngine
     return array(
       id(new PhabricatorTextEditField())
         ->setKey('name')
-        ->setLabel(pht('Name'))
-        ->setDescription(pht('Name of the device.'))
+        ->setLabel(pht('Tên'))
+        ->setDescription(pht('Tên thiết bị.'))
         ->setTransactionType(AlmanacDeviceTransaction::TYPE_NAME)
         ->setIsRequired(true)
         ->setValue($object->getName()),
