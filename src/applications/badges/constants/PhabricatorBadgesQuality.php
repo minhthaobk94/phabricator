@@ -15,7 +15,7 @@ final class PhabricatorBadgesQuality
 
   public static function getQualityName($quality) {
     $map = self::getQualityDictionary($quality);
-    $default = pht('Unknown Quality ("%s")', $quality);
+    $default = pht('Chất lượng chưa biết ("%s")', $quality);
     return idx($map, 'name', $default);
   }
 

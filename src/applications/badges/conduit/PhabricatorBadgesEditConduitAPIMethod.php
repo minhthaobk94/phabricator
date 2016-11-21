@@ -13,7 +13,7 @@ final class PhabricatorBadgesEditConduitAPIMethod
 
   public function getMethodSummary() {
     return pht(
-      'Apply transactions to create a new badge or edit an existing one.');
+      'Áp dụng các giao dịch để tạo ra một huy hiệu mới hoặc chỉnh sửa một hiện.');
   }
 
 }

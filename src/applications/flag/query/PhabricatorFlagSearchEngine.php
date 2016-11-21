@@ -51,18 +51,18 @@ final class PhabricatorFlagSearchEngine
       ->appendChild(
         id(new PhabricatorFlagSelectControl())
         ->setName('colors')
-        ->setLabel(pht('Colors'))
+        ->setLabel(pht('Màu sắc'))
         ->setValue($saved_query->getParameter('colors', array())))
       ->appendChild(
         id(new AphrontFormSelectControl())
         ->setName('group')
-        ->setLabel(pht('Group By'))
+        ->setLabel(pht('Nhóm bởi'))
         ->setValue($saved_query->getParameter('group'))
         ->setOptions($this->getGroupOptions()))
       ->appendChild(
         id(new AphrontFormSelectControl())
         ->setName('objectFilter')
-        ->setLabel(pht('Object Type'))
+        ->setLabel(pht('Loại'))
         ->setValue($saved_query->getParameter('objectFilter'))
         ->setOptions($this->getObjectFilterOptions()));
   }
@@ -94,8 +94,8 @@ final class PhabricatorFlagSearchEngine
 
   private function getGroupOptions() {
     return array(
-      PhabricatorFlagQuery::GROUP_NONE => pht('None'),
-      PhabricatorFlagQuery::GROUP_COLOR => pht('Color'),
+      PhabricatorFlagQuery::GROUP_NONE => pht('Không '),
+      PhabricatorFlagQuery::GROUP_COLOR => pht('Màu'),
     );
   }
 
@@ -118,7 +118,7 @@ final class PhabricatorFlagSearchEngine
     // sort it alphabetically...
     asort($options);
     $default_option = array(
-      0 => pht('All Object Types'),
+      0 => pht('Tất cả các loại đối tượng'),
     );
     // ...and stick the default option on front
     $options = array_merge($default_option, $options);
@@ -184,7 +184,7 @@ final class PhabricatorFlagSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No flags found.'));
+    $result->setNoDataString(pht('Không tìm thấy flag.'));
 
     return $result;
 

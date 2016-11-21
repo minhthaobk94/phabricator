@@ -5,9 +5,9 @@ final class DarkConsoleErrorLogPlugin extends DarkConsolePlugin {
   public function getName() {
     $count = count($this->getData());
     if ($count) {
-      return pht('Error Log (%d)', $count);
+      return pht('Lỗi Log (%d)', $count);
     }
-    return pht('Error Log');
+    return pht('Lỗi Log');
   }
 
   public function getOrder() {
@@ -22,7 +22,7 @@ final class DarkConsoleErrorLogPlugin extends DarkConsolePlugin {
   }
 
   public function getDescription() {
-    return pht('Shows errors and warnings.');
+    return pht('Hiển thị lỗi và cảnh báo.');
   }
 
   public function generateData() {
@@ -84,8 +84,8 @@ final class DarkConsoleErrorLogPlugin extends DarkConsolePlugin {
 
     $table = new AphrontTableView($rows);
     $table->setClassName('error-log');
-    $table->setHeaders(array(pht('Error')));
-    $table->setNoDataString(pht('No errors.'));
+    $table->setHeaders(array(pht('Lỗi')));
+    $table->setNoDataString(pht('Không lỗi.'));
 
     return phutil_tag(
       'div',

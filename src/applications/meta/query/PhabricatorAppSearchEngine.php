@@ -4,7 +4,7 @@ final class PhabricatorAppSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Applications');
+    return pht('Ưng dụng');
   }
 
   public function getApplicationClassName() {
@@ -91,19 +91,19 @@ final class PhabricatorAppSearchEngine
     $form
       ->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel(pht('Name Contains'))
+          ->setLabel(pht('Tên bao hàm'))
           ->setName('name')
           ->setValue($saved->getParameter('name')))
       ->appendChild(
         id(new AphrontFormSelectControl())
-          ->setLabel(pht('Installed'))
+          ->setLabel(pht('Cài đặt'))
           ->setName('installed')
           ->setValue($this->getBoolFromQuery($saved, 'installed'))
           ->setOptions(
             array(
-              '' => pht('Show All Applications'),
-              'true' => pht('Show Installed Applications'),
-              'false' => pht('Show Uninstalled Applications'),
+              '' => pht('Hiển thị tất cả các ứng dụng'),
+              'true' => pht('Hiện đã cài đặt ứng dụng'),
+              'false' => pht('Hiện gỡ bỏ cài đặt ứng dụng'),
             )))
       ->appendChild(
         id(new AphrontFormSelectControl())
@@ -112,20 +112,20 @@ final class PhabricatorAppSearchEngine
           ->setValue($this->getBoolFromQuery($saved, 'prototypes'))
           ->setOptions(
             array(
-              '' => pht('Show All Applications'),
-              'true' => pht('Show Prototype Applications'),
-              'false' => pht('Show Released Applications'),
+              '' => pht('Hiển thị tất cả các ứng dụng'),
+              'true' => pht('Hiện ứng dụng Prototype'),
+              'false' => pht('Hiện Phát hành ứng dụng'),
             )))
       ->appendChild(
         id(new AphrontFormSelectControl())
-          ->setLabel(pht('Provenance'))
+          ->setLabel(pht('Nguồn gốc'))
           ->setName('firstParty')
           ->setValue($this->getBoolFromQuery($saved, 'firstParty'))
           ->setOptions(
             array(
-              '' => pht('Show All Applications'),
-              'true' => pht('Show First-Party Applications'),
-              'false' => pht('Show Third-Party Applications'),
+              '' => pht('Hiển thị tất cả các ứng dụng'),
+              'true' => pht('Hiện ứng dụng lần đầu '),
+              'false' => pht('Ứng dụng chương trình của bên thứ ba'),
             )))
       ->appendChild(
         id(new AphrontFormSelectControl())
@@ -134,18 +134,18 @@ final class PhabricatorAppSearchEngine
           ->setValue($this->getBoolFromQuery($saved, 'launchable'))
           ->setOptions(
             array(
-              '' => pht('Show All Applications'),
-              'true' => pht('Show Launchable Applications'),
-              'false' => pht('Show Non-Launchable Applications'),
+              '' => pht('Hiển thị tất cả các ứng dụng'),
+              'true' => pht('Hiện ứng dụng launchable'),
+              'false' => pht('Hiện ứng dụng không phải launchable'),
             )))
       ->appendChild(
         id(new AphrontFormSelectControl())
-          ->setLabel(pht('Application Emails'))
+          ->setLabel(pht('ứng dụng Emails'))
           ->setName('appemails')
           ->setValue($this->getBoolFromQuery($saved, 'appemails'))
           ->setOptions(
             array(
-              '' => pht('Show All Applications'),
+              '' => pht('Hiển thị tất cả các ứng dụng'),
               'true' => pht('Show Applications w/ App Email Support'),
               'false' => pht('Show Applications w/o App Email Support'),
             )));
@@ -158,7 +158,7 @@ final class PhabricatorAppSearchEngine
   protected function getBuiltinQueryNames() {
     return array(
       'launcher' => pht('Launcher'),
-      'all' => pht('All Applications'),
+      'all' => pht('Tất cả các ứng dụng'),
     );
   }
 
@@ -219,7 +219,7 @@ final class PhabricatorAppSearchEngine
         $configure = id(new PHUIButtonView())
           ->setTag('a')
           ->setHref('/applications/view/'.get_class($application).'/')
-          ->setText(pht('Configure'))
+          ->setText(pht('Cấu hình'))
           ->setColor(PHUIButtonView::GREY);
 
         $name = $application->getName();
@@ -238,12 +238,12 @@ final class PhabricatorAppSearchEngine
         }
 
         if (!$application->isInstalled()) {
-          $item->addAttribute(pht('Uninstalled'));
+          $item->addAttribute(pht('Hủy cài đặt'));
           $item->setDisabled(true);
         }
 
         if (!$application->isFirstParty()) {
-          $item->addAttribute(pht('Extension'));
+          $item->addAttribute(pht('Mở rộng'));
         }
 
         $list->addItem($item);

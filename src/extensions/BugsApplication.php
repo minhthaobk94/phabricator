@@ -3,7 +3,7 @@
 final class BugsApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Bugs tracker');
+    return pht('Theo dõi lỗi');
   }
 
   public function getIcon() {

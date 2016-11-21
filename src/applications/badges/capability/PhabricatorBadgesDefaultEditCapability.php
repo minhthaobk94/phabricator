@@ -6,7 +6,7 @@ final class PhabricatorBadgesDefaultEditCapability
   const CAPABILITY = 'badges.default.edit';
 
   public function getCapabilityName() {
-    return pht('Default Edit Badges');
+    return pht('Mặc định sửa danh hiệu');
   }
 
 }

@@ -119,11 +119,11 @@ final class PhabricatorBadgesQuery
     return array(
       'quality' => array(
         'vector' => array('quality', 'id'),
-        'name' => pht('Rarity (Rarest First)'),
+        'name' => pht('Hiếm (hiếm nhất đầu tiên)'),
       ),
       'shoddiness' => array(
         'vector' => array('-quality', '-id'),
-        'name' => pht('Rarity (Most Common First)'),
+        'name' => pht('Hiếm (thường gặp nhất đầu tiên)'),
       ),
     ) + parent::getBuiltinOrders();
   }

@@ -14,7 +14,7 @@ final class ConduitResultSearchEngineExtension
   }
 
   public function getExtensionName() {
-    return pht('Support for ConduitResultInterface');
+    return pht('Hỗ trợ cho ConduitResultInterface');
   }
 
   public function supportsObject($object) {

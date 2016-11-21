@@ -4,7 +4,7 @@ final class PhabricatorPasteSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Pastes');
+    return pht('Dán');
   }
 
   public function getApplicationClassName() {
@@ -214,9 +214,9 @@ final class PhabricatorPasteSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
-        pht('Store, share, and embed snippets of code.'))
+        pht('Chứa đựng, chia sẻ và nhúng đoạn mã.'))
       ->addAction($create_button);
 
       return $view;

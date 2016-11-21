@@ -158,11 +158,11 @@ final class PhabricatorRepositoryQuery
     return array(
       'committed' => array(
         'vector' => array('committed', 'id'),
-        'name' => pht('Most Recent Commit'),
+        'name' => pht('Gần đây nhất Commit'),
       ),
       'name' => array(
         'vector' => array('name', 'id'),
-        'name' => pht('Name'),
+        'name' => pht('Tên'),
       ),
       'callsign' => array(
         'vector' => array('callsign'),
@@ -170,7 +170,7 @@ final class PhabricatorRepositoryQuery
       ),
       'size' => array(
         'vector' => array('size', 'id'),
-        'name' => pht('Size'),
+        'name' => pht('Kích thước'),
       ),
     ) + parent::getBuiltinOrders();
   }

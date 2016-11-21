@@ -248,7 +248,7 @@ final class ConpherenceLayoutView extends AphrontTagView {
 
       $view = id(new PHUIBigInfoView())
         ->setIcon('fa-comments')
-        ->setTitle(pht('Welcome to Conpherence'))
+        ->setTitle(pht('Chào mừng đến với  Conpherence'))
         ->setDescription(
           pht('Conpherence lets you create public or private rooms to '.
             'communicate with others.'))

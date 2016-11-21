@@ -227,7 +227,7 @@ final class LegalpadDocumentSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
         pht('Create documents and track signatures. Can also be re-used in '.
             'other areas of Phabricator, like CLAs.'))

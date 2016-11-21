@@ -126,10 +126,10 @@ abstract class PhabricatorController extends AphrontController {
         if (!$this->shouldAllowRestrictedParameter($parameter)) {
           throw new Exception(
             pht(
-              'Request includes restricted parameter "%s", but this '.
-              'controller ("%s") does not whitelist it. Refusing to '.
-              'serve this request because it might be part of a redirection '.
-              'attack.',
+              'Yêu cầu bao gồm tham số giới hạn "% s", nhưng điều này '.
+              'điều khiển ("% s") không lập danh sách trắng nó. Từ chối '.
+              'phục vụ yêu cầu này vì nó có thể là một phần của một chuyển hướng'.
+              'tấn công.',
               $parameter,
               get_class($this)));
         }
@@ -277,7 +277,7 @@ abstract class PhabricatorController extends AphrontController {
 
   public function getApplicationURI($path = '') {
     if (!$this->getCurrentApplication()) {
-      throw new Exception(pht('No application!'));
+      throw new Exception(pht('Khong ứng dụng!'));
     }
     return $this->getCurrentApplication()->getApplicationURI($path);
   }

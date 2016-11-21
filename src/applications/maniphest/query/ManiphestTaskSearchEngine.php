@@ -31,7 +31,7 @@ final class ManiphestTaskSearchEngine
   }
 
   public function getResultTypeDescription() {
-    return pht('Tasks');
+    return pht('Công việc');
   }
 
   public function getApplicationClassName() {
@@ -46,52 +46,52 @@ final class ManiphestTaskSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorOwnersSearchField())
-        ->setLabel(pht('Assigned To'))
+        ->setLabel(pht('Phân công'))
         ->setKey('assignedPHIDs')
         ->setConduitKey('assigned')
         ->setAliases(array('assigned'))
         ->setDescription(
-          pht('Search for tasks owned by a user from a list.')),
+          pht('Tìm kiếm các nhiệm vụ thuộc sở hữu của một người sử dụng từ một danh sách.')),
       id(new PhabricatorUsersSearchField())
-        ->setLabel(pht('Authors'))
+        ->setLabel(pht('Tác giả'))
         ->setKey('authorPHIDs')
         ->setAliases(array('author', 'authors'))
         ->setDescription(
-          pht('Search for tasks with given authors.')),
+          pht('Tìm kiếm công việc với các tác giả đưa ra.')),
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Statuses'))
+        ->setLabel(pht('Trạng thái'))
         ->setKey('statuses')
         ->setAliases(array('status'))
         ->setDescription(
-          pht('Search for tasks with given statuses.'))
+          pht('Tìm kiếm công việc với trạng thái được.'))
         ->setDatasource(new ManiphestTaskStatusFunctionDatasource()),
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Priorities'))
+        ->setLabel(pht('Ưu tiên'))
         ->setKey('priorities')
         ->setAliases(array('priority'))
         ->setDescription(
-          pht('Search for tasks with given priorities.'))
+          pht('Tìm kiếm các nhiệm vụ ưu tiên cho.'))
         ->setConduitParameterType(new ConduitIntListParameterType())
         ->setDatasource(new ManiphestTaskPriorityDatasource()),
       id(new PhabricatorSearchTextField())
-        ->setLabel(pht('Contains Words'))
+        ->setLabel(pht('Chứa từ'))
         ->setKey('fulltext'),
       id(new PhabricatorSearchThreeStateField())
-        ->setLabel(pht('Open Parents'))
+        ->setLabel(pht('Mở gốc'))
         ->setKey('hasParents')
         ->setAliases(array('blocking'))
         ->setOptions(
-          pht('(Show All)'),
-          pht('Show Only Tasks With Open Parents'),
-          pht('Show Only Tasks Without Open Parents')),
+          pht('(Hiển thị tất cả)'),
+          pht('Chỉ hiển thị  với mở gốc'),
+          pht('Chỉ hiển thị  với không  mở gốc')),
       id(new PhabricatorSearchThreeStateField())
-        ->setLabel(pht('Open Subtasks'))
+        ->setLabel(pht('Mở công việc con '))
         ->setKey('hasSubtasks')
         ->setAliases(array('blocked'))
         ->setOptions(
-          pht('(Show All)'),
-          pht('Show Only Tasks With Open Subtasks'),
-          pht('Show Only Tasks Without Open Subtasks')),
+          pht('(Hiển thị tất cả)'),
+          pht('Chỉ hiển thị  với mở con'),
+          pht('Chỉ hiển thị  với không  mở con')),
       id(new PhabricatorIDsSearchField())
         ->setLabel(pht('Parent IDs'))
         ->setKey('parentIDs')
@@ -101,7 +101,7 @@ final class ManiphestTaskSearchEngine
         ->setKey('subtaskIDs')
         ->setAliases(array('subtaskID')),
       id(new PhabricatorSearchSelectField())
-        ->setLabel(pht('Group By'))
+        ->setLabel(pht('Nhóm bởi'))
         ->setKey('group')
         ->setOptions($this->getGroupOptions()),
       id(new PhabricatorSearchDateField())
@@ -302,11 +302,11 @@ final class ManiphestTaskSearchEngine
 
   private function getGroupOptions() {
     return array(
-      'priority' => pht('Priority'),
-      'assigned' => pht('Assigned'),
-      'status'   => pht('Status'),
-      'project'  => pht('Project'),
-      'none'     => pht('None'),
+      'priority' => pht('Ưu tiên'),
+      'assigned' => pht('Phân công'),
+      'status'   => pht('Trạng thái'),
+      'project'  => pht('Dự án'),
+      'none'     => pht('Rỗng'),
     );
   }
 
@@ -409,13 +409,13 @@ final class ManiphestTaskSearchEngine
 
     $create_button = id(new ManiphestEditEngine())
       ->setViewer($viewer)
-      ->newNUXBUtton(pht('Create a Task'));
+      ->newNUXBUtton(pht('Tạo công việc'));
 
     $icon = $this->getApplication()->getIcon();
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
         pht('Use Maniphest to track bugs, features, todos, or anything else '.
             'you need to get done. Tasks assigned to you will appear here.'))

@@ -22,11 +22,11 @@ final class PhabricatorMetaMTAMailSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorUsersSearchField())
-      ->setLabel(pht('Actors'))
+      ->setLabel(pht('Người gửi'))
       ->setKey('actorPHIDs')
       ->setAliases(array('actor', 'actors')),
       id(new PhabricatorUsersSearchField())
-      ->setLabel(pht('Recipients'))
+      ->setLabel(pht('Người nhận'))
       ->setKey('recipientPHIDs')
       ->setAliases(array('recipient', 'recipients')),
     );
@@ -52,8 +52,8 @@ final class PhabricatorMetaMTAMailSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'inbox'  => pht('Inbox'),
-      'outbox' => pht('Outbox'),
+      'inbox'  => pht('Hộp thư đến'),
+      'outbox' => pht('Hộp thư đi'),
     );
 
     return $names;

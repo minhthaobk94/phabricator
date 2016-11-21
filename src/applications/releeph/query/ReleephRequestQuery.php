@@ -236,7 +236,7 @@ final class ReleephRequestQuery
           ReleephRequestStatus::REVERTED,
         );
       default:
-        throw new Exception(pht("Unknown status '%s'!", $this->status));
+        throw new Exception(pht("Không hiểu trạng thái '%s'!", $this->status));
     }
   }
 

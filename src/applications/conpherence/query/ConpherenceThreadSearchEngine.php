@@ -4,7 +4,7 @@ final class ConpherenceThreadSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Rooms');
+    return pht('Phòng');
   }
 
   public function getApplicationClassName() {
@@ -20,16 +20,16 @@ final class ConpherenceThreadSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorUsersSearchField())
-        ->setLabel(pht('Participants'))
+        ->setLabel(pht('Những người tham gia'))
         ->setKey('participants')
         ->setAliases(array('participant')),
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Rooms'))
+        ->setLabel(pht('Phòng'))
         ->setKey('phids')
-        ->setDescription(pht('Search by room titles.'))
+        ->setDescription(pht('Tìm kiếm bởi tiêu đề phòng.'))
         ->setDatasource(id(new ConpherenceThreadDatasource())),
       id(new PhabricatorSearchTextField())
-        ->setLabel(pht('Room Contains Words'))
+        ->setLabel(pht('Phòng Có Words'))
         ->setKey('fulltext'),
     );
   }
@@ -66,7 +66,7 @@ final class ConpherenceThreadSearchEngine
   protected function getBuiltinQueryNames() {
     $names = array();
 
-    $names['all'] = pht('All Rooms');
+    $names['all'] = pht('Tất cả phòng');
 
     if ($this->requireViewer()->isLoggedIn()) {
       $names['participant'] = pht('Joined Rooms');
@@ -176,7 +176,7 @@ final class ConpherenceThreadSearchEngine
               $icon,
               ' ',
               pht(
-                'Last updated %s',
+                'Cập nhật cuối cùng %s',
                 phabricator_datetime($conpherence->getDateModified(), $viewer)),
             ));
           $list->addItem($item);
@@ -234,7 +234,7 @@ final class ConpherenceThreadSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setContent($content);
-    $result->setNoDataString(pht('No results found.'));
+    $result->setNoDataString(pht('Không có kết quả.'));
 
     return $result;
   }

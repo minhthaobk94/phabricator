@@ -4,7 +4,7 @@ final class PhabricatorCalendarImportSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Calendar Imports');
+    return pht('Nhạp lịch');
   }
 
   public function getApplicationClassName() {
@@ -31,7 +31,7 @@ final class PhabricatorCalendarImportSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All Imports'),
+      'all' => pht('Nhập tất cả'),
     );
 
     return $names;
@@ -61,7 +61,7 @@ final class PhabricatorCalendarImportSearchEngine
     foreach ($imports as $import) {
       $item = id(new PHUIObjectItemView())
         ->setViewer($viewer)
-        ->setObjectName(pht('Import %d', $import->getID()))
+        ->setObjectName(pht('Nhập %d', $import->getID()))
         ->setHeader($import->getDisplayName())
         ->setHref($import->getURI());
 
@@ -74,7 +74,7 @@ final class PhabricatorCalendarImportSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No imports found.'));
+    $result->setNoDataString(pht('Không tìm thấy.'));
 
     return $result;
   }

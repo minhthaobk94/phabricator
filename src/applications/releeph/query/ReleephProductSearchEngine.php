@@ -4,7 +4,7 @@ final class ReleephProductSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Releeph Products');
+    return pht('Sản phẩm releeph ');
   }
 
   public function getApplicationClassName() {
@@ -39,7 +39,7 @@ final class ReleephProductSearchEngine
     $form->appendChild(
       id(new AphrontFormSelectControl())
         ->setName('active')
-        ->setLabel(pht('Show Products'))
+        ->setLabel(pht('Hiển thị sản phẩm'))
         ->setValue($saved_query->getParameter('active'))
         ->setOptions($this->getActiveOptions()));
   }
@@ -50,8 +50,8 @@ final class ReleephProductSearchEngine
 
   protected function getBuiltinQueryNames() {
     return array(
-      'active' => pht('Active'),
-      'all' => pht('All'),
+      'active' => pht('Kích hoạt'),
+      'all' => pht('Tất cả'),
     );
   }
 
@@ -72,9 +72,9 @@ final class ReleephProductSearchEngine
 
   private function getActiveOptions() {
     return array(
-      'all'       => pht('Active and Inactive Products'),
-      'active'    => pht('Active Products'),
-      'inactive'  => pht('Inactive Products'),
+      'all'       => pht('Kích hoạt và không kích hoạt sản phẩm'),
+      'active'    => pht('Kích hoạt sản phẩm'),
+      'inactive'  => pht('Ngưng kích hoạt sản phẩm'),
     );
   }
 
@@ -106,7 +106,7 @@ final class ReleephProductSearchEngine
 
       if (!$product->getIsActive()) {
         $item->setDisabled(true);
-        $item->addIcon('none', pht('Inactive'));
+        $item->addIcon('none', pht('Không kích hoạt'));
       }
 
       $repo = $product->getRepository();

@@ -18,16 +18,16 @@ final class PhabricatorBadgesSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchTextField())
-        ->setLabel(pht('Name Contains'))
+        ->setLabel(pht('Tên bao hàm'))
         ->setKey('name')
-        ->setDescription(pht('Search for badges by name substring.')),
+        ->setDescription(pht('Tìm kiếm badge theo tên .')),
       id(new PhabricatorSearchCheckboxesField())
         ->setKey('qualities')
-        ->setLabel(pht('Quality'))
+        ->setLabel(pht('Chất lượng'))
         ->setOptions(PhabricatorBadgesQuality::getDropdownQualityMap()),
       id(new PhabricatorSearchCheckboxesField())
         ->setKey('statuses')
-        ->setLabel(pht('Status'))
+        ->setLabel(pht('Trạng thái'))
         ->setOptions(
           id(new PhabricatorBadgesBadge())
             ->getStatusNameMap()),
@@ -59,8 +59,8 @@ final class PhabricatorBadgesSearchEngine
   protected function getBuiltinQueryNames() {
     $names = array();
 
-    $names['open'] = pht('Active Badges');
-    $names['all'] = pht('All Badges');
+    $names['open'] = pht('Badge tích cực');
+    $names['all'] = pht('Tất cả Badges');
 
     return $names;
   }
@@ -119,7 +119,7 @@ final class PhabricatorBadgesSearchEngine
 
       if ($badge->isArchived()) {
         $item->setDisabled(true);
-        $item->addIcon('fa-ban', pht('Archived'));
+        $item->addIcon('fa-ban', pht('Lưu trữ'));
       }
 
       $list->addItem($item);
@@ -127,7 +127,7 @@ final class PhabricatorBadgesSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No badges found.'));
+    $result->setNoDataString(pht('Không tìm thấy badge.'));
 
     return $result;
 
@@ -136,7 +136,7 @@ final class PhabricatorBadgesSearchEngine
   protected function getNewUserBody() {
     $create_button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('Create a Badge'))
+      ->setText(pht('Tạo Badge'))
       ->setHref('/badges/create/')
       ->setColor(PHUIButtonView::GREEN);
 
@@ -144,10 +144,10 @@ final class PhabricatorBadgesSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến %s', $app_name))
       ->setDescription(
-        pht('Badges let you award and distinguish special users '.
-          'throughout your instance.'))
+        pht('Badge cho phép bạn trao giải và phân biệt người sử dụng đặc biệt '.
+          'suốt thể hiện của bạn.'))
       ->addAction($create_button);
 
       return $view;

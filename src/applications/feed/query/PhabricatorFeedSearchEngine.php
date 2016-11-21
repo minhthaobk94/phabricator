@@ -75,20 +75,20 @@ final class PhabricatorFeedSearchEngine
         id(new AphrontFormTokenizerControl())
           ->setDatasource(new PhabricatorPeopleDatasource())
           ->setName('users')
-          ->setLabel(pht('Include Users'))
+          ->setLabel(pht('Bao gồm người dùng'))
           ->setValue($user_phids))
       ->appendControl(
         id(new AphrontFormTokenizerControl())
           ->setDatasource(new PhabricatorProjectDatasource())
           ->setName('projectPHIDs')
-          ->setLabel(pht('Include Projects'))
+          ->setLabel(pht('Bao gồm dự án'))
           ->setValue($proj_phids))
       ->appendChild(
         id(new AphrontFormCheckboxControl())
           ->addCheckbox(
             'viewerProjects',
             1,
-            pht('Include stories about projects I am a member of.'),
+            pht('Bao gồm những câu chuyện về dự án mà tôi là một thành viên của.'),
             $viewer_projects));
   }
 
@@ -98,7 +98,7 @@ final class PhabricatorFeedSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All Stories'),
+      'all' => pht('Toàn bộ câu chuyện'),
     );
 
     if ($this->requireViewer()->isLoggedIn()) {
