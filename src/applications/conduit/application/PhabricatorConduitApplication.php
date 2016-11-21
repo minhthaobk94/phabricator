@@ -17,7 +17,7 @@ final class PhabricatorConduitApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Conduit API Overview'),
+        'name' => pht('Tổng quan Conduit  API'),
         'href' => PhabricatorEnv::getDoclink('Conduit API Overview'),
       ),
     );
@@ -28,7 +28,7 @@ final class PhabricatorConduitApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Developer API');
+    return pht('API cho nhà phát triển');
   }
 
   public function getTitleGlyph() {

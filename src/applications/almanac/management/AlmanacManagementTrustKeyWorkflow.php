@@ -6,13 +6,13 @@ final class AlmanacManagementTrustKeyWorkflow
   protected function didConstruct() {
     $this
       ->setName('trust-key')
-      ->setSynopsis(pht('Mark a public key as trusted.'))
+      ->setSynopsis(pht('Đánh dấu khóa công cộng.'))
       ->setArguments(
         array(
           array(
             'name' => 'id',
             'param' => 'id',
-            'help' => pht('ID of the key to trust.'),
+            'help' => pht('ID khóa.'),
           ),
         ));
   }
@@ -23,7 +23,7 @@ final class AlmanacManagementTrustKeyWorkflow
     $id = $args->getArg('id');
     if (!$id) {
       throw new PhutilArgumentUsageException(
-        pht('Specify a public key to trust with --id.'));
+        pht('Trùng khóa'));
     }
 
     $key = id(new PhabricatorAuthSSHKeyQuery())
@@ -32,22 +32,22 @@ final class AlmanacManagementTrustKeyWorkflow
       ->executeOne();
     if (!$key) {
       throw new PhutilArgumentUsageException(
-        pht('No public key exists with ID "%s".', $id));
+        pht('Không có khóa nào tồn tại với ID "%s".', $id));
     }
 
     if (!$key->getIsActive()) {
       throw new PhutilArgumentUsageException(
-        pht('Public key "%s" is not an active key.', $id));
+        pht('Khóa "%s" không hoạt động.', $id));
     }
 
     if ($key->getIsTrusted()) {
       throw new PhutilArgumentUsageException(
-        pht('Public key with ID %s is already trusted.', $id));
+        pht('Khóa ID %s được xác nhận.', $id));
     }
 
     if (!($key->getObject() instanceof AlmanacDevice)) {
       throw new PhutilArgumentUsageException(
-        pht('You can only trust keys associated with Almanac devices.'));
+        pht('Chỉ tin vào mối quan hệ với thiết bị.'));
     }
 
     $handle = id(new PhabricatorHandleQuery())
@@ -69,13 +69,13 @@ final class AlmanacManagementTrustKeyWorkflow
           'This is an advanced feature which should normally be used only '.
           'when building a Phabricator cluster. This feature is very '.
           'dangerous if misused.')),
-      pht('This key is associated with device "%s".', $handle->getName()));
+      pht('Khóa này có liên quan tới thiết bị "%s".', $handle->getName()));
 
     $prompt = pht(
-      'Really trust this key?');
+      'Thực sự đáng tin cậy?');
     if (!phutil_console_confirm($prompt)) {
       throw new PhutilArgumentUsageException(
-        pht('User aborted workflow.'));
+        pht('Luồng làm việc người dùng.'));
     }
 
     $key->setIsTrusted(1);
@@ -84,7 +84,7 @@ final class AlmanacManagementTrustKeyWorkflow
     $console->writeOut(
       "**<bg:green> %s </bg>** %s\n",
       pht('TRUSTED'),
-      pht('Key %s has been marked as trusted.', $id));
+      pht('Khóa %s đã được đánh dấu.', $id));
   }
 
 }

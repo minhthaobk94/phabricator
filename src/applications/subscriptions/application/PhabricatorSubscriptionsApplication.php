@@ -3,7 +3,7 @@
 final class PhabricatorSubscriptionsApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Subscriptions');
+    return pht('Đăng ký');
   }
 
   public function isLaunchable() {

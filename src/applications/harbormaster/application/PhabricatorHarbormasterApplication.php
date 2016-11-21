@@ -23,7 +23,7 @@ final class PhabricatorHarbormasterApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Ship Some Freight');
+    return pht('Một số vận chuyển');
   }
 
   public function getApplicationGroup() {
@@ -45,7 +45,7 @@ final class PhabricatorHarbormasterApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Harbormaster User Guide'),
+        'name' => pht(' Hướng dẫn sử dụng Harbormaster '),
         'href' => PhabricatorEnv::getDoclink('Harbormaster User Guide'),
       ),
     );

@@ -28,7 +28,7 @@ final class PhabricatorMultimeterApplication
   }
 
   public function getShortDescription() {
-    return pht('Performance Sampler');
+    return pht('Hiệu suất Sampler');
   }
 
   public function getRemarkupRules() {

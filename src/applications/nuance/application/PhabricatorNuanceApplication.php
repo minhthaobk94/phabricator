@@ -32,7 +32,7 @@ final class PhabricatorNuanceApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('High-Volume Task Queues');
+    return pht('Khối lượng cao hàng đợi công việ');
   }
 
   public function getRoutes() {

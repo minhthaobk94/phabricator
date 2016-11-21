@@ -10,15 +10,15 @@ final class AlmanacNetworkEditEngine
   }
 
   public function getEngineName() {
-    return pht('Almanac Networks');
+    return pht('Mạng');
   }
 
   public function getSummaryHeader() {
-    return pht('Edit Almanac Network Configurations');
+    return pht('Chỉnh sửa cấu hình');
   }
 
   public function getSummaryText() {
-    return pht('This engine is used to edit Almanac networks.');
+    return pht('Tính năng này để chỉnh sửa mạng.');
   }
 
   public function getEngineApplicationClass() {
@@ -34,27 +34,27 @@ final class AlmanacNetworkEditEngine
   }
 
   protected function getObjectCreateTitleText($object) {
-    return pht('Create Network');
+    return pht('Tạo mới mạng');
   }
 
   protected function getObjectCreateButtonText($object) {
-    return pht('Create Network');
+    return pht('Tạo mới mạng');
   }
 
   protected function getObjectEditTitleText($object) {
-    return pht('Edit Network: %s', $object->getName());
+    return pht('Chỉnh sửa mạng: %s', $object->getName());
   }
 
   protected function getObjectEditShortText($object) {
-    return pht('Edit Network');
+    return pht('Chỉnh sửa mạng');
   }
 
   protected function getObjectCreateShortText() {
-    return pht('Create Network');
+    return pht('Tạo mới mạng');
   }
 
   protected function getObjectName() {
-    return pht('Network');
+    return pht('Mạng');
   }
 
   protected function getEditorURI() {
@@ -79,8 +79,8 @@ final class AlmanacNetworkEditEngine
     return array(
       id(new PhabricatorTextEditField())
         ->setKey('name')
-        ->setLabel(pht('Name'))
-        ->setDescription(pht('Name of the network.'))
+        ->setLabel(pht('Tên'))
+        ->setDescription(pht('Tên mạng.'))
         ->setTransactionType(AlmanacNetworkTransaction::TYPE_NAME)
         ->setIsRequired(true)
         ->setValue($object->getName()),

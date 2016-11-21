@@ -11,7 +11,7 @@ final class PhabricatorMacroApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Image Macros and Memes');
+    return pht('Macros hình ảnh và Memes');
   }
 
   public function getIcon() {
@@ -45,7 +45,7 @@ final class PhabricatorMacroApplication extends PhabricatorApplication {
   protected function getCustomCapabilities() {
     return array(
       PhabricatorMacroManageCapability::CAPABILITY => array(
-        'caption' => pht('Allows creating and editing macros.'),
+        'caption' => pht('Cho phép tạo và chỉnh sửa các macro.'),
       ),
     );
   }
@@ -54,11 +54,11 @@ final class PhabricatorMacroApplication extends PhabricatorApplication {
     return array(
       'macro' => array(
         'name' => pht('Email Commands: Macros'),
-        'header' => pht('Interacting with Macros'),
+        'header' => pht('Tương tác với Macros'),
         'object' => new PhabricatorFileImageMacro(),
         'summary' => pht(
-          'This page documents the commands you can use to interact with '.
-          'image macros.'),
+          'Trang này tài liệu các lệnh bạn có thể sử dụng để tương tác với '.
+          'ảnh macros.'),
       ),
     );
   }

@@ -7,11 +7,11 @@ final class PhabricatorSpacesApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Spaces');
+    return pht('Không gian');
   }
 
   public function getShortDescription() {
-    return pht('Policy Namespaces');
+    return pht('Chính sách Namespaces');
   }
 
   public function getIcon() {
@@ -23,7 +23,7 @@ final class PhabricatorSpacesApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Control access to groups of objects.');
+    return pht('Kiểm soát truy cập cho các nhóm đối tượng.');
   }
 
   public function getApplicationGroup() {
@@ -37,7 +37,7 @@ final class PhabricatorSpacesApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Spaces User Guide'),
+        'name' => pht('Hướng dẫn sử dụng các không gian'),
         'href' => PhabricatorEnv::getDoclink('Spaces User Guide'),
       ),
     );

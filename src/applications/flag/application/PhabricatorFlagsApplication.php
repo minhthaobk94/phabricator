@@ -3,11 +3,11 @@
 final class PhabricatorFlagsApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Flags');
+    return pht('Cờ');
   }
 
   public function getShortDescription() {
-    return pht('Personal Bookmarks');
+    return pht('Bookmarks cá nhân');
   }
 
   public function getBaseURI() {

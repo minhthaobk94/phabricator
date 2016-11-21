@@ -8,7 +8,7 @@ final class AlmanacNetworkEditor
   }
 
   public function getEditorObjectsDescription() {
-    return pht('Almanac Network');
+    return pht('Mạng');
   }
 
   protected function supportsSearch() {
@@ -89,8 +89,8 @@ final class AlmanacNetworkEditor
         if ($missing) {
           $error = new PhabricatorApplicationTransactionValidationError(
             $type,
-            pht('Required'),
-            pht('Network name is required.'),
+            pht('Bắt buộc'),
+            pht('Phải có tên mạng.'),
             nonempty(last($xactions), null));
 
           $error->setIsMissingFieldError(true);

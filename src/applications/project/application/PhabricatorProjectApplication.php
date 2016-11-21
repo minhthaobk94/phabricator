@@ -23,7 +23,7 @@ final class PhabricatorProjectApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Group stuff into big piles.');
+    return pht('Nhóm thứ vào đống lớn.');
   }
 
   public function getRemarkupRules() {

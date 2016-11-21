@@ -3,7 +3,7 @@
 final class PhabricatorOAuthServerApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('OAuth Server');
+    return pht('Máy chủ OAuth ');
   }
 
   public function getBaseURI() {
@@ -11,7 +11,7 @@ final class PhabricatorOAuthServerApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('OAuth Login Provider');
+    return pht('cung cấp đăng nhập OAuth');
   }
 
   public function getIcon() {
@@ -23,7 +23,7 @@ final class PhabricatorOAuthServerApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Login with Phabricator');
+    return pht('Đăng nhập với Phabricator');
   }
 
   public function getApplicationGroup() {
@@ -37,7 +37,7 @@ final class PhabricatorOAuthServerApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Using the Phabricator OAuth Server'),
+        'name' => pht('Sử dụng máy chủ Phabricator OAuth'),
         'href' => PhabricatorEnv::getDoclink(
           'Using the Phabricator OAuth Server'),
       ),

@@ -3,7 +3,7 @@
 final class PhabricatorBadgesApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Badges');
+    return pht('Thẻ ');
   }
 
   public function getBaseURI() {
@@ -11,7 +11,7 @@ final class PhabricatorBadgesApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Achievements and Notority');
+    return pht('Thành tựu và tiếng tăm');
   }
 
   public function getIcon() {
@@ -19,7 +19,7 @@ final class PhabricatorBadgesApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Build self esteem through gamification.');
+    return pht('Xây dựng lòng tự trọng qua trò chơi điện tử ứng dụng hóa.');
   }
 
   public function getApplicationGroup() {
@@ -64,11 +64,11 @@ final class PhabricatorBadgesApplication extends PhabricatorApplication {
     return array(
       PhabricatorBadgesCreateCapability::CAPABILITY => array(
         'default' => PhabricatorPolicies::POLICY_ADMIN,
-        'caption' => pht('Default create policy for badges.'),
+        'caption' => pht('Mặc định tạo ra chính sách cho thẻ.'),
       ),
       PhabricatorBadgesDefaultEditCapability::CAPABILITY => array(
         'default' => PhabricatorPolicies::POLICY_ADMIN,
-        'caption' => pht('Default edit policy for badges.'),
+        'caption' => pht('Chỉnh sửa chính sách mặc định cho thẻ.'),
         'template' => PhabricatorBadgesPHIDType::TYPECONST,
       ),
     );

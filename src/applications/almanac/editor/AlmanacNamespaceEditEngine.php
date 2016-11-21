@@ -10,15 +10,15 @@ final class AlmanacNamespaceEditEngine
   }
 
   public function getEngineName() {
-    return pht('Almanac Namespaces');
+    return pht('Tên Sách lịch');
   }
 
   public function getSummaryHeader() {
-    return pht('Edit Almanac Namespace Configurations');
+    return pht('Chỉnh sửa cấu hình');
   }
 
   public function getSummaryText() {
-    return pht('This engine is used to edit Almanac namespaces.');
+    return pht('Tính năng này dùng để chỉnh sửa tên sách lịch.');
   }
 
   public function getEngineApplicationClass() {
@@ -34,27 +34,27 @@ final class AlmanacNamespaceEditEngine
   }
 
   protected function getObjectCreateTitleText($object) {
-    return pht('Create Namespace');
+    return pht('Tạo mới');
   }
 
   protected function getObjectCreateButtonText($object) {
-    return pht('Create Namespace');
+    return pht('Tạo mới');
   }
 
   protected function getObjectEditTitleText($object) {
-    return pht('Edit Namespace: %s', $object->getName());
+    return pht('Chỉnh sửa tên: %s', $object->getName());
   }
 
   protected function getObjectEditShortText($object) {
-    return pht('Edit Namespace');
+    return pht('Chỉnh sửa tên');
   }
 
   protected function getObjectCreateShortText() {
-    return pht('Create Namespace');
+    return pht('Tạo mới');
   }
 
   protected function getObjectName() {
-    return pht('Namespace');
+    return pht('Tên');
   }
 
   protected function getEditorURI() {
@@ -79,8 +79,8 @@ final class AlmanacNamespaceEditEngine
     return array(
       id(new PhabricatorTextEditField())
         ->setKey('name')
-        ->setLabel(pht('Name'))
-        ->setDescription(pht('Name of the namespace.'))
+        ->setLabel(pht('Tên'))
+        ->setDescription(pht('Tên.'))
         ->setTransactionType(AlmanacNamespaceTransaction::TYPE_NAME)
         ->setIsRequired(true)
         ->setValue($object->getName()),

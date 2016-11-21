@@ -6,11 +6,11 @@ final class AlmanacCreateDevicesCapability
   const CAPABILITY = 'almanac.devices';
 
   public function getCapabilityName() {
-    return pht('Can Create Devices');
+    return pht('Có thể tạo mới thiết bị');
   }
 
   public function describeCapabilityRejection() {
-    return pht('You do not have permission to create Almanac devices.');
+    return pht('Bạn không có quyền tạo mới.');
   }
 
 }

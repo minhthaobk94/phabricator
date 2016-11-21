@@ -3,7 +3,7 @@
 final class PhabricatorFundApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Fund');
+    return pht('Quỹ');
   }
 
   public function getBaseURI() {
@@ -11,7 +11,7 @@ final class PhabricatorFundApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Donate');
+    return pht('Cho');
   }
 
   public function getIcon() {
@@ -55,7 +55,7 @@ final class PhabricatorFundApplication extends PhabricatorApplication {
   protected function getCustomCapabilities() {
     return array(
       FundDefaultViewCapability::CAPABILITY => array(
-        'caption' => pht('Default view policy for newly created initiatives.'),
+        'caption' => pht('Chính sách mặc định cho các sáng kiến mới được tạo.'),
         'tempate' => FundInitiativePHIDType::TYPECONST,
       ),
       FundCreateInitiativesCapability::CAPABILITY => array(

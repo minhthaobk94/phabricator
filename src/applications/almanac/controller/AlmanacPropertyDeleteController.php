@@ -24,17 +24,17 @@ final class AlmanacPropertyDeleteController
     $is_builtin = isset($builtins[$key]);
 
     if ($is_builtin) {
-      $title = pht('Reset Property');
+      $title = pht('Đặt lại thuộc tính');
       $body = pht(
-        'Reset property "%s" to its default value?',
+        'Đặt lại thuộc tính "%s" về giá trị mặc định?',
         $key);
-      $submit_text = pht('Reset Property');
+      $submit_text = pht('Đặt lại');
     } else {
-      $title = pht('Delete Property');
+      $title = pht('Xóa');
       $body = pht(
-        'Delete property "%s"?',
+        'Xóa thuộc tính "%s"?',
         $key);
-      $submit_text = pht('Delete Property');
+      $submit_text = pht('Xóa');
     }
 
     $validation_exception = null;

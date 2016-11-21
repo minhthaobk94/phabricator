@@ -4,11 +4,11 @@ final class AlmanacBindingsSearchEngineAttachment
   extends AlmanacSearchEngineAttachment {
 
   public function getAttachmentName() {
-    return pht('Almanac Bindings');
+    return pht('Ràng buộc');
   }
 
   public function getAttachmentDescription() {
-    return pht('Get Almanac bindings for the service.');
+    return pht('Lấy ràng buộc.');
   }
 
   public function willLoadAttachmentData($query, $spec) {

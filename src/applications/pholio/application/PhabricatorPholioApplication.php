@@ -11,7 +11,7 @@ final class PhabricatorPholioApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Review Mocks and Design');
+    return pht('Xem lại Mocks và Thiết kế');
   }
 
   public function getIcon() {
@@ -23,7 +23,7 @@ final class PhabricatorPholioApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Things before they were cool.');
+    return pht('Những thứ trước khi chúng thật tuyệt.');
   }
 
   public function getRemarkupRules() {

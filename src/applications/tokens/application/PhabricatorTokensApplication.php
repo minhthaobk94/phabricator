@@ -3,7 +3,7 @@
 final class PhabricatorTokensApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Tokens');
+    return pht('Mã thông báo');
   }
 
   public function getBaseURI() {
@@ -19,7 +19,7 @@ final class PhabricatorTokensApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Award and Acquire Trinkets');
+    return pht('Giải thưởng và Có được');
   }
 
   public function getApplicationGroup() {

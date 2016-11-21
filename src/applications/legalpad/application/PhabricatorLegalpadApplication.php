@@ -11,7 +11,7 @@ final class PhabricatorLegalpadApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Agreements and Signatures');
+    return pht('Hiệp định và chữ ký');
   }
 
   public function getIcon() {
@@ -35,7 +35,7 @@ final class PhabricatorLegalpadApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Legalpad User Guide'),
+        'name' => pht('Hướng dẫn sử dụng Legalpad '),
         'href' => PhabricatorEnv::getDoclink('Legalpad User Guide'),
       ),
     );

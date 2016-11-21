@@ -7,11 +7,11 @@ final class PhabricatorPonderApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Ponder');
+    return pht('Suy ngẫm');
   }
 
   public function getShortDescription() {
-    return pht('Questions and Answers');
+    return pht('Hỏi và trả lời');
   }
 
   public function getIcon() {
@@ -44,13 +44,13 @@ final class PhabricatorPonderApplication extends PhabricatorApplication {
 
   public function getAppEmailBlurb() {
     return pht(
-      'Send email to these addresses to create questions. %s',
+      'Gửi email đến các địa chỉ này để tạo ra các câu hỏi. %s',
       phutil_tag(
         'a',
         array(
           'href' => $this->getInboundEmailSupportLink(),
         ),
-        pht('Learn More')));
+        pht('Tìm hiểu thêm')));
   }
 
   public function getRoutes() {

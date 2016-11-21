@@ -3,15 +3,15 @@
 final class PhabricatorPackagesApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Packages');
+    return pht('Gói');
   }
 
   public function getShortDescription() {
-    return pht('Publish Software');
+    return pht('Xuất bản phần mềm');
   }
 
   public function getFlavorText() {
-    return pht('Applications and Extensions');
+    return pht('Các ứng dụng và mở rộng');
   }
 
   public function getBaseURI() {

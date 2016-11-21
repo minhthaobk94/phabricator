@@ -6,11 +6,11 @@ final class AlmanacCreateServicesCapability
   const CAPABILITY = 'almanac.services';
 
   public function getCapabilityName() {
-    return pht('Can Create Services');
+    return pht('Có thể tạo mới dịch vụ');
   }
 
   public function describeCapabilityRejection() {
-    return pht('You do not have permission to create Almanac services.');
+    return pht('Bạn không có quyền tạo mới dịch vụ.');
   }
 
 }

@@ -94,8 +94,8 @@ EOHELP
         ->setDescription(
           pht(
             "Chọn và tái đặt các trường của sự thay đổi .\n\n".
-            "NOTE: This feature is under active development and subject đổi".
-            "to change.")),
+            "Chú ý: Tính năng này đang được phát triển và chủ đề".
+             "thay đổi".)),
       $this->newOption(
         'differential.whitespace-matters',
         'list<regex>',
