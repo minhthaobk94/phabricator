@@ -4,7 +4,7 @@ final class DrydockBlueprintSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Drydock Blueprints');
+    return pht('Chứng từ');
   }
 
   public function getApplicationClassName() {
@@ -32,16 +32,16 @@ final class DrydockBlueprintSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchTextField())
-        ->setLabel(pht('Name Contains'))
+        ->setLabel(pht('Tên'))
         ->setKey('match')
-        ->setDescription(pht('Search for blueprints by name substring.')),
+        ->setDescription(pht('Tìm chứng từ theo tên.')),
       id(new PhabricatorSearchThreeStateField())
-        ->setLabel(pht('Disabled'))
+        ->setLabel(pht('Vô hiệu hóa'))
         ->setKey('isDisabled')
         ->setOptions(
-          pht('(Show All)'),
-          pht('Show Only Disabled Blueprints'),
-          pht('Hide Disabled Blueprints')),
+          pht('(Hiển thị tất cả)'),
+          pht('Chỉ hiện thì những chứng từ vô hiệu hóa'),
+          pht('Ẩn chứng từ vô hiệu hóa')),
     );
   }
 

@@ -7,11 +7,11 @@ final class PhabricatorDrydockApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Drydock');
+    return pht('Phát triển');
   }
 
   public function getShortDescription() {
-    return pht('Allocate Software Resources');
+    return pht('Phân bố tài nguyên');
   }
 
   public function getIcon() {
@@ -23,7 +23,7 @@ final class PhabricatorDrydockApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('A nautical adventure.');
+    return pht('Tham quan.');
   }
 
   public function getApplicationGroup() {
@@ -33,7 +33,7 @@ final class PhabricatorDrydockApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Drydock User Guide'),
+        'name' => pht('Hướng dẫn sử dụng'),
         'href' => PhabricatorEnv::getDoclink('Drydock User Guide'),
       ),
     );

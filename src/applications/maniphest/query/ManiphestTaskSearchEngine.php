@@ -46,23 +46,36 @@ final class ManiphestTaskSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorOwnersSearchField())
+<<<<<<< HEAD
         ->setLabel(pht('Phân công'))
+=======
+        ->setLabel(pht('Phân công bởi'))
+>>>>>>> origin/master
         ->setKey('assignedPHIDs')
         ->setConduitKey('assigned')
         ->setAliases(array('assigned'))
         ->setDescription(
+<<<<<<< HEAD
           pht('Tìm kiếm các nhiệm vụ thuộc sở hữu của một người sử dụng từ một danh sách.')),
+=======
+          pht('Tìm kiếm phân công công việc mà người  tạo là user.')),
+>>>>>>> origin/master
       id(new PhabricatorUsersSearchField())
         ->setLabel(pht('Tác giả'))
         ->setKey('authorPHIDs')
         ->setAliases(array('author', 'authors'))
         ->setDescription(
+<<<<<<< HEAD
           pht('Tìm kiếm công việc với các tác giả đưa ra.')),
+=======
+          pht('Tìm kiếm phân công công việc theo tên tác giả.')),
+>>>>>>> origin/master
       id(new PhabricatorSearchDatasourceField())
         ->setLabel(pht('Trạng thái'))
         ->setKey('statuses')
         ->setAliases(array('status'))
         ->setDescription(
+<<<<<<< HEAD
           pht('Tìm kiếm công việc với trạng thái được.'))
         ->setDatasource(new ManiphestTaskStatusFunctionDatasource()),
       id(new PhabricatorSearchDatasourceField())
@@ -92,32 +105,67 @@ final class ManiphestTaskSearchEngine
           pht('(Hiển thị tất cả)'),
           pht('Chỉ hiển thị  với mở con'),
           pht('Chỉ hiển thị  với không  mở con')),
+=======
+          pht('Tìm kiếm phân công công việc theo trạng thái.'))
+        ->setDatasource(new ManiphestTaskStatusFunctionDatasource()),
+      id(new PhabricatorSearchDatasourceField())
+        ->setLabel(pht('Độ ưu tiên'))
+        ->setKey('priorities')
+        ->setAliases(array('priority'))
+        ->setDescription(
+          pht('Tìm kiếm phân công công việc theo độ ưu tiên.'))
+        ->setConduitParameterType(new ConduitIntListParameterType())
+        ->setDatasource(new ManiphestTaskPriorityDatasource()),
+      id(new PhabricatorSearchTextField())
+        ->setLabel(pht('Từ khóa'))
+        ->setKey('fulltext'),
+      id(new PhabricatorSearchThreeStateField())
+        ->setLabel(pht('Mở nguồn'))
+        ->setKey('hasParents')
+        ->setAliases(array('blocking'))
+        ->setOptions(
+          pht('(Tất cả)'),
+          pht('Chỉ hiển thị phân công công việc với nguồn'),
+          pht('Tìm kiếm phân công công việc không với nguồn.')),
+      id(new PhabricatorSearchThreeStateField())
+        ->setLabel(pht('Mở công việc con'))
+        ->setKey('hasSubtasks')
+        ->setAliases(array('blocked'))
+        ->setOptions(
+          pht('(Tất cả)'),
+          pht('Chỉ hiển thị công việc với công việc con'),
+          pht('Chỉ hiển thị công việc không với công việc con')),
+>>>>>>> origin/master
       id(new PhabricatorIDsSearchField())
-        ->setLabel(pht('Parent IDs'))
+        ->setLabel(pht('ID nguồn'))
         ->setKey('parentIDs')
         ->setAliases(array('parentID')),
       id(new PhabricatorIDsSearchField())
-        ->setLabel(pht('Subtask IDs'))
+        ->setLabel(pht('ID công việc con'))
         ->setKey('subtaskIDs')
         ->setAliases(array('subtaskID')),
       id(new PhabricatorSearchSelectField())
+<<<<<<< HEAD
         ->setLabel(pht('Nhóm bởi'))
+=======
+        ->setLabel(pht('Nhóm theo'))
+>>>>>>> origin/master
         ->setKey('group')
         ->setOptions($this->getGroupOptions()),
       id(new PhabricatorSearchDateField())
-        ->setLabel(pht('Created After'))
+        ->setLabel(pht('Được tạo sau'))
         ->setKey('createdStart'),
       id(new PhabricatorSearchDateField())
-        ->setLabel(pht('Created Before'))
+        ->setLabel(pht('Được tạo trước'))
         ->setKey('createdEnd'),
       id(new PhabricatorSearchDateField())
-        ->setLabel(pht('Updated After'))
+        ->setLabel(pht('Cập nhật sau'))
         ->setKey('modifiedStart'),
       id(new PhabricatorSearchDateField())
-        ->setLabel(pht('Updated Before'))
+        ->setLabel(pht('Cập nhật trước'))
         ->setKey('modifiedEnd'),
       id(new PhabricatorSearchTextField())
-        ->setLabel(pht('Page Size'))
+        ->setLabel(pht('Số trang'))
         ->setKey('limit'),
     );
   }
@@ -253,7 +301,7 @@ final class ManiphestTaskSearchEngine
 
     if ($this->requireViewer()->isLoggedIn()) {
       //$names['assigned'] = pht('Assigned');
-      $names['authored'] = pht('Authored');
+      $names['authored'] = pht('Tác giả');
       //$names['subscribed'] = pht('Subscribed');
     }
 
@@ -302,11 +350,19 @@ final class ManiphestTaskSearchEngine
 
   private function getGroupOptions() {
     return array(
+<<<<<<< HEAD
       'priority' => pht('Ưu tiên'),
       'assigned' => pht('Phân công'),
       'status'   => pht('Trạng thái'),
       'project'  => pht('Dự án'),
       'none'     => pht('Rỗng'),
+=======
+      'priority' => pht('Độ ưu tiên'),
+      'assigned' => pht('Phân công'),
+      'status'   => pht('Trạng thái'),
+      'project'  => pht('Dự án'),
+      'none'     => pht('Không'),
+>>>>>>> origin/master
     );
   }
 
@@ -409,7 +465,11 @@ final class ManiphestTaskSearchEngine
 
     $create_button = id(new ManiphestEditEngine())
       ->setViewer($viewer)
+<<<<<<< HEAD
       ->newNUXBUtton(pht('Tạo công việc'));
+=======
+      ->newNUXBUtton(pht('Tạo một phân công công việc'));
+>>>>>>> origin/master
 
     $icon = $this->getApplication()->getIcon();
     $app_name =  $this->getApplication()->getName();
@@ -417,8 +477,8 @@ final class ManiphestTaskSearchEngine
       ->setIcon($icon)
       ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
-        pht('Use Maniphest to track bugs, features, todos, or anything else '.
-            'you need to get done. Tasks assigned to you will appear here.'))
+        pht('Dùng Bugs tracker để quản lý bugs, tính năng, công việc cần làm hoặc những thứ khác'.
+            'mà bạn cần hoàn thành. Công việc được chỉ định cho bạn sẽ được thể hiện ở đây.'))
       ->addAction($create_button);
 
     return $view;

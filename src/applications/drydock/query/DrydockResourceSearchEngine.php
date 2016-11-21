@@ -15,7 +15,7 @@ final class DrydockResourceSearchEngine
   }
 
   public function getResultTypeDescription() {
-    return pht('Drydock Resources');
+    return pht('Tài nguyên');
   }
 
   public function getApplicationClassName() {
@@ -46,7 +46,7 @@ final class DrydockResourceSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchCheckboxesField())
-        ->setLabel(pht('Statuses'))
+        ->setLabel(pht('Trạng thái'))
         ->setKey('statuses')
         ->setOptions(DrydockResourceStatus::getStatusMap()),
     );
@@ -64,8 +64,8 @@ final class DrydockResourceSearchEngine
 
   protected function getBuiltinQueryNames() {
     return array(
-      'active' => pht('Active Resources'),
-      'all' => pht('All Resources'),
+      'active' => pht('Tài nguyên được kích hoạt'),
+      'all' => pht('Tất cả tài nguyên'),
     );
   }
 

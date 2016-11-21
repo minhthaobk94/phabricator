@@ -1,4 +1,4 @@
-<?php
+almacna<?php
 
 final class PhabricatorAlmanacApplication extends PhabricatorApplication {
 
@@ -7,11 +7,11 @@ final class PhabricatorAlmanacApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Almanac');
+    return pht('Sách lịch');
   }
 
   public function getShortDescription() {
-    return pht('Service Directory');
+    return pht('Chỉ dẫn dịch vụ');
   }
 
   public function getIcon() {
@@ -29,7 +29,7 @@ final class PhabricatorAlmanacApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Almanac User Guide'),
+        'name' => pht('Hướng dẫn sử dụng'),
         'href' => PhabricatorEnv::getDoclink('Almanac User Guide'),
       ),
     );

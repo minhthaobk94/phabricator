@@ -11,7 +11,7 @@ final class PhabricatorDoorkeeperApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Doorkeeper');
+    return pht('Người giữ cửa');
   }
 
   public function getIcon() {
@@ -19,7 +19,7 @@ final class PhabricatorDoorkeeperApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Connect to Other Software');
+    return pht('Kết nối tới phần mềm khác');
   }
 
   public function getRemarkupRules() {

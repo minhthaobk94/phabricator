@@ -8,7 +8,7 @@ final class AlmanacNamespaceEditor
   }
 
   public function getEditorObjectsDescription() {
-    return pht('Almanac Namespace');
+    return pht('Tên Sách lịch');
   }
 
   protected function supportsSearch() {
@@ -89,8 +89,8 @@ final class AlmanacNamespaceEditor
         if ($missing) {
           $error = new PhabricatorApplicationTransactionValidationError(
             $type,
-            pht('Required'),
-            pht('Namespace name is required.'),
+            pht('Bắt buộc'),
+            pht('Phải có'),
             nonempty(last($xactions), null));
 
           $error->setIsMissingFieldError(true);
@@ -109,7 +109,7 @@ final class AlmanacNamespaceEditor
             if ($message !== null) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Invalid'),
+                pht('Không hợp lệ'),
                 $message,
                 $xaction);
               $errors[] = $error;
@@ -123,10 +123,9 @@ final class AlmanacNamespaceEditor
             if ($other && ($other->getID() != $object->getID())) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Not Unique'),
+                pht('Không đặc biệt'),
                 pht(
-                  'The namespace name "%s" is already in use by another '.
-                  'namespace. Each namespace must have a unique name.',
+                  'Tên "%s" đã được sử dụng ',
                   $name),
                 $xaction);
               $errors[] = $error;
@@ -143,10 +142,10 @@ final class AlmanacNamespaceEditor
             if ($namespace) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Restricted'),
+                pht('Hạn chế'),
                 pht(
-                  'You do not have permission to create Almanac namespaces '.
-                  'within the "%s" namespace.',
+                  'Không có quyền tạo mới '.
+                  ' "%s" .',
                   $namespace->getName()),
                 $xaction);
               $errors[] = $error;
@@ -170,10 +169,9 @@ final class AlmanacNamespaceEditor
 
     $errors[] = new PhabricatorApplicationTransactionValidationError(
       null,
-      pht('Invalid'),
+      pht('Không hợp lệ'),
       pht(
-        'Another namespace with this name already exists. Each namespace '.
-        'must have a unique name.'),
+        'Tên đã tồn tại'),
       null);
 
     throw new PhabricatorApplicationTransactionValidationException($errors);

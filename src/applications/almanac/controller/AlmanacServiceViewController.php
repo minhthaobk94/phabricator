@@ -21,7 +21,7 @@ final class AlmanacServiceViewController
       return new Aphront404Response();
     }
 
-    $title = pht('Service %s', $service->getName());
+    $title = pht('Dịch vụ %s', $service->getName());
 
     $curtain = $this->buildCurtain($service);
     $details = $this->buildPropertySection($service);
@@ -35,10 +35,9 @@ final class AlmanacServiceViewController
     $issue = null;
     if ($service->isClusterService()) {
       $issue = $this->addClusterMessage(
-        pht('This is a cluster service.'),
+        pht('Đây là cụm dich vụ.'),
         pht(
-          'This service is a cluster service. You do not have permission to '.
-          'edit cluster services, so you can not edit this service.'));
+          'Đây là cụm dich vụ. Bạn không có quyền sửa'));
     }
 
     $bindings = $this->buildBindingList($service);
@@ -77,11 +76,11 @@ final class AlmanacServiceViewController
       ->setUser($viewer);
 
     $properties->addProperty(
-      pht('Service Type'),
+      pht('Loại dịch vụ'),
       $service->getServiceImplementation()->getServiceTypeShortName());
 
     return id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Details'))
+      ->setHeaderText(pht('Chi tiết'))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->appendChild($properties);
   }
@@ -102,7 +101,7 @@ final class AlmanacServiceViewController
     $curtain->addAction(
       id(new PhabricatorActionView())
         ->setIcon('fa-pencil')
-        ->setName(pht('Edit Service'))
+        ->setName(pht('Chỉnh sửa'))
         ->setHref($edit_uri)
         ->setWorkflow(!$can_edit)
         ->setDisabled(!$can_edit));
@@ -126,20 +125,20 @@ final class AlmanacServiceViewController
 
     $table = id(new AlmanacBindingTableView())
       ->setNoDataString(
-        pht('This service has not been bound to any device interfaces yet.'))
+        pht('Dịch vụ này chưa được bào bởi bất kì giao diện thiết bị nào .'))
       ->setUser($viewer)
       ->setBindings($bindings)
       ->setHideServiceColumn(true);
 
     $header = id(new PHUIHeaderView())
-      ->setHeader(pht('Service Bindings'))
+      ->setHeader(pht('Ràng buộc dịch vụ'))
       ->addActionLink(
         id(new PHUIButtonView())
           ->setTag('a')
           ->setHref($this->getApplicationURI("binding/edit/?serviceID={$id}"))
           ->setWorkflow(!$can_edit)
           ->setDisabled(!$can_edit)
-          ->setText(pht('Add Binding'))
+          ->setText(pht('Thêm ràng buộc'))
           ->setIcon('fa-plus'));
 
     return id(new PHUIObjectBoxView())

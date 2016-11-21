@@ -40,7 +40,7 @@ final class DrydockLogSearchEngine extends PhabricatorApplicationSearchEngine {
   }
 
   public function getResultTypeDescription() {
-    return pht('Drydock Logs');
+    return pht('Bản ghi');
   }
 
   public function getApplicationClassName() {
@@ -99,12 +99,12 @@ final class DrydockLogSearchEngine extends PhabricatorApplicationSearchEngine {
 
     throw new Exception(
       pht(
-        'Search engine has no blueprint, resource, or lease.'));
+        'Tìm tính năng không có chứng từ,mã nguồn hoặc thuê.'));
   }
 
   protected function getBuiltinQueryNames() {
     return array(
-      'all' => pht('All Logs'),
+      'all' => pht('Tất cả bản ghi'),
     );
   }
 

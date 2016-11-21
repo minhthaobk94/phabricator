@@ -3,7 +3,7 @@
 final class PhabricatorOwnersApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Owners');
+    return pht('Người chủ');
   }
 
   public function getBaseURI() {
@@ -15,7 +15,7 @@ final class PhabricatorOwnersApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Own Source Code');
+    return pht('Mã nguồn chủ');
   }
 
   public function getTitleGlyph() {
@@ -25,14 +25,14 @@ final class PhabricatorOwnersApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Owners User Guide'),
+        'name' => pht('Hướng dẫn sử dụng'),
         'href' => PhabricatorEnv::getDoclink('Owners User Guide'),
       ),
     );
   }
 
   public function getFlavorText() {
-    return pht('Adopt today!');
+    return pht('Cập nhật hôm nay!');
   }
 
   public function getApplicationGroup() {
@@ -63,12 +63,12 @@ final class PhabricatorOwnersApplication extends PhabricatorApplication {
   protected function getCustomCapabilities() {
     return array(
       PhabricatorOwnersDefaultViewCapability::CAPABILITY => array(
-        'caption' => pht('Default view policy for newly created packages.'),
+        'caption' => pht('Chính sách xem mặc đinh cho gói vừa tạo.'),
         'template' => PhabricatorOwnersPackagePHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_VIEW,
       ),
       PhabricatorOwnersDefaultEditCapability::CAPABILITY => array(
-        'caption' => pht('Default edit policy for newly created packages.'),
+        'caption' => pht('Chính sách chỉnh sửa mặc đinh cho gói vừa tạo.'),
         'template' => PhabricatorOwnersPackagePHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_EDIT,
       ),

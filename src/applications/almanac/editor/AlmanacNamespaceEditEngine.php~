@@ -1,0 +1,90 @@
+<?php
+
+final class AlmanacNamespaceEditEngine
+  extends PhabricatorEditEngine {
+
+  const ENGINECONST = 'almanac.namespace';
+
+  public function isEngineConfigurable() {
+    return false;
+  }
+
+  public function getEngineName() {
+    return pht('Tên Sách lịch');
+  }
+
+  public function getSummaryHeader() {
+    return pht('Chỉnh sửa cấu hình');
+  }
+
+  public function getSummaryText() {
+    return pht('Tính năng này dùng để chỉnh sửa tên sách lịch.');
+  }
+
+  public function getEngineApplicationClass() {
+    return 'PhabricatorAlmanacApplication';
+  }
+
+  protected function newEditableObject() {
+    return AlmanacNamespace::initializeNewNamespace();
+  }
+
+  protected function newObjectQuery() {
+    return new AlmanacNamespaceQuery();
+  }
+
+  protected function getObjectCreateTitleText($object) {
+    return pht('Tạo mới');
+  }
+
+  protected function getObjectCreateButtonText($object) {
+    return pht('Tạo mới');
+  }
+
+  protected function getObjectEditTitleText($object) {
+    return pht('Chỉnh sửa tên: %s', $object->getName());
+  }
+
+  protected function getObjectEditShortText($object) {
+    return pht('Chỉnh sửa tên');
+  }
+
+  protected function getObjectCreateShortText() {
+    return pht('Tạo mới');
+  }
+
+  protected function getObjectName() {
+    return pht('Tên');
+  }
+
+  protected function getEditorURI() {
+    return '/almanac/namespace/edit/';
+  }
+
+  protected function getObjectCreateCancelURI($object) {
+    return '/almanac/namespace/';
+  }
+
+  protected function getObjectViewURI($object) {
+    $id = $object->getID();
+    return "/almanac/namespace/{$id}/";
+  }
+
+  protected function getCreateNewObjectPolicy() {
+    return $this->getApplication()->getPolicy(
+      AlmanacCreateNamespacesCapability::CAPABILITY);
+  }
+
+  protected function buildCustomEditFields($object) {
+    return array(
+      id(new PhabricatorTextEditField())
+        ->setKey('name')
+        ->setLabel(pht('Tên'))
+        ->setDescription(pht('Name of the namespace.'))
+        ->setTransactionType(AlmanacNamespaceTransaction::TYPE_NAME)
+        ->setIsRequired(true)
+        ->setValue($object->getName()),
+    );
+  }
+
+}

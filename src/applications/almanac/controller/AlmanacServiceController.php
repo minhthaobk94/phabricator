@@ -6,7 +6,7 @@ abstract class AlmanacServiceController extends AlmanacController {
     $crumbs = parent::buildApplicationCrumbs();
 
     $list_uri = $this->getApplicationURI('service/');
-    $crumbs->addTextCrumb(pht('Services'), $list_uri);
+    $crumbs->addTextCrumb(pht('Dịch vụ'), $list_uri);
 
     return $crumbs;
   }
