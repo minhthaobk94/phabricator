@@ -322,12 +322,12 @@ final class DifferentialInlineCommentQuery
             $target_id = $name_map[$filename];
             if ($is_new) {
               $reason = pht(
-                'This comment was made on a file which this file was moved '.
-                'to, but in a newer diff.');
+                'Bình luận này đã được thực hiện trên một tập tin mà tập tin này đã được chuyển  '.
+                'đi, nhưng trong một nơi khác mới hơn.');
             } else {
               $reason = pht(
-                'This comment was made on a file which this file was moved '.
-                'to, but in an older diff.');
+                'Bình luận này đã được thực hiện trên một tập tin mà tập tin này đã được chuyển
+                ');
             }
           }
         }

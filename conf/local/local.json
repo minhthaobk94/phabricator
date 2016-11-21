@@ -1,5 +1,5 @@
 {
-  "mysql.pass": "hien123456",
+  "mysql.pass": "root",
   "mysql.user": "root",
   "mysql.host": "localhost"
 }

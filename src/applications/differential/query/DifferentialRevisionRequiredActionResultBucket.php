@@ -24,43 +24,43 @@ final class DifferentialRevisionRequiredActionResultBucket
     if (!$phids) {
       throw new Exception(
         pht(
-          'You can not bucket results by required action without '.
-          'specifying "Responsible Users".'));
+          'Bạn không có bộ chứa kết quả của hành động cần thiết mà không cần '.
+          'xác định "Người sử dụng có trách nhiệm".'));
     }
     $phids = array_fuse($phids);
 
     $groups = array();
 
     $groups[] = $this->newGroup()
-      ->setName(pht('Must Review'))
+      ->setName(pht('Phải xem xét'))
       ->setKey(self::KEY_MUSTREVIEW)
-      ->setNoDataString(pht('No revisions are blocked on your review.'))
+      ->setNoDataString(pht('Không có phiên bản được chặn trên đánh giá của bạn.'))
       ->setObjects($this->filterMustReview($phids));
 
     $groups[] = $this->newGroup()
-      ->setName(pht('Ready to Review'))
+      ->setName(pht('Sẵn sàng để đánh gía'))
       ->setKey(self::KEY_SHOULDREVIEW)
-      ->setNoDataString(pht('No revisions are waiting on you to review them.'))
+      ->setNoDataString(pht('Không có phiên bản đang đợi đánh giá của bạn.'))
       ->setObjects($this->filterShouldReview($phids));
 
     $groups[] = $this->newGroup()
-      ->setName(pht('Ready to Land'))
-      ->setNoDataString(pht('No revisions are ready to land.'))
+      ->setName(pht('Sẵn sàng để Landd'))
+      ->setNoDataString(pht('ko có phiên bản sẵn sàng để land.'))
       ->setObjects($this->filterShouldLand($phids));
 
     $groups[] = $this->newGroup()
-      ->setName(pht('Ready to Update'))
-      ->setNoDataString(pht('No revisions are waiting for updates.'))
+      ->setName(pht('Sẵn sàng để chỉnh sửa'))
+      ->setNoDataString(pht('Không có phiên bản để chỉnh sửa.'))
       ->setObjects($this->filterShouldUpdate($phids));
 
     $groups[] = $this->newGroup()
-      ->setName(pht('Waiting on Review'))
-      ->setNoDataString(pht('None of your revisions are waiting on review.'))
+      ->setName(pht('Đang đợi để đánh giá'))
+      ->setNoDataString(pht('không có gì của bạn đang đợi để dánh gía.'))
       ->setObjects($this->filterWaitingForReview($phids));
 
     $groups[] = $this->newGroup()
-      ->setName(pht('Waiting on Authors'))
-      ->setNoDataString(pht('No revisions are waiting on author action.'))
+      ->setName(pht('Đang đợi tác giả'))
+      ->setNoDataString(pht('Ko có phiên bản nào đang đợi tác giả kích hoạt.'))
       ->setObjects($this->filterWaitingOnAuthors($phids));
 
     // Because you can apply these buckets to queries which include revisions
@@ -68,7 +68,7 @@ final class DifferentialRevisionRequiredActionResultBucket
     // that didn't get filtered into any of the previous buckets.
     if ($this->objects) {
       $groups[] = $this->newGroup()
-        ->setName(pht('Other Revisions'))
+        ->setName(pht('Phiên bản khác'))
         ->setObjects($this->objects);
     }
 

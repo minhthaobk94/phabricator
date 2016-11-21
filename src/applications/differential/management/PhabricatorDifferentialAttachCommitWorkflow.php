@@ -7,13 +7,13 @@ final class PhabricatorDifferentialAttachCommitWorkflow
     $this
       ->setName('attach-commit')
       ->setExamples('**attach-commit** __commit__ __revision__')
-      ->setSynopsis(pht('Forcefully attach a commit to a revision.'))
+      ->setSynopsis(pht('đính kèm 1 commit cho mỗi phiên bản.'))
       ->setArguments(
         array(
           array(
             'name' => 'argv',
             'wildcard' => true,
-            'help' => pht('Commit, and a revision to attach it to.'),
+            'help' => pht('Commit, và phien ban được đính kèm.'),
           ),
         ));
   }
@@ -24,7 +24,7 @@ final class PhabricatorDifferentialAttachCommitWorkflow
     $argv = $args->getArg('argv');
     if (count($argv) !== 2) {
       throw new PhutilArgumentUsageException(
-        pht('Specify a commit and a revision to attach it to.'));
+        pht('Xác định 1 commit và 1 phiên bản được đính kèm.'));
     }
 
     $commit_name = head($argv);
@@ -36,7 +36,7 @@ final class PhabricatorDifferentialAttachCommitWorkflow
       ->executeOne();
     if (!$commit) {
       throw new PhutilArgumentUsageException(
-        pht('Commit "%s" does not exist.', $commit_name));
+        pht('Commit "%s" ko tồn tại.', $commit_name));
     }
 
     $revision = id(new PhabricatorObjectQuery())
@@ -46,12 +46,12 @@ final class PhabricatorDifferentialAttachCommitWorkflow
 
     if (!$revision) {
       throw new PhutilArgumentUsageException(
-        pht('Revision "%s" does not exist.', $revision_name));
+        pht('Phiên bản "%s" ko tồn tại.', $revision_name));
     }
 
     if (!($revision instanceof DifferentialRevision)) {
       throw new PhutilArgumentUsageException(
-        pht('Object "%s" must be a Differential revision.', $revision_name));
+        pht('Đối tượng "%s" phải được chia thành nhiều phiên bản.', $revision_name));
     }
 
     // Reload the revision to get the active diff.
@@ -79,7 +79,7 @@ final class PhabricatorDifferentialAttachCommitWorkflow
     echo tsprintf(
       "%s\n",
       pht(
-        'Attached "%s" to "%s".',
+        'Đính kèm "%s" cho "%s".',
         $commit->getMonogram(),
         $revision->getMonogram()));
   }

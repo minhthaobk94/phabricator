@@ -25,7 +25,7 @@ final class PhabricatorDashboardViewController
     $title = $dashboard->getName();
     $crumbs = $this->buildApplicationCrumbs();
     $crumbs->setBorder(true);
-    $crumbs->addTextCrumb(pht('Dashboard %d', $dashboard->getID()));
+    $crumbs->addTextCrumb(pht('Bảng điều khiển %d', $dashboard->getID()));
 
     if ($dashboard->getPanelPHIDs()) {
       $rendered_dashboard = id(new PhabricatorDashboardRenderingEngine())
@@ -49,7 +49,7 @@ final class PhabricatorDashboardViewController
     $crumbs->addAction(
       id(new PHUIListItemView())
         ->setIcon('fa-th')
-        ->setName(pht('Manage Dashboard'))
+        ->setName('Quản lý '))
         ->setHref($this->getApplicationURI("manage/{$id}/")));
 
     return $crumbs;
@@ -62,12 +62,12 @@ final class PhabricatorDashboardViewController
     return id(new PHUIInfoView())
       ->setSeverity(PHUIInfoView::SEVERITY_NODATA)
       ->appendChild(
-        pht('This dashboard has no panels '.
-          'yet. Use %s to add panels.',
+        pht('Bảng điều khiển này chưa có thẻ nào '.
+          '. Sử dụng %s để thêm thẻ.',
           phutil_tag(
             'a',
             array('href' => $manage_uri),
-            pht('Manage Dashboard'))));
+            pht('Quản lý'))));
   }
 
 }

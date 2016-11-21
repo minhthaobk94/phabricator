@@ -47,8 +47,8 @@ final class PhabricatorDashboardManageController
     $info_view = null;
     if (!$can_edit) {
       $no_edit = pht(
-        'You do not have permission to edit this dashboard. If you want to '.
-        'make changes, make a copy first.');
+        'Bạn không có quyền chỉnh sửa.If bạn muốn '.
+        'thay đổi, đầu tiên tạo một bản sao.');
 
       $info_view = id(new PHUIInfoView())
         ->setSeverity(PHUIInfoView::SEVERITY_NOTICE)
@@ -100,7 +100,7 @@ final class PhabricatorDashboardManageController
 
     $button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('View Dashboard'))
+      ->setText(pht('Chi tiết'))
       ->setIcon('fa-columns')
       ->setHref($this->getApplicationURI("view/{$id}/"));
 
@@ -126,7 +126,7 @@ final class PhabricatorDashboardManageController
 
     $curtain->addAction(
       id(new PhabricatorActionView())
-        ->setName(pht('Edit Dashboard'))
+        ->setName(pht('Chỉnh sủa'))
         ->setIcon('fa-pencil')
         ->setHref($this->getApplicationURI("edit/{$id}/"))
         ->setDisabled(!$can_edit));
@@ -134,7 +134,7 @@ final class PhabricatorDashboardManageController
     if ($dashboard->isArchived()) {
       $curtain->addAction(
         id(new PhabricatorActionView())
-          ->setName(pht('Activate Dashboard'))
+          ->setName(pht('Kích hoạt'))
           ->setIcon('fa-check')
           ->setHref($this->getApplicationURI("archive/{$id}/"))
           ->setDisabled(!$can_edit)
@@ -142,7 +142,7 @@ final class PhabricatorDashboardManageController
     } else {
       $curtain->addAction(
         id(new PhabricatorActionView())
-          ->setName(pht('Archive Dashboard'))
+          ->setName(pht('Lưu trữ'))
           ->setIcon('fa-ban')
           ->setHref($this->getApplicationURI("archive/{$id}/"))
           ->setDisabled(!$can_edit)
@@ -151,7 +151,7 @@ final class PhabricatorDashboardManageController
 
     $curtain->addAction(
       id(new PhabricatorActionView())
-        ->setName(pht('Copy Dashboard'))
+        ->setName(pht('Sao chép'))
         ->setIcon('fa-files-o')
         ->setHref($this->getApplicationURI("copy/{$id}/"))
         ->setWorkflow(true));
@@ -163,10 +163,10 @@ final class PhabricatorDashboardManageController
         'PhabricatorHomeApplication');
     if ($installed_dashboard &&
         $installed_dashboard->getDashboardPHID() == $dashboard->getPHID()) {
-      $title_install = pht('Uninstall Dashboard');
+      $title_install = pht('Gỡ bỏ');
       $href_install = "uninstall/{$id}/";
     } else {
-      $title_install = pht('Install Dashboard');
+      $title_install = pht('Cài đặt');
       $href_install = "install/{$id}/";
     }
     $curtain->addAction(
@@ -190,15 +190,15 @@ final class PhabricatorDashboardManageController
       $dashboard);
 
     $properties->addProperty(
-      pht('Editable By'),
+      pht('Chỉnh sửa bởi'),
       $descriptions[PhabricatorPolicyCapability::CAN_EDIT]);
 
     $properties->addProperty(
-      pht('Panels'),
+      pht('Thẻ'),
       $viewer->renderHandleList($dashboard->getPanelPHIDs()));
 
     return id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Details'))
+      ->setHeaderText(pht('Chi tiết'))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->addPropertyList($properties);
   }

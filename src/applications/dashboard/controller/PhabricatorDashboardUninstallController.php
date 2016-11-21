@@ -64,11 +64,11 @@ final class PhabricatorDashboardUninstallController
       ->appendChild($body);
 
     return $this->newDialog()
-      ->setTitle(pht('Uninstall Dashboard'))
+      ->setTitle(pht('Gỡ bỏ'))
       ->appendChild($form->buildLayoutView())
       ->addCancelButton($this->getCancelURI(
         $application_class, $object_phid, $id))
-      ->addSubmitButton(pht('Uninstall Dashboard'));
+      ->addSubmitButton(pht('Gỡ b'));
   }
 
   private function getBodyContent(
@@ -86,21 +86,21 @@ final class PhabricatorDashboardUninstallController
             'p',
             array(),
             pht(
-              'Are you sure you want to uninstall this dashboard as your '.
-              'home page?'));
+              'Bạn chắc chắn muốn gỡ bỏ Bảng điều khiển này như 1 '.
+              'trang chủ?'));
           $body[] = phutil_tag(
             'p',
             array(),
             pht(
-              'You will be re-directed to your bland, default home page if '.
-              'you choose to uninstall this dashboard.'));
+              'Bạn sẽ đưa nó đến một ổ trống khác, nếu'.
+              'nếu bạn chọn gỡ bỏ.'));
         } else {
           $body[] = phutil_tag(
             'p',
             array(),
             pht(
-              'Are you sure you want to uninstall this dashboard as the home '.
-              'page for %s?',
+              'Bạn chắc chắn muốn gỡ bỏ bảng điều khiển '.
+              '%s?',
               $viewer->renderHandle($object_phid)));
         }
         break;

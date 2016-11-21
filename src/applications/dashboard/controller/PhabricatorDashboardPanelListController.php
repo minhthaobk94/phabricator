@@ -42,7 +42,7 @@ final class PhabricatorDashboardPanelListController
     $crumbs->addAction(
       id(new PHUIListItemView())
         ->setIcon('fa-plus-square')
-        ->setName(pht('Create Panel'))
+        ->setName(pht('Tạo mới'))
         ->setHref($this->getApplicationURI().'panel/create/'));
 
     return $crumbs;
@@ -51,7 +51,7 @@ final class PhabricatorDashboardPanelListController
   protected function getNewUserBody() {
     $create_button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('Create a Panel'))
+      ->setText(pht('Tạo 1 thẻ'))
       ->setHref('/dashboard/panel/create/')
       ->setColor(PHUIButtonView::GREEN);
 
@@ -61,7 +61,7 @@ final class PhabricatorDashboardPanelListController
       ->setIcon($icon)
       ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
-        pht('Build individual panels to display on your homepage dashboard.'))
+        pht('Xây dựng các tấm cá nhân để hiển thị trên bảng điều khiển trang chủ của bạn.'))
       ->addAction($create_button);
 
       return $view;

@@ -14,7 +14,7 @@ final class PhabricatorHomeApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Trung tâm chỉ huy');
+    return pht('Trung tâm điều khiển');
   }
 
   public function getIcon() {
@@ -62,7 +62,7 @@ final class PhabricatorHomeApplication extends PhabricatorApplication {
       ));
 
     $item = id(new PHUIListItemView())
-      ->setName(pht('Quick Actions'))
+      ->setName(pht('Hành động nhanh'))
       ->setIcon('fa-plus')
       ->addClass('core-menu-item')
       ->setHref('/home/create/')

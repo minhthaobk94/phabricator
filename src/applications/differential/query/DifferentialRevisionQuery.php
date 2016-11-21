@@ -786,7 +786,7 @@ final class DifferentialRevisionQuery
         break;
       default:
         throw new Exception(
-          pht("Unknown revision status filter constant '%s'!", $this->status));
+          pht("Không biết sửa đổi bộ lọc trạng thái liên tục '%s'!", $this->status));
     }
 
     $where[] = $this->buildWhereClauseParts($conn_r);
@@ -815,12 +815,12 @@ final class DifferentialRevisionQuery
     $orders = parent::getBuiltinOrders() + array(
       'updated' => array(
         'vector' => array('updated', 'id'),
-        'name' => pht('Date Updated (Latest First)'),
+        'name' => pht('Ngày chỉnh sửa (Latest First)'),
         'aliases' => array(self::ORDER_MODIFIED),
       ),
       'outdated' => array(
         'vector' => array('-updated', '-id'),
-        'name' => pht('Date Updated (Oldest First)'),
+        'name' => pht('Ngày chỉnh s (Oldest First)'),
        ),
     );
 

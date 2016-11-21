@@ -96,7 +96,7 @@ final class DifferentialHunkQuery
     if (!$this->changesets) {
       throw new Exception(
         pht(
-          'You must load hunks via changesets, with %s!',
+          'Bạn phải tải hunks qua changesets, với %s!',
           'withChangesets()'));
     }
 

@@ -156,16 +156,16 @@ final class PhabricatorDashboardPanelViewController
       PhabricatorDashboardPanelHasDashboardEdgeType::EDGECONST);
 
     $does_not_appear = pht(
-      'This panel does not appear on any dashboards.');
+      'Thẻ này không xuất hiện trong bất cứ bảng điều khiển nào.');
 
     $properties->addProperty(
-      pht('Appears On'),
+      pht('Xuất hiện trên'),
       $dashboard_phids
         ? $viewer->renderHandleList($dashboard_phids)
         : phutil_tag('em', array(), $does_not_appear));
 
     return id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Details'))
+      ->setHeaderText(pht('Chi tiết'))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->addPropertyList($properties);
   }

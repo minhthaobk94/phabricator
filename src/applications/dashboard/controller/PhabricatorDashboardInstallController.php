@@ -80,35 +80,35 @@ final class PhabricatorDashboardInstallController
             $form = id(new AphrontFormView())
               ->setUser($viewer)
               ->appendRemarkupInstructions(
-                pht('Choose where to install this dashboard.'))
+                pht('Chọn nơi cài đặt bàng điều khiển này.'))
               ->appendChild(
                 id(new AphrontFormRadioButtonControl())
                   ->setName('objectPHID')
                   ->setValue(PhabricatorHomeApplication::DASHBOARD_DEFAULT)
                   ->addButton(
                     PhabricatorHomeApplication::DASHBOARD_DEFAULT,
-                    pht('Default Dashboard for All Users'),
+                    pht('Mặc định cho tất cả người dùng'),
                     pht(
-                      'Install this dashboard as the global default dashboard '.
-                      'for all users. Users can install a personal dashboard '.
-                      'to replace it. All users who have not configured '.
-                      'a personal dashboard will be affected by this change.'))
+                      'Cài đặt bảng điều khiển như là mặc định '.
+                      'cho mọi người dùng. Người dùng có thể sử dụng BĐK cá nhân '.
+                      'để thay thể. Mọi người dùng có thể chỉnh sửa '.
+                      'BĐK cá nhân có thể thay đổi.'))
                   ->addButton(
                     $viewer->getPHID(),
-                    pht('Personal Home Page Dashboard'),
+                    pht('Bảng điều khiển trang chủ cá nhân'),
                     pht(
-                      'Install this dashboard as your personal home page '.
-                      'dashboard. Only you will be affected by this change.')));
+                      'Cài đặt Bảng điều khiển này như bảng điều khiển cá nhân '.
+                      'Chỉ bạn có quyền thay đổi.')));
 
             $dialog->appendChild($form->buildLayoutView());
           } else {
             $dialog->appendParagraph(
-              pht('Install this dashboard on your home page?'));
+              pht('Cài đặt bảng điều khiển này trên trang chủ của bạn?'));
           }
         } else {
           $dialog->appendParagraph(
             pht(
-              'Install this dashboard as the home page dashboard for %s?',
+              'Cài đặt bảng điều khiển này như bảng điều khiển trang chủ %s?',
               phutil_tag(
                 'strong',
                 array(),
@@ -118,7 +118,7 @@ final class PhabricatorDashboardInstallController
       default:
         throw new Exception(
           pht(
-            'Unknown dashboard application class "%s"!',
+            'Không biết ứng dụng này "%s"!',
             $application_class));
     }
 

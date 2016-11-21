@@ -37,16 +37,15 @@ final class PhabricatorDashboardPanelArchiveController
     }
 
     if ($panel->getIsArchived()) {
-      $title = pht('Activate Panel?');
+      $title = pht('Kích hoạt ?');
       $body = pht(
-        'This panel will be reactivated and appear in other interfaces as '.
-        'an active panel.');
+        'Bảng này sẽ được kích hoạt và xuất hiện trong giao diện khác như '.
+        'một bảng điều khiển hoạt động.');
       $submit_text = pht('Activate Panel');
     } else {
-      $title = pht('Archive Panel?');
+      $title = pht('Lưu trữ?');
       $body = pht(
-        'This panel will be archived and no longer appear in lists of active '.
-        'panels.');
+        'Bảng này sẽ được lưu trữ và không còn xuất hiện trong danh sách các thẻ hoạt động ');
       $submit_text = pht('Archive Panel');
     }
 

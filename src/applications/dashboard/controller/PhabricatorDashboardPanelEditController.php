@@ -85,8 +85,8 @@ final class PhabricatorDashboardPanelEditController
     }
 
     if ($is_create) {
-      $title = pht('Create New Panel');
-      $button = pht('Create Panel');
+      $title = pht('Tạo mới');
+      $button = pht('Tạo mới');
       $header_icon = 'fa-plus-square';
       if ($dashboard) {
         $cancel_uri = $manage_uri;
@@ -94,8 +94,8 @@ final class PhabricatorDashboardPanelEditController
         $cancel_uri = $this->getApplicationURI('panel/');
       }
     } else {
-      $title = pht('Edit Panel: %s', $panel->getName());
-      $button = pht('Save Panel');
+      $title = pht('Chỉnh sửa: %s', $panel->getName());
+      $button = pht('Lưu');
       $header_icon = 'fa-pencil';
       if ($dashboard) {
         $cancel_uri = $manage_uri;
@@ -233,13 +233,13 @@ final class PhabricatorDashboardPanelEditController
       pht('Panels'),
       $this->getApplicationURI('panel/'));
     if ($is_create) {
-      $crumbs->addTextCrumb(pht('New Panel'));
+      $crumbs->addTextCrumb(pht('Thẻ mới'));
       $form->addHiddenInput('type', $panel->getPanelType());
     } else {
       $crumbs->addTextCrumb(
         $panel->getMonogram(),
         '/'.$panel->getMonogram());
-      $crumbs->addTextCrumb(pht('Edit'));
+      $crumbs->addTextCrumb(pht('Chỉnh sửa'));
     }
     $crumbs->setBorder(true);
 
@@ -261,7 +261,7 @@ final class PhabricatorDashboardPanelEditController
     }
 
     $box = id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Panel'))
+      ->setHeaderText(pht('Thẻ'))
       ->setValidationException($validation_exception)
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->setForm($form);
@@ -290,7 +290,7 @@ final class PhabricatorDashboardPanelEditController
     if ($request->isFormPost()) {
       $v_type = $request->getStr('type');
       if (!isset($types[$v_type])) {
-        $errors[] = pht('You must select a type of panel to create.');
+        $errors[] = pht('Bạn phải chọn 1 lại thẻ');
       }
     }
 
@@ -317,36 +317,36 @@ final class PhabricatorDashboardPanelEditController
       ->addHiddenInput('column', $request->getInt('column'))
       ->appendRemarkupInstructions(
         pht(
-          'Choose the type of dashboard panel to create:'))
+          'Chọn 1 loại bảng điều khiển để tạo:'))
       ->appendChild($panel_types);
 
     if ($request->isAjax()) {
       return $this->newDialog()
-        ->setTitle(pht('Add New Panel'))
+        ->setTitle(pht('Thêm mới'))
         ->setWidth(AphrontDialogView::WIDTH_FORM)
         ->setErrors($errors)
         ->appendChild($form->buildLayoutView())
         ->addCancelbutton($cancel_uri)
-        ->addSubmitButton(pht('Continue'));
+        ->addSubmitButton(pht('Tiếp tục'));
     } else {
       $form->appendChild(
         id(new AphrontFormSubmitControl())
-          ->setValue(pht('Continue'))
+          ->setValue(pht('Tiếp tục'))
           ->addCancelButton($cancel_uri));
     }
 
-    $title = pht('Create Dashboard Panel');
+    $title = pht('Tạo thẻ');
     $header_icon = 'fa-plus-square';
 
     $crumbs = $this->buildApplicationCrumbs();
     $crumbs->addTextCrumb(
       pht('Panels'),
       $this->getApplicationURI('panel/'));
-    $crumbs->addTextCrumb(pht('New Panel'));
+    $crumbs->addTextCrumb(pht('Thẻ mới'));
     $crumbs->setBorder(true);
 
     $box = id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Panel'))
+      ->setHeaderText(pht('Thẻ'))
       ->setFormErrors($errors)
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->setForm($form);
@@ -375,21 +375,20 @@ final class PhabricatorDashboardPanelEditController
     $manage_uri = $this->getApplicationURI('manage/'.$dashboard->getID().'/');
 
     return $this->newDialog()
-      ->setTitle(pht('Copy Panel?'))
+      ->setTitle(pht('Sao chép thẻ?'))
       ->addHiddenInput('copy', true)
       ->addHiddenInput('dashboardID', $request->getInt('dashboardID'))
       ->addHiddenInput('column', $request->getInt('column'))
       ->appendParagraph(
         pht(
-          'You do not have permission to edit this dashboard panel, but you '.
-          'can make a copy and edit that instead. If you choose to copy the '.
-          'panel, the original will be replaced with the new copy on this '.
-          'dashboard.'))
+          'Bạn không có quyền chỉnh sửa bảng điều khiển này'.
+          'thay vì đó, bạn tạo một bản sao và chỉnh sửa. Nếu bạn chọn sao chép '.
+          'thẻ, sẽ tự động thay thế bằng bản sao '))
       ->appendParagraph(
         pht(
-          'Do you want to make a copy of this panel?'))
+          'Bạn có muốn tạo bản sao?'))
       ->addCancelButton($manage_uri)
-      ->addSubmitButton(pht('Copy Panel'));
+      ->addSubmitButton(pht('Sao chép'));
   }
 
   private function copyPanel(

@@ -8,13 +8,13 @@ final class PhabricatorDashboardTextPanelType
   }
 
   public function getPanelTypeName() {
-    return pht('Text Panel');
+    return pht('Thẻ văn bản');
   }
 
   public function getPanelTypeDescription() {
     return pht(
-      'Add some static text to the dashboard. This can be used to '.
-      'provide instructions or context.');
+      'Thêm trạng thái vào bảng điều khiển. Có thể được sử dụng cho '.
+      'cung cấp hướng dẫn hoặc ngữ cảnh.');
   }
 
   public function getFieldSpecifications() {

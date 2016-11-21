@@ -3,7 +3,7 @@
 final class PhabricatorHelpApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Help');
+    return pht('Giúp đỡ');
   }
 
   public function canUninstall() {
@@ -16,7 +16,7 @@ final class PhabricatorHelpApplication extends PhabricatorApplication {
 
   public function getRoutes() {
     return array(
-      '/help/' => array(
+      '/' => array(
         'keyboardshortcut/' => 'PhabricatorHelpKeyboardShortcutController',
         'editorprotocol/' => 'PhabricatorHelpEditorProtocolController',
         'documentation/(?P<application>\w+)/'

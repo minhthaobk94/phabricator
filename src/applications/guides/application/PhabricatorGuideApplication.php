@@ -7,7 +7,7 @@ final class PhabricatorGuideApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Hướng dẫn ');
+    return pht('Hướng dẫn');
   }
 
   public function getShortDescription() {

@@ -22,7 +22,7 @@ final class PhabricatorHelpKeyboardShortcutController
     // terribly discoverable.
     $keys[] = array(
       'keys'        => array('esc'),
-      'description' => pht('Close any dialog, including this one.'),
+      'description' => pht('Đóng tất cả các hộp thoại, bao gồm này.'),
     );
 
     $stroke_map = array(
@@ -58,7 +58,7 @@ final class PhabricatorHelpKeyboardShortcutController
       $rows);
 
     return $this->newDialog()
-      ->setTitle(pht('Keyboard Shortcuts'))
+      ->setTitle(pht('Các phím tắt bàn phím'))
       ->appendChild($table)
       ->addCancelButton('#', pht('Close'));
 

@@ -50,7 +50,7 @@ final class PhabricatorDashboardPanelRenderController
     $crumbs = $this->buildApplicationCrumbs()
       ->addTextCrumb(pht('Panels'), $this->getApplicationURI('panel/'))
       ->addTextCrumb($panel->getMonogram(), '/'.$panel->getMonogram())
-      ->addTextCrumb(pht('Standalone View'))
+      ->addTextCrumb(pht('Xem Standalone '))
       ->setBorder(true);
 
     $view = id(new PHUIBoxView())
@@ -58,7 +58,7 @@ final class PhabricatorDashboardPanelRenderController
       ->appendChild($rendered_panel);
 
     return $this->newPage()
-      ->setTitle(array(pht('Panel'), $panel->getName()))
+      ->setTitle(array(pht('Thẻ'), $panel->getName()))
       ->setCrumbs($crumbs)
       ->appendChild($view);
 

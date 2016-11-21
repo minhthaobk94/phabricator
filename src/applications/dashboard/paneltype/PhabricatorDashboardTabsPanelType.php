@@ -8,17 +8,17 @@ final class PhabricatorDashboardTabsPanelType
   }
 
   public function getPanelTypeName() {
-    return pht('Tab Panel');
+    return pht('Thẻ tab');
   }
 
   public function getPanelTypeDescription() {
-    return pht('Use tabs to switch between several other panels.');
+    return pht('Sử dụng thẻ để chuyển giữa thẻ hiện tại và thẻ khác.');
   }
 
   public function getFieldSpecifications() {
     return array(
       'config' => array(
-        'name' => pht('Tabs'),
+        'name' => pht('Cá T'),
         'type' => 'dashboard.tabs',
       ),
     );
@@ -57,7 +57,7 @@ final class PhabricatorDashboardTabsPanelType
           ->setSelected($idx == $selected)
           ->addSigil('dashboard-tab-panel-tab')
           ->setMetadata(array('idx' => $idx))
-          ->setName(idx($tab_spec, 'name', pht('Nameless Tab'))));
+          ->setName(idx($tab_spec, 'name', pht('Tên Tab'))));
     }
 
     $ids = ipull($config, 'panelID');
@@ -94,7 +94,7 @@ final class PhabricatorDashboardTabsPanelType
           ->setHeaderMode($no_headers)
           ->renderPanel();
       } else {
-        $panel_content = pht('(Invalid Panel)');
+        $panel_content = pht('(Thẻ không hợp lệ)');
       }
 
       $content[] = phutil_tag(
