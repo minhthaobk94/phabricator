@@ -93,7 +93,7 @@ final class AlmanacDeviceSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('Không tìm thấy thiết bị.'));
+    $result->setNoDataString(pht('No Almanac Devices found.'));
 
     return $result;
   }
