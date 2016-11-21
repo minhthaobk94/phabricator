@@ -7,7 +7,7 @@ final class JavelinUIExample extends PhabricatorUIExample {
   }
 
   public function getDescription() {
-    return pht('Here are some Javelin UI elements that you could use.');
+    return pht('Đây là một số phần tử của Javelin UI mà bạn có thể nhìn thấy.');
   }
 
   public function renderExample() {
@@ -34,7 +34,7 @@ final class JavelinUIExample extends PhabricatorUIExample {
           ),
         ),
       ),
-      pht('Toggle Red Border'));
+      pht('Chuyển qua Red Border'));
 
     $button_blue = javelin_tag(
       'a',
@@ -51,7 +51,7 @@ final class JavelinUIExample extends PhabricatorUIExample {
           ),
         ),
       ),
-      pht('Toggle Blue Background'));
+      pht('Chuyển qua Blue Background'));
 
     $div = phutil_tag(
       'div',

@@ -4,7 +4,7 @@ final class PhabricatorSearchApplicationSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Fulltext Results');
+    return pht('Kết quả');
   }
 
   public function getApplicationClassName() {
@@ -104,11 +104,11 @@ final class PhabricatorSearchApplicationSearchEngine
     $status_values = array_fuse($status_values);
 
     $statuses = array(
-      PhabricatorSearchRelationship::RELATIONSHIP_OPEN => pht('Open'),
-      PhabricatorSearchRelationship::RELATIONSHIP_CLOSED => pht('Closed'),
+      PhabricatorSearchRelationship::RELATIONSHIP_OPEN => pht('Mở'),
+      PhabricatorSearchRelationship::RELATIONSHIP_CLOSED => pht('Đóng'),
     );
     $status_control = id(new AphrontFormCheckboxControl())
-      ->setLabel(pht('Document Status'));
+      ->setLabel(pht('Trạng thái tài liệu'));
     foreach ($statuses as $status => $name) {
       $status_control->addCheckbox(
         'statuses[]',
@@ -121,7 +121,7 @@ final class PhabricatorSearchApplicationSearchEngine
     $type_values = array_fuse($type_values);
 
     $types_control = id(new AphrontFormTokenizerControl())
-      ->setLabel(pht('Document Types'))
+      ->setLabel(pht('Loại tài liệu'))
       ->setName('types')
       ->setDatasource(new PhabricatorSearchDocumentTypeDatasource())
       ->setValue($type_values);
@@ -137,7 +137,7 @@ final class PhabricatorSearchApplicationSearchEngine
           )))
       ->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel(pht('Query'))
+          ->setLabel(pht('Truy vấn'))
           ->setName('query')
           ->setValue($saved->getParameter('query')))
       ->appendChild($status_control)
@@ -145,25 +145,25 @@ final class PhabricatorSearchApplicationSearchEngine
       ->appendControl(
         id(new AphrontFormTokenizerControl())
           ->setName('authorPHIDs')
-          ->setLabel(pht('Authors'))
+          ->setLabel(pht('Tác giả'))
           ->setDatasource(new PhabricatorPeopleUserFunctionDatasource())
           ->setValue($author_phids))
       ->appendControl(
         id(new AphrontFormTokenizerControl())
           ->setName('ownerPHIDs')
-          ->setLabel(pht('Owners'))
+          ->setLabel(pht('Chủ'))
           ->setDatasource(new PhabricatorPeopleOwnerDatasource())
           ->setValue($owner_phids))
       ->appendControl(
         id(new AphrontFormTokenizerControl())
           ->setName('subscriberPHIDs')
-          ->setLabel(pht('Subscribers'))
+          ->setLabel(pht('Người đăng kí'))
           ->setDatasource(new PhabricatorMetaMTAMailableFunctionDatasource())
           ->setValue($subscriber_phids))
       ->appendControl(
         id(new AphrontFormTokenizerControl())
           ->setName('projectPHIDs')
-          ->setLabel(pht('Tags'))
+          ->setLabel(pht('Thẻ'))
           ->setDatasource(new PhabricatorProjectDatasource())
           ->setValue($project_phids));
   }
@@ -174,9 +174,9 @@ final class PhabricatorSearchApplicationSearchEngine
 
   protected function getBuiltinQueryNames() {
     return array(
-      'all' => pht('All Documents'),
-      'open' => pht('Open Documents'),
-      'open-tasks' => pht('Open Tasks'),
+      'all' => pht('Tất cả tài liệu'),
+      'open' => pht('Tài liệu mở'),
+      'open-tasks' => pht('Mở phân công công việc'),
     );
   }
 
@@ -245,7 +245,7 @@ final class PhabricatorSearchApplicationSearchEngine
 
     $viewer = $this->requireViewer();
     $list = new PHUIObjectItemListView();
-    $list->setNoDataString(pht('No results found.'));
+    $list->setNoDataString(pht('Không có kết quả tìm thấy.'));
 
     if ($results) {
       $objects = id(new PhabricatorObjectQuery())

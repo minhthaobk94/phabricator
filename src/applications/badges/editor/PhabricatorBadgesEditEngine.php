@@ -14,11 +14,11 @@ final class PhabricatorBadgesEditEngine
   }
 
   public function getSummaryHeader() {
-    return pht('Configure Badges Forms');
+    return pht('Cấu hình Badges Forms');
   }
 
   public function getSummaryText() {
-    return pht('Configure creation and editing forms in Badges.');
+    return pht('Cấu tạo và chỉnh sửa các biểu mẫu trong Badges.');
   }
 
   protected function newEditableObject() {
@@ -30,11 +30,11 @@ final class PhabricatorBadgesEditEngine
   }
 
   protected function getObjectCreateTitleText($object) {
-    return pht('Create New Badge');
+    return pht('Tạo mới Badge');
   }
 
   protected function getObjectEditTitleText($object) {
-    return pht('Edit Badge: %s', $object->getName());
+    return pht('Sửa Badge: %s', $object->getName());
   }
 
   protected function getObjectEditShortText($object) {
@@ -42,7 +42,7 @@ final class PhabricatorBadgesEditEngine
   }
 
   protected function getObjectCreateShortText() {
-    return pht('Create Badge');
+    return pht('Tạo Badge');
   }
 
   protected function getObjectName() {
@@ -62,7 +62,7 @@ final class PhabricatorBadgesEditEngine
   }
 
   protected function getCommentViewButtonText($object) {
-    return pht('Salute');
+    return pht('Chào');
   }
 
   protected function getObjectViewURI($object) {
@@ -79,39 +79,39 @@ final class PhabricatorBadgesEditEngine
     return array(
       id(new PhabricatorTextEditField())
         ->setKey('name')
-        ->setLabel(pht('Name'))
-        ->setDescription(pht('Badge name.'))
-        ->setConduitTypeDescription(pht('New badge name.'))
+        ->setLabel(pht('Tên'))
+        ->setDescription(pht('Tên Badge .'))
+        ->setConduitTypeDescription(pht('Tên mới badge .'))
         ->setTransactionType(PhabricatorBadgesTransaction::TYPE_NAME)
         ->setValue($object->getName()),
       id(new PhabricatorTextEditField())
         ->setKey('flavor')
-        ->setLabel(pht('Flavor text'))
-        ->setDescription(pht('Short description of the badge.'))
-        ->setConduitTypeDescription(pht('New badge flavor.'))
+        ->setLabel(pht('Flavor  text  '))
+        ->setDescription(pht('Mô tả ngắn về badge.'))
+        ->setConduitTypeDescription(pht('Badge flavor mới.'))
         ->setValue($object->getFlavor())
         ->setTransactionType(PhabricatorBadgesTransaction::TYPE_FLAVOR),
       id(new PhabricatorIconSetEditField())
         ->setKey('icon')
-        ->setLabel(pht('Icon'))
+        ->setLabel(pht('Biểu tượng'))
         ->setIconSet(new PhabricatorBadgesIconSet())
         ->setTransactionType(PhabricatorBadgesTransaction::TYPE_ICON)
-        ->setConduitDescription(pht('Change the badge icon.'))
-        ->setConduitTypeDescription(pht('New badge icon.'))
+        ->setConduitDescription(pht('Thay đổi biểu tượng badge.'))
+        ->setConduitTypeDescription(pht('Biểu tượng badge mới.'))
         ->setValue($object->getIcon()),
       id(new PhabricatorSelectEditField())
         ->setKey('quality')
-        ->setLabel(pht('Quality'))
-        ->setDescription(pht('Color and rarity of the badge.'))
-        ->setConduitTypeDescription(pht('New badge quality.'))
+        ->setLabel(pht('Chất lượng'))
+        ->setDescription(pht('Màu sắc và hiếm có của các badge.'))
+        ->setConduitTypeDescription(pht('Chất lượng mới của badge.'))
         ->setValue($object->getQuality())
         ->setTransactionType(PhabricatorBadgesTransaction::TYPE_QUALITY)
         ->setOptions(PhabricatorBadgesQuality::getDropdownQualityMap()),
       id(new PhabricatorRemarkupEditField())
         ->setKey('description')
-        ->setLabel(pht('Description'))
-        ->setDescription(pht('Badge long description.'))
-        ->setConduitTypeDescription(pht('New badge description.'))
+        ->setLabel(pht('Mô tả'))
+        ->setDescription(pht('Mô tả Badge.'))
+        ->setConduitTypeDescription(pht('Mô tả mới về Badge.'))
         ->setTransactionType(PhabricatorBadgesTransaction::TYPE_DESCRIPTION)
         ->setValue($object->getDescription()),
     );

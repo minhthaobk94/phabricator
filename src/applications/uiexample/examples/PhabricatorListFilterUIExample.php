@@ -3,13 +3,13 @@
 final class PhabricatorListFilterUIExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('ListFilter');
+    return pht('Danh sách bộ lọc');
   }
 
   public function getDescription() {
     return pht(
-      'Use %s to layout controls for filtering '.
-      'and manipulating lists of objects.',
+      'Sử dụngUse %s để bố trí các điề u triển cho bộ lọc'.
+      'và điều khiển danh sách các đối tượng.',
       phutil_tag('tt', array(), 'AphrontListFilterView'));
   }
 

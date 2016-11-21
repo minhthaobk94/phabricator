@@ -4,7 +4,7 @@ final class DifferentialRevisionSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Differential Revisions');
+    return pht('Phiên bản sự khác biệt');
   }
 
   public function getApplicationClassName() {
@@ -52,34 +52,34 @@ final class DifferentialRevisionSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Responsible Users'))
+        ->setLabel(pht('Người chịu trách nhiệm'))
         ->setKey('responsiblePHIDs')
         ->setAliases(array('responsiblePHID', 'responsibles', 'responsible'))
         ->setDatasource(new DifferentialResponsibleDatasource())
         ->setDescription(
           pht('Find revisions that a given user is responsible for.')),
       id(new PhabricatorUsersSearchField())
-        ->setLabel(pht('Authors'))
+        ->setLabel(pht('Tác giả'))
         ->setKey('authorPHIDs')
         ->setAliases(array('author', 'authors', 'authorPHID'))
         ->setDescription(
           pht('Find revisions with specific authors.')),
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Reviewers'))
+        ->setLabel(pht('Người xem xét'))
         ->setKey('reviewerPHIDs')
         ->setAliases(array('reviewer', 'reviewers', 'reviewerPHID'))
         ->setDatasource(new DiffusionAuditorFunctionDatasource())
         ->setDescription(
           pht('Find revisions with specific reviewers.')),
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Repositories'))
+        ->setLabel(pht('Kho'))
         ->setKey('repositoryPHIDs')
         ->setAliases(array('repository', 'repositories', 'repositoryPHID'))
         ->setDatasource(new DifferentialRepositoryDatasource())
         ->setDescription(
           pht('Find revisions from specific repositories.')),
       id(new PhabricatorSearchSelectField())
-        ->setLabel(pht('Status'))
+        ->setLabel(pht('Trạng thái'))
         ->setKey('status')
         ->setOptions($this->getStatusOptions())
         ->setDescription(
@@ -95,11 +95,11 @@ final class DifferentialRevisionSearchEngine
     $names = array();
 
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['active'] = pht('Active Revisions');
-      $names['authored'] = pht('Authored');
+      $names['active'] = pht('Sửa đổi tích cực');
+      $names['authored'] = pht('Tác giả');
     }
 
-    $names['all'] = pht('All Revisions');
+    $names['all'] = pht('Tất cả sửa đổi');
 
     return $names;
   }
@@ -130,13 +130,13 @@ final class DifferentialRevisionSearchEngine
 
   private function getStatusOptions() {
     return array(
-      DifferentialRevisionQuery::STATUS_ANY            => pht('All'),
-      DifferentialRevisionQuery::STATUS_OPEN           => pht('Open'),
-      DifferentialRevisionQuery::STATUS_ACCEPTED       => pht('Accepted'),
-      DifferentialRevisionQuery::STATUS_NEEDS_REVIEW   => pht('Needs Review'),
-      DifferentialRevisionQuery::STATUS_NEEDS_REVISION => pht('Needs Revision'),
-      DifferentialRevisionQuery::STATUS_CLOSED         => pht('Closed'),
-      DifferentialRevisionQuery::STATUS_ABANDONED      => pht('Abandoned'),
+      DifferentialRevisionQuery::STATUS_ANY            => pht('Tất cả'),
+      DifferentialRevisionQuery::STATUS_OPEN           => pht('Mở'),
+      DifferentialRevisionQuery::STATUS_ACCEPTED       => pht('Chấp nhận'),
+      DifferentialRevisionQuery::STATUS_NEEDS_REVIEW   => pht('Cần xem xét'),
+      DifferentialRevisionQuery::STATUS_NEEDS_REVISION => pht('Cần sửa đổi'),
+      DifferentialRevisionQuery::STATUS_CLOSED         => pht('Đongs'),
+      DifferentialRevisionQuery::STATUS_ABANDONED      => pht('Bỏ'),
     );
   }
 
@@ -209,7 +209,7 @@ final class DifferentialRevisionSearchEngine
   protected function getNewUserBody() {
     $create_button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('Create a Diff'))
+      ->setText(pht('Tạo khác'))
       ->setHref('/differential/diff/create/')
       ->setColor(PHUIButtonView::GREEN);
 
@@ -217,7 +217,7 @@ final class DifferentialRevisionSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
         pht('Pre-commit code review. Revisions that are waiting on your input '.
             'will appear here.'))

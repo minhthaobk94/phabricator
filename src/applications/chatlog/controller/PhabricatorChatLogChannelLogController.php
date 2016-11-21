@@ -243,8 +243,8 @@ final class PhabricatorChatLogChannelLogController
       ->appendChild($content);
 
     $box->setShowHide(
-      pht('Search Dates'),
-      pht('Hide Dates'),
+      pht('Tìm ngày'),
+      pht('Ân ngày'),
       $form,
       '#');
 

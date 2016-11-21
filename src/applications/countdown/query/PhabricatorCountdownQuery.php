@@ -78,11 +78,11 @@ final class PhabricatorCountdownQuery
     return array(
       'ending' => array(
         'vector' => array('-epoch', '-id'),
-        'name' => pht('End Date (Past to Future)'),
+        'name' => pht('Cuối ngày (quá khứ đến tương lai)'),
       ),
       'unending' => array(
         'vector' => array('epoch', 'id'),
-        'name' => pht('End Date (Future to Past)'),
+        'name' => pht('Cuối ngày (quá khứ đến tương lai)'),
       ),
     ) + parent::getBuiltinOrders();
   }

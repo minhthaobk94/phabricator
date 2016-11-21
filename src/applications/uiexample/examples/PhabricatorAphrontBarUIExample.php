@@ -3,11 +3,11 @@
 final class PhabricatorAphrontBarUIExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Bars');
+    return pht('Thanh công cụ');
   }
 
   public function getDescription() {
-    return pht('Like fractions, but more horizontal.');
+    return pht('Giống như phân số, nhưng nhiều tương tác chiều ngang.');
   }
 
   public function renderExample() {
@@ -62,7 +62,7 @@ final class PhabricatorAphrontBarUIExample extends PhabricatorUIExample {
       phutil_tag('br'),
       $bars);
 
-    return $this->wrap(pht('Rainbow Bars'), $bars);
+    return $this->wrap(pht('Thanh công cụ đa sắc'), $bars);
   }
 
 }

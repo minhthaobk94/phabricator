@@ -4,7 +4,7 @@ final class LegalpadDocumentSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Legalpad Documents');
+    return pht('Tài liệu pháp lý');
   }
 
   public function getApplicationClassName() {
@@ -85,7 +85,7 @@ final class LegalpadDocumentSearchEngine
           ->addCheckbox(
             'withViewerSignature',
             1,
-            pht('Show only documents I have signed.'),
+            pht('Chỉ hiển thị những tài liệu tôi đã ký.'),
             $viewer_signature)
           ->setDisabled(!$this->requireViewer()->getPHID()))
       ->appendControl(
@@ -118,10 +118,10 @@ final class LegalpadDocumentSearchEngine
     $names = array();
 
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['signed'] = pht('Signed Documents');
+      $names['signed'] = pht('Tài liệu đã ký');
     }
 
-    $names['all'] = pht('All Documents');
+    $names['all'] = pht('Tất cả tài liệu');
 
     return $names;
   }
@@ -170,7 +170,7 @@ final class LegalpadDocumentSearchEngine
 
       $no_signatures = LegalpadDocument::SIGNATURE_TYPE_NONE;
       if ($document->getSignatureType() == $no_signatures) {
-        $item->addIcon('none', pht('Not Signable'));
+        $item->addIcon('none', pht('Không thể kí'));
       } else {
 
         $type_name = $document->getSignatureTypeName();
@@ -197,21 +197,21 @@ final class LegalpadDocumentSearchEngine
             array(
               id(new PHUIIconView())->setIcon('fa-square-o', 'grey'),
               ' ',
-              pht('Not Signed'),
+              pht('Không ký'),
             ));
         }
       }
 
       $item->addIcon(
         'fa-pencil grey',
-        pht('Version %d (%s)', $document->getVersions(), $last_updated));
+        pht('Phiên bản %d (%s)', $document->getVersions(), $last_updated));
 
       $list->addItem($item);
     }
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No documents found.'));
+    $result->setNoDataString(pht('Không tìm thấy tài liệu.'));
 
     return $result;
   }
@@ -219,7 +219,7 @@ final class LegalpadDocumentSearchEngine
   protected function getNewUserBody() {
     $create_button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('Create a Document'))
+      ->setText(pht('Tạo mới tài liệu'))
       ->setHref('/legalpad/create/')
       ->setColor(PHUIButtonView::GREEN);
 
@@ -227,10 +227,9 @@ final class LegalpadDocumentSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
-        pht('Create documents and track signatures. Can also be re-used in '.
-            'other areas of Phabricator, like CLAs.'))
+        pht('Tạo mới tài liệu và quản lý chữ ký. Có thể sử dụng lại được.'))
       ->addAction($create_button);
 
       return $view;

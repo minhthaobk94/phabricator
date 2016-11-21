@@ -26,14 +26,14 @@ final class PhabricatorChatLogChannelListController
 
     $crumbs = $this
       ->buildApplicationCrumbs()
-      ->addTextCrumb(pht('Channel List'), $this->getApplicationURI());
+      ->addTextCrumb(pht('Danh sách kênh'), $this->getApplicationURI());
 
     $box = id(new PHUIObjectBoxView())
-      ->setHeaderText('Channel List')
+      ->setHeaderText('Danh sách kênh')
       ->setObjectList($list);
 
     return $this->newPage()
-      ->setTitle(pht('Channel List'))
+      ->setTitle(pht('Danh sách kênh'))
       ->setCrumbs($crumbs)
       ->appendChild($box);
 

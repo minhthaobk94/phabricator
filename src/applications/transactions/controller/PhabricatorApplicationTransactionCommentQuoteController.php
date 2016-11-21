@@ -46,9 +46,9 @@ final class PhabricatorApplicationTransactionCommentQuoteController
 
     $ref = $request->getStr('ref');
     if (strlen($ref)) {
-      $quote = pht('In %s, %s wrote:', $ref, '@'.$author->getName());
+      $quote = pht('Nơi %s, %s ghi:', $ref, '@'.$author->getName());
     } else {
-      $quote = pht('%s wrote:', '@'.$author->getName());
+      $quote = pht('%s ghi:', '@'.$author->getName());
     }
 
     $content = ">>! {$quote}\n{$content}";

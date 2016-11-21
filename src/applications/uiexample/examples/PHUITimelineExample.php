@@ -2,12 +2,12 @@
 final class PHUITimelineExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Timeline View');
+    return pht('Hiển thị dòng thời gian');
   }
 
   public function getDescription() {
     return pht(
-      'Use %s to comments and transactions.',
+      'Sử dụng %s để comments và giao dịch.',
       hsprintf('<tt>PHUITimelineView</tt>'));
   }
 
@@ -27,38 +27,38 @@ final class PHUITimelineExample extends PhabricatorUIExample {
 
     $admin = id(new PHUIBadgeMiniView())
       ->setIcon('fa-user')
-      ->setHeader(pht('Administrator'))
+      ->setHeader(pht('Nhà quản trị'))
       ->setQuality(PhabricatorBadgesQuality::RARE);
 
     $events = array();
 
     $events[] = id(new PHUITimelineEventView())
       ->setUserHandle($handle)
-      ->setTitle(pht('A major event.'))
-      ->appendChild(pht('This is a major timeline event.'))
+      ->setTitle(pht('Sự kiện chính.'))
+      ->appendChild(pht('Đây là sự kiện dòng thời gian chính.'))
       ->addBadge($designer)
       ->addBadge($admin);
 
     $events[] = id(new PHUITimelineEventView())
       ->setUserHandle($handle)
       ->setIcon('fa-heart')
-      ->setTitle(pht('A minor event.'));
+      ->setTitle(pht('Sự kiện phụ.'));
 
     $events[] = id(new PHUITimelineEventView())
       ->setUserHandle($handle)
       ->setIcon('fa-comment')
-      ->appendChild(pht('A major event with no title.'));
+      ->appendChild(pht('Sự kiện phụ không có tiêu đề.'));
 
     $events[] = id(new PHUITimelineEventView())
       ->setUserHandle($handle)
       ->setIcon('fa-star')
-      ->setTitle(pht('Another minor event.'));
+      ->setTitle(pht('Sự kiện phụ khác.'));
 
     $events[] = id(new PHUITimelineEventView())
       ->setUserHandle($handle)
       ->setTitle(pht('Major Red Event'))
       ->setIcon('fa-heart-o')
-      ->appendChild(pht('This event is red!'))
+      ->appendChild(pht('Sự kiện này là đỏ!'))
       ->setColor(PhabricatorTransactions::COLOR_RED)
       ->addBadge($designer);
 

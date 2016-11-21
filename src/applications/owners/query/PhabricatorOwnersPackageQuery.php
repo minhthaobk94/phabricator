@@ -241,7 +241,7 @@ final class PhabricatorOwnersPackageQuery
     return array(
       'name' => array(
         'vector' => array('name'),
-        'name' => pht('Name'),
+        'name' => pht('Tên'),
       ),
     ) + parent::getBuiltinOrders();
   }

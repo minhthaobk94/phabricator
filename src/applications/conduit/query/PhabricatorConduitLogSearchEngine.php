@@ -37,19 +37,19 @@ final class PhabricatorConduitLogSearchEngine
     return array(
       id(new PhabricatorUsersSearchField())
         ->setKey('callerPHIDs')
-        ->setLabel(pht('Callers'))
+        ->setLabel(pht('Người gọi'))
         ->setAliases(array('caller', 'callers'))
-        ->setDescription(pht('Find calls by specific users.')),
+        ->setDescription(pht('Tìm các cuộc gọi của người dùng cụ thể.')),
       id(new PhabricatorSearchStringListField())
         ->setKey('methods')
-        ->setLabel(pht('Methods'))
-        ->setDescription(pht('Find calls to specific methods.')),
+        ->setLabel(pht('Phương pháp'))
+        ->setDescription(pht('Tìm các cuộc gọi đến các phương pháp cụ thể.')),
       id(new PhabricatorSearchCheckboxesField())
         ->setKey('statuses')
-        ->setLabel(pht('Method Status'))
+        ->setLabel(pht('Trạng thái phương pháp'))
         ->setAliases(array('status'))
         ->setDescription(
-          pht('Find calls to stable, unstable, or deprecated methods.'))
+          pht('Tìm các cuộc gọi đến, hoặc các phương pháp phản đối ổn định, không ổn định.'))
         ->setOptions(ConduitAPIMethod::getMethodStatusMap()),
     );
   }
@@ -63,12 +63,12 @@ final class PhabricatorConduitLogSearchEngine
 
     $viewer = $this->requireViewer();
     if ($viewer->isLoggedIn()) {
-      $names['viewer'] = pht('My Calls');
-      $names['viewerdeprecated'] = pht('My Deprecated Calls');
+      $names['viewer'] = pht('Cuộc gọi của tôi');
+      $names['viewerdeprecated'] = pht('Các cuộc gọi Phản đối của tôi');
     }
 
-    $names['all'] = pht('All Call Logs');
-    $names['deprecated'] = pht('Deprecated Call Logs');
+    $names['all'] = pht('Tat ca Logs');
+    $names['deprecated'] = pht('Logs Gọi phản đối');
 
     return $names;
   }
@@ -144,7 +144,7 @@ final class PhabricatorConduitLogSearchEngine
             ->addSigil('has-tooltip')
             ->setMetadata(
               array(
-                'tip' => pht('Unstable'),
+                'tip' => pht('Không ổn định'),
               ));
           break;
         case ConduitAPIMethod::METHOD_STATUS_DEPRECATED:
@@ -153,7 +153,7 @@ final class PhabricatorConduitLogSearchEngine
             ->addSigil('has-tooltip')
             ->setMetadata(
               array(
-                'tip' => pht('Deprecated'),
+                'tip' => pht('Phản đối'),
               ));
           break;
         default:
@@ -162,7 +162,7 @@ final class PhabricatorConduitLogSearchEngine
             ->addSigil('has-tooltip')
             ->setMetadata(
               array(
-                'tip' => pht('Unknown ("%s")', $status),
+                'tip' => pht('Không biết ("%s")', $status),
               ));
           break;
       }
@@ -181,11 +181,11 @@ final class PhabricatorConduitLogSearchEngine
       ->setHeaders(
         array(
           null,
-          pht('Method'),
-          pht('Caller'),
-          pht('Error'),
-          pht('Duration'),
-          pht('Date'),
+          pht('Phương pháp'),
+          pht('Người gọi'),
+          pht('Lỗi'),
+          pht('Thời gian'),
+          pht('Ngày'),
         ))
       ->setColumnClasses(
         array(

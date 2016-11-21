@@ -8,7 +8,7 @@ final class NuanceQueueSearchEngine
   }
 
   public function getResultTypeDescription() {
-    return pht('Nuance Queues');
+    return pht('Queues');
   }
 
   public function newQuery() {
@@ -31,7 +31,7 @@ final class NuanceQueueSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All Queues'),
+      'all' => pht('Tất cả Queues'),
     );
 
     return $names;
@@ -69,7 +69,7 @@ final class NuanceQueueSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No queues found.'));
+    $result->setNoDataString(pht('Không queues nào được tìm thấy.'));
 
     return $result;
   }

@@ -6,11 +6,11 @@ final class PhabricatorBadgesCreateCapability
   const CAPABILITY = 'badges.default.create';
 
   public function getCapabilityName() {
-    return pht('Can Create Badges');
+    return pht('Có thể tạo danh hiệu');
   }
 
   public function describeCapabilityRejection() {
-    return pht('You do not have permission to create badges.');
+    return pht('Bạn không có quyền tạo phù hiệu.');
   }
 
 }

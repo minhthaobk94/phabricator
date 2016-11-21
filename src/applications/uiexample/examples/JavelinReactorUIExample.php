@@ -7,7 +7,7 @@ final class JavelinReactorUIExample extends PhabricatorUIExample {
   }
 
   public function getDescription() {
-    return pht('Lots of code');
+    return pht('Một vài đoạn code');
   }
 
   public function renderExample() {
@@ -15,50 +15,50 @@ final class JavelinReactorUIExample extends PhabricatorUIExample {
 
     $examples = array(
       array(
-        pht('Reactive button only generates a stream of events'),
+        pht('Tương tác nút liên kết tới dòng sự kiện'),
         'ReactorButtonExample',
         'phabricator-uiexample-reactor-button',
         array(),
       ),
       array(
-        pht('Reactive checkbox generates a boolean dynamic value'),
+        pht('Tương tác khung kiểm tra liên kêt tới giá trị dao động boolean'),
         'ReactorCheckboxExample',
         'phabricator-uiexample-reactor-checkbox',
         array('checked' => true),
       ),
       array(
-        pht('Reactive focus detector generates a boolean dynamic value'),
+        pht('Tương tác tập trung vào phát hiện liên kết tới giá trị dao động boolean'),
         'ReactorFocusExample',
         'phabricator-uiexample-reactor-focus',
         array(),
       ),
       array(
-        pht('Reactive input box, with normal and calmed output'),
+        pht('Khung nhập vào tương tác, với đầu ra bình thường và không dao động'),
         'ReactorInputExample',
         'phabricator-uiexample-reactor-input',
         array('init' => 'Initial value'),
       ),
       array(
-        pht('Reactive mouseover detector generates a boolean dynamic value'),
+        pht('Tương tác về việc phát hiện chuột liên kết tới giá trị dao động boolean'),
         'ReactorMouseoverExample',
         'phabricator-uiexample-reactor-mouseover',
         array(),
       ),
       array(
-        pht('Reactive radio buttons generate a string dynamic value'),
+        pht('Tương tác radio buttons liên kết tới chuỗi giá trị dao động'),
         'ReactorRadioExample',
         'phabricator-uiexample-reactor-radio',
         array(),
       ),
       array(
-        pht('Reactive select box generates a string dynamic value'),
+        pht('Tương tác khung chọn liên kết tới chuỗi giá trị dao động'),
         'ReactorSelectExample',
         'phabricator-uiexample-reactor-select',
         array(),
       ),
       array(
         pht(
-          '%s makes the class of an element a string dynamic value',
+          '%s tạo lớp của một phần tử của chuỗi giá trị dao động',
           'sendclass'),
         'ReactorSendClassExample',
         'phabricator-uiexample-reactor-sendclass',
@@ -66,7 +66,7 @@ final class JavelinReactorUIExample extends PhabricatorUIExample {
       ),
       array(
         pht(
-          '%s makes some properties of an object into dynamic values',
+          '%s tạo vài tính chất của một đối tượng vào các giá trị dao động',
           'sendproperties'),
         'ReactorSendPropertiesExample',
         'phabricator-uiexample-reactor-sendproperties',

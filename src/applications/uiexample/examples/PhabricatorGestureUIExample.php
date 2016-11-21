@@ -3,14 +3,14 @@
 final class PhabricatorGestureUIExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Gestures');
+    return pht('Thao tác');
   }
 
   public function getDescription() {
     return pht(
-      'Use %s to listen for gesture events. Note that you '.
-      'must be in device mode for this to work (you can narrow your browser '.
-      'window if you are on a desktop).',
+      'Sử dụng %s để lắng nghe các thao tác. Nhớ rằng bạn '.
+      'phải ở chế độ làm việc để làm việc này (bạn có thể thu hẹp trình duyệt của bạn '.
+      'cửa số nếu bạn đang làm việc trên desktop).',
       phutil_tag('tt', array(), 'touchable'));
   }
 

@@ -38,7 +38,7 @@ abstract class CelerityResourceController extends PhabricatorController {
     $type_map = self::getSupportedResourceTypes();
 
     if (empty($type_map[$type])) {
-      throw new Exception(pht('Only static resources may be served.'));
+      throw new Exception(pht('Chỉ có các tài nguyên tĩnh có thể được phục vụ.'));
     }
 
     $dev_mode = PhabricatorEnv::getEnvConfig('phabricator.developer-mode');

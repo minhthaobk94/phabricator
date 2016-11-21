@@ -92,10 +92,10 @@ final class PhabricatorFileQuery
           empty($spec['transform'])) {
         throw new Exception(
           pht(
-            "Transform specification must be a dictionary with keys ".
-            "'%s' and '%s'!",
+            "Biến đổi đặc điểm kỹ thuật phải là một từ điển với phím ".
+            "'%s' và '%s'!",
             'originalPHID',
-            'transform'));
+            'chuyển'));
       }
     }
 

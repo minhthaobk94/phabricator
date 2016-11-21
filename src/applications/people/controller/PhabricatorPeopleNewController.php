@@ -169,7 +169,7 @@ final class PhabricatorPeopleNewController
           ->addCheckbox(
             'welcome',
             1,
-            pht('Send "Welcome to Phabricator" email with login instructions.'),
+            pht('Gửi "Chào mừng đến với Phabricator" email with login instructions.'),
             $welcome_checked));
     }
 

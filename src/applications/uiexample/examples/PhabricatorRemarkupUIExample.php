@@ -3,39 +3,39 @@
 final class PhabricatorRemarkupUIExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Remarkup');
+    return pht('Đánh dấu ');
   }
 
   public function getDescription() {
     return pht(
-      'Demonstrates the visual appearance of various Remarkup elements.');
+      'Thể hiện sự xuất hiện trực quan của các phần tử đánh dấu khác nhau.');
   }
 
   public function renderExample() {
     $viewer = $this->getRequest()->getUser();
 
     $content = pht(<<<EOCONTENT
-This is some **remarkup text** using ~~exactly one style~~ //various styles//.
+Đây là vài **nội dung đánh dấu** sử dụng ~~chính xác một kiểu~~ //nhiều kiểu//.
 
-  - Fruit
-    - Apple
-    - Banana
-    - Cherry
-  - Vegetables
-    1. Carrot
-    2. Celery
+  - Trái cây
+    - Táo
+    - Chuối
+    - Dâu tây
+  - Rau
+    1. Cà rốt
+    2. Cần tây
 
-NOTE: This is a note.
+GHI CHÚ: Đây là một ghi chú.
 
-(NOTE) This is also a note.
+(GHI CHÚ) Đây là một ghi chú.
 
-WARNING: This is a warning.
+CẢNH BÁO: Đây là một cảnh báo.
 
-(WARNING) This is also a warning.
+(CẢNH BÁO): Đây cũng là một cảnh báo.
 
-IMPORTANT: This is not really important.
+QUAN TRỌNG: Đây thực sự không quan trọng lắm.
 
-(IMPORTANT) This isn't important either.
+(QUAN TRỌNG) Đây cũng không quan trọng.
 
 EOCONTENT
 );
@@ -47,7 +47,7 @@ EOCONTENT
       ->appendChild($remarkup);
 
     return id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Remarkup Example'))
+      ->setHeaderText(pht('Ví dụ đánh dấu'))
       ->appendChild($frame);
   }
 

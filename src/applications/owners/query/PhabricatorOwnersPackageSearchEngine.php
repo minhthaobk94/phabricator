@@ -4,11 +4,15 @@ final class PhabricatorOwnersPackageSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Owners Packages');
+<<<<<<< HEAD
+    return pht('Chủ tệp');
+=======
+    return pht('Gói');
+>>>>>>> origin/master
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorOwnersApplication';
+    return 'PhabricatorOwnersApplication';ủ
   }
 
   public function newQuery() {
@@ -18,36 +22,36 @@ final class PhabricatorOwnersPackageSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Authority'))
+        ->setLabel(pht('Tác giả'))
         ->setKey('authorityPHIDs')
         ->setAliases(array('authority', 'authorities'))
         ->setConduitKey('owners')
         ->setDescription(
-          pht('Search for packages with specific owners.'))
+          pht('Tìm gói theo tác giả.'))
         ->setDatasource(new PhabricatorProjectOrUserDatasource()),
       id(new PhabricatorSearchTextField())
-        ->setLabel(pht('Name Contains'))
+        ->setLabel(pht('Tên'))
         ->setKey('name')
-        ->setDescription(pht('Search for packages by name substrings.')),
+        ->setDescription(pht('Tìm gói theo tên.')),
       id(new PhabricatorSearchDatasourceField())
         ->setLabel(pht('Repositories'))
         ->setKey('repositoryPHIDs')
         ->setConduitKey('repositories')
         ->setAliases(array('repository', 'repositories'))
         ->setDescription(
-          pht('Search for packages by included repositories.'))
+          pht('Tìm gói theo repositories.'))
         ->setDatasource(new DiffusionRepositoryDatasource()),
       id(new PhabricatorSearchStringListField())
-        ->setLabel(pht('Paths'))
+        ->setLabel(pht('Đường dẫn'))
         ->setKey('paths')
         ->setAliases(array('path'))
         ->setDescription(
-          pht('Search for packages affecting specific paths.')),
+          pht('Tìm gói theo đường dẫn.')),
       id(new PhabricatorSearchCheckboxesField())
         ->setKey('statuses')
-        ->setLabel(pht('Status'))
+        ->setLabel(pht('Trạng thái'))
         ->setDescription(
-          pht('Search for active or archived packages.'))
+          pht('Tìm theo gói nén.'))
         ->setOptions(
           id(new PhabricatorOwnersPackage())
             ->getStatusNameMap()),
@@ -88,12 +92,12 @@ final class PhabricatorOwnersPackageSearchEngine
     $names = array();
 
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['authority'] = pht('Owned');
+      $names['authority'] = pht('Chủ');
     }
 
     $names += array(
-      'active' => pht('Active Packages'),
-      'all' => pht('All Packages'),
+      'active' => pht('Gói được kích hoạt'),
+      'all' => pht('Tất cả các gói'),
     );
 
     return $names;
@@ -149,7 +153,7 @@ final class PhabricatorOwnersPackageSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No packages found.'));
+    $result->setNoDataString(pht('Không có gói nào được tìm thấy.'));
 
     return $result;
 
@@ -158,7 +162,7 @@ final class PhabricatorOwnersPackageSearchEngine
   protected function getNewUserBody() {
     $create_button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('Create a Package'))
+      ->setText(pht('Tạo gói'))
       ->setHref('/owners/edit/')
       ->setColor(PHUIButtonView::GREEN);
 
@@ -166,10 +170,9 @@ final class PhabricatorOwnersPackageSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
-        pht('Group sections of a codebase into packages for re-use in other '.
-        'areas of Phabricator, like Herald rules.'))
+        pht('Một nhóm mã nguồn gồm các gói có thể sử dụng lại được.'))
       ->addAction($create_button);
 
       return $view;

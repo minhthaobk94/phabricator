@@ -4,7 +4,7 @@ final class PhabricatorOAuthServerClientSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('OAuth Clients');
+    return pht('Máy khách');
   }
 
   public function getApplicationClassName() {
@@ -31,9 +31,9 @@ final class PhabricatorOAuthServerClientSearchEngine
         ->setAliases(array('creators'))
         ->setKey('creatorPHIDs')
         ->setConduitKey('creators')
-        ->setLabel(pht('Creators'))
+        ->setLabel(pht('Người khởi tạo'))
         ->setDescription(
-          pht('Search for applications created by particular users.')),
+          pht('Tìm ứng dụng tạo bởi người dùng')),
     );
   }
 
@@ -45,10 +45,10 @@ final class PhabricatorOAuthServerClientSearchEngine
     $names = array();
 
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['created'] = pht('Created');
+      $names['created'] = pht('Đã tạo');
     }
 
-    $names['all'] = pht('All Applications');
+    $names['all'] = pht('Tất cả ứng dụng');
 
     return $names;
   }
@@ -81,7 +81,7 @@ final class PhabricatorOAuthServerClientSearchEngine
       ->setUser($viewer);
     foreach ($clients as $client) {
       $item = id(new PHUIObjectItemView())
-        ->setObjectName(pht('Application %d', $client->getID()))
+        ->setObjectName(pht('Ứng dụng %d', $client->getID()))
         ->setHeader($client->getName())
         ->setHref($client->getViewURI())
         ->setObject($client);
@@ -95,7 +95,7 @@ final class PhabricatorOAuthServerClientSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No clients found.'));
+    $result->setNoDataString(pht('Không tìm thấy máy khách.'));
 
     return $result;
   }

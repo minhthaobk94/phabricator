@@ -7,7 +7,7 @@ final class JavelinViewUIExample extends PhabricatorUIExample {
   }
 
   public function getDescription() {
-    return pht('Mix and match client and server views.');
+    return pht('Trộn lẫn và kết nối các tầm nhìn của khách và chủ.');
   }
 
   public function renderExample() {

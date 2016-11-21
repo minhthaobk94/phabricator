@@ -3,11 +3,11 @@
 final class DarkConsoleStartupPlugin extends DarkConsolePlugin {
 
   public function getName() {
-    return pht('Startup');
+    return pht('Khởi nghiệp');
   }
 
   public function getDescription() {
-    return pht('Timing information about the startup sequence.');
+    return pht('Thời gian thông tin về trình tự khởi khiệp.');
   }
 
   /**

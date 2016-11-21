@@ -8,7 +8,7 @@ final class PhabricatorSpacesNamespaceSearchEngine
   }
 
   public function getResultTypeDescription() {
-    return pht('Spaces');
+    return pht('Không gian');
   }
 
   public function newQuery() {
@@ -18,12 +18,12 @@ final class PhabricatorSpacesNamespaceSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchThreeStateField())
-        ->setLabel(pht('Active'))
+        ->setLabel(pht('Kích hoạt'))
         ->setKey('active')
         ->setOptions(
-          pht('(Show All)'),
-          pht('Show Only Active Spaces'),
-          pht('Hide Active Spaces')),
+          pht('(Hiển thị tất cả)'),
+          pht('Chỉ hiển thị các không gian được kịch hoạt'),
+          pht('Ẩn các không gian được kích hoạt')),
     );
   }
 
@@ -43,8 +43,8 @@ final class PhabricatorSpacesNamespaceSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'active' => pht('Active Spaces'),
-      'all' => pht('All Spaces'),
+      'active' => pht('Các không gian được kích hoạt'),
+      'all' => pht('Tất cả các không gian'),
     );
 
     return $names;
@@ -93,7 +93,7 @@ final class PhabricatorSpacesNamespaceSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No spaces found.'));
+    $result->setNoDataString(pht('Không có không gian được tìm thấy.'));
 
     return $result;
   }
@@ -101,7 +101,7 @@ final class PhabricatorSpacesNamespaceSearchEngine
   protected function getNewUserBody() {
     $create_button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('Create a Space'))
+      ->setText(pht('Tạo một không gian'))
       ->setHref('/spaces/create/')
       ->setColor(PHUIButtonView::GREEN);
 
@@ -109,7 +109,7 @@ final class PhabricatorSpacesNamespaceSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
         pht('Policy namespaces to segment object visibility throughout your '.
         'instance.'))

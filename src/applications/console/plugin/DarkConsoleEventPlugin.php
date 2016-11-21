@@ -3,11 +3,11 @@
 final class DarkConsoleEventPlugin extends DarkConsolePlugin {
 
   public function getName() {
-    return pht('Events');
+    return pht('Sự kiện');
   }
 
   public function getDescription() {
-    return pht('Information about Phabricator events and event listeners.');
+    return pht('Thông tin về các sự kiện Phabricator và nghe sự kiện.');
   }
 
   public function generateData() {

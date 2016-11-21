@@ -34,13 +34,13 @@ final class PhabricatorApplicationTransactionDetailController
     $cancel_uri = $handle->getURI();
 
     if ($request->isAjax()) {
-      $button_text = pht('Done');
+      $button_text = pht('Đã xong');
     } else {
-      $button_text = pht('Continue');
+      $button_text = pht('Tiếp tục');
     }
 
     return $this->newDialog()
-      ->setTitle(pht('Change Details'))
+      ->setTitle(pht('Thay đổi chi tiết'))
       ->setWidth(AphrontDialogView::WIDTH_FORM)
       ->setClass('aphront-dialog-tab-group')
       ->appendChild($details)

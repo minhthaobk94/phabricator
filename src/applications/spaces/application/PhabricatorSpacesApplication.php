@@ -11,7 +11,7 @@ final class PhabricatorSpacesApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Chính sách Namespaces');
+    return pht('Luật về tên của không gian');
   }
 
   public function getIcon() {
@@ -23,7 +23,7 @@ final class PhabricatorSpacesApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Kiểm soát truy cập cho các nhóm đối tượng.');
+    return pht('Điều khiển kết nối đến nhóm của đối tượng.');
   }
 
   public function getApplicationGroup() {
@@ -37,7 +37,7 @@ final class PhabricatorSpacesApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Hướng dẫn sử dụng các không gian'),
+        'name' => pht('Hướng dẫn sử dung'),
         'href' => PhabricatorEnv::getDoclink('Spaces User Guide'),
       ),
     );
@@ -68,12 +68,12 @@ final class PhabricatorSpacesApplication extends PhabricatorApplication {
         'default' => PhabricatorPolicies::POLICY_ADMIN,
       ),
       PhabricatorSpacesCapabilityDefaultView::CAPABILITY => array(
-        'caption' => pht('Default view policy for newly created spaces.'),
+        'caption' => pht('Mặc định luật cho không gian mới tạo.'),
         'template' => PhabricatorSpacesNamespacePHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_VIEW,
       ),
       PhabricatorSpacesCapabilityDefaultEdit::CAPABILITY => array(
-        'caption' => pht('Default edit policy for newly created spaces.'),
+        'caption' => pht('Mặc định chỉnh sửa cho không gian mới tạo.'),
         'default' => PhabricatorPolicies::POLICY_ADMIN,
         'template' => PhabricatorSpacesNamespacePHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_EDIT,
