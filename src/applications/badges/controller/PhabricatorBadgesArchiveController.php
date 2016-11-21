@@ -46,16 +46,16 @@ final class PhabricatorBadgesArchiveController
     }
 
     if ($badge->isArchived()) {
-      $title = pht('Activate Badge');
-      $body = pht('This badge will be re-commissioned into service.');
-      $button = pht('Activate Badge');
+      $title = pht('Kích hoạt Badge');
+      $body = pht('Badge này sẽ được tái hạ vào dịch vụ.');
+      $button = pht('Kích hoạt Badge');
     } else {
-      $title = pht('Archive Badge');
+      $title = pht('Hoàn thành Badge');
       $body = pht(
-        'This dedicated badge, once a distinguish icon of this install, '.
-        'shall be immediately retired from service, but will never far from '.
-        'our hearts. Godspeed.');
-      $button = pht('Archive Badge');
+        'Badge chuyên dụng này, một khi một biểu tượng của phân biệt cài đặt này, '.
+        'được bỏ ngay từ dịch vụ, nhưng sẽ không bao giờ xa'.
+        'trái tim chúng ta . Godspeed.');
+      $button = pht('Hoàn thành Badge');
     }
 
     return $this->newDialog()

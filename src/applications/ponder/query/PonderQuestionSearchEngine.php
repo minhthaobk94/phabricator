@@ -191,7 +191,7 @@ final class PonderQuestionSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
         pht('A simple questions and answers application for your teams.'))
       ->addAction($create_button);

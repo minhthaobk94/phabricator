@@ -68,9 +68,9 @@ final class PhabricatorBadgesEditRecipientsController
       PhabricatorPolicyCapability::CAN_EDIT);
 
     $form_box = null;
-    $title = pht('Add Recipient');
+    $title = pht('Thêm người nhận');
     if ($can_edit) {
-      $header_name = pht('Edit Recipients');
+      $header_name = pht('Sửa người nhận');
 
       $form = new AphrontFormView();
       $form
@@ -79,16 +79,16 @@ final class PhabricatorBadgesEditRecipientsController
         ->appendControl(
           id(new AphrontFormTokenizerControl())
             ->setName('phids')
-            ->setLabel(pht('Add Recipients'))
+            ->setLabel(pht('Thêm người nhận'))
             ->setDatasource(new PhabricatorPeopleDatasource()));
     }
 
     $dialog = id(new AphrontDialogView())
       ->setUser($viewer)
-      ->setTitle(pht('Award Badges'))
+      ->setTitle(pht('Phần thưởng Badges'))
       ->appendForm($form)
       ->addCancelButton($view_uri)
-      ->addSubmitButton(pht('Add Recipients'));
+      ->addSubmitButton(pht('Thêm người nhận'));
 
     return $dialog;
   }

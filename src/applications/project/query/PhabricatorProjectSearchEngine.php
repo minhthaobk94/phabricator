@@ -4,7 +4,7 @@ final class PhabricatorProjectSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Projects');
+    return pht('Dự án');
   }
 
   public function getApplicationClassName() {
@@ -20,26 +20,26 @@ final class PhabricatorProjectSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchTextField())
-        ->setLabel(pht('Name'))
+        ->setLabel(pht('Tên'))
         ->setKey('name'),
       id(new PhabricatorUsersSearchField())
-        ->setLabel(pht('Members'))
+        ->setLabel(pht('Thành viên'))
         ->setKey('memberPHIDs')
         ->setAliases(array('member', 'members')),
       id(new PhabricatorUsersSearchField())
-        ->setLabel(pht('Watchers'))
+        ->setLabel(pht('Người xem'))
         ->setKey('watcherPHIDs')
         ->setAliases(array('watcher', 'watchers')),
       id(new PhabricatorSearchSelectField())
-        ->setLabel(pht('Status'))
+        ->setLabel(pht('Trạng thái'))
         ->setKey('status')
         ->setOptions($this->getStatusOptions()),
       id(new PhabricatorSearchCheckboxesField())
-        ->setLabel(pht('Icons'))
+        ->setLabel(pht('Biểu tượng'))
         ->setKey('icons')
         ->setOptions($this->getIconOptions()),
       id(new PhabricatorSearchCheckboxesField())
-        ->setLabel(pht('Colors'))
+        ->setLabel(pht('Màu sắc'))
         ->setKey('colors')
         ->setOptions($this->getColorOptions()),
     );
@@ -88,11 +88,11 @@ final class PhabricatorProjectSearchEngine
     $names = array();
 
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['joined'] = pht('Joined');
+      $names['joined'] = pht('Đã tham gia');
     }
 
-    $names['active'] = pht('Active');
-    $names['all'] = pht('All');
+    $names['active'] = pht('Hoạt động');
+    $names['all'] = pht('Tất cả');
 
     return $names;
   }
@@ -120,9 +120,9 @@ final class PhabricatorProjectSearchEngine
 
   private function getStatusOptions() {
     return array(
-      'active'   => pht('Show Only Active Projects'),
-      'archived' => pht('Show Only Archived Projects'),
-      'all'      => pht('Show All Projects'),
+      'active'   => pht('Hiện dự án Chỉ kích hoạt'),
+      'archived' => pht('Hiện dự án Chỉ lưu trữ'),
+      'all'      => pht('Hiển thị tất cả các dự án'),
     );
   }
 
@@ -183,13 +183,13 @@ final class PhabricatorProjectSearchEngine
 
     return id(new PhabricatorApplicationSearchResultView())
       ->setObjectList($list)
-      ->setNoDataString(pht('No projects found.'));
+      ->setNoDataString(pht('Không tìm thấy dự án.'));
   }
 
   protected function getNewUserBody() {
     $create_button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('Create a Project'))
+      ->setText(pht('Tạo dự án'))
       ->setHref('/project/edit/')
       ->setColor(PHUIButtonView::GREEN);
 
@@ -197,7 +197,7 @@ final class PhabricatorProjectSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
         pht('Projects are flexible storage containers used as '.
             'tags, teams, projects, or anything you need to group.'))

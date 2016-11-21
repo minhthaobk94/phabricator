@@ -174,7 +174,7 @@ final class PhabricatorSlowvoteSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
         pht('Poll other users to help facilitate decision making.'))
       ->addAction($create_button);

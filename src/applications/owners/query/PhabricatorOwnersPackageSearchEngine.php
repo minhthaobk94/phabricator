@@ -4,11 +4,11 @@ final class PhabricatorOwnersPackageSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Owners Packages');
+    return pht('Chủ tệp');
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorOwnersApplication';
+    return 'PhabricatorOwnersApplication';ủ
   }
 
   public function newQuery() {
@@ -166,7 +166,7 @@ final class PhabricatorOwnersPackageSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
         pht('Group sections of a codebase into packages for re-use in other '.
         'areas of Phabricator, like Herald rules.'))

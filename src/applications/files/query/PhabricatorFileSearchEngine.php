@@ -4,7 +4,7 @@ final class PhabricatorFileSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Files');
+    return pht('Tập tin');
   }
 
   public function getApplicationClassName() {
@@ -189,9 +189,9 @@ final class PhabricatorFileSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
-        pht('Just a place for files.'))
+        pht('Chỉ thay thế cho tập tin.'))
       ->addAction($create_button);
 
       return $view;

@@ -207,7 +207,7 @@ final class PhabricatorHomeMainController extends PhabricatorHomeController {
       $instance = PhabricatorEnv::getEnvConfig('cluster.instance');
       if (!$instance) {
         $content = pht(<<<EOT
-Welcome to Phabricator, here are some links to get you started:
+Chào mừng đến với Phabricator, here are some links to get you started:
 - [[ /config/ | Configure Phabricator ]]
 - [[ /guides/ | Quick Start Guide ]]
 - [[ /diffusion/ | Create a Repository ]]

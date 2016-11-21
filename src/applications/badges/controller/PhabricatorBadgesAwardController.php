@@ -69,7 +69,7 @@ final class PhabricatorBadgesAwardController
       ->setTitle(pht('Grant Badge'))
       ->appendForm($form)
       ->addCancelButton($view_uri)
-      ->addSubmitButton(pht('Award'));
+      ->addSubmitButton(pht('Phần thưởng'));
 
     return $dialog;
   }

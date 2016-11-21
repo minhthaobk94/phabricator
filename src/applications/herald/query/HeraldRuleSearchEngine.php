@@ -222,7 +222,7 @@ final class HeraldRuleSearchEngine extends PhabricatorApplicationSearchEngine {
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
         pht('A flexible rules engine that can notify and act on '.
             'other actions such as tasks, diffs, and commits.'))

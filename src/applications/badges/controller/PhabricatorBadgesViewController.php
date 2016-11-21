@@ -72,7 +72,7 @@ final class PhabricatorBadgesViewController
           $timeline,
           $comment_view,
         ))
-      ->addPropertySection(pht('Description'), $details);
+      ->addPropertySection(pht('Mô tả'), $details);
 
     return $this->newPage()
       ->setTitle($title)
@@ -122,7 +122,7 @@ final class PhabricatorBadgesViewController
 
     $curtain->addAction(
       id(new PhabricatorActionView())
-        ->setName(pht('Edit Badge'))
+        ->setName(pht('Sửa Badge'))
         ->setIcon('fa-pencil')
         ->setDisabled(!$can_edit)
         ->setHref($edit_uri));
@@ -130,7 +130,7 @@ final class PhabricatorBadgesViewController
     if ($badge->isArchived()) {
       $curtain->addAction(
         id(new PhabricatorActionView())
-          ->setName(pht('Activate Badge'))
+          ->setName(pht('Kích hoạt Badge'))
           ->setIcon('fa-check')
           ->setDisabled(!$can_edit)
           ->setWorkflow($can_edit)
@@ -138,7 +138,7 @@ final class PhabricatorBadgesViewController
     } else {
       $curtain->addAction(
         id(new PhabricatorActionView())
-          ->setName(pht('Archive Badge'))
+          ->setName(pht('Hoàn thành Badge'))
           ->setIcon('fa-ban')
           ->setDisabled(!$can_edit)
           ->setWorkflow($can_edit)
@@ -147,7 +147,7 @@ final class PhabricatorBadgesViewController
 
     $curtain->addAction(
       id(new PhabricatorActionView())
-        ->setName('Add Recipients')
+        ->setName('Thêm người nhận')
         ->setIcon('fa-users')
         ->setDisabled(!$can_edit)
         ->setWorkflow(true)
