@@ -69,9 +69,9 @@ final class PhabricatorXHProfSampleListController
 
       $rate = $sample->getSampleRate();
       if ($rate == 0) {
-        $item->addIcon('flag-6', pht('Manual Run'));
+        $item->addIcon('flag-6', pht('Thực thi thủ công'));
       } else {
-        $item->addIcon('flag-7', pht('Sampled (1/%d)', $rate));
+        $item->addIcon('flag-7', pht('Làm mẫu(1/%d)', $rate));
       }
 
       $item->addIcon(
@@ -82,12 +82,12 @@ final class PhabricatorXHProfSampleListController
     }
 
     $list->setPager($pager);
-    $list->setNoDataString(pht('There are no profiling samples.'));
+    $list->setNoDataString(pht('Không có bất kì mẫu hồ sơ nào'));
 
     $crumbs = $this->buildApplicationCrumbs();
-    $crumbs->addTextCrumb(pht('XHProf Samples'));
+    $crumbs->addTextCrumb(pht(' Mẫu của XHProf'));
 
-    $title = pht('XHProf Samples');
+    $title = pht('Mẫu của XHProf');
 
     return $this->newPage()
       ->setTitle($title)

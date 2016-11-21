@@ -48,7 +48,7 @@ final class PhabricatorXHProfProfileSymbolView
 
     $rows = array();
     $rows[] = array(
-      pht('Metrics for this Call'),
+      pht('Số liệu cho các thông điệp'),
       '',
       '',
       '',
@@ -62,7 +62,7 @@ final class PhabricatorXHProfProfileSymbolView
       ));
 
     $rows[] = array(
-      pht('Parent Calls'),
+      pht('Các thông điệp lớp cha'),
       '',
       '',
       '',
@@ -79,7 +79,7 @@ final class PhabricatorXHProfProfileSymbolView
 
 
     $rows[] = array(
-      pht('Child Calls'),
+      pht('Các thông điệp lớp con'),
       '',
       '',
       '',
@@ -102,9 +102,9 @@ final class PhabricatorXHProfProfileSymbolView
     $table = new AphrontTableView($rows);
     $table->setHeaders(
       array(
-        pht('Symbol'),
-        pht('Count'),
-        pht('Wall Time'),
+        pht('Kí hiệu'),
+        pht('Tính toán'),
+        pht('Tường thời gian'),
         '%',
       ));
     $table->setColumnClasses(
@@ -116,7 +116,7 @@ final class PhabricatorXHProfProfileSymbolView
       ));
 
     $panel = new PHUIObjectBoxView();
-    $panel->setHeaderText(pht('XHProf Profile'));
+    $panel->setHeaderText(pht('Hồ sơ XHProf'));
     $panel->setTable($table);
 
     return $panel->render();

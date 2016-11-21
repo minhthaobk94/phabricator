@@ -23,7 +23,7 @@ final class PhabricatorXHProfProfileController
       $data = phutil_json_decode($data);
     } catch (PhutilJSONParserException $ex) {
       throw new PhutilProxyException(
-        pht('Failed to unserialize XHProf profile!'),
+        pht('Không thể sắp xếp lại thứ tự cuả XHProf'),
         $ex);
     }
 
@@ -45,9 +45,9 @@ final class PhabricatorXHProfProfileController
     $view->setProfileData($data);
 
     $crumbs = $this->buildApplicationCrumbs();
-    $crumbs->addTextCrumb(pht('%s Profile', $symbol));
+    $crumbs->addTextCrumb(pht('%s Hồ sơ', $symbol));
 
-    $title = pht('Profile');
+    $title = pht('Hồ sơ');
 
     return $this->newPage()
       ->setTitle($title)

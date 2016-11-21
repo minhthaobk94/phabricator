@@ -3,11 +3,11 @@
 final class PhabricatorSortTableUIExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Sortable Tables');
+    return pht('Bảng phân loại');
   }
 
   public function getDescription() {
-    return pht('Using sortable tables.');
+    return pht('Sử dụng bảng phân loại.');
   }
 
   public function renderExample() {
@@ -67,10 +67,10 @@ final class PhabricatorSortTableUIExample extends PhabricatorUIExample {
     $table->setHeaders(
       array(
         pht('Make'),
-        pht('Model'),
-        pht('Year'),
-        pht('Price'),
-        pht('Color'),
+        pht('Kiểu'),
+        pht('Năm'),
+        pht('Giá'),
+        pht('Màu'),
       ));
     $table->setColumnClasses(
       array(
@@ -88,7 +88,7 @@ final class PhabricatorSortTableUIExample extends PhabricatorUIExample {
       $orders);
 
     $panel = new PHUIObjectBoxView();
-    $panel->setHeaderText(pht('Sortable Table of Vehicles'));
+    $panel->setHeaderText(pht('Bảng phân loại của phương tiện'));
     $panel->setTable($table);
 
     return $panel;

@@ -120,7 +120,7 @@ final class PhabricatorTypeaheadModularDatasourceController
                 'sigil' => 'typeahead-browse-more',
                 'mustcapture' => true,
               ),
-              pht('More Results'));
+              pht('Kết quả khác'));
           } else {
             // If the user has paged through more than 1K results, don't
             // offer to page any further.
@@ -129,7 +129,7 @@ final class PhabricatorTypeaheadModularDatasourceController
               array(
                 'class' => 'typeahead-browse-hard-limit',
               ),
-              pht('You reach the edge of the abyss.'));
+              pht('Bạn đã đạt tới bờ vực thẳm.'));
           }
         }
 
@@ -157,7 +157,7 @@ final class PhabricatorTypeaheadModularDatasourceController
               'value' => $value,
               'disabled' => $disabled ? 'disabled' : null,
             ),
-            pht('Select'));
+            pht('Chọn'));
 
           $information = $this->renderBrowseResult($result, $button);
 
@@ -319,30 +319,30 @@ final class PhabricatorTypeaheadModularDatasourceController
     $table = new AphrontTableView($content);
     $table->setHeaders(
       array(
-        pht('Name'),
+        pht('Tên'),
         pht('URI'),
         pht('PHID'),
-        pht('Priority'),
+        pht('Độ ưu tiên'),
         pht('Display Name'),
         pht('Display Type'),
         pht('Image URI'),
-        pht('Priority Type'),
+        pht('Loại ưu tiên'),
         pht('Icon'),
-        pht('Closed'),
+        pht('ĐÓng'),
         pht('Sprite'),
-        pht('Color'),
-        pht('Type'),
-        pht('Unique'),
-        pht('Auto'),
+        pht('Màu'),
+        pht('Loại'),
+        pht('Duy nhất'),
+        pht('Tự động'),
         pht('Phase'),
       ));
 
     $result_box = id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Token Results (%s)', $class))
+      ->setHeaderText(pht('Kết quả Token (%s)', $class))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->appendChild($table);
 
-    $title = pht('Typeahead Results');
+    $title = pht('Kết quả Typeahead');
 
     $header = id(new PHUIHeaderView())
       ->setHeader($title);

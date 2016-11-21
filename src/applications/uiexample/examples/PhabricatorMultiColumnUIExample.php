@@ -3,13 +3,13 @@
 final class PhabricatorMultiColumnUIExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Multiple Column Layouts');
+    return pht('Bố trí giao diện đa cột');
   }
 
   public function getDescription() {
     return pht(
-      'A container good for 1-7 equally spaced columns. '.
-      'Fixed and Fluid layouts.');
+      'Một kho chứa tốt cho 1-7 cột có chỗ một cách công bằng. '.
+      'Trộn lần và biến đổi các bố trí.');
   }
 
   public function renderExample() {
@@ -33,14 +33,14 @@ final class PhabricatorMultiColumnUIExample extends PhabricatorUIExample {
         'Army of Darkness');
 
     $head1 = id(new PHUIHeaderView())
-      ->setHeader(pht('2 Column Fixed'));
+      ->setHeader(pht('2 cột đã được trộn'));
     $layout1 = id(new AphrontMultiColumnView())
       ->addColumn($column1)
       ->addColumn($column2)
       ->setGutter(AphrontMultiColumnView::GUTTER_MEDIUM);
 
     $head2 = id(new PHUIHeaderView())
-      ->setHeader(pht('2 Column Fluid'));
+      ->setHeader(pht('2 cột đã được nhập'));
     $layout2 = id(new AphrontMultiColumnView())
       ->addColumn($column1)
       ->addColumn($column2)
@@ -48,7 +48,7 @@ final class PhabricatorMultiColumnUIExample extends PhabricatorUIExample {
       ->setGutter(AphrontMultiColumnView::GUTTER_MEDIUM);
 
     $head3 = id(new PHUIHeaderView())
-      ->setHeader(pht('4 Column Fixed'));
+      ->setHeader(pht('4 cột đã được trộn'));
     $layout3 = id(new AphrontMultiColumnView())
       ->addColumn($column1)
       ->addColumn($column2)
@@ -57,7 +57,7 @@ final class PhabricatorMultiColumnUIExample extends PhabricatorUIExample {
       ->setGutter(AphrontMultiColumnView::GUTTER_SMALL);
 
     $head4 = id(new PHUIHeaderView())
-      ->setHeader(pht('4 Column Fluid'));
+      ->setHeader(pht('4 cột đã được nhập'));
     $layout4 = id(new AphrontMultiColumnView())
       ->addColumn($column1)
       ->addColumn($column2)
@@ -88,7 +88,7 @@ final class PhabricatorMultiColumnUIExample extends PhabricatorUIExample {
       '<br />All<br />Damn<br />Day');
 
     $head5 = id(new PHUIHeaderView())
-      ->setHeader(pht('7 Column Fluid'));
+      ->setHeader(pht('7 cột đã được nhập'));
     $layout5 = id(new AphrontMultiColumnView())
       ->addColumn($sunday)
       ->addColumn($monday)
@@ -105,27 +105,27 @@ final class PhabricatorMultiColumnUIExample extends PhabricatorUIExample {
       ->setFullWidth(true)
       ->appendChild(
         id(new AphrontFormTextControl())
-        ->setLabel(pht('Name'))
+        ->setLabel(pht('Têb'))
         ->setDisableAutocomplete(true)
         ->setSigil('name-input'))
       ->appendChild(
         id(new AphrontFormTextControl())
-        ->setLabel(pht('Address'))
+        ->setLabel(pht('Địa chỉ'))
         ->setDisableAutocomplete(true)
         ->setSigil('address-input'))
       ->appendChild(
         id(new AphrontFormTextControl())
-        ->setLabel(pht('City/State'))
+        ->setLabel(pht('Thành phố/Bang'))
         ->setDisableAutocomplete(true)
         ->setSigil('city-input'))
       ->appendChild(
         id(new AphrontFormTextControl())
-        ->setLabel(pht('Country'))
+        ->setLabel(pht('Quê hương'))
         ->setDisableAutocomplete(true)
         ->setSigil('country-input'))
       ->appendChild(
         id(new AphrontFormTextControl())
-        ->setLabel(pht('Postal Code'))
+        ->setLabel(pht('Mã code bưu điện'))
         ->setDisableAutocomplete(true)
         ->setSigil('postal-input'));
 
@@ -134,7 +134,7 @@ final class PhabricatorMultiColumnUIExample extends PhabricatorUIExample {
       ->setFullWidth(true)
       ->appendChild(
         id(new AphrontFormTextControl())
-        ->setLabel(pht('Card Number'))
+        ->setLabel(pht('Mã số thẻ'))
         ->setDisableAutocomplete(true)
         ->setSigil('number-input')
         ->setError(''))
@@ -146,16 +146,16 @@ final class PhabricatorMultiColumnUIExample extends PhabricatorUIExample {
         ->setError(''))
       ->appendChild(
         id(new PhortuneMonthYearExpiryControl())
-        ->setLabel(pht('Expiration'))
+        ->setLabel(pht('Thời gian hết hạn'))
         ->setUser($user)
         ->setError(''));
 
-    $shipping_title = pht('Shipping Address');
-    $billing_title = pht('Billing Address');
-    $cc_title = pht('Payment Information');
+    $shipping_title = pht('Địa chỉ ship');
+    $billing_title = pht('Địa chỉ thanh toán');
+    $cc_title = pht('Thông tin thanh toán');
 
     $head6 = id(new PHUIHeaderView())
-      ->setHeader(pht("Let's Go Shopping"));
+      ->setHeader(pht("Thả ga mua sắm thôi nào!"));
     $layout6 = id(new AphrontMultiColumnView())
       ->addColumn(hsprintf('<h1>%s</h1>%s', $shipping_title, $shipping))
       ->addColumn(hsprintf('<h1>%s</h1>%s', $billing_title, $shipping))

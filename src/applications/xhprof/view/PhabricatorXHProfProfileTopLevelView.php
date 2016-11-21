@@ -82,21 +82,21 @@ final class PhabricatorXHProfProfileTopLevelView
     $table = new AphrontTableView($rows);
     $table->setHeaders(
       array(
-        pht('Symbol'),
-        pht('Count'),
+        pht('Kí hiệu'),
+        pht('Tính toán'),
         javelin_tag(
           'span',
           array(
             'sigil' => 'has-tooltip',
             'meta'  => array(
               'tip' => pht(
-                'Total wall time spent in this function and all of '.
-                'its children (children are other functions it called '.
-                'while executing).'),
+                'Tổng thời gian trong chức năng này và tất cả'.
+                 'lớp con của nó(lớp con là những chức năng khác, nó được gọi là'.
+                 'Trong khi thực hiện).'),
               'size' => 200,
             ),
           ),
-          pht('Wall Time (Inclusive)')),
+          pht('Tổng thời gian(Bao gồm)')),
         '%',
         javelin_tag(
           'span',
@@ -104,13 +104,13 @@ final class PhabricatorXHProfProfileTopLevelView
             'sigil' => 'has-tooltip',
             'meta'  => array(
               'tip' => pht(
-                'Wall time spent in this function, excluding time '.
-                'spent in children (children are other functions it '.
-                'called while executing).'),
+                'Tổng thời gian trong chức năng này, không bao gồm thời gian'.
+                'trải qua trong lớp con(lớp con là những chức năng khác, nó được gọi là'.
+                 'Trong khi thực hiện).'),
               'size' => 200,
             ),
           ),
-          pht('Wall Time (Exclusive)')),
+          pht('Tổng thời gian(Bao gồm)')),
         '%',
       ));
     $table->setColumnClasses(
@@ -125,12 +125,12 @@ final class PhabricatorXHProfProfileTopLevelView
 
     $panel = new PHUIObjectBoxView();
     $header = id(new PHUIHeaderView())
-      ->setHeader(pht('XHProf Profile'));
+      ->setHeader(pht('Hồ sơ XHProf'));
 
     if ($this->file) {
       $button = id(new PHUIButtonView())
         ->setHref($this->file->getBestURI())
-        ->setText(pht('Download %s Profile', '.xhprof'))
+        ->setText(pht('Tải về %s Hồ sơ', '.xhprof'))
         ->setTag('a');
       $header->addActionLink($button);
     }
