@@ -1,4 +1,4 @@
-almacna<?php
+<?php
 
 final class PhabricatorAlmanacApplication extends PhabricatorApplication {
 
