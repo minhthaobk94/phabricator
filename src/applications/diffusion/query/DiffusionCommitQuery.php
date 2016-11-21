@@ -144,7 +144,7 @@ final class DiffusionCommitQuery
     if ($this->identifierMap === null) {
       throw new Exception(
         pht(
-          'You must %s the query before accessing the identifier map.',
+          'Cần %s truy vấn trước khi truy cập bản đồ.',
           'execute()'));
     }
     return $this->identifierMap;
@@ -450,7 +450,7 @@ final class DiffusionCommitQuery
         // bogus repositories or were all too short), make sure the query finds
         // nothing.
         throw new PhabricatorEmptyQueryException(
-          pht('No commit identifiers.'));
+          pht('Không commit rõ ràng.'));
       }
 
       $where[] = '('.implode(' OR ', $sql).')';
@@ -516,7 +516,7 @@ final class DiffusionCommitQuery
           );
           throw new Exception(
             pht(
-              "Unknown audit status '%s'! Valid statuses are: %s.",
+              "Trạng thái kiển tra không rõ '%s'! Trạng thái hợp lệ: %s.",
               $status,
               implode(', ', $valid)));
       }
@@ -624,21 +624,21 @@ final class DiffusionCommitQuery
 
     // Rename the default ID-based orders.
     $parent['importnew'] = array(
-      'name' => pht('Import Date (Newest First)'),
+      'name' => pht('Ngày nhập (Newest First)'),
     ) + $parent['newest'];
 
     $parent['importold'] = array(
-      'name' => pht('Import Date (Oldest First)'),
+      'name' => pht('Ngày nhập (Oldest First)'),
     ) + $parent['oldest'];
 
     return array(
       'newest' => array(
         'vector' => array('epoch', 'id'),
-        'name' => pht('Commit Date (Newest First)'),
+        'name' => pht('Ngày commit (Newest First)'),
       ),
       'oldest' => array(
         'vector' => array('-epoch', '-id'),
-        'name' => pht('Commit Date (Oldest First)'),
+        'name' => pht('Ngày commit (Oldest First)'),
       ),
     ) + $parent;
   }

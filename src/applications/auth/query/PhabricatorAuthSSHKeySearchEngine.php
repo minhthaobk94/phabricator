@@ -54,7 +54,7 @@ final class PhabricatorAuthSSHKeySearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All Keys'),
+      'all' => pht('Tất cả khóa'),
     );
 
     return $names;
@@ -85,7 +85,7 @@ final class PhabricatorAuthSSHKeySearchEngine
     $list->setUser($viewer);
     foreach ($keys as $key) {
       $item = id(new PHUIObjectItemView())
-        ->setObjectName(pht('SSH Key %d', $key->getID()))
+        ->setObjectName(pht('Khóa SSH %d', $key->getID()))
         ->setHeader($key->getName())
         ->setHref($key->getURI());
 
@@ -98,7 +98,7 @@ final class PhabricatorAuthSSHKeySearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No matching SSH keys.'));
+    $result->setNoDataString(pht('Khóa SSH không khớp.'));
 
     return $result;
   }

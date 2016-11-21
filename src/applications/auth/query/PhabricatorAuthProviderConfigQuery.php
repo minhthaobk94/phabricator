@@ -34,8 +34,8 @@ final class PhabricatorAuthProviderConfigQuery
 
   public static function getStatusOptions() {
     return array(
-      self::STATUS_ALL      => pht('All Providers'),
-      self::STATUS_ENABLED  => pht('Enabled Providers'),
+      self::STATUS_ALL      => pht('Tất cả nhà cung cấp'),
+      self::STATUS_ENABLED  => pht('Nhà cung cấp hiện có'),
     );
   }
 
@@ -88,7 +88,7 @@ final class PhabricatorAuthProviderConfigQuery
           'isEnabled = 1');
         break;
       default:
-        throw new Exception(pht("Unknown status '%s'!", $status));
+        throw new Exception(pht("Trạng thái không rõ '%s'!", $status));
     }
 
     $where[] = $this->buildPagingClause($conn_r);

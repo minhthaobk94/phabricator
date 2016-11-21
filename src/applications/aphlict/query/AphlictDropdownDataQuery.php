@@ -22,7 +22,7 @@ final class AphlictDropdownDataQuery extends Phobject {
 
   public function getNotificationData() {
     if ($this->notificationData === null) {
-      throw new Exception(pht('You must %s first!', 'execute()'));
+      throw new Exception(pht('Bạn phải %s trước!', 'execute()'));
     }
     return $this->notificationData;
   }
@@ -34,7 +34,7 @@ final class AphlictDropdownDataQuery extends Phobject {
 
   public function getConpherenceData() {
     if ($this->conpherenceData === null) {
-      throw new Exception(pht('You must %s first!', 'execute()'));
+      throw new Exception(pht('Bạn phải %s trước!', 'execute()'));
     }
     return $this->conpherenceData;
   }

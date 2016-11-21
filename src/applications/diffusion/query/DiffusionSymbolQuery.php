@@ -142,10 +142,10 @@ final class DiffusionSymbolQuery extends PhabricatorOffsetPagedQuery {
   public function execute() {
     if ($this->name && $this->namePrefix) {
       throw new Exception(
-        pht('You can not set both a name and a name prefix!'));
+        pht('Bạn không thể đặt cả tên và tiếp đầu ngữ của tên!'));
     } else if (!$this->name && !$this->namePrefix) {
       throw new Exception(
-        pht('You must set a name or a name prefix!'));
+        pht('Bạn phải đặt cả tên hoặc tiếp đầu ngữ của tên!'));
     }
 
     $symbol = new PhabricatorRepositorySymbol();

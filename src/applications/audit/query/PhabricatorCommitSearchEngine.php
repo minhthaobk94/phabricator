@@ -46,21 +46,21 @@ final class PhabricatorCommitSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Needs Audit By'))
+        ->setLabel(pht('Kiểm tra cần thiết'))
         ->setKey('needsAuditByPHIDs')
         ->setAliases(array('needs', 'need'))
         ->setDatasource(new DiffusionAuditorFunctionDatasource()),
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Auditors'))
+        ->setLabel(pht('Người kiểm tra'))
         ->setKey('auditorPHIDs')
         ->setAliases(array('auditor', 'auditors'))
         ->setDatasource(new DiffusionAuditorFunctionDatasource()),
       id(new PhabricatorUsersSearchField())
-        ->setLabel(pht('Authors'))
+        ->setLabel(pht('Tác giả'))
         ->setKey('commitAuthorPHIDs')
         ->setAliases(array('author', 'authors')),
       id(new PhabricatorSearchSelectField())
-        ->setLabel(pht('Audit Status'))
+        ->setLabel(pht('Trạng thái kiểm tra'))
         ->setKey('auditStatus')
         ->setAliases(array('status'))
         ->setOptions($this->getAuditStatusOptions()),
@@ -80,17 +80,17 @@ final class PhabricatorCommitSearchEngine
     $names = array();
 
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['need'] = pht('Needs Audit');
-      $names['problem'] = pht('Problem Commits');
+      $names['need'] = pht('Kiểm tra cần thiết');
+      $names['problem'] = pht('Vấn đề Commits');
     }
 
     $names['open'] = pht('Open Audits');
 
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['authored'] = pht('Authored Commits');
+      $names['authored'] = pht('Người viết Commits');
     }
 
-    $names['all'] = pht('All Commits');
+    $names['all'] = pht('Tất cả Commits');
 
     return $names;
   }
@@ -135,11 +135,11 @@ final class PhabricatorCommitSearchEngine
 
   private function getAuditStatusOptions() {
     return array(
-      DiffusionCommitQuery::AUDIT_STATUS_ANY => pht('Any'),
-      DiffusionCommitQuery::AUDIT_STATUS_OPEN => pht('Open'),
-      DiffusionCommitQuery::AUDIT_STATUS_CONCERN => pht('Concern Raised'),
-      DiffusionCommitQuery::AUDIT_STATUS_ACCEPTED => pht('Accepted'),
-      DiffusionCommitQuery::AUDIT_STATUS_PARTIAL => pht('Partially Audited'),
+      DiffusionCommitQuery::AUDIT_STATUS_ANY => pht('Bất kì'),
+      DiffusionCommitQuery::AUDIT_STATUS_OPEN => pht('Mở'),
+      DiffusionCommitQuery::AUDIT_STATUS_CONCERN => pht('Lo ngại'),
+      DiffusionCommitQuery::AUDIT_STATUS_ACCEPTED => pht('Chấp nhận'),
+      DiffusionCommitQuery::AUDIT_STATUS_PARTIAL => pht('Đa kiểm tra'),
     );
   }
 
@@ -151,7 +151,7 @@ final class PhabricatorCommitSearchEngine
     assert_instances_of($commits, 'PhabricatorRepositoryCommit');
 
     $viewer = $this->requireViewer();
-    $nodata = pht('No matching audits.');
+    $nodata = pht('Kiểm tra không khớp.');
     $view = id(new PhabricatorAuditListView())
       ->setUser($viewer)
       ->setCommits($commits)
@@ -184,8 +184,8 @@ final class PhabricatorCommitSearchEngine
       ->setIcon('fa-check-circle-o')
       ->setTitle(pht('Welcome to Audit'))
       ->setDescription(
-        pht('Post-commit code review and auditing. Audits you are assigned '.
-            'to will appear here.'));
+        pht('Hiển thị commit về code và kiểm tra. '.
+            'Kiểm tra mà bạn được phân công sẽ xuất hiện ở đây.'));
 
       return $view;
   }
