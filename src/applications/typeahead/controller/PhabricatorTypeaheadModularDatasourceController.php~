@@ -338,11 +338,11 @@ final class PhabricatorTypeaheadModularDatasourceController
       ));
 
     $result_box = id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Kết quả Token (%s)', $class))
+      ->setHeaderText(pht('Token Results (%s)', $class))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->appendChild($table);
 
-    $title = pht('Kết quả Typeahead');
+    $title = pht('Typeahead Results');
 
     $header = id(new PHUIHeaderView())
       ->setHeader($title);

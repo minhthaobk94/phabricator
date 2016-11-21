@@ -10,7 +10,7 @@ final class PhabricatorTypeaheadRuntimeCompositeDatasource
   }
 
   public function getPlaceholderText() {
-    throw new Exception(pht('Nguồn này được dẫn đến không đúng.'));
+    throw new Exception(pht('This source is not usable directly.'));
   }
 
   public function addDatasource(PhabricatorTypeaheadDatasource $source) {
