@@ -59,10 +59,10 @@ final class PhabricatorApplicationTransactionCommentEditController
         ->setValue($xaction->getComment()->getContent()));
 
     return $this->newDialog()
-      ->setTitle(pht('Edit Comment'))
+      ->setTitle(pht('Sửa Comment'))
       ->addHiddenInput('anchor', $request->getStr('anchor'))
       ->appendForm($form)
-      ->addSubmitButton(pht('Save Changes'))
+      ->addSubmitButton(pht('Lưu thay đổi'))
       ->addCancelButton($obj_handle->getURI());
   }
 

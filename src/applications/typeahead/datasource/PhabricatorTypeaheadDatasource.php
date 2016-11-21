@@ -244,7 +244,7 @@ abstract class PhabricatorTypeaheadDatasource extends Phobject {
     return id(new PhabricatorTypeaheadResult())
       ->setTokenType(PhabricatorTypeaheadTokenView::TYPE_FUNCTION)
       ->setIcon('fa-asterisk')
-      ->addAttribute(pht('Function'));
+      ->addAttribute(pht('Chức năng '));
   }
 
   public function newInvalidToken($name) {
@@ -267,7 +267,7 @@ abstract class PhabricatorTypeaheadDatasource extends Phobject {
         if ($function) {
           $setup[$function['name']][$key] = $function;
         } else {
-          $name = pht('Invalid Function: %s', $value);
+          $name = pht('Chức năng không hợp lệ: %s', $value);
           $tokens[$key] = $this->newInvalidToken($name)
             ->setKey($value);
         }

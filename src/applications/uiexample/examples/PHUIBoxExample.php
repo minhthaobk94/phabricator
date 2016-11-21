@@ -3,11 +3,11 @@
 final class PHUIBoxExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Box');
+    return pht('Hộp');
   }
 
   public function getDescription() {
-    return pht("It's a fancy or non-fancy box. Put stuff in it.");
+    return pht("Đó là một hộp ưa thích hoặc không ưa thích. Đưa công cụ trong nó.");
   }
 
   public function renderExample() {
@@ -94,10 +94,10 @@ final class PHUIBoxExample extends PhabricatorUIExample {
       ->setHeader(pht('Plain Box'));
 
     $head2 = id(new PHUIHeaderView())
-      ->setHeader(pht('Plain Box with space'));
+      ->setHeader(pht('Làm rõ hộp với khoảng trống'));
 
     $head3 = id(new PHUIHeaderView())
-      ->setHeader(pht('Border Box with space'));
+      ->setHeader(pht('Viền hộp với khoảng trống'));
 
     $head4 = id(new PHUIHeaderView())
       ->setHeader(pht('PHUIObjectBoxView'));

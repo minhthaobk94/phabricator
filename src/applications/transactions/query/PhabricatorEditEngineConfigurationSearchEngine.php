@@ -19,7 +19,7 @@ final class PhabricatorEditEngineConfigurationSearchEngine
   }
 
   public function getResultTypeDescription() {
-    return pht('Forms');
+    return pht('Mẫu');
   }
 
   public function getApplicationClassName() {
@@ -50,19 +50,19 @@ final class PhabricatorEditEngineConfigurationSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchThreeStateField())
-        ->setLabel(pht('Create'))
+        ->setLabel(pht('Tạo'))
         ->setKey('isCreate')
         ->setOptions(
-          pht('Show All'),
-          pht('Hide Create Forms'),
-          pht('Show Only Create Forms')),
+          pht('Hiển thị tất cả'),
+          pht('Ẩn các mẫu đã tạo'),
+          pht('Chỉ hiển thị những mẫu đã tạo')),
       id(new PhabricatorSearchThreeStateField())
-        ->setLabel(pht('Edit'))
+        ->setLabel(pht('Sửa'))
         ->setKey('isEdit')
         ->setOptions(
-          pht('Show All'),
-          pht('Hide Edit Forms'),
-          pht('Show Only Edit Forms')),
+          pht('Hiển thị tất cả'),
+          pht('Ẩn những mẫu đã sửa'),
+          pht('Chỉ hiển thị những mẫu đã sửa')),
     );
   }
 
@@ -76,9 +76,9 @@ final class PhabricatorEditEngineConfigurationSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All Forms'),
-      'create' => pht('Create Forms'),
-      'modify' => pht('Edit Forms'),
+      'all' => pht('Tất cả các mẫu'),
+      'create' => pht('Tạo mẫu'),
+      'modify' => pht('Sửa mẫu'),
     );
 
     return $names;
@@ -129,14 +129,14 @@ final class PhabricatorEditEngineConfigurationSearchEngine
       }
 
       if ($config->getIsEdit()) {
-        $item->addAttribute(pht('Edit Form'));
+        $item->addAttribute(pht('Sửa mẫu'));
       }
 
       if ($config->getIsDisabled()) {
         $item->setDisabled(true);
-        $item->setStatusIcon('fa-ban grey', pht('Disabled'));
+        $item->setStatusIcon('fa-ban grey', pht('Vô hiệu hóa'));
       } else {
-        $item->setStatusIcon('fa-file-text-o green', pht('Enabled'));
+        $item->setStatusIcon('fa-file-text-o green', pht('Kích hoạt'));
       }
 
       $list->addItem($item);

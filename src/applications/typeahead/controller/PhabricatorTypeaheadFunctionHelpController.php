@@ -59,9 +59,9 @@ final class PhabricatorTypeaheadFunctionHelpController
     $table = array();
 
     $table_header = array(
-      pht('Function'),
-      pht('Token Name'),
-      pht('Summary'),
+      pht('Chức năng'),
+      pht('Tên Token'),
+      pht('Ghi chú'),
     );
     $table[] = '| '.implode(' | ', $table_header).' |';
     $table[] = '|---|---|---|';
@@ -85,14 +85,14 @@ final class PhabricatorTypeaheadFunctionHelpController
     }
 
     $table = implode("\n", $table);
-    $content[] = '= '.pht('Function Quick Reference');
+    $content[] = '= '.pht('Chức năng hiển thị nhanh');
     $content[] = pht(
       'This table briefly describes available functions for this control. '.
       'For details on a particular function, see the corresponding section '.
       'below.');
     $content[] = $table;
 
-    $content[] = '= '.pht('Using Typeahead Functions');
+    $content[] = '= '.pht('Sử dụng chức năng Typeahead');
     $content[] = pht(
       "In addition to typing user and project names to build queries, you can ".
       "also type the names of special functions which give you more options ".

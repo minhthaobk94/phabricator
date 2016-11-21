@@ -3,12 +3,12 @@
 final class PhabricatorStatusUIExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Status List');
+    return pht('Danh sách trạng thái');
   }
 
   public function getDescription() {
     return pht(
-      'Use %s to show relationships with objects.',
+      'Sử dụng để %s để trình bày các mối quan hệ với các đối tượng.',
       phutil_tag('tt', array(), 'PHUIStatusListView'));
   }
 
@@ -20,30 +20,30 @@ final class PhabricatorStatusUIExample extends PhabricatorUIExample {
     $view->addItem(
       id(new PHUIStatusItemView())
         ->setIcon(PHUIStatusItemView::ICON_ACCEPT, 'green', pht('Yum'))
-        ->setTarget(pht('Apple'))
-        ->setNote(pht('You can eat them.')));
+        ->setTarget(pht('Táo'))
+        ->setNote(pht('Bạn có thể ăn chúng.')));
 
     $view->addItem(
       id(new PHUIStatusItemView())
         ->setIcon(PHUIStatusItemView::ICON_ADD, 'blue', pht('Has Peel'))
-        ->setTarget(pht('Banana'))
-        ->setNote(pht('Comes in bunches.'))
+        ->setTarget(pht('Chuối'))
+        ->setNote(pht('Đi kèm trong một chùm.'))
         ->setHighlighted(true));
 
     $view->addItem(
       id(new PHUIStatusItemView())
         ->setIcon(PHUIStatusItemView::ICON_WARNING, 'dark', pht('Caution'))
-        ->setTarget(pht('Pomegranite'))
-        ->setNote(pht('Lots of seeds. Watch out.')));
+        ->setTarget(pht('Trái lựu'))
+        ->setNote(pht('Rất nhiều hạt.Coi chừng')));
 
     $view->addItem(
       id(new PHUIStatusItemView())
         ->setIcon(PHUIStatusItemView::ICON_REJECT, 'red', pht('Bleh!'))
-        ->setTarget(pht('Zucchini'))
-        ->setNote(pht('Slimy and gross. Yuck!')));
+        ->setTarget(pht('Quả bí'))
+        ->setNote(pht('Nhầy nhụa và gộp. Kinh quá')));
 
     $out[] = id(new PHUIHeaderView())
-      ->setHeader(pht('Fruit and Vegetable Status'));
+      ->setHeader(pht('Trái cây và rau'));
 
     $out[] = id(new PHUIBoxView())
       ->addMargin(PHUI::MARGIN_LARGE)

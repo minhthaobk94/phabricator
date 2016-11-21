@@ -3,12 +3,12 @@
 final class PhabricatorNotificationUIExample extends PhabricatorUIExample {
 
   public function getName() {
-    return pht('Notifications');
+    return pht('Thông báo');
   }
 
   public function getDescription() {
     return pht(
-      'Use %s to create notifications.',
+      'Sử dụng %s để tạo thông báo.',
       phutil_tag('tt', array(), 'JX.Notification'));
   }
 
