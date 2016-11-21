@@ -12,7 +12,7 @@ final class DifferentialRevisionSearchConduitAPIMethod
   }
 
   public function getMethodSummary() {
-    return pht('Read information about revisions.');
+    return pht('Đọc thông tin về sự sửa đổi.');
   }
 
 }

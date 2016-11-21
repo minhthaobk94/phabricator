@@ -60,7 +60,7 @@ abstract class PhabricatorHomeController extends PhabricatorController {
 
     $nav->addFilter(
       '',
-      pht('Customize Menu...'),
+      pht('Chỉnh sửa Menu...'),
       '/settings/panel/home/');
 
     $nav->addClass('phabricator-side-menu-home');

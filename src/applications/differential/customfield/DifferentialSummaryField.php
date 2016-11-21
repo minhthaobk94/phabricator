@@ -12,11 +12,11 @@ final class DifferentialSummaryField
   }
 
   public function getFieldName() {
-    return pht('Summary');
+    return pht('Tóm tắt');
   }
 
   public function getFieldDescription() {
-    return pht('Stores a summary of the revision.');
+    return pht('Lưu trữ một bản tóm tắt của các phiên bản.');
   }
 
   protected function readValueFromRevision(
@@ -53,7 +53,7 @@ final class DifferentialSummaryField
     $new = $xaction->getNewValue();
 
     return pht(
-      '%s updated the summary for this revision.',
+      '%s cập nhật các bản tóm tắt cho phiên bản này.',
       $xaction->renderHandleLink($author_phid));
   }
 
@@ -66,7 +66,7 @@ final class DifferentialSummaryField
     $new = $xaction->getNewValue();
 
     return pht(
-      '%s updated the summary for %s.',
+      '%s cập nhật các bản tóm tắt cho %s.',
       $xaction->renderHandleLink($author_phid),
       $xaction->renderHandleLink($object_phid));
   }
@@ -160,7 +160,7 @@ final class DifferentialSummaryField
       return;
     }
 
-    $body->addRemarkupSection(pht('REVISION SUMMARY'), $summary);
+    $body->addRemarkupSection(pht('TÓM TẮT SỰ SỬA ĐỔI'), $summary);
   }
 
 }

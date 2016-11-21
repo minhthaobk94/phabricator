@@ -23,7 +23,7 @@ final class PhabricatorDashboardCopyController
       $copy = PhabricatorDashboard::initializeNewDashboard($viewer);
       $copy = PhabricatorDashboard::copyDashboard($copy, $dashboard);
 
-      $copy->setName(pht('Copy of %s', $copy->getName()));
+      $copy->setName(pht('Bảng sao của %s', $copy->getName()));
 
       // Set up all the edges for the new dashboard.
 
@@ -50,13 +50,13 @@ final class PhabricatorDashboardCopyController
     }
 
     return $this->newDialog()
-      ->setTitle(pht('Copy Dashboard'))
+      ->setTitle(pht('Sao chep'))
       ->appendParagraph(
         pht(
-          'Create a copy of the dashboard "%s"?',
+          'Tạo bảng sao của "%s"?',
           phutil_tag('strong', array(), $dashboard->getName())))
       ->addCancelButton($manage_uri)
-      ->addSubmitButton(pht('Create Copy'));
+      ->addSubmitButton(pht('Tạo bảng sao'));
   }
 
 }

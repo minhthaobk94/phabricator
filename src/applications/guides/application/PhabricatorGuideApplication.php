@@ -7,11 +7,11 @@ final class PhabricatorGuideApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Guides');
+    return pht('Hướng dẫn');
   }
 
   public function getShortDescription() {
-    return pht('Short Tutorials');
+    return pht('Hướng dẫn ngắn');
   }
 
   public function getIcon() {

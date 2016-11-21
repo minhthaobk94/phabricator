@@ -8,7 +8,7 @@ final class DifferentialAsanaRepresentationField
   }
 
   public function getFieldName() {
-    return pht('In Asana');
+    return pht('Trong Asana');
   }
 
   public function canDisableField() {
@@ -16,7 +16,7 @@ final class DifferentialAsanaRepresentationField
   }
 
   public function getFieldDescription() {
-    return pht('Shows revision representation in Asana.');
+    return pht('Cho thấy đại diện sửa đổi trong Asana.');
   }
 
   public function shouldAppearInPropertyView() {
@@ -48,7 +48,7 @@ final class DifferentialAsanaRepresentationField
       return phutil_tag(
         'em',
         array(),
-        pht('Asana Task Deleted'));
+        pht('Xóa công việc asana'));
     }
 
     $ref = id(new DoorkeeperImportEngine())

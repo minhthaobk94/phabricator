@@ -48,22 +48,22 @@ final class PhabricatorDashboardEditController
     $crumbs = $this->buildApplicationCrumbs();
 
     if ($is_new) {
-      $title = pht('Create Dashboard');
+      $title = pht('Tạo bảng điều khiển');
       $header_icon = 'fa-plus-square';
-      $button = pht('Create Dashboard');
+      $button = pht('Tạo');
       $cancel_uri = $this->getApplicationURI();
 
-      $crumbs->addTextCrumb(pht('Create Dashboard'));
+      $crumbs->addTextCrumb(pht('Tạo'));
     } else {
       $id = $dashboard->getID();
       $cancel_uri = $this->getApplicationURI('manage/'.$id.'/');
 
-      $title = pht('Edit Dashboard: %s', $dashboard->getName());
+      $title = pht('Chỉnh sửa : %s', $dashboard->getName());
       $header_icon = 'fa-pencil';
-      $button = pht('Save Changes');
+      $button = pht('Lưu thay đổi');
 
       $crumbs->addTextCrumb($dashboard->getName(), $cancel_uri);
-      $crumbs->addTextCrumb(pht('Edit'));
+      $crumbs->addTextCrumb(pht('Chỉnh s'));
     }
 
     $v_name = $dashboard->getName();
@@ -142,7 +142,7 @@ final class PhabricatorDashboardEditController
           ->setError($e_name))
       ->appendChild(
         id(new AphrontFormSelectControl())
-          ->setLabel(pht('Layout Mode'))
+          ->setLabel(pht('Kiểu giao diện '))
           ->setName('layout_mode')
           ->setValue($v_layout_mode)
           ->setOptions($layout_mode_options))
@@ -172,7 +172,7 @@ final class PhabricatorDashboardEditController
           ->addCancelButton($cancel_uri));
 
     $box = id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Dashboard'))
+      ->setHeaderText(pht('Bảng điều khiển'))
       ->setForm($form)
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->setValidationException($validation_exception);

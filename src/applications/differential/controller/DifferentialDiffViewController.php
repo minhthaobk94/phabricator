@@ -36,11 +36,11 @@ final class DifferentialDiffViewController extends DifferentialController {
 
     // TODO: implement optgroup support in AphrontFormSelectControl?
     $select = array();
-    $select[] = hsprintf('<optgroup label="%s">', pht('Create New Revision'));
+    $select[] = hsprintf('<optgroup label="%s">', pht('Tạo mới sự sửa đổi '));
     $select[] = phutil_tag(
       'option',
       array('value' => ''),
-      pht('Create a new Revision...'));
+      pht('Tạo mới sự sửa đổi...'));
     $select[] = hsprintf('</optgroup>');
 
     $selected_id = $request->getInt('revisionID');
@@ -50,7 +50,7 @@ final class DifferentialDiffViewController extends DifferentialController {
     if ($revisions) {
       $select[] = hsprintf(
         '<optgroup label="%s">',
-        pht('Update Existing Revision'));
+        pht('Cập nhật sự tồn tại bản sửa đổi'));
       foreach ($revisions as $revision) {
         if ($selected_id == $revision->getID()) {
           $selected = 'selected';
@@ -91,11 +91,11 @@ final class DifferentialDiffViewController extends DifferentialController {
           '**create a new revision** or **update an existing revision**.'))
       ->appendChild(
         id(new AphrontFormMarkupControl())
-        ->setLabel(pht('Attach To'))
+        ->setLabel(pht('Đính kèm tới'))
         ->setValue($select))
       ->appendChild(
         id(new AphrontFormSubmitControl())
-        ->setValue(pht('Continue')));
+        ->setValue(pht('Tiếp tục')));
 
     $props = id(new DifferentialDiffProperty())->loadAllWhere(
     'diffID = %d',
@@ -103,7 +103,7 @@ final class DifferentialDiffViewController extends DifferentialController {
     $props = mpull($props, 'getData', 'getName');
 
     $property_head = id(new PHUIHeaderView())
-      ->setHeader(pht('Properties'));
+      ->setHeader(pht('Thuộc tính'));
 
     $property_view = new PHUIPropertyListView();
 
@@ -156,7 +156,7 @@ final class DifferentialDiffViewController extends DifferentialController {
       ));
 
     $page =  $this->newPage()
-      ->setTitle(pht('Diff View'))
+      ->setTitle(pht('Hiển thị Diff'))
       ->setCrumbs($crumbs)
       ->appendChild($view);
     return $page;

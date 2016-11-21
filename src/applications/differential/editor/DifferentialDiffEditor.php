@@ -151,11 +151,11 @@ final class DifferentialDiffEditor
 
             $errors[] = new PhabricatorApplicationTransactionValidationError(
               $type,
-              pht('Rejected by Herald'),
+              pht('Đươc từ chối bởi  Herald'),
               pht(
-                "Creation of this diff was rejected by Herald rule %s.\n".
-                "  Rule: %s\n".
-                "Reason: %s",
+                "Sáng tạo của khác nhay này đã bị từ chối bởi quy tắc Herald %s.\n".
+                "  Quy tắc: %s\n".
+                "Lý do: %s",
                 $rule->getMonogram(),
                 $rule->getName(),
                 $message));

@@ -7,7 +7,7 @@ final class PhabricatorHunksManagementMigrateWorkflow
     $this
       ->setName('migrate')
       ->setExamples('**migrate**')
-      ->setSynopsis(pht('Migrate hunks to modern storage.'))
+      ->setSynopsis(pht('Di chuyển hunks để lưu trữ mới'))
       ->setArguments(array());
   }
 
@@ -20,7 +20,7 @@ final class PhabricatorHunksManagementMigrateWorkflow
       $saw_any_rows = true;
 
       $id = $hunk->getID();
-      $console->writeOut("%s\n", pht('Migrating hunk %d...', $id));
+      $console->writeOut("%s\n", pht('đang cập nhật hunk %d...', $id));
 
       $new_hunk = id(new DifferentialModernHunk())
         ->setChangesetID($hunk->getChangesetID())
@@ -44,16 +44,16 @@ final class PhabricatorHunksManagementMigrateWorkflow
         $console->writeOut(
           "%s\n",
           pht(
-            'Saved %s bytes (%s).',
+            'Đã lưu %s bytes (%s).',
             new PhutilNumber($diff_len),
             sprintf('%.1f%%', 100 * ($diff_len / $old_len))));
       }
     }
 
     if ($saw_any_rows) {
-      $console->writeOut("%s\n", pht('Done.'));
+      $console->writeOut("%s\n", pht('Xong.'));
     } else {
-      $console->writeOut("%s\n", pht('No rows to migrate.'));
+      $console->writeOut("%s\n", pht('Khong có hàng nào để cập nhật.'));
     }
   }
 

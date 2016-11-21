@@ -8,11 +8,11 @@ final class DifferentialAuthorField
   }
 
   public function getFieldName() {
-    return pht('Author');
+    return pht('Tác giả');
   }
 
   public function getFieldDescription() {
-    return pht('Stores the revision author.');
+    return pht('Lưu trữ các tác giả sửa đổi.');
   }
 
   public function canDisableField() {

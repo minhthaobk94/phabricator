@@ -4,7 +4,7 @@ final class PhabricatorDashboardPanelSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Dashboard Panels');
+    return pht('Bảng điều khiển');
   }
 
   public function getApplicationClassName() {
@@ -42,13 +42,13 @@ final class PhabricatorDashboardPanelSearchEngine
     return array(
         id(new PhabricatorSearchSelectField())
           ->setKey('status')
-          ->setLabel(pht('Status'))
+          ->setLabel(pht('Trạng thái'))
           ->setOptions(
             id(new PhabricatorDashboardPanel())
               ->getStatuses()),
         id(new PhabricatorSearchSelectField())
           ->setKey('paneltype')
-          ->setLabel(pht('Panel Type'))
+          ->setLabel(pht('Loại thẻ'))
           ->setOptions(
             id(new PhabricatorDashboardPanel())
               ->getPanelTypes()),
@@ -61,8 +61,8 @@ final class PhabricatorDashboardPanelSearchEngine
 
   protected function getBuiltinQueryNames() {
     return array(
-      'active' => pht('Active Panels'),
-      'all'    => pht('All Panels'),
+      'active' => pht('Thẻ hoạt động'),
+      'all'    => pht('Tất cả thẻ'),
     );
   }
 
@@ -100,7 +100,7 @@ final class PhabricatorDashboardPanelSearchEngine
       if ($impl) {
         $type_text = $impl->getPanelTypeName();
       } else {
-        $type_text = nonempty($panel->getPanelType(), pht('Unknown Type'));
+        $type_text = nonempty($panel->getPanelType(), pht('Loại không xác định'));
       }
       $item->addAttribute($type_text);
 
@@ -117,7 +117,7 @@ final class PhabricatorDashboardPanelSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No panels found.'));
+    $result->setNoDataString(pht('ko tìm thấy'));
 
     return $result;
   }

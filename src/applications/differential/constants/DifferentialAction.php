@@ -24,96 +24,96 @@ final class DifferentialAction extends Phobject {
     switch ($action) {
       case self::ACTION_COMMENT:
         $title = pht(
-          '%s commented on this revision.',
+          '%s được bình luận trên sự thay đổi này.',
           $author_name);
         break;
       case self::ACTION_ACCEPT:
         $title = pht(
-          '%s accepted this revision.',
+          '%s được chấp nhận.',
           $author_name);
         break;
       case self::ACTION_REJECT:
         $title = pht(
-          '%s requested changes to this revision.',
+          '%s được yêu cầu thay đổi .',
           $author_name);
         break;
       case self::ACTION_RETHINK:
         $title = pht(
-          '%s planned changes to this revision.',
+          '%s thay đổi kế hoạch sửa đổi này.',
           $author_name);
         break;
       case self::ACTION_ABANDON:
         $title = pht(
-          '%s abandoned this revision.',
+          '%s bỏ phiên bản này.',
           $author_name);
         break;
       case self::ACTION_CLOSE:
         $title = pht(
-          '%s closed this revision.',
+          '%s đóng phiên bản này.',
           $author_name);
         break;
       case self::ACTION_REQUEST:
         $title = pht(
-          '%s requested a review of this revision.',
+          '%s yêu cầu xem xét lại các sửa đổi này.',
           $author_name);
         break;
       case self::ACTION_RECLAIM:
         $title = pht(
-          '%s reclaimed this revision.',
+          '%s thay đổi sửa đổi này.',
           $author_name);
         break;
       case self::ACTION_UPDATE:
         $title = pht(
-          '%s updated this revision.',
+          '%s cập nhật phiên bản này.',
           $author_name);
         break;
       case self::ACTION_RESIGN:
         $title = pht(
-          '%s resigned from this revision.',
+          '%s từ bỏ từ phiên bản này.',
           $author_name);
         break;
       case self::ACTION_SUMMARIZE:
         $title = pht(
-          '%s summarized this revision.',
+          '%s tóm tắt sửa đổi này.',
           $author_name);
         break;
       case self::ACTION_TESTPLAN:
         $title = pht(
-          '%s explained the test plan for this revision.',
+          '%s giải thích các kế hoạch thử nghiệm cho phiên bản này.',
           $author_name);
         break;
       case self::ACTION_CREATE:
         $title = pht(
-          '%s created this revision.',
+          '%s tạo ra phiên bản này.',
           $author_name);
         break;
       case self::ACTION_ADDREVIEWERS:
         $title = pht(
-          '%s added reviewers to this revision.',
+          '%s nhận xét bổ sung vào phiên bản này.',
           $author_name);
         break;
       case self::ACTION_ADDCCS:
         $title = pht(
-          '%s added CCs to this revision.',
+          '%s thêm CCs vào phiên bản này.',
           $author_name);
         break;
       case self::ACTION_CLAIM:
         $title = pht(
-          '%s commandeered this revision.',
+          '%s lệnh sửa đổi này',
           $author_name);
         break;
       case self::ACTION_REOPEN:
         $title = pht(
-          '%s reopened this revision.',
+          '%s mở trở lại phiên bản này.',
           $author_name);
         break;
       case DifferentialTransaction::TYPE_INLINE:
         $title = pht(
-          '%s added an inline comment.',
+          '%s thêm một bình luận.',
           $author_name);
         break;
       default:
-        $title = pht('Ghosts happened to this revision.');
+        $title = pht('Ghosts đã xảy ra với phiên bản này.');
         break;
     }
     return $title;
@@ -121,19 +121,19 @@ final class DifferentialAction extends Phobject {
 
   public static function getActionVerb($action) {
     $verbs = array(
-      self::ACTION_COMMENT        => pht('Comment'),
-      self::ACTION_ACCEPT         => pht("Accept Revision \xE2\x9C\x94"),
-      self::ACTION_REJECT         => pht("Request Changes \xE2\x9C\x98"),
-      self::ACTION_RETHINK        => pht("Plan Changes \xE2\x9C\x98"),
-      self::ACTION_ABANDON        => pht('Abandon Revision'),
-      self::ACTION_REQUEST        => pht('Request Review'),
-      self::ACTION_RECLAIM        => pht('Reclaim Revision'),
-      self::ACTION_RESIGN         => pht('Resign as Reviewer'),
-      self::ACTION_ADDREVIEWERS   => pht('Add Reviewers'),
-      self::ACTION_ADDCCS         => pht('Add Subscribers'),
-      self::ACTION_CLOSE          => pht('Close Revision'),
-      self::ACTION_CLAIM          => pht('Commandeer Revision'),
-      self::ACTION_REOPEN         => pht('Reopen'),
+      self::ACTION_COMMENT        => pht('Bình luận'),
+      self::ACTION_ACCEPT         => pht("Chấp nhận sự sửa đổi \xE2\x9C\x94"),
+      self::ACTION_REJECT         => pht("Yêu cầu thay đổi \xE2\x9C\x98"),
+      self::ACTION_RETHINK        => pht("Kế hoạch thay đổi \xE2\x9C\x98"),
+      self::ACTION_ABANDON        => pht('Bỏ sự thay đổi '),
+      self::ACTION_REQUEST        => pht('Yêu cầu xem xét'),
+      self::ACTION_RECLAIM        => pht('Khai phá sự thay đổi'),
+      self::ACTION_RESIGN         => pht('Từ bỏ sự xem xét'),
+      self::ACTION_ADDREVIEWERS   => pht('Thêm xem xét'),
+      self::ACTION_ADDCCS         => pht('Thêm đăng ký'),
+      self::ACTION_CLOSE          => pht('Đóng sự thay đổi'),
+      self::ACTION_CLAIM          => pht('Lệnh sự thay đổi'),
+      self::ACTION_REOPEN         => pht('Mở lại'),
     );
 
     if (!empty($verbs[$action])) {

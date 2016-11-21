@@ -8,7 +8,7 @@ final class DifferentialCreateRevisionConduitAPIMethod
   }
 
   public function getMethodDescription() {
-    return pht('Create a new Differential revision.');
+    return pht('Tạo mới một phiên bản sự khác biệt.');
   }
 
   protected function defineParamTypes() {
@@ -27,7 +27,7 @@ final class DifferentialCreateRevisionConduitAPIMethod
 
   protected function defineErrorTypes() {
     return array(
-      'ERR_BAD_DIFF' => pht('Bad diff ID.'),
+      'ERR_BAD_DIFF' => pht('ID khác nhau kém.'),
     );
   }
 

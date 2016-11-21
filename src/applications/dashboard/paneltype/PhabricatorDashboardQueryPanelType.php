@@ -8,29 +8,29 @@ final class PhabricatorDashboardQueryPanelType
   }
 
   public function getPanelTypeName() {
-    return pht('Query Panel');
+    return pht('Câu lệnh truy vấn');
   }
 
   public function getPanelTypeDescription() {
     return pht(
-      'Show results of a search query, like the most recently filed tasks or '.
-      'revisions you need to review.');
+      'Hiển thị kết quả tìm kiếm, kết quả gần đây nhất '.
+      'phiên bản cần phải xem xét.');
   }
 
   public function getFieldSpecifications() {
     return array(
       'class' => array(
-        'name' => pht('Search For'),
+        'name' => pht('Tìm kiếm'),
         'type' => 'search.application',
       ),
       'key' => array(
-        'name' => pht('Query'),
+        'name' => pht('Câu lệnh truy vấn'),
         'type' => 'search.query',
         'control.application' => 'class',
       ),
       'limit' => array(
-        'name' => pht('Limit'),
-        'caption' => pht('Leave this blank for the default number of items.'),
+        'name' => pht('Giới hạn'),
+        'caption' => pht('rời khỏi khoảng trống này đến sôs măc định của các mục'),
         'type' => 'text',
       ),
     );
@@ -87,7 +87,7 @@ final class PhabricatorDashboardQueryPanelType
     if (!$saved) {
       throw new Exception(
         pht(
-          'Query "%s" is unknown to application search engine "%s"!',
+          'Query "%s" không được tìm thấy "%s"!',
           $key,
           get_class($engine)));
     }
@@ -130,14 +130,14 @@ final class PhabricatorDashboardQueryPanelType
     if (!$engine) {
       throw new Exception(
         pht(
-          'The application search engine "%s" is not known to Phabricator!',
+          'Ứng dụng "%s" không được timf thấy!',
           $class));
     }
 
     if (!$engine->canUseInPanelContext()) {
       throw new Exception(
         pht(
-          'Application search engines of class "%s" can not be used to build '.
+          'ứng dụng tìm kiếm  "%s" không thể sử dụng để xay dựng '.
           'dashboard panels.',
           $class));
     }

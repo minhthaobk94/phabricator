@@ -161,7 +161,7 @@ final class PhabricatorHomeMainController extends PhabricatorHomeController {
     $results = $engine->executeQuery($query, $pager);
     $view = $engine->renderResults($results, $saved);
 
-    $title = pht('Active Revisions');
+    $title = pht('Phiên bản được kích hoạt');
     $href = '/differential/query/active/';
 
     return $this->buildHomepagePanel($title, $href, $view);
@@ -171,11 +171,11 @@ final class PhabricatorHomeMainController extends PhabricatorHomeController {
     $viewer = $this->getViewer();
 
     $query = 'assigned';
-    $title = pht('Assigned Tasks');
+    $title = pht('Nhiệm vụ được nhận');
     $href = '/maniphest/query/assigned/';
     if (!$viewer->isLoggedIn()) {
       $query = 'open';
-      $title = pht('Open Tasks');
+      $title = pht('Nhiêm vụ được mở');
       $href = '/maniphest/query/open/';
     }
 
@@ -207,20 +207,20 @@ final class PhabricatorHomeMainController extends PhabricatorHomeController {
       $instance = PhabricatorEnv::getEnvConfig('cluster.instance');
       if (!$instance) {
         $content = pht(<<<EOT
-Welcome to Phabricator, here are some links to get you started:
-- [[ /config/ | Configure Phabricator ]]
-- [[ /guides/ | Quick Start Guide ]]
-- [[ /diffusion/ | Create a Repository ]]
-- [[ /people/invite/send/ | Invite People ]]
-- [[ https://twitter.com/phabricator/ | Follow us on Twitter ]]
+Chào mừng đến với Phabricator, Đây là một số link cho người mới sử dụng:
+- [[ /config/ | Cấu hình Phabricator ]]
+- [[ /guides/ | Hướng dẫn nhanh ]]
+- [[ /diffusion/ | Tạo 1 Repository ]]
+- [[ /people/invite/send/ | Lời mời ]]
+- [[ https://twitter.com/phabricator/ | Twitter ]]
 EOT
 );
       } else {
         $content = pht(<<<EOT
-Welcome to Phabricator, here are some links to get you started:
-- [[ /guides/ | Quick Start Guide ]]
-- [[ /diffusion/ | Create a Repository ]]
-- [[ https://twitter.com/phabricator/ | Follow us on Twitter ]]
+Chào mừng đến với Phabricator, Đây là một số link cho người mới sử dụng:
+- [[ /guides/ | Hướng dẫn nhanh  ]]
+- [[ /diffusion/ | Tạo 1 Repository  ]]
+- [[ https://twitter.com/phabricator/ | Twitter ]]
 EOT
 );
       }
@@ -232,7 +232,7 @@ EOT
       $view->setNoDataString($welcome);
     }
 
-    $title = pht('Recent Activity');
+    $title = pht('Hành động hiện hành');
     $href = '/feed/';
 
     return $this->buildHomepagePanel($title, $href, $view);
@@ -250,7 +250,7 @@ EOT
     $results = $engine->executeQuery($query, $pager);
     $view = $engine->renderResults($results, $saved);
 
-    $title = pht('Active Repositories');
+    $title = pht('Repository được kích hoạt');
     $href = '/diffusion/';
 
     return $this->buildHomepagePanel($title, $href, $view);

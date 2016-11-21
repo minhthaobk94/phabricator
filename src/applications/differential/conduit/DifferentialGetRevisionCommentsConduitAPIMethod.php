@@ -12,11 +12,11 @@ final class DifferentialGetRevisionCommentsConduitAPIMethod
   }
 
   public function getMethodStatusDescription() {
-    return pht('Obsolete and doomed, see T2222.');
+    return pht('Lỗi thời và bị tiêu diệt, xem T2222.');
   }
 
   public function getMethodDescription() {
-    return pht('Retrieve Differential Revision Comments.');
+    return pht('Phục hồi bình luận của phiên bản sự khác biệt.');
   }
 
   protected function defineParamTypes() {

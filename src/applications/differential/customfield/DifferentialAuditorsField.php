@@ -8,11 +8,11 @@ final class DifferentialAuditorsField
   }
 
   public function getFieldName() {
-    return pht('Auditors');
+    return pht('Người kiểm tra ');
   }
 
   public function getFieldDescription() {
-    return pht('Allows commits to trigger audits explicitly.');
+    return pht('Cho phép các cam kết để kích hoạt các cuộc kiểm toán một cách rõ ràng.');
   }
 
   public function getValueForStorage() {

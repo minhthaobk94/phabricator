@@ -22,7 +22,7 @@ final class DifferentialGitSVNIDField
 
   public function getFieldDescription() {
     return pht(
-      'Parses the "%s" field which Git/SVN can inject into commit messages.',
+      'Chuyển đổi  "%s" trường m Git/SVN có thể tiêm vào bài viết cam kết.',
       'git-svn-id');
   }
 

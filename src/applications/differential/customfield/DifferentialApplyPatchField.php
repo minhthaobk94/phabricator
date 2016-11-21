@@ -8,11 +8,11 @@ final class DifferentialApplyPatchField
   }
 
   public function getFieldName() {
-    return pht('Apply Patch');
+    return pht('Ứng dụng bản vá');
   }
 
   public function getFieldDescription() {
-    return pht('Provides instructions for applying a local patch.');
+    return pht('Cung cấp hướng dẫn áp dụng một bản vá địa phương.');
   }
 
   public function shouldAppearInPropertyView() {

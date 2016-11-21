@@ -8,7 +8,7 @@ final class DifferentialCreateInlineConduitAPIMethod
   }
 
   public function getMethodDescription() {
-    return pht('Add an inline comment to a Differential revision.');
+    return pht('Thêm nhận xét vào phiên bản sửa lỗi .');
   }
 
   protected function defineParamTypes() {
@@ -30,15 +30,15 @@ final class DifferentialCreateInlineConduitAPIMethod
   protected function defineErrorTypes() {
     return array(
       'ERR-BAD-REVISION' => pht(
-        'Bad revision ID.'),
+        'ID sửa đổi kém.'),
       'ERR-BAD-DIFF'     => pht(
-        'Bad diff ID, or diff does not belong to revision.'),
+        'ID khác nhau kém, hoặc sự khác biệt không thuộc về sự sửa đổi .'),
       'ERR-NEED-DIFF'    => pht(
-        'Neither revision ID nor diff ID was provided.'),
+        'Cả ID sửa đổi và ID khác nhau đều không được cung cấp.'),
       'ERR-NEED-FILE'    => pht(
-        'A file path was not provided.'),
+        'Thư mục đươngf dẫn không được cung cấp .'),
       'ERR-BAD-FILE'     => pht(
-        "Requested file doesn't exist in this revision."),
+        "Thư mục yêu cầu không tồn tại trong sự sửa đổi này."),
     );
   }
 

@@ -8,11 +8,11 @@ final class DifferentialEditPolicyField
   }
 
   public function getFieldName() {
-    return pht('Edit Policy');
+    return pht('Thay đổi chính sách');
   }
 
   public function getFieldDescription() {
-    return pht('Controls who can edit a revision.');
+    return pht('Điều khiển, người mà có thể thay đổi bản sửa đổi.');
   }
 
   protected function readValueFromRevision(

@@ -19,7 +19,7 @@ final class DifferentialRevisionDependedOnByRevisionEdgeType
     $add_edges) {
 
     return pht(
-      '%s added %s dependent revision(s): %s.',
+      '%s thêm %s phụ thuộc bản sửa đổi (s): %s.',
       $actor,
       $add_count,
       $add_edges);
@@ -31,7 +31,7 @@ final class DifferentialRevisionDependedOnByRevisionEdgeType
     $rem_edges) {
 
     return pht(
-      '%s removed %s dependent revision(s): %s.',
+      '%s xóa %s phụ thuộc bản sửa đổi(s): %s.',
       $actor,
       $rem_count,
       $rem_edges);
@@ -46,7 +46,7 @@ final class DifferentialRevisionDependedOnByRevisionEdgeType
     $rem_edges) {
 
     return pht(
-      '%s edited dependent revision(s), added %s: %s; removed %s: %s.',
+      '%s sửa phụ thuộc bản sửa đổi, thêm %s: %s; xóa %s: %s.',
       $actor,
       $add_count,
       $add_edges,
@@ -61,7 +61,7 @@ final class DifferentialRevisionDependedOnByRevisionEdgeType
     $add_edges) {
 
     return pht(
-      '%s added %s dependent revision(s) for %s: %s.',
+      '%s thêm %s phụ thuộc bản sửa đổi cho  %s: %s.',
       $actor,
       $add_count,
       $object,
@@ -75,7 +75,7 @@ final class DifferentialRevisionDependedOnByRevisionEdgeType
     $rem_edges) {
 
     return pht(
-      '%s removed %s dependent revision(s) for %s: %s.',
+      '%s xóa %s phụ thuộc bản sửa đổi cho  %s: %s.',
       $actor,
       $rem_count,
       $object,
@@ -92,7 +92,7 @@ final class DifferentialRevisionDependedOnByRevisionEdgeType
     $rem_edges) {
 
     return pht(
-      '%s edited dependent revision(s) for %s, added %s: %s; removed %s: %s.',
+      '%s sửa phụ thuộc bản sửa đổi cho  %s, thêm %s: %s; xóa %s: %s.',
       $actor,
       $object,
       $add_count,

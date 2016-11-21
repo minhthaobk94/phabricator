@@ -46,13 +46,13 @@ final class PhabricatorDashboardArchiveController
     }
 
     if ($dashboard->isArchived()) {
-      $title = pht('Activate Dashboard');
-      $body = pht('This dashboard will become active again.');
-      $button = pht('Activate Dashboard');
+      $title = pht('Kích hoạt');
+      $body = pht('Bảng điều khiển này sẽ kích hoạt trở lại.');
+      $button = pht('Kích hoạt');
     } else {
-      $title = pht('Archive Dashboard');
-      $body = pht('This dashboard will be marked as archived.');
-      $button = pht('Archive Dashboard');
+      $title = pht('Lưu trữ');
+      $body = pht('Bảng điều khiển này sẽ được đánh dấu là lưu trữ');
+      $button = pht('Lưu trữ');
     }
 
     return $this->newDialog()

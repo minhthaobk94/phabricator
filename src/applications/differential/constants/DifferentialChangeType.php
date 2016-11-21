@@ -140,18 +140,18 @@ final class DifferentialChangeType extends Phobject {
 
   public static function getFullNameForChangeType($type) {
     $types = array(
-      self::TYPE_ADD        => pht('Added'),
-      self::TYPE_CHANGE     => pht('Modified'),
-      self::TYPE_DELETE     => pht('Deleted'),
-      self::TYPE_MOVE_AWAY  => pht('Moved Away'),
-      self::TYPE_COPY_AWAY  => pht('Copied Away'),
-      self::TYPE_MOVE_HERE  => pht('Moved Here'),
-      self::TYPE_COPY_HERE  => pht('Copied Here'),
-      self::TYPE_MULTICOPY  => pht('Deleted After Multiple Copy'),
-      self::TYPE_MESSAGE    => pht('Commit Message'),
-      self::TYPE_CHILD      => pht('Contents Modified'),
+      self::TYPE_ADD        => pht('Thêm vào'),
+      self::TYPE_CHANGE     => pht('Chỉnh sửa'),
+      self::TYPE_DELETE     => pht('Xóa'),
+      self::TYPE_MOVE_AWAY  => pht('Di chuyển'),
+      self::TYPE_COPY_AWAY  => pht('Sao chép'),
+      self::TYPE_MOVE_HERE  => pht('Di chuyển tại đây'),
+      self::TYPE_COPY_HERE  => pht('Sap chép tại đây'),
+      self::TYPE_MULTICOPY  => pht('Xóa sau khi đa sao chép'),
+      self::TYPE_MESSAGE    => pht('Tin nhắn commit '),
+      self::TYPE_CHILD      => pht('Nội dung sửa chữa'),
     );
-    return idx($types, coalesce($type, '?'), pht('Unknown'));
+    return idx($types, coalesce($type, '?'), pht('Không biết'));
   }
 
 }

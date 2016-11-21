@@ -12,11 +12,11 @@ final class DifferentialBlameRevisionField
   }
 
   public function getFieldName() {
-    return pht('Blame Revision');
+    return pht('Khiển trách bản sửa đổi ');
   }
 
   public function getFieldDescription() {
-    return pht('Stores a reference to what this fixes.');
+    return pht('Lưu trữ một tham chiếu đến các bản sửa lỗi gì .');
   }
 
   public function shouldDisableByDefault() {
@@ -69,7 +69,7 @@ final class DifferentialBlameRevisionField
     $new = $xaction->getNewValue();
 
     return pht(
-      '%s updated the blame revision for this revision.',
+      '%s cập nhật các phiên bản đổ lỗi cho phiên bản này.',
       $xaction->renderHandleLink($author_phid));
   }
 
@@ -82,7 +82,7 @@ final class DifferentialBlameRevisionField
     $new = $xaction->getNewValue();
 
     return pht(
-      '%s updated the blame revision for %s.',
+      '%s cập nhật các phiên bản đổ lỗi cho %s.',
       $xaction->renderHandleLink($author_phid),
       $xaction->renderHandleLink($object_phid));
   }

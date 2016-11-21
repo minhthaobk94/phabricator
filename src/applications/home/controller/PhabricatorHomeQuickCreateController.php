@@ -19,10 +19,10 @@ final class PhabricatorHomeQuickCreateController
           ->setHref($item->getHref()));
     }
 
-    $title = pht('Quick Create');
+    $title = pht('Tạo nhanh');
 
     $crumbs = $this->buildApplicationCrumbs();
-    $crumbs->addTextCrumb(pht('Quick Create'));
+    $crumbs->addTextCrumb(pht('Tạo nhanh'));
     $crumbs->setBorder(true);
 
     $box = id(new PHUIObjectBoxView())

@@ -4,7 +4,7 @@ final class DifferentialRevisionSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Differential Revisions');
+    return pht('Phiên bản khác nhau');
   }
 
   public function getApplicationClassName() {
@@ -52,38 +52,38 @@ final class DifferentialRevisionSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Responsible Users'))
+        ->setLabel(pht('Người chịu trách nhiệm'))
         ->setKey('responsiblePHIDs')
         ->setAliases(array('responsiblePHID', 'responsibles', 'responsible'))
         ->setDatasource(new DifferentialResponsibleDatasource())
         ->setDescription(
-          pht('Find revisions that a given user is responsible for.')),
+          pht('Tìm phiên bản mà người dùng chịu trách nhiệm.')),
       id(new PhabricatorUsersSearchField())
         ->setLabel(pht('Authors'))
         ->setKey('authorPHIDs')
         ->setAliases(array('author', 'authors', 'authorPHID'))
         ->setDescription(
-          pht('Find revisions with specific authors.')),
+          pht('Tìm phiên bản có tác giả kahsc.')),
       id(new PhabricatorSearchDatasourceField())
         ->setLabel(pht('Reviewers'))
         ->setKey('reviewerPHIDs')
         ->setAliases(array('reviewer', 'reviewers', 'reviewerPHID'))
         ->setDatasource(new DiffusionAuditorFunctionDatasource())
         ->setDescription(
-          pht('Find revisions with specific reviewers.')),
+          pht('Tìm phienen bản có người đánh khác .')),
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Repositories'))
+        ->setLabel(pht('Chịu trách nhiệm'))
         ->setKey('repositoryPHIDs')
         ->setAliases(array('repository', 'repositories', 'repositoryPHID'))
         ->setDatasource(new DifferentialRepositoryDatasource())
         ->setDescription(
-          pht('Find revisions from specific repositories.')),
+          pht('Tìm phiên bản của người chịu trách nhiệm khác.')),
       id(new PhabricatorSearchSelectField())
-        ->setLabel(pht('Status'))
+        ->setLabel(pht('Trạng thái'))
         ->setKey('status')
         ->setOptions($this->getStatusOptions())
         ->setDescription(
-          pht('Find revisions with particular statuses.')),
+          pht('Tìm bằng trạng thái.')),
     );
   }
 
@@ -130,13 +130,13 @@ final class DifferentialRevisionSearchEngine
 
   private function getStatusOptions() {
     return array(
-      DifferentialRevisionQuery::STATUS_ANY            => pht('All'),
-      DifferentialRevisionQuery::STATUS_OPEN           => pht('Open'),
-      DifferentialRevisionQuery::STATUS_ACCEPTED       => pht('Accepted'),
-      DifferentialRevisionQuery::STATUS_NEEDS_REVIEW   => pht('Needs Review'),
-      DifferentialRevisionQuery::STATUS_NEEDS_REVISION => pht('Needs Revision'),
-      DifferentialRevisionQuery::STATUS_CLOSED         => pht('Closed'),
-      DifferentialRevisionQuery::STATUS_ABANDONED      => pht('Abandoned'),
+      DifferentialRevisionQuery::STATUS_ANY            => pht('Tất cả'),
+      DifferentialRevisionQuery::STATUS_OPEN           => pht('Mở'),
+      DifferentialRevisionQuery::STATUS_ACCEPTED       => pht('Cho phép'),
+      DifferentialRevisionQuery::STATUS_NEEDS_REVIEW   => pht('Cần đánh giá'),
+      DifferentialRevisionQuery::STATUS_NEEDS_REVISION => pht('Cần phiên bản'),
+      DifferentialRevisionQuery::STATUS_CLOSED         => pht('Đóng'),
+      DifferentialRevisionQuery::STATUS_ABANDONED      => pht('bị bỏ rơi'),
     );
   }
 

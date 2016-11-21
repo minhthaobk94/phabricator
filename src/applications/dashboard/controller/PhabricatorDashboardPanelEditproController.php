@@ -34,13 +34,13 @@ final class PhabricatorDashboardPanelEditproController
     $e_type = null;
     $errors = array();
     if ($request->isFormPost()) {
-      $e_type = pht('Required');
+      $e_type = pht('Bắt buộc');
       $errors[] = pht(
-        'To create a new dashboard panel, you must select a panel type.');
+        'Để tạo mới một thẻ bảng điều khiển, phải chọn 1 loại');
     }
 
     $type_control = id(new AphrontFormRadioButtonControl())
-      ->setLabel(pht('Panel Type'))
+      ->setLabel(pht('Loại thẻ'))
       ->setName('panelType')
       ->setError($e_type);
 
@@ -54,36 +54,36 @@ final class PhabricatorDashboardPanelEditproController
     $form = id(new AphrontFormView())
       ->setUser($viewer)
       ->appendRemarkupInstructions(
-        pht('Choose the type of dashboard panel to create:'))
+        pht('Chọn 1 loại thẻ dể tạo:'))
       ->appendChild($type_control);
 
     if ($request->isAjax()) {
       return $this->newDialog()
-        ->setTitle(pht('Add New Panel'))
+        ->setTitle(pht('Thêm mới một thẻ'))
         ->setWidth(AphrontDialogView::WIDTH_FORM)
         ->setErrors($errors)
         ->appendForm($form)
         ->addCancelButton($cancel_uri)
-        ->addSubmitButton(pht('Continue'));
+        ->addSubmitButton(pht('Tiếp tục'));
     }
 
     $form->appendChild(
       id(new AphrontFormSubmitControl())
-        ->setValue(pht('Continue'))
+        ->setValue(pht('Tiếp tục'))
         ->addCancelButton($cancel_uri));
 
-    $title = pht('Create Dashboard Panel');
+    $title = pht('Tạo bảng điều khiển');
     $header_icon = 'fa-plus-square';
 
     $crumbs = $this->buildApplicationCrumbs();
     $crumbs->addTextCrumb(
       pht('Panels'),
       $this->getApplicationURI('panel/'));
-    $crumbs->addTextCrumb(pht('New Panel'));
+    $crumbs->addTextCrumb(pht('Thẻ mới'));
     $crumbs->setBorder(true);
 
     $box = id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Panel'))
+      ->setHeaderText(pht('Thẻ')
       ->setFormErrors($errors)
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->setForm($form);

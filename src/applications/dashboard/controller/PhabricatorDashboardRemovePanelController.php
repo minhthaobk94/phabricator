@@ -64,13 +64,13 @@ final class PhabricatorDashboardRemovePanelController
       ->setUser($viewer)
       ->addHiddenInput('confirm', true)
       ->addHiddenInput('panelPHID', $v_panel)
-      ->appendChild(pht('Are you sure you want to remove this panel?'));
+      ->appendChild(pht('Bạn chắc chắn muốn bỏ thẻ này?'));
 
     return $this->newDialog()
-      ->setTitle(pht('Remove Panel %s', $panel->getMonogram()))
+      ->setTitle(pht('Xóa %s', $panel->getMonogram()))
       ->appendChild($form->buildLayoutView())
       ->addCancelButton($redirect_uri)
-      ->addSubmitButton(pht('Remove Panel'));
+      ->addSubmitButton(pht('Xóa'));
   }
 
 }

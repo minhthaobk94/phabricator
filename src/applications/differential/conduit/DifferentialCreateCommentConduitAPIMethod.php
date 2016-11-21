@@ -8,7 +8,7 @@ final class DifferentialCreateCommentConduitAPIMethod
   }
 
   public function getMethodDescription() {
-    return pht('Add a comment to a Differential revision.');
+    return pht('Thêm bình luận vào sự sửa đồi khác biệt.');
   }
 
   protected function defineParamTypes() {
@@ -27,7 +27,7 @@ final class DifferentialCreateCommentConduitAPIMethod
 
   protected function defineErrorTypes() {
     return array(
-      'ERR_BAD_REVISION' => pht('Bad revision ID.'),
+      'ERR_BAD_REVISION' => pht('ID xem lại kém.'),
     );
   }
 

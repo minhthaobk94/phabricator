@@ -78,7 +78,7 @@ final class DifferentialDoorkeeperRevisionFeedStoryPublisher
 
   public function getResponsibilityTitle($object) {
     $prefix = $this->getTitlePrefix($object);
-    return pht('%s Review Request', $prefix);
+    return pht('%s Yêu cầu xem xét', $prefix);
   }
 
   private function getTitlePrefix(DifferentialRevision $revision) {

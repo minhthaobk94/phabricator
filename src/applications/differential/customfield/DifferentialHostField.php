@@ -8,11 +8,11 @@ final class DifferentialHostField
   }
 
   public function getFieldName() {
-    return pht('Host');
+    return pht('Chủ');
   }
 
   public function getFieldDescription() {
-    return pht('Shows the local host where the diff came from.');
+    return pht('Hiển thị các máy chủ địa phương nơi khác đến từ.');
   }
 
   public function shouldDisableByDefault() {

@@ -10,7 +10,7 @@ final class DifferentialParseCommitMessageConduitAPIMethod
   }
 
   public function getMethodDescription() {
-    return pht('Parse commit messages for Differential fields.');
+    return pht('Phân giải tin nhắn commit cho các trường của sự khác biệt.');
   }
 
   protected function defineParamTypes() {
@@ -44,8 +44,7 @@ final class DifferentialParseCommitMessageConduitAPIMethod
       if (!$field) {
         throw new Exception(
           pht(
-            'Parser emitted text value for field key "%s", but no such '.
-            'field exists.',
+            'Phân giải ra cho các trường khóa "%s",nhưng không có file tồn tại.',
             $field_key));
       }
 
@@ -65,7 +64,7 @@ final class DifferentialParseCommitMessageConduitAPIMethod
           $field->validateCommitMessageValue(idx($values, $key));
         } catch (DifferentialFieldValidationException $ex) {
           $this->errors[] = pht(
-            'Invalid or missing field "%s": %s',
+            'Không hợp lệ hoặc không có trường "%s": %s',
             $field->renderCommitMessageLabel(),
             $ex->getMessage());
         }

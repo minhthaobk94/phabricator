@@ -4,11 +4,11 @@ final class PhabricatorDifferentialConfigOptions
   extends PhabricatorApplicationConfigOptions {
 
   public function getName() {
-    return pht('Differential');
+    return pht('Sự khác biệt');
   }
 
   public function getDescription() {
-    return pht('Configure Differential code review.');
+    return pht('Cấu hình hình Sự khác biệt xem xét code.');
   }
 
   public function getIcon() {
@@ -72,14 +72,15 @@ final class PhabricatorDifferentialConfigOptions
 
     $inline_description = $this->deformat(
       pht(<<<EOHELP
-To include patches inline in email bodies, set this option to a positive
-integer. Patches will be inlined if they are at most that many lines and at
-most 256 times that many bytes.
+Để bao gồm các bản vá lỗi nội tuyến trong các cơ quan email, thiết lập tùy chọn này cho một người tích cực
+số nguyên. Bản vá lỗi sẽ được inlined nếu họ đang ở nhất mà nhiều dòng và tại
+nhất 256 lần mà nhiều byte.
 
-For example, a value of 100 means "inline patches if they are at not more than
-100 lines long and not more than 25,600 bytes large".
+Ví dụ, giá trị 100 có nghĩa là "bản vá lỗi nội tuyến nếu họ đang ở không quá
+100 đường dài và không quá 25.600 byte lớn".
 
-By default, patches are not inlined.
+
+Theo mặc định, các bản vá lỗi không nội tuyến.
 EOHELP
       ));
 
@@ -92,9 +93,9 @@ EOHELP
           id(new DifferentialRevision())->getCustomFieldBaseClass())
         ->setDescription(
           pht(
-            "Select and reorder revision fields.\n\n".
-            "NOTE: This feature is under active development and subject ".
-            "to change.")),
+            "Chọn và tái đặt các trường của sự thay đổi .\n\n".
+            "Chú ý: Tính năng này đang được phát triển và chủ đề".
+             "thay đổi")),
       $this->newOption(
         'differential.whitespace-matters',
         'list<regex>',

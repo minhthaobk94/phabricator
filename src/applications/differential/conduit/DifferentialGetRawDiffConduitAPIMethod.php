@@ -23,7 +23,7 @@ final class DifferentialGetRawDiffConduitAPIMethod
 
   protected function defineErrorTypes() {
     return array(
-      'ERR_NOT_FOUND' => pht('Diff not found.'),
+      'ERR_NOT_FOUND' => pht('Không tìm thấy khác nhau.'),
     );
   }
 

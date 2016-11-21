@@ -8,11 +8,11 @@ final class DifferentialViewPolicyField
   }
 
   public function getFieldName() {
-    return pht('View Policy');
+    return pht('Hiển thị chính sách');
   }
 
   public function getFieldDescription() {
-    return pht('Controls visibility.');
+    return pht('Tầm nhìn điều khiển.');
   }
 
   protected function readValueFromRevision(
