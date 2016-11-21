@@ -4,7 +4,7 @@ final class PhabricatorNotificationSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Notifications');
+    return pht('Thông báo');
   }
 
   public function getApplicationClassName() {
@@ -40,11 +40,11 @@ final class PhabricatorNotificationSearchEngine
 
     $form->appendChild(
       id(new AphrontFormCheckboxControl())
-        ->setLabel(pht('Unread'))
+        ->setLabel(pht('Chưa đọc'))
         ->addCheckbox(
           'unread',
           1,
-          pht('Show only unread notifications.'),
+          pht('Chỉ hiển thị thông báo chưa đọc.'),
           $unread));
   }
 
@@ -55,8 +55,8 @@ final class PhabricatorNotificationSearchEngine
   protected function getBuiltinQueryNames() {
 
     $names = array(
-      'all' => pht('All Notifications'),
-      'unread' => pht('Unread Notifications'),
+      'all' => pht('Tất cả thông báo'),
+      'unread' => pht('Thông báo chưa đọc'),
     );
 
     return $names;
@@ -92,16 +92,16 @@ final class PhabricatorNotificationSearchEngine
       ->addSigil('workflow')
       ->setColor(PHUIButtonView::SIMPLE)
       ->setIcon($image)
-      ->setText(pht('Mark All Read'));
+      ->setText(pht('Đánh dấu tất cả đã đọc'));
 
     switch ($query->getQueryKey()) {
       case 'unread':
-        $header = pht('Unread Notifications');
-        $no_data = pht('You have no unread notifications.');
+        $header = pht('Thông báo chưa đọc');
+        $no_data = pht('Bạn chưa đọc thông báo.');
         break;
       default:
-        $header = pht('Notifications');
-        $no_data = pht('You have no notifications.');
+        $header = pht('Thông báo');
+        $no_data = pht('Bạn chưa có thông báo nào cả.');
         break;
     }
 

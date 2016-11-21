@@ -59,7 +59,7 @@ final class DivinerAtomSearchEngine extends PhabricatorApplicationSearchEngine {
 
     $form->appendChild(
       id(new AphrontFormTextControl())
-        ->setLabel(pht('Name Contains'))
+        ->setLabel(pht('Tên'))
         ->setName('name')
         ->setValue($saved->getParameter('name')));
 
@@ -72,7 +72,7 @@ final class DivinerAtomSearchEngine extends PhabricatorApplicationSearchEngine {
     $types = $saved->getParameter('types', array());
     $types = array_fuse($types);
     $type_control = id(new AphrontFormCheckboxControl())
-      ->setLabel(pht('Types'));
+      ->setLabel(pht('Loại'));
     foreach ($all_types as $type => $name) {
       $type_control->addCheckbox(
         'types[]',
@@ -86,7 +86,7 @@ final class DivinerAtomSearchEngine extends PhabricatorApplicationSearchEngine {
       id(new AphrontFormTokenizerControl())
         ->setDatasource(new DivinerBookDatasource())
         ->setName('bookPHIDs')
-        ->setLabel(pht('Books'))
+        ->setLabel(pht('Sách'))
         ->setValue($saved->getParameter('bookPHIDs')));
 
     $form->appendControl(
@@ -103,7 +103,7 @@ final class DivinerAtomSearchEngine extends PhabricatorApplicationSearchEngine {
 
   protected function getBuiltinQueryNames() {
     return array(
-      'all' => pht('All Atoms'),
+      'all' => pht('Tất cả thành phần'),
     );
   }
 
@@ -146,7 +146,7 @@ final class DivinerAtomSearchEngine extends PhabricatorApplicationSearchEngine {
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No books found.'));
+    $result->setNoDataString(pht('Không tìm thấy tài liệu.'));
 
     return $result;
   }

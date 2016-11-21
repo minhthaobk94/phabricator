@@ -24,7 +24,7 @@ abstract class AlmanacController
       ->addSigil('has-tooltip')
       ->setMetadata(
         array(
-          'tip' => pht('Builtin Property'),
+          'tip' => pht('Giá trị'),
           'align' => 'E',
         ));
 
@@ -124,12 +124,12 @@ abstract class AlmanacController
     }
 
     $table = id(new AphrontTableView($rows))
-      ->setNoDataString(pht('No properties.'))
+      ->setNoDataString(pht('Không có thuộc tính nào cả.'))
       ->setHeaders(
         array(
           null,
-          pht('Name'),
-          pht('Value'),
+          pht('Tên'),
+          pht('Giá trị'),
           null,
         ))
       ->setColumnClasses(
@@ -158,7 +158,7 @@ abstract class AlmanacController
       ->setIcon('fa-plus');
 
     $header = id(new PHUIHeaderView())
-      ->setHeader(pht('Properties'))
+      ->setHeader(pht('Thuộc tính'))
       ->addActionLink($add_button);
 
     return id(new PHUIObjectBoxView())
@@ -181,7 +181,7 @@ abstract class AlmanacController
           'Clustering Introduction'),
         'target' => '_blank',
       ),
-      pht('Learn More'));
+      pht('Xem thêm'));
 
     if ($can_manage) {
       $severity = PHUIInfoView::SEVERITY_NOTICE;

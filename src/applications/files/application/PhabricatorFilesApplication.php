@@ -7,11 +7,11 @@ final class PhabricatorFilesApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Files');
+    return pht('Tập tin');
   }
 
   public function getShortDescription() {
-    return pht('Store and Share Files');
+    return pht('Lưu trữ và chia sẻ tập tin');
   }
 
   public function getIcon() {
@@ -23,7 +23,7 @@ final class PhabricatorFilesApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Blob store for Pokemon pictures.');
+    return pht('cửa hàng Blob cho hình ảnh Pokemon.');
   }
 
   public function getApplicationGroup() {
@@ -47,20 +47,20 @@ final class PhabricatorFilesApplication extends PhabricatorApplication {
 
   public function getAppEmailBlurb() {
     return pht(
-      'Send emails with file attachments to these addresses to upload '.
+      'Gửi email với file đính kèm tập tin vào các địa chỉ để tải lên '.
       'files. %s',
       phutil_tag(
         'a',
         array(
           'href' => $this->getInboundEmailSupportLink(),
         ),
-        pht('Learn More')));
+        pht('Tìm hiểu thêm')));
   }
 
   protected function getCustomCapabilities() {
     return array(
       FilesDefaultViewCapability::CAPABILITY => array(
-        'caption' => pht('Default view policy for newly created files.'),
+        'caption' => pht('Chính sách mặc định cho các tập tin mới được tạo.'),
         'template' => PhabricatorFileFilePHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_VIEW,
       ),

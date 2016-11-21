@@ -25,7 +25,7 @@ final class PhabricatorMustVerifyEmailController
       $email->sendVerificationEmail($viewer);
       $sent = new PHUIInfoView();
       $sent->setSeverity(PHUIInfoView::SEVERITY_NOTICE);
-      $sent->setTitle(pht('Email Sent'));
+      $sent->setTitle(pht('Gửi Email'));
       $sent->appendChild(
         pht(
           'Another verification email was sent to %s.',
@@ -44,10 +44,10 @@ final class PhabricatorMustVerifyEmailController
 
     $dialog = id(new AphrontDialogView())
       ->setUser($viewer)
-      ->setTitle(pht('Check Your Email'))
+      ->setTitle(pht('Kiểm tra  Email'))
       ->appendParagraph($must_verify)
       ->appendParagraph($send_again)
-      ->addSubmitButton(pht('Send Another Email'));
+      ->addSubmitButton(pht('Gửi Email Khác'));
 
     $view = array(
       $sent,
@@ -55,7 +55,7 @@ final class PhabricatorMustVerifyEmailController
     );
 
     return $this->newPage()
-      ->setTitle(pht('Must Verify Email'))
+      ->setTitle(pht('Phải xác nhận  Email'))
       ->appendChild($view);
 
   }

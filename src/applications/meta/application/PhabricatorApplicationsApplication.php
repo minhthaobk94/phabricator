@@ -3,7 +3,7 @@
 final class PhabricatorApplicationsApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Applications');
+    return pht('Ứng dụng');
   }
 
   public function canUninstall() {
@@ -21,7 +21,7 @@ final class PhabricatorApplicationsApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Explore More Applications');
+    return pht('Khám phá ứng dụng khác');
   }
 
   public function getIcon() {

@@ -116,7 +116,7 @@ final class PhabricatorFlagQuery
         break;
       default:
         throw new Exception(
-          pht('Unknown groupBy parameter: %s', $this->groupBy));
+          pht('Không hiểu nhóm tham số: %s', $this->groupBy));
         break;
     }
 

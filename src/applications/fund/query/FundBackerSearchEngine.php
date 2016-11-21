@@ -128,10 +128,10 @@ final class FundBackerSearchEngine
     $table = id(new AphrontTableView($rows))
       ->setHeaders(
         array(
-          pht('Initiative'),
-          pht('Backer'),
-          pht('Amount'),
-          pht('Date'),
+          pht('Sáng kiến'),
+          pht('Người phía sau'),
+          pht('Số lượng'),
+          pht('Ngày'),
         ))
       ->setColumnClasses(
         array(

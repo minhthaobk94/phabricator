@@ -176,9 +176,9 @@ final class PhabricatorCalendarEventQuery
     if (!$raw_limit && !$this->rangeEnd) {
       throw new Exception(
         pht(
-          'Event queries which generate ghost events must include either a '.
-          'result limit or an end date, because they may otherwise generate '.
-          'an infinite number of results. This query has neither.'));
+          'Truy vấn tổ chức sự kiện mà tạo ra các sự kiện ma phải bao gồm hoặc là một '.
+          'giới hạn hay sẽ ngày kết thúc, bởi vì có thể họ tạo ra '.
+          'một số lượng vô hạn của kết quả. Truy vấn này có không.'));
     }
 
     foreach ($events as $key => $event) {

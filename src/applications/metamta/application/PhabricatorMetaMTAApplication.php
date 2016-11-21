@@ -15,11 +15,11 @@ final class PhabricatorMetaMTAApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Send and Receive Mail');
+    return pht('Gửi và nhận Email');
   }
 
   public function getFlavorText() {
-    return pht('Every program attempts to expand until it can read mail.');
+    return pht('Mỗi chương trình cố gắng để mở rộng cho đến khi nó có thể đọc mail.');
   }
 
   public function getApplicationGroup() {

@@ -23,47 +23,47 @@ final class PhabricatorAuthNeedsMultiFactorController
     }
 
     $crumbs = $this->buildApplicationCrumbs();
-    $crumbs->addTextCrumb(pht('Add Multi-Factor Auth'));
+    $crumbs->addTextCrumb(pht('Thêm đa người dùng, Auth'));
 
     $viewer->updateMultiFactorEnrollment();
 
     if (!$viewer->getIsEnrolledInMultiFactor()) {
       $help = id(new PHUIInfoView())
-        ->setTitle(pht('Add Multi-Factor Authentication To Your Account'))
+        ->setTitle(pht('Thêm đa người dùng Xác thực đến Tài khoản của bạn'))
         ->setSeverity(PHUIInfoView::SEVERITY_WARNING)
         ->setErrors(
           array(
             pht(
-              'Before you can use Phabricator, you need to add multi-factor '.
-              'authentication to your account.'),
+              'Trước khi bạn có thể sử dụng Phabricator, bạn cần phải thêm đa người dùng  '.
+              'xác thực tài khoản của bạn.'),
             pht(
-              'Multi-factor authentication helps secure your account by '.
-              'making it more difficult for attackers to gain access or '.
-              'take sensitive actions.'),
+              'Xác thực đa người dùng giúp bảo vệ tài khoản của bạn bằng cách '.
+              'làm cho nó khó khăn hơn cho tin tặc truy cập hoặc'.
+              'có những hành động nhạy cảm.'),
             pht(
-              'To learn more about multi-factor authentication, click the '.
-              '%s button below.',
-              phutil_tag('strong', array(), pht('Help'))),
+              'Để tìm hiểu thêm về xác thực đa người dùng, nhấp vào '.
+              '%s nút dưới đây.',
+              phutil_tag('strong', array(), pht('Giúp đỡ'))),
             pht(
-              'To add an authentication factor, click the %s button below.',
-              phutil_tag('strong', array(), pht('Add Authentication Factor'))),
+              'Để thêm một yếu tố xác thực, hãy bấm vào % s nút bên dưới.',
+              phutil_tag('strong', array(), pht('Thêm xác thực người dùng'))),
             pht(
-              'To continue, add at least one authentication factor to your '.
-              'account.'),
+              'Để tiếp tục, thêm ít nhất một yếu tố xác thực'.
+               'tài khoản của bạn.'),
           ));
     } else {
       $help = id(new PHUIInfoView())
-        ->setTitle(pht('Multi-Factor Authentication Configured'))
+        ->setTitle(pht('Cấu hình xác thực đa người dùng'))
         ->setSeverity(PHUIInfoView::SEVERITY_NOTICE)
         ->setErrors(
           array(
             pht(
-              'You have successfully configured multi-factor authentication '.
-              'for your account.'),
+              'Bạn đã cấu hình thành công xác thực đa người dùng  '.
+              'cho tài khoản của bạn.'),
             pht(
-              'You can make adjustments from the Settings panel later.'),
+              'Bạn có thể điều chỉnh từ bảng điều khiển Cài đặt sau.'),
             pht(
-              'When you are ready, %s.',
+              'Khi bạn đã sẵn sàng, %s.',
               phutil_tag(
                 'strong',
                 array(),
@@ -72,7 +72,7 @@ final class PhabricatorAuthNeedsMultiFactorController
                   array(
                     'href' => '/',
                   ),
-                  pht('continue to Phabricator')))),
+                  pht('tiếp tục Phabricator')))),
           ));
     }
 
@@ -82,7 +82,7 @@ final class PhabricatorAuthNeedsMultiFactorController
     );
 
     return $this->newPage()
-      ->setTitle(pht('Add Multi-Factor Authentication'))
+      ->setTitle(pht('Thêm xác thực người dùng'))
       ->setCrumbs($crumbs)
       ->appendChild($view);
 

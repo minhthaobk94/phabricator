@@ -46,14 +46,14 @@ final class PhabricatorAuthSSHKeyDeactivateController
     $name = phutil_tag('strong', array(), $key->getName());
 
     return $this->newDialog()
-      ->setTitle(pht('Deactivate SSH Public Key'))
+      ->setTitle(pht('Tắt SSH Khóa Ngoại '))
       ->appendParagraph(
         pht(
-          'The key "%s" will be permanently deactivated, and you will no '.
-          'longer be able to use the corresponding private key to '.
-          'authenticate.',
+          'Chìa khóa "% s" sẽ bị ngừng hoạt động vĩnh viễn, và bạn sẽ không có'.
+          'còn có thể sử dụng khóa riêng tương ứng với '.
+          'xác nhận.',
           $name))
-      ->addSubmitButton(pht('Deactivate Public Key'))
+      ->addSubmitButton(pht('Tắt Khóa Ngoại'))
       ->addCancelButton($cancel_uri);
   }
 

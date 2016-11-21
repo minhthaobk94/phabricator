@@ -14,7 +14,7 @@ final class AlmanacBindingPropertyEditEngine
   }
 
   protected function getObjectName() {
-    return pht('Property');
+    return pht('Thuộc tính');
   }
 
 }

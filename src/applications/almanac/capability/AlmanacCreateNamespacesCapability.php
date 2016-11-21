@@ -6,11 +6,11 @@ final class AlmanacCreateNamespacesCapability
   const CAPABILITY = 'almanac.namespaces';
 
   public function getCapabilityName() {
-    return pht('Can Create Namespaces');
+    return pht('Có thể tạo mới tên');
   }
 
   public function describeCapabilityRejection() {
-    return pht('You do not have permission to create Almanac namespaces.');
+    return pht('Bạn không được phép tạo mới tên.');
   }
 
 }

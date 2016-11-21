@@ -15,7 +15,7 @@ final class PhabricatorSlowvoteApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Conduct Polls');
+    return pht('Bình chọn ứng xử');
   }
 
   public function getTitleGlyph() {
@@ -25,14 +25,14 @@ final class PhabricatorSlowvoteApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Slowvote User Guide'),
+        'name' => pht('Hướng dẫn sử dụng Slowvote '),
         'href' => PhabricatorEnv::getDoclink('Slowvote User Guide'),
       ),
     );
   }
 
   public function getFlavorText() {
-    return pht('Design by committee.');
+    return pht('Thiết kế bởi ủy ban.');
   }
 
   public function getApplicationGroup() {

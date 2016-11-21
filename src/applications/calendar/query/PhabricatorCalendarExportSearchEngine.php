@@ -4,7 +4,7 @@ final class PhabricatorCalendarExportSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Calendar Exports');
+    return pht('Xuất lịch');
   }
 
   public function getApplicationClassName() {
@@ -34,7 +34,7 @@ final class PhabricatorCalendarExportSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All Exports'),
+      'all' => pht('Xuất tất cả'),
     );
 
     return $names;
@@ -64,7 +64,7 @@ final class PhabricatorCalendarExportSearchEngine
     foreach ($exports as $export) {
       $item = id(new PHUIObjectItemView())
         ->setViewer($viewer)
-        ->setObjectName(pht('Export %d', $export->getID()))
+        ->setObjectName(pht('Xuất %d', $export->getID()))
         ->setHeader($export->getName())
         ->setHref($export->getURI());
 
@@ -86,13 +86,13 @@ final class PhabricatorCalendarExportSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No exports found.'));
+    $result->setNoDataString(pht('Không tìm thấy.'));
 
     return $result;
   }
 
   protected function getNewUserBody() {
-    $doc_name = 'Calendar User Guide: Exporting Events';
+    $doc_name = 'Hướng dẫn người dùng: Xuất sự kiện';
     $doc_href = PhabricatorEnv::getDoclink($doc_name);
 
     $create_button = id(new PHUIButtonView())
@@ -106,11 +106,11 @@ final class PhabricatorCalendarExportSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon('fa-download')
-      ->setTitle(pht('No Exports Configured'))
+      ->setTitle(pht('Không cấu hình'))
       ->setDescription(
         pht(
-          'You have not set up any events for export from Calendar yet. '.
-          'See the documentation for instructions on how to get started.'))
+          'Bạn chưa thiết lập bất kỳ sự kiện cho xuất khẩu từ Lịch chưa. '.
+          'Xem tài liệu hướng dẫn về làm thế nào để bắt đầu.'))
       ->addAction($create_button);
 
     return $view;

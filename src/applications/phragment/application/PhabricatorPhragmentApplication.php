@@ -11,7 +11,7 @@ final class PhabricatorPhragmentApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Versioned Artifact Storage');
+    return pht('Phiên bản lưu trữ Artifact ');
   }
 
   public function getIcon() {

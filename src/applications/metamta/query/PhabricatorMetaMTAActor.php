@@ -89,24 +89,24 @@ final class PhabricatorMetaMTAActor extends Phobject {
 
   public static function getReasonName($reason) {
     $names = array(
-      self::REASON_NONE => pht('None'),
-      self::REASON_DISABLED => pht('Disabled Recipient'),
-      self::REASON_BOT => pht('Bot Recipient'),
-      self::REASON_NO_ADDRESS => pht('No Address'),
-      self::REASON_EXTERNAL_TYPE => pht('External Recipient'),
-      self::REASON_UNMAILABLE => pht('Not Mailable'),
-      self::REASON_RESPONSE => pht('Similar Reply'),
-      self::REASON_SELF => pht('Self Mail'),
-      self::REASON_MAIL_DISABLED => pht('Mail Disabled'),
+      self::REASON_NONE => pht('Trống'),
+      self::REASON_DISABLED => pht('ẩn người nhận'),
+      self::REASON_BOT => pht('Nhan Bot'),
+      self::REASON_NO_ADDRESS => pht('Không địa chỉ'),
+      self::REASON_EXTERNAL_TYPE => pht('Người nhận bên ngoài'),
+      self::REASON_UNMAILABLE => pht('Không thể gửi thư'),
+      self::REASON_RESPONSE => pht('Trả lời tương tự'),
+      self::REASON_SELF => pht('Tự thư'),
+      self::REASON_MAIL_DISABLED => pht('Ân mail'),
       self::REASON_MAILTAGS => pht('Mail Tags'),
-      self::REASON_UNLOADABLE => pht('Bad Recipient'),
-      self::REASON_FORCE => pht('Forced Mail'),
-      self::REASON_FORCE_HERALD => pht('Forced by Herald'),
-      self::REASON_ROUTE_AS_NOTIFICATION => pht('Route as Notification'),
-      self::REASON_ROUTE_AS_MAIL => pht('Route as Mail'),
+      self::REASON_UNLOADABLE => pht('Nhận được Bad'),
+      self::REASON_FORCE => pht('Mail bắc buộc'),
+      self::REASON_FORCE_HERALD => pht('Bắc buộc bởi Herald'),
+      self::REASON_ROUTE_AS_NOTIFICATION => pht('Route như thông báo'),
+      self::REASON_ROUTE_AS_MAIL => pht('Route nhw Mail'),
     );
 
-    return idx($names, $reason, pht('Unknown ("%s")', $reason));
+    return idx($names, $reason, pht('Không biết ("%s")', $reason));
   }
 
   public static function getReasonDescription($reason) {
@@ -160,7 +160,7 @@ final class PhabricatorMetaMTAActor extends Phobject {
         'in Herald.'),
     );
 
-    return idx($descriptions, $reason, pht('Unknown Reason ("%s")', $reason));
+    return idx($descriptions, $reason, pht('Không hiểu lý do ("%s")', $reason));
   }
 
 

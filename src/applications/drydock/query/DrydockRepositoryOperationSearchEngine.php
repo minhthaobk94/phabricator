@@ -4,7 +4,7 @@ final class DrydockRepositoryOperationSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Drydock Repository Operations');
+    return pht('Hoạt động Repository');
   }
 
   public function getApplicationClassName() {
@@ -32,7 +32,7 @@ final class DrydockRepositoryOperationSearchEngine
 
   protected function getBuiltinQueryNames() {
     return array(
-      'all' => pht('All Operations'),
+      'all' => pht('Tất cả hoạt động'),
     );
   }
 
@@ -63,7 +63,7 @@ final class DrydockRepositoryOperationSearchEngine
       $item = id(new PHUIObjectItemView())
         ->setHeader($operation->getOperationDescription($viewer))
         ->setHref($this->getApplicationURI("operation/{$id}/"))
-        ->setObjectName(pht('Repository Operation %d', $id));
+        ->setObjectName(pht('Hoạt động Repository %d', $id));
 
       $state = $operation->getOperationState();
 
@@ -93,7 +93,7 @@ final class DrydockRepositoryOperationSearchEngine
 
     $result = id(new PhabricatorApplicationSearchResultView())
       ->setObjectList($view)
-      ->setNoDataString(pht('No matching operations.'));
+      ->setNoDataString(pht('Hoạt động không khớp.'));
 
     return $result;
   }

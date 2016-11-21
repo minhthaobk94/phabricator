@@ -25,11 +25,10 @@ final class AlmanacInterfaceDeleteController
 
     if ($interface->loadIsInUse()) {
       return $this->newDialog()
-        ->setTitle(pht('Interface In Use'))
+        ->setTitle(pht('Giao diện sử dụng'))
         ->appendParagraph(
           pht(
-            'You can not delete this interface because it is currently in '.
-            'use. One or more services are bound to it.'))
+            'Bạn không thể xóa giao diện này. Vì nó đang được sử  dụng'))
         ->addCancelButton($device_uri);
     }
 
@@ -62,11 +61,11 @@ final class AlmanacInterfaceDeleteController
       ->setTitle(pht('Delete Interface'))
       ->appendParagraph(
         pht(
-          'Remove interface %s on device %s?',
+          'Xóa giao diện %s trên thiết bị %s?',
           phutil_tag('strong', array(), $interface->renderDisplayAddress()),
           phutil_tag('strong', array(), $device->getName())))
       ->addCancelButton($device_uri)
-      ->addSubmitButton(pht('Delete Interface'));
+      ->addSubmitButton(pht('Xóa'));
   }
 
 }

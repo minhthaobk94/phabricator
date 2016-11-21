@@ -690,7 +690,7 @@ final class PhabricatorUser
       PhabricatorAuthSessionEngine::ONETIME_WELCOME);
 
     $body = pht(
-      "Welcome to Phabricator!\n\n".
+      "Chào mừng đến với Phabricator!\n\n".
       "%s (%s) has created an account for you.\n\n".
       "  Username: %s\n\n".
       "To login to Phabricator, follow this link and set a password:\n\n".
@@ -713,7 +713,7 @@ final class PhabricatorUser
     $mail = id(new PhabricatorMetaMTAMail())
       ->addTos(array($this->getPHID()))
       ->setForceDelivery(true)
-      ->setSubject(pht('[Phabricator] Welcome to Phabricator'))
+      ->setSubject(pht('[Phabricator] Chào mừng đến với Phabricator'))
       ->setBody($body)
       ->saveAndSend();
   }

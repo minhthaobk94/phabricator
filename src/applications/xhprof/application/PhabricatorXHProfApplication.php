@@ -11,7 +11,7 @@ final class PhabricatorXHProfApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Công cụ về PHP');
+    return pht('Công cụ PHP Profiling ');
   }
 
   public function getIcon() {

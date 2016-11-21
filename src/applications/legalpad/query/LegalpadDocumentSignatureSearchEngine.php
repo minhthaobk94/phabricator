@@ -6,7 +6,7 @@ final class LegalpadDocumentSignatureSearchEngine
   private $document;
 
   public function getResultTypeDescription() {
-    return pht('Legalpad Signatures');
+    return pht('Chữ ký pháp lý');
   }
 
   public function getApplicationClassName() {
@@ -83,7 +83,7 @@ final class LegalpadDocumentSignatureSearchEngine
           id(new AphrontFormTokenizerControl())
             ->setDatasource(new LegalpadDocumentDatasource())
             ->setName('documents')
-            ->setLabel(pht('Documents'))
+            ->setLabel(pht('Tài liệu'))
             ->setValue($document_phids));
     }
 
@@ -95,16 +95,16 @@ final class LegalpadDocumentSignatureSearchEngine
         id(new AphrontFormTokenizerControl())
           ->setDatasource(new PhabricatorPeopleDatasource())
           ->setName('signers')
-          ->setLabel(pht('Signers'))
+          ->setLabel(pht('Người ký'))
           ->setValue($signer_phids))
       ->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel(pht('Name Contains'))
+          ->setLabel(pht('Tên'))
           ->setName('nameContains')
           ->setValue($name_contains))
       ->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel(pht('Email Contains'))
+          ->setLabel(pht('Email'))
           ->setName('emailContains')
           ->setValue($email_contains));
   }
@@ -119,7 +119,7 @@ final class LegalpadDocumentSignatureSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All Signatures'),
+      'all' => pht('Tất cả chữ ký'),
     );
 
     return $names;
@@ -185,7 +185,7 @@ final class LegalpadDocumentSignatureSearchEngine
     id(new PHUIIconView())
       ->setIcon('fa-envelope', 'red')
       ->addSigil('has-tooltip')
-      ->setMetadata(array('tip' => pht('Unverified Email')));
+      ->setMetadata(array('tip' => pht('Email không được kiểm tra')));
 
     $type_corporate = LegalpadDocument::SIGNATURE_TYPE_CORPORATION;
 
@@ -239,15 +239,15 @@ final class LegalpadDocumentSignatureSearchEngine
     }
 
     $table = id(new AphrontTableView($rows))
-      ->setNoDataString(pht('No signatures match the query.'))
+      ->setNoDataString(pht('Chữ ký không khớp.'))
       ->setHeaders(
         array(
           '',
-          pht('Document'),
-          pht('Account'),
-          pht('Name'),
+          pht('Tài liệu'),
+          pht('Tài khoản'),
+          pht('Tên'),
           pht('Email'),
-          pht('Signed'),
+          pht('Đã ký'),
         ))
       ->setColumnVisibility(
         array(
@@ -272,7 +272,7 @@ final class LegalpadDocumentSignatureSearchEngine
       $document_id = $this->document->getID();
 
       $button = id(new PHUIButtonView())
-          ->setText(pht('Add Exemption'))
+          ->setText(pht('Thêm ưu đãi'))
           ->setTag('a')
           ->setHref($this->getApplicationURI('addsignature/'.$document_id.'/'))
           ->setWorkflow(true)
@@ -281,8 +281,8 @@ final class LegalpadDocumentSignatureSearchEngine
 
     if (!$this->document) {
       $table->setNotice(
-        pht('NOTE: You can only see your own signatures and signatures on '.
-            'documents you have permission to edit.'));
+        pht('Chú ý: Có thể bạn chỉ thấy chữ ký của mình trên tài liệu '.
+            'bạn cần có thêm quyền chỉnh sửa.'));
     }
 
     $result = new PhabricatorApplicationSearchResultView();

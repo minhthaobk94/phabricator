@@ -183,7 +183,7 @@ final class PhabricatorDaemonLogQuery
           PhabricatorDaemonLog::STATUS_EXITING,
         );
       default:
-        throw new Exception(pht('Unknown status "%s"!', $status));
+        throw new Exception(pht('Trạng thái không rõ "%s"!', $status));
     }
   }
 

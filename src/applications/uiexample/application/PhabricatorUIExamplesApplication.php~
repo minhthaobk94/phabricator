@@ -15,7 +15,11 @@ final class PhabricatorUIExamplesApplication extends PhabricatorApplication {
   }
 
   public function getIcon() {
+<<<<<<< HEAD
+    return 'fa-bug';
+=======
     return 'fa-magnet';
+>>>>>>> origin/master
   }
 
   public function getTitleGlyph() {

@@ -21,7 +21,7 @@ final class PhabricatorEmailLoginController
 
     if ($request->isFormPost()) {
       $e_email = null;
-      $e_captcha = pht('Again');
+      $e_captcha = pht('Lần nữa');
 
       $captcha_ok = AphrontFormRecaptchaControl::processCaptcha($request);
       if (!$captcha_ok) {

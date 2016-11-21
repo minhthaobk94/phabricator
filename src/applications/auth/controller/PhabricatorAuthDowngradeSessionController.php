@@ -11,10 +11,10 @@ final class PhabricatorAuthDowngradeSessionController
     $session = $viewer->getSession();
     if ($session->getHighSecurityUntil() < time()) {
       return $this->newDialog()
-        ->setTitle(pht('Normal Security Restored'))
+        ->setTitle(pht('Phục hồi an ninh bình thường'))
         ->appendParagraph(
-          pht('Your session is no longer in high security.'))
-        ->addCancelButton($panel_uri, pht('Continue'));
+          pht('Phiên của bạn không còn trong bảo mật cao.'))
+        ->addCancelButton($panel_uri, pht('Tiếp tục'));
     }
 
     if ($request->isFormPost()) {
@@ -27,21 +27,20 @@ final class PhabricatorAuthDowngradeSessionController
     }
 
     return $this->newDialog()
-      ->setTitle(pht('Leaving High Security'))
+      ->setTitle(pht('Bỏ bảo mật cao'))
       ->appendParagraph(
         pht(
-          'Leave high security and return your session to normal '.
-          'security levels?'))
+          'Bỏ bảo mật cao và trả lại phiên của bạn bình thường'.
+          'cấp độ bảo mật?'))
       ->appendParagraph(
         pht(
-          'If you leave high security, you will need to authenticate '.
-          'again the next time you try to take a high security action.'))
+          'Nếu bạn bỏ bảo mật cao, bạn sẽ cần phải xác thực lại lần sau khi bạn cố gắng để có một hành động an ninh cao '.))
       ->appendParagraph(
         pht(
-          'On the plus side, that purple notification bubble will '.
-          'disappear.'))
-      ->addSubmitButton(pht('Leave High Security'))
-      ->addCancelButton($panel_uri, pht('Stay'));
+          'Bên góc, sẽ có thông báo màu đỏ
+           "Biến mất.'))
+      ->addSubmitButton(pht('Bỏ bảo mật cao'))
+      ->addCancelButton($panel_uri, pht('Ở LẠI'));
   }
 
 

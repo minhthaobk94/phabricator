@@ -36,7 +36,7 @@ final class PhabricatorAuthSSHKeyGenerateController
 
       $type = $public_key->getType();
       $body = $public_key->getBody();
-      $comment = pht('Generated');
+      $comment = pht('Tạo');
 
       $entire_key = "{$type} {$body} {$comment}";
 
@@ -67,40 +67,39 @@ final class PhabricatorAuthSSHKeyGenerateController
       // key.
 
       return $this->newDialog()
-        ->setTitle(pht('Download Private Key'))
+        ->setTitle(pht('Tải khóa chính'))
         ->setDisableWorkflowOnCancel(true)
         ->setDisableWorkflowOnSubmit(true)
         ->setSubmitURI($file->getDownloadURI())
         ->appendParagraph(
           pht(
-            'A keypair has been generated, and the public key has been '.
-            'added as a recognized key. Use the button below to download '.
-            'the private key.'))
+            'Một cặp khóa đã được tạo ra, và khóa công khai đã được '.
+            'thêm vào như là một chìa khóa công nhận. Sử dụng các nút dưới đây để tải về'.
+            'khóa chính.'))
         ->appendParagraph(
           pht(
-            'After you download the private key, it will be destroyed. '.
-            'You will not be able to retrieve it if you lose your copy.'))
-        ->addSubmitButton(pht('Download Private Key'))
-        ->addCancelButton($cancel_uri, pht('Done'));
+            'Sau khi bạn tải về các khóa riêng, nó sẽ bị phá hủy.Bạn sẽ không thể lấy nó nếu bạn bị mất bản sao của bạn.'))
+        ->addSubmitButton(pht('Tải khóa chính'))
+        ->addCancelButton($cancel_uri, pht('Xong'));
     }
 
     try {
       PhabricatorSSHKeyGenerator::assertCanGenerateKeypair();
 
       return $this->newDialog()
-        ->setTitle(pht('Generate New Keypair'))
+        ->setTitle(pht('Tạo KeyPair'))
         ->addHiddenInput('objectPHID', $key->getObject()->getPHID())
         ->appendParagraph(
           pht(
-            'This workflow will generate a new SSH keypair, add the public '.
-            'key, and let you download the private key.'))
+            'Quy trình này sẽ tạo ra một cặp khóa SSH mới, thêm công chúng '.
+            'quan trọng, và cho phép bạn tải về các khóa riêng.'))
         ->appendParagraph(
-          pht('Phabricator will not retain a copy of the private key.'))
-        ->addSubmitButton(pht('Generate New Keypair'))
+          pht('Phabricator sẽ không giữ lại một bản sao của khóa riêng.'))
+        ->addSubmitButton(pht('Tạo KeyPair'))
         ->addCancelButton($cancel_uri);
     } catch (Exception $ex) {
       return $this->newDialog()
-        ->setTitle(pht('Unable to Generate Keys'))
+        ->setTitle(pht('Ẩn Tạo KeyPair'))
         ->appendParagraph($ex->getMessage())
         ->addCancelButton($cancel_uri);
     }

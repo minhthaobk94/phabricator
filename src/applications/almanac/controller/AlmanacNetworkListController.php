@@ -24,7 +24,7 @@ final class AlmanacNetworkListController
 
     $crumbs->addAction(
       id(new PHUIListItemView())
-        ->setName(pht('Create Network'))
+        ->setName(pht('Tạo mới mạng'))
         ->setHref($this->getApplicationURI('network/edit/'))
         ->setIcon('fa-plus-square')
         ->setDisabled(!$can_create)

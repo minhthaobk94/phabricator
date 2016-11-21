@@ -15,7 +15,7 @@ final class PhabricatorSontxApplication extends PhabricatorApplication {
   }
 
   public function getIcon() {
-    return 'fa-cog';
+    return 'fa-bug';
   }
 
   public function isPinnedByDefault(PhabricatorUser $viewer) {

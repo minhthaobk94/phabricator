@@ -39,17 +39,17 @@ final class PhrictionDocumentController
       $document = PhrictionDocument::initializeNewDocument($viewer, $slug);
 
       if ($slug == '/') {
-        $title = pht('Welcome to Phriction');
-        $subtitle = pht('Phriction is a simple and easy to use wiki for '.
-          'keeping track of documents and their changes.');
-        $page_title = pht('Welcome');
-        $create_text = pht('Edit this Document');
+        $title = pht('Chào mừng đến với  Phriction');
+        $subtitle = pht('Phriction là một đơn giản và dễ sử dụng wiki '.
+          'giữ dõi các tài liệu và thay đổi của họ.');
+        $page_title = pht('Chào mừng');
+        $create_text = pht('Sửa tài liệu');
 
       } else {
-        $title = pht('No Document Here');
-        $subtitle = pht('There is no document here, but you may create it.');
-        $page_title = pht('Page Not Found');
-        $create_text = pht('Create this Document');
+        $title = pht('Không có tài liệu tại đây';
+        $subtitle = pht('Không có tài liệu ở đây, nhưng bạn có thể tạo ra nó.');
+        $page_title = pht('Không tìm thấy trang');
+        $create_text = pht('Tạo tài liệu');
       }
 
       $create_uri = '/phriction/edit/?slug='.$slug;
@@ -103,7 +103,7 @@ final class PhrictionDocumentController
       } else if ($current_status == PhrictionChangeType::CHANGE_DELETE) {
         $notice = new PHUIInfoView();
         $notice->setSeverity(PHUIInfoView::SEVERITY_NOTICE);
-        $notice->setTitle(pht('Document Deleted'));
+        $notice->setTitle(pht('Tài liệu được xóa'));
         $notice->appendChild(
           pht('This document has been deleted. You can edit it to put new '.
           'content here, or use history to revert to an earlier version.'));
@@ -111,7 +111,7 @@ final class PhrictionDocumentController
       } else if ($current_status == PhrictionChangeType::CHANGE_STUB) {
         $notice = new PHUIInfoView();
         $notice->setSeverity(PHUIInfoView::SEVERITY_NOTICE);
-        $notice->setTitle(pht('Empty Document'));
+        $notice->setTitle(pht('Tài liệu rỗng '));
         $notice->appendChild(
           pht('This document is empty. You can edit it to put some proper '.
           'content here.'));
@@ -157,7 +157,7 @@ final class PhrictionDocumentController
 
         $core_content = $notice->render();
       } else {
-        throw new Exception(pht("Unknown document status '%s'!", $doc_status));
+        throw new Exception(pht("Không hiểu trạng thái tài liệu'%s'!", $doc_status));
       }
 
       $move_notice = null;
@@ -182,7 +182,7 @@ final class PhrictionDocumentController
         if ($slug_uri) {
           $move_notice->appendChild(
             pht(
-              'This document was moved from %s.',
+              'Tài liệu này đã được chuyeenr vaof ư %s.',
               phutil_tag('a', array('href' => $slug_uri), $slug_uri)));
         } else {
           // Render this for consistency, even though it's a bit silly.
@@ -276,14 +276,14 @@ final class PhrictionDocumentController
     if (!$document->getID()) {
       return $action_view->addAction(
         id(new PhabricatorActionView())
-          ->setName(pht('Create This Document'))
+          ->setName(pht('Tạo tài liệu'))
           ->setIcon('fa-plus-square')
           ->setHref('/phriction/edit/?slug='.$slug));
     }
 
     $action_view->addAction(
       id(new PhabricatorActionView())
-        ->setName(pht('Edit Document'))
+        ->setName(pht('Sửa tài liệu'))
         ->setDisabled(!$can_edit)
         ->setIcon('fa-pencil')
         ->setHref('/phriction/edit/'.$document->getID().'/'));
@@ -291,7 +291,7 @@ final class PhrictionDocumentController
     if ($document->getStatus() == PhrictionDocumentStatus::STATUS_EXISTS) {
       $action_view->addAction(
         id(new PhabricatorActionView())
-          ->setName(pht('Move Document'))
+          ->setName(pht('Di chuyển tài liệu'))
           ->setDisabled(!$can_edit)
           ->setIcon('fa-arrows')
           ->setHref('/phriction/move/'.$document->getID().'/')
@@ -299,7 +299,7 @@ final class PhrictionDocumentController
 
       $action_view->addAction(
         id(new PhabricatorActionView())
-          ->setName(pht('Delete Document'))
+          ->setName(pht('Xóa tài liệu'))
           ->setDisabled(!$can_edit)
           ->setIcon('fa-times')
           ->setHref('/phriction/delete/'.$document->getID().'/')
@@ -316,7 +316,7 @@ final class PhrictionDocumentController
 
     $action_view->addAction(
       id(new PhabricatorActionView())
-      ->setName(pht('Printable Page'))
+      ->setName(pht('In trang '))
       ->setIcon('fa-print')
       ->setOpenInNewWindow(true)
       ->setHref($print_uri));

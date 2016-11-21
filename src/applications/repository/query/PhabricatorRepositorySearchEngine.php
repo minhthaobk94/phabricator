@@ -24,10 +24,10 @@ final class PhabricatorRepositorySearchEngine
         ->setLabel(pht('Callsigns'))
         ->setKey('callsigns'),
       id(new PhabricatorSearchTextField())
-        ->setLabel(pht('Name Contains'))
+        ->setLabel(pht('Tên bao hàm'))
         ->setKey('name'),
       id(new PhabricatorSearchSelectField())
-        ->setLabel(pht('Status'))
+        ->setLabel(pht('Trạng thái'))
         ->setKey('status')
         ->setOptions($this->getStatusOptions()),
       id(new PhabricatorSearchSelectField())
@@ -35,14 +35,14 @@ final class PhabricatorRepositorySearchEngine
         ->setKey('hosted')
         ->setOptions($this->getHostedOptions()),
       id(new PhabricatorSearchCheckboxesField())
-        ->setLabel(pht('Types'))
+        ->setLabel(pht('Loại'))
         ->setKey('types')
         ->setOptions(PhabricatorRepositoryType::getAllRepositoryTypes()),
       id(new PhabricatorSearchStringListField())
         ->setLabel(pht('URIs'))
         ->setKey('uris')
         ->setDescription(
-          pht('Search for repositories by clone/checkout URI.')),
+          pht('Tìm kiếm cho các kho của clone / kiểm URI.')),
     );
   }
 
@@ -88,8 +88,8 @@ final class PhabricatorRepositorySearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'active' => pht('Active Repositories'),
-      'all' => pht('All Repositories'),
+      'active' => pht('Repositories hoạt động'),
+      'all' => pht('Ttất cả các Repositories'),
     );
 
     return $names;
@@ -261,9 +261,9 @@ final class PhabricatorRepositorySearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
-        pht('Import, create, or just browse repositories in Diffusion.'))
+        pht('Nhập, tạo ra, hoặc chỉ cần trình duyệt kho trong Diffusion.'))
       ->addAction($new_button);
 
       return $view;

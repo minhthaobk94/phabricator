@@ -36,11 +36,11 @@ final class PhabricatorAuthSSHKeyEditController
       $id = $key->getID();
 
       return $this->newDialog()
-        ->setTitle(pht('Can Not Edit Trusted Key'))
+        ->setTitle(pht('Không thể Chỉnh sửa khóa chính'))
         ->appendParagraph(
           pht(
-            'This key is trusted. Trusted keys can not be edited. '.
-            'Use %s to revoke trust before editing the key.',
+            'Chìa khóa này là đáng tin cậy. phím Trusted không thể chỉnh sửa. '.
+            'Sử dụng% s thu hồi niềm tin trước khi chỉnh sửa phím.',
             phutil_tag(
               'tt',
               array(),
@@ -117,12 +117,12 @@ final class PhabricatorAuthSSHKeyEditController
           ->setError($e_key));
 
     if ($is_new) {
-      $title = pht('Upload SSH Public Key');
-      $save_button = pht('Upload Public Key');
+      $title = pht('Tải lên SSH Khóa ngoại');
+      $save_button = pht('Tải lên SSH Khóa ngoại');
       $form->addHiddenInput('objectPHID', $key->getObject()->getPHID());
     } else {
-      $title = pht('Edit SSH Public Key');
-      $save_button = pht('Save Changes');
+      $title = pht('Sửa SSH Khóa ngoại');
+      $save_button = pht('Lưu');
     }
 
     return $this->newDialog()

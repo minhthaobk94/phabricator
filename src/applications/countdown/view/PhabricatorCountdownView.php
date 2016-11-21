@@ -28,10 +28,10 @@ final class PhabricatorCountdownView extends AphrontView {
       ->setHeader($header_text);
 
     $ths = array(
-      phutil_tag('th', array(), pht('Days')),
-      phutil_tag('th', array(), pht('Hours')),
-      phutil_tag('th', array(), pht('Minutes')),
-      phutil_tag('th', array(), pht('Seconds')),
+      phutil_tag('th', array(), pht('Ngày')),
+      phutil_tag('th', array(), pht('Giờ')),
+      phutil_tag('th', array(), pht('Phút')),
+      phutil_tag('th', array(), pht('Giây')),
     );
 
     $dashes = array(

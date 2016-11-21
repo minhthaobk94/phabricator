@@ -21,7 +21,7 @@ final class AlmanacDeviceViewController
       return new Aphront404Response();
     }
 
-    $title = pht('Device %s', $device->getName());
+    $title = pht('Thiết bị %s', $device->getName());
 
     $curtain = $this->buildCurtain($device);
 
@@ -34,11 +34,11 @@ final class AlmanacDeviceViewController
     $issue = null;
     if ($device->isClusterDevice()) {
       $issue = $this->addClusterMessage(
-        pht('This device is bound to a cluster service.'),
+        pht('Thiết bị này được bao bởi một cụm dịch vụ.'),
         pht(
-          'This device is bound to a cluster service. You do not have '.
-          'permission to manage cluster services, so the device can not '.
-          'be edited.'));
+          'Thiết bị này được bao bởi một cụm dịch vụ. '.
+          'Bạn không có quyền điều khiển cụm dịch vụ. '.
+          'Cho nên thiết bị không được chỉnh sửa.'));
     }
 
     $interfaces = $this->buildInterfaceList($device);
@@ -89,7 +89,7 @@ final class AlmanacDeviceViewController
     $curtain->addAction(
       id(new PhabricatorActionView())
         ->setIcon('fa-pencil')
-        ->setName(pht('Edit Device'))
+        ->setName(pht('Sủa thiết bị'))
         ->setHref($edit_uri)
         ->setWorkflow(!$can_edit)
         ->setDisabled(!$can_edit));
@@ -117,14 +117,14 @@ final class AlmanacDeviceViewController
       ->setCanEdit($can_edit);
 
     $header = id(new PHUIHeaderView())
-      ->setHeader(pht('Device Interfaces'))
+      ->setHeader(pht('Giao diện thiết bị'))
       ->addActionLink(
         id(new PHUIButtonView())
           ->setTag('a')
           ->setHref($this->getApplicationURI("interface/edit/?deviceID={$id}"))
           ->setWorkflow(!$can_edit)
           ->setDisabled(!$can_edit)
-          ->setText(pht('Add Interface'))
+          ->setText(pht('Thêm giao diện'))
           ->setIcon('fa-plus'));
 
     return id(new PHUIObjectBoxView())
@@ -155,14 +155,14 @@ final class AlmanacDeviceViewController
       ->setCanEdit($can_edit)
       ->setShowID(true)
       ->setShowTrusted(true)
-      ->setNoDataString(pht('This device has no associated SSH public keys.'));
+      ->setNoDataString(pht('Thiết bị này không có kết nối với mã khóa SSH.'));
 
     $menu_button = PhabricatorAuthSSHKeyTableView::newKeyActionsMenu(
       $viewer,
       $device);
 
     $header = id(new PHUIHeaderView())
-      ->setHeader(pht('SSH Public Keys'))
+      ->setHeader(pht('Mã SSH'))
       ->addActionLink($menu_button);
 
     return id(new PHUIObjectBoxView())
@@ -201,11 +201,11 @@ final class AlmanacDeviceViewController
     }
 
     $table = id(new AphrontTableView($rows))
-      ->setNoDataString(pht('No services are bound to this device.'))
+      ->setNoDataString(pht('Không có dịch vụ nào cung cấp cho thiết bị này.'))
       ->setHeaders(
         array(
           null,
-          pht('Service'),
+          pht('Dịch vụ'),
         ))
       ->setColumnClasses(
         array(
@@ -214,7 +214,7 @@ final class AlmanacDeviceViewController
         ));
 
     return id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Bound Services'))
+      ->setHeaderText(pht('Dịch vụ cung cấp'))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->setTable($table);
   }

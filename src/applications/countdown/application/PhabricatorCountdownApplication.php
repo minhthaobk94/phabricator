@@ -11,11 +11,11 @@ final class PhabricatorCountdownApplication extends PhabricatorApplication {
   }
 
   public function getName() {
-    return pht('Countdown');
+    return pht('Đếm ngược');
   }
 
   public function getShortDescription() {
-    return pht('Countdown to Events');
+    return pht('Đếm ngược đến sự kiện');
   }
 
   public function getTitleGlyph() {
@@ -23,7 +23,7 @@ final class PhabricatorCountdownApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Utilize the full capabilities of your ALU.');
+    return pht('Sử dụng đầy đủ tính năng của ALU của bạn.');
   }
 
   public function getApplicationGroup() {
@@ -57,12 +57,12 @@ final class PhabricatorCountdownApplication extends PhabricatorApplication {
   protected function getCustomCapabilities() {
     return array(
       PhabricatorCountdownDefaultViewCapability::CAPABILITY => array(
-        'caption' => pht('Default view policy for new countdowns.'),
+        'caption' => pht('Xem dạng mặc định chính sách đối với đồng hồ đếm ngược mới.'),
         'template' => PhabricatorCountdownCountdownPHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_VIEW,
       ),
       PhabricatorCountdownDefaultEditCapability::CAPABILITY => array(
-        'caption' => pht('Default edit policy for new countdowns.'),
+        'caption' => pht('Mặc định chỉnh sửa chính sách đếm ngược mới.'),
         'template' => PhabricatorCountdownCountdownPHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_EDIT,
       ),

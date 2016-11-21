@@ -4,7 +4,7 @@ final class PhabricatorSlowvoteSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Slowvotes');
+    return pht('Bình chọn');
   }
 
   public function getApplicationClassName() {
@@ -45,19 +45,19 @@ final class PhabricatorSlowvoteSearchEngine
       id(new PhabricatorUsersSearchField())
         ->setKey('authorPHIDs')
         ->setAliases(array('authors'))
-        ->setLabel(pht('Authors')),
+        ->setLabel(pht('Tác giả')),
 
       id(new PhabricatorSearchCheckboxesField())
         ->setKey('voted')
         ->setOptions(array(
-          'voted' => pht("Show only polls I've voted in."),
+          'voted' => pht("Chỉ hiện thị những bình chọn tôi đã chọn."),
           )),
 
       id(new PhabricatorSearchCheckboxesField())
         ->setKey('statuses')
         ->setOptions(array(
-          'open' => pht('Open'),
-          'closed' => pht('Closed'),
+          'open' => pht('Mở'),
+          'closed' => pht('ĐÓng'),
           )),
     );
   }
@@ -68,13 +68,13 @@ final class PhabricatorSlowvoteSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'open' => pht('Open Polls'),
-      'all' => pht('All Polls'),
+      'open' => pht('Bình chọn mở'),
+      'all' => pht('Tất cả bình chọn'),
     );
 
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['authored'] = pht('Authored');
-      $names['voted'] = pht('Voted In');
+      $names['authored'] = pht('Tác giả');
+      $names['voted'] = pht('Bình chọn');
     }
 
     return $names;
@@ -150,7 +150,7 @@ final class PhabricatorSlowvoteSearchEngine
       }
 
       if ($author) {
-        $item->addByline(pht('Author: %s', $author));
+        $item->addByline(pht('Tác giả: %s', $author));
       }
 
       $list->addItem($item);
@@ -158,7 +158,7 @@ final class PhabricatorSlowvoteSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No polls found.'));
+    $result->setNoDataString(pht('Không tìm thấy bình chọn.'));
 
     return $result;
   }
@@ -166,7 +166,7 @@ final class PhabricatorSlowvoteSearchEngine
   protected function getNewUserBody() {
     $create_button = id(new PHUIButtonView())
       ->setTag('a')
-      ->setText(pht('Create a Poll'))
+      ->setText(pht('Tạo mới bình chọn'))
       ->setHref('/vote/create/')
       ->setColor(PHUIButtonView::GREEN);
 
@@ -174,9 +174,9 @@ final class PhabricatorSlowvoteSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
-        pht('Poll other users to help facilitate decision making.'))
+        pht('Bình chọn nên được suy nghĩ kỹ càng.'))
       ->addAction($create_button);
 
       return $view;

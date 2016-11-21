@@ -12,7 +12,7 @@ final class PhabricatorBadgesSearchConduitAPIMethod
   }
 
   public function getMethodSummary() {
-    return pht('Read information about badges.');
+    return pht('Đọc thông tin về các biểu tượng.');
   }
 
 }

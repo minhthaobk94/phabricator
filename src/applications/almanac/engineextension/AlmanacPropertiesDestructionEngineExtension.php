@@ -6,7 +6,7 @@ final class AlmanacPropertiesDestructionEngineExtension
   const EXTENSIONKEY = 'almanac.properties';
 
   public function getExtensionName() {
-    return pht('Almanac Properties');
+    return pht('Thuộc tính');
   }
 
   public function canDestroyObject(

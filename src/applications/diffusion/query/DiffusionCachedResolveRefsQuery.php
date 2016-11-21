@@ -42,7 +42,7 @@ final class DiffusionCachedResolveRefsQuery
         $result = $this->resolveSubversionRefs();
         break;
       default:
-        throw new Exception(pht('Unsupported repository type!'));
+        throw new Exception(pht('Không hỗ trợ loại repository!'));
     }
 
     if ($this->types !== null) {

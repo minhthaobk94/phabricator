@@ -3,7 +3,7 @@
 final class PhabricatorNotificationsApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Notifications');
+    return pht('Thông báo');
   }
 
   public function getBaseURI() {
@@ -11,7 +11,7 @@ final class PhabricatorNotificationsApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Real-Time Updates and Alerts');
+    return pht('Thời gian thực cập nhật và Cảnh báo');
   }
 
   public function getIcon() {

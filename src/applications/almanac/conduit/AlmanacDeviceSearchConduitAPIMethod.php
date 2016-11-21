@@ -12,7 +12,7 @@ final class AlmanacDeviceSearchConduitAPIMethod
   }
 
   public function getMethodSummary() {
-    return pht('Read information about Almanac devices.');
+    return pht('Đọc thông tin về những thiết bị Sách lịch.');
   }
 
 }

@@ -15,7 +15,7 @@ final class DrydockAuthorizationSearchEngine
   }
 
   public function getResultTypeDescription() {
-    return pht('Drydock Authorizations');
+    return pht('Ủy quyền');
   }
 
   public function getApplicationClassName() {
@@ -54,16 +54,16 @@ final class DrydockAuthorizationSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchDatasourceField())
-        ->setLabel(pht('Blueprints'))
+        ->setLabel(pht('Chứng từ'))
         ->setKey('blueprintPHIDs')
         ->setConduitParameterType(new ConduitPHIDListParameterType())
-        ->setDescription(pht('Search authorizations for specific blueprints.'))
+        ->setDescription(pht('Tìm chứng từ ủy quyền.'))
         ->setAliases(array('blueprint', 'blueprints'))
         ->setDatasource(new DrydockBlueprintDatasource()),
       id(new PhabricatorPHIDsSearchField())
-        ->setLabel(pht('Objects'))
+        ->setLabel(pht('Đối tượng'))
         ->setKey('objectPHIDs')
-        ->setDescription(pht('Search authorizations from specific objects.'))
+        ->setDescription(pht('Tìm theo đối tượng ủy quyền.'))
         ->setAliases(array('object', 'objects')),
     );
   }
@@ -86,7 +86,7 @@ final class DrydockAuthorizationSearchEngine
 
   protected function getBuiltinQueryNames() {
     return array(
-      'all' => pht('All Authorizations'),
+      'all' => pht('Mọi ủy quyền'),
     );
   }
 

@@ -4,7 +4,7 @@ final class PhabricatorRepositoryPushLogSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Push Logs');
+    return pht('Đẩy Logs');
   }
 
   public function getApplicationClassName() {
@@ -66,7 +66,7 @@ final class PhabricatorRepositoryPushLogSearchEngine
         id(new AphrontFormTokenizerControl())
           ->setDatasource(new PhabricatorPeopleDatasource())
           ->setName('pushers')
-          ->setLabel(pht('Pushers'))
+          ->setLabel(pht('Người đẩy'))
           ->setValue($pusher_phids));
   }
 
@@ -76,7 +76,7 @@ final class PhabricatorRepositoryPushLogSearchEngine
 
   protected function getBuiltinQueryNames() {
     return array(
-      'all' => pht('All Push Logs'),
+      'all' => pht('Tất cả Logs đẩy'),
     );
   }
 

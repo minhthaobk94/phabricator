@@ -3,7 +3,7 @@
 final class PhabricatorOwnersApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Owners');
+    return pht('Chủ sở hữu');
   }
 
   public function getBaseURI() {
@@ -15,7 +15,7 @@ final class PhabricatorOwnersApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Own Source Code');
+    return pht('Mã Nguồn Riêng');
   }
 
   public function getTitleGlyph() {
@@ -25,14 +25,14 @@ final class PhabricatorOwnersApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Owners User Guide'),
+        'name' => pht('Hướng dẫn sử dụng'),
         'href' => PhabricatorEnv::getDoclink('Owners User Guide'),
       ),
     );
   }
 
   public function getFlavorText() {
-    return pht('Adopt today!');
+    return pht('Áp dụng ngày nay!');
   }
 
   public function getApplicationGroup() {

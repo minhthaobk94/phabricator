@@ -11,7 +11,7 @@ final class PhabricatorPhortuneApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Accounts and Billing');
+    return pht('Tài khoản và thanh toán');
   }
 
   public function getIcon() {

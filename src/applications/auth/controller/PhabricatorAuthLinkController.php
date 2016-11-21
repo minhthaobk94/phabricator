@@ -18,18 +18,18 @@ final class PhabricatorAuthLinkController
       case 'link':
         if (!$provider->shouldAllowAccountLink()) {
           return $this->renderErrorPage(
-            pht('Account Not Linkable'),
+            pht('Tài khoản không liên kết'),
             array(
-              pht('This provider is not configured to allow linking.'),
+              pht('Cung cấp này không được cấu hình để cho phép liên kết.'),
             ));
         }
         break;
       case 'refresh':
         if (!$provider->shouldAllowAccountRefresh()) {
           return $this->renderErrorPage(
-            pht('Account Not Refreshable'),
+            pht('Tài khoản Không thể làm mới,'),
             array(
-              pht('This provider does not allow refreshing.'),
+              pht('Cung cấp này không cho phép làm mới.'),
             ));
         }
         break;
@@ -47,22 +47,22 @@ final class PhabricatorAuthLinkController
       case 'link':
         if ($account) {
           return $this->renderErrorPage(
-            pht('Account Already Linked'),
+            pht('Tài khoản đã được liên kết'),
             array(
               pht(
-                'Your Phabricator account is already linked to an external '.
-                'account for this provider.'),
+                'tài khoản Phabricator của bạn đã được liên kết với một bên ngoài.
+                 "Tài khoản cho cung cấp này.'),
             ));
         }
         break;
       case 'refresh':
         if (!$account) {
           return $this->renderErrorPage(
-            pht('No Account Linked'),
+            pht('Không có tài khoản liên kết'),
             array(
               pht(
-                'You do not have a linked account on this provider, and thus '.
-                'can not refresh it.'),
+                'Bạn không có tài khoản liên kết vào nhà cung cấp này, và do đó '.
+                 'Không thể làm mới nó.'),
             ));
         }
         break;
@@ -102,19 +102,19 @@ final class PhabricatorAuthLinkController
 
     switch ($action) {
       case 'link':
-        $name = pht('Link Account');
-        $title = pht('Link %s Account', $provider->getProviderName());
+        $name = pht('Liên kết tài khoản');
+        $title = pht('Liên kết %s Tài khoản', $provider->getProviderName());
         break;
       case 'refresh':
-        $name = pht('Refresh Account');
-        $title = pht('Refresh %s Account', $provider->getProviderName());
+        $name = pht('Làm mới tài khoản');
+        $title = pht('Làm mới %s Tài khoản', $provider->getProviderName());
         break;
       default:
         return new Aphront400Response();
     }
 
     $crumbs = $this->buildApplicationCrumbs();
-    $crumbs->addTextCrumb(pht('Link Account'), $panel_uri);
+    $crumbs->addTextCrumb(pht('Liên kết tài khoản'), $panel_uri);
     $crumbs->addTextCrumb($provider->getProviderName($name));
     $crumbs->setBorder(true);
 

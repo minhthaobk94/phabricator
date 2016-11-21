@@ -7,7 +7,7 @@ final class PhabricatorPhrequentApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Track Time Spent');
+    return pht('Theo dõi thời gian');
   }
 
   public function getBaseURI() {

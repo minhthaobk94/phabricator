@@ -6,30 +6,29 @@ final class AlmanacManagementRegisterWorkflow
   protected function didConstruct() {
     $this
       ->setName('register')
-      ->setSynopsis(pht('Register this host as an Almanac device.'))
+      ->setSynopsis(pht('Đăng kí máy chủ như một thiết bị.'))
       ->setArguments(
         array(
           array(
             'name' => 'device',
             'param' => 'name',
-            'help' => pht('Almanac device name to register.'),
+            'help' => pht('Tên thiết bị để đăng kí.'),
           ),
           array(
             'name' => 'private-key',
             'param' => 'key',
-            'help' => pht('Path to a private key for the host.'),
+            'help' => pht('Đường dẫn riêng'),
           ),
           array(
             'name' => 'identify-as',
             'param' => 'name',
             'help' => pht(
-              'Specify an alternate host identity. This is an advanced '.
-              'feature which allows a pool of devices to share credentials.'),
+              'Chỉ định tên máy chủ thay thế '),
           ),
           array(
             'name' => 'force',
             'help' => pht(
-              'Register this host even if keys already exist on disk.'),
+              'Đăng kí mặc dù đã tồn tại mã khóa trên ổ đĩa.'),
           ),
         ));
   }
@@ -40,7 +39,7 @@ final class AlmanacManagementRegisterWorkflow
     $device_name = $args->getArg('device');
     if (!strlen($device_name)) {
       throw new PhutilArgumentUsageException(
-        pht('Specify a device with --device.'));
+        pht('Giống với thiết bị đã tồn tại.'));
     }
 
     $device = id(new AlmanacDeviceQuery())
@@ -49,7 +48,7 @@ final class AlmanacManagementRegisterWorkflow
       ->executeOne();
     if (!$device) {
       throw new PhutilArgumentUsageException(
-        pht('No such device "%s" exists!', $device_name));
+        pht('Không có thiết bị "%s" tồn tại!', $device_name));
     }
 
     $identify_as = $args->getArg('identify-as');
@@ -66,18 +65,18 @@ final class AlmanacManagementRegisterWorkflow
     if (!$identity_device) {
       throw new PhutilArgumentUsageException(
         pht(
-          'No such device "%s" exists!', $raw_device));
+          'Không có thiết bị "%s" tồn tại!', $raw_device));
     }
 
     $private_key_path = $args->getArg('private-key');
     if (!strlen($private_key_path)) {
       throw new PhutilArgumentUsageException(
-        pht('Specify a private key with --private-key.'));
+        pht('Trùng khóa.'));
     }
 
     if (!Filesystem::pathExists($private_key_path)) {
       throw new PhutilArgumentUsageException(
-        pht('No private key exists at path "%s"!', $private_key_path));
+        pht('Không có khóa tồn tại trong đường dẫn "%s"!', $private_key_path));
     }
 
     $raw_private_key = Filesystem::readFile($private_key_path);
@@ -86,8 +85,7 @@ final class AlmanacManagementRegisterWorkflow
     if (!$phd_user) {
       throw new PhutilArgumentUsageException(
         pht(
-          'Config option "phd.user" is not set. You must set this option '.
-          'so the private key can be stored with the correct permissions.'));
+          'Cấu hình "phd.user" không được thiết đặt.'));
     }
 
     $tmp = new TempFile();
@@ -95,8 +93,8 @@ final class AlmanacManagementRegisterWorkflow
     if ($err) {
       throw new PhutilArgumentUsageException(
         pht(
-          'Unable to change ownership of an identity file to daemon user '.
-          '"%s". Run this command as %s or root.',
+          'Không thể thay đổi quan hệ '.
+          '"%s". Chạy thử lệnh %s hoặc root.',
           $phd_user,
           $phd_user));
     }
@@ -109,18 +107,14 @@ final class AlmanacManagementRegisterWorkflow
       if (Filesystem::pathExists($stored_public_path)) {
         throw new PhutilArgumentUsageException(
           pht(
-            'This host already has a registered public key ("%s"). '.
-            'Remove this key before registering the host, or use '.
-            '--force to overwrite it.',
+            'Máy chủ đã được đăng kí khóa ("%s"). ',
             Filesystem::readablePath($stored_public_path)));
       }
 
       if (Filesystem::pathExists($stored_private_path)) {
         throw new PhutilArgumentUsageException(
           pht(
-            'This host already has a registered private key ("%s"). '.
-            'Remove this key before registering the host, or use '.
-            '--force to overwrite it.',
+            'Máy chủ đã được đăng kí khóa  ("%s"). ',
             Filesystem::readablePath($stored_private_path)));
       }
     }
@@ -178,7 +172,7 @@ final class AlmanacManagementRegisterWorkflow
 
     echo tsprintf(
       "%s\n",
-      pht('Installing public key...'));
+      pht('Đang cài đặt khóa công cộng...'));
 
     $tmp_public = new TempFile();
     Filesystem::changePermissions($tmp_public, 0600);
@@ -188,12 +182,12 @@ final class AlmanacManagementRegisterWorkflow
 
     echo tsprintf(
       "%s\n",
-      pht('Installing private key...'));
+      pht('Đang cài đặt khóa riêng...'));
     execx('mv -f %s %s', $tmp_private, $stored_private_path);
 
     echo tsprintf(
       "%s\n",
-      pht('Installing device %s...', $raw_device));
+      pht('Đang cài đặt thiết bị %s...', $raw_device));
 
     // The permissions on this file are more open because the webserver also
     // needs to read it.
@@ -205,10 +199,9 @@ final class AlmanacManagementRegisterWorkflow
 
     echo tsprintf(
       "**<bg:green> %s </bg>** %s\n",
-      pht('HOST REGISTERED'),
+      pht('ĐÃ ĐĂNG KÍ MÁY CHỦ'),
       pht(
-        'This host has been registered as "%s" and a trusted keypair '.
-        'has been installed.',
+        'Máy chủ "%s" đã được cài',
         $raw_device));
   }
 

@@ -21,10 +21,10 @@ abstract class PhabricatorApplication
 
   final public static function getApplicationGroups() {
     return array(
-      self::GROUP_CORE          => pht('Core Applications'),
-      self::GROUP_UTILITIES     => pht('Utilities'),
-      self::GROUP_ADMIN         => pht('Administration'),
-      self::GROUP_DEVELOPER     => pht('Developer Tools'),
+      self::GROUP_CORE          => pht('Các ứng dụng cốt lõi'),
+      self::GROUP_UTILITIES     => pht('Tiện ích'),
+      self::GROUP_ADMIN         => pht('Quản trị'),
+      self::GROUP_DEVELOPER     => pht('Công cụ phát triển'),
     );
   }
 
@@ -34,7 +34,7 @@ abstract class PhabricatorApplication
   abstract public function getName();
 
   public function getShortDescription() {
-    return pht('%s Application', $this->getName());
+    return pht('%s Ưng dụng', $this->getName());
   }
 
   final public function isInstalled() {
@@ -174,7 +174,7 @@ abstract class PhabricatorApplication
     if ($articles) {
       $items[] = id(new PHUIListItemView())
         ->setType(PHUIListItemView::TYPE_LABEL)
-        ->setName(pht('%s Documentation', $this->getName()));
+        ->setName(pht('%s Tài liệu', $this->getName()));
       foreach ($articles as $article) {
         $item = id(new PHUIListItemView())
           ->setName($article['name'])
@@ -190,7 +190,7 @@ abstract class PhabricatorApplication
     if ($command_specs) {
       $items[] = id(new PHUIListItemView())
         ->setType(PHUIListItemView::TYPE_LABEL)
-        ->setName(pht('Email Help'));
+        ->setName(pht('Email trợ giúp'));
       foreach ($command_specs as $key => $spec) {
         $object = $spec['object'];
 
@@ -348,7 +348,7 @@ abstract class PhabricatorApplication
     }
 
     if (!$selected) {
-      throw new Exception(pht("No application '%s'!", $class_name));
+      throw new Exception(pht("Không có ứng dụng '%s'!", $class_name));
     }
 
     return $selected;
@@ -519,7 +519,7 @@ abstract class PhabricatorApplication
   final private function getCustomCapabilitySpecification($capability) {
     $custom = $this->getCustomCapabilities();
     if (!isset($custom[$capability])) {
-      throw new Exception(pht("Unknown capability '%s'!", $capability));
+      throw new Exception(pht("Không biết khả năng '%s'!", $capability));
     }
     return $custom[$capability];
   }
@@ -527,9 +527,9 @@ abstract class PhabricatorApplication
   final public function getCapabilityLabel($capability) {
     switch ($capability) {
       case PhabricatorPolicyCapability::CAN_VIEW:
-        return pht('Can Use Application');
+        return pht('Có thể dùng ứng dụng');
       case PhabricatorPolicyCapability::CAN_EDIT:
-        return pht('Can Configure Application');
+        return pht('Có thể cấu hình ứng dụng');
     }
 
     $capobj = PhabricatorPolicyCapability::getCapabilityByKey($capability);
@@ -557,8 +557,8 @@ abstract class PhabricatorApplication
       case PhabricatorPolicyCapability::CAN_VIEW:
         if (!$this->canUninstall()) {
           return pht(
-            'This application is required for Phabricator to operate, so all '.
-            'users must have access to it.');
+            ' Ứng dụng này là cần thiết cho Phabricator để hoạt động, vì vậy tất cả '.
+            'người dùng phải có quyền truy cập vào nó.');
         } else {
           return null;
         }

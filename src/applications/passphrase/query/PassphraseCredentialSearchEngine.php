@@ -122,7 +122,7 @@ final class PassphraseCredentialSearchEngine
     $app_name =  $this->getApplication()->getName();
     $view = id(new PHUIBigInfoView())
       ->setIcon($icon)
-      ->setTitle(pht('Welcome to %s', $app_name))
+      ->setTitle(pht('Chào mừng đến với %s', $app_name))
       ->setDescription(
         pht('Credential management for re-use in other areas of Phabricator '.
             'or general storage of shared secrets.'))

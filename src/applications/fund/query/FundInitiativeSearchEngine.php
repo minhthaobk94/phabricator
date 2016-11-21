@@ -4,7 +4,7 @@ final class FundInitiativeSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Fund Initiatives');
+    return pht('Sáng kiến Quỹ');
   }
 
   public function getApplicationClassName() {
@@ -65,7 +65,7 @@ final class FundInitiativeSearchEngine
     $form
       ->appendControl(
         id(new AphrontFormTokenizerControl())
-          ->setLabel(pht('Owners'))
+          ->setLabel(pht('Chủ'))
           ->setName('owners')
           ->setDatasource(new PhabricatorPeopleDatasource())
           ->setValue($owner_phids))
@@ -79,11 +79,11 @@ final class FundInitiativeSearchEngine
   protected function getBuiltinQueryNames() {
     $names = array();
 
-    $names['open'] = pht('Open Initiatives');
+    $names['open'] = pht('Sáng kiến mở');
     if ($this->requireViewer()->isLoggedIn()) {
-      $names['owned'] = pht('Owned Initiatives');
+      $names['owned'] = pht('Các sáng kiến thuộc sở hữu');
     }
-    $names['all'] = pht('All Initiatives');
+    $names['all'] = pht('Tất cả các sáng kiến');
 
     return $names;
   }
@@ -143,7 +143,7 @@ final class FundInitiativeSearchEngine
         ->setObjectName($initiative->getMonogram())
         ->setHeader($initiative->getName())
         ->setHref('/'.$initiative->getMonogram())
-        ->addByline(pht('Owner: %s', $owner_handle->renderLink()));
+        ->addByline(pht('chủ: %s', $owner_handle->renderLink()));
 
       if ($initiative->isClosed()) {
         $item->setDisabled(true);
@@ -165,7 +165,7 @@ final class FundInitiativeSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No initiatives found.'));
+    $result->setNoDataString(pht('Không tìm thấy.'));
 
     return $result;
 

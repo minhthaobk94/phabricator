@@ -3,7 +3,7 @@
 final class PhabricatorPolicyApplication extends PhabricatorApplication {
 
   public function getName() {
-    return pht('Policy');
+    return pht('Chính sách');
   }
 
   public function isLaunchable() {
