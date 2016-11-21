@@ -11,7 +11,7 @@ final class PhabricatorNotificationsApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Cập nhật và cảnh báo');
+    return pht('Real-Time Updates and Alerts');
   }
 
   public function getIcon() {

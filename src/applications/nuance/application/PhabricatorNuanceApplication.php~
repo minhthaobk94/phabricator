@@ -71,7 +71,7 @@ final class PhabricatorNuanceApplication extends PhabricatorApplication {
         'capability' => PhabricatorPolicyCapability::CAN_VIEW,
       ),
       NuanceSourceDefaultEditCapability::CAPABILITY => array(
-        'caption' => pht('Mặc định chính sách  chỉnh sửa cho mã nguồn mới tạo.'),
+        'caption' => pht('Default edit policy for newly created sources.'),
         'template' => NuanceSourcePHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_EDIT,
       ),

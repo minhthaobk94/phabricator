@@ -69,7 +69,7 @@ final class NuanceQueueSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('Không queues nào được tìm thấy.'));
+    $result->setNoDataString(pht('No queues found.'));
 
     return $result;
   }

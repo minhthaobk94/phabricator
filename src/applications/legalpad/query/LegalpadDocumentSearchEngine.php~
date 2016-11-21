@@ -229,7 +229,8 @@ final class LegalpadDocumentSearchEngine
       ->setIcon($icon)
       ->setTitle(pht('Welcome to %s', $app_name))
       ->setDescription(
-        pht('Tạo mới tài liệu và quản lý chữ ký. Có thể sử dụng lại được.'))
+        pht('Create documents and track signatures. Can also be re-used in '.
+            'other areas of Phabricator, like CLAs.'))
       ->addAction($create_button);
 
       return $view;

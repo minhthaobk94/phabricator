@@ -91,7 +91,8 @@ final class PhabricatorLegalpadApplication extends PhabricatorApplication {
         'header' => pht('Tương tác với tài liệu'),
         'object' => new LegalpadDocument(),
         'summary' => pht(
-          'Tài liệu có thể sử dụng để tương tác với những tài liệu trong Pháp lý'),
+          'This page documents the commands you can use to interact with '.
+          'documents in Legalpad.'),
       ),
     );
   }

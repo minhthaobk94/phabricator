@@ -245,7 +245,7 @@ final class PhabricatorSearchApplicationSearchEngine
 
     $viewer = $this->requireViewer();
     $list = new PHUIObjectItemListView();
-    $list->setNoDataString(pht('Không có kết quả tìm thấy.'));
+    $list->setNoDataString(pht('No results found.'));
 
     if ($results) {
       $objects = id(new PhabricatorObjectQuery())

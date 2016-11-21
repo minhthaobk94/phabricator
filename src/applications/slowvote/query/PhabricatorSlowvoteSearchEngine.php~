@@ -176,7 +176,7 @@ final class PhabricatorSlowvoteSearchEngine
       ->setIcon($icon)
       ->setTitle(pht('Welcome to %s', $app_name))
       ->setDescription(
-        pht('Bình chọn nên được suy nghĩ kỹ càng.'))
+        pht('Poll other users to help facilitate decision making.'))
       ->addAction($create_button);
 
       return $view;

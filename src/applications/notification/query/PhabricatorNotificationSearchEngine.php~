@@ -101,7 +101,7 @@ final class PhabricatorNotificationSearchEngine
         break;
       default:
         $header = pht('Thông báo');
-        $no_data = pht('Bạn chưa có thông báo nào cả.');
+        $no_data = pht('You have no notifications.');
         break;
     }
 

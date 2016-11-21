@@ -15,7 +15,7 @@ final class PhabricatorSearchApplication extends PhabricatorApplication {
   }
 
   public function getFlavorText() {
-    return pht('Tìm kiếm ở đường ống lớn.');
+    return pht('Find stuff in big piles.');
   }
 
   public function getIcon() {

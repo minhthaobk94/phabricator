@@ -63,7 +63,7 @@ final class PhabricatorSlowvoteApplication extends PhabricatorApplication {
   protected function getCustomCapabilities() {
     return array(
       PhabricatorSlowvoteDefaultViewCapability::CAPABILITY => array(
-        'caption' => pht('Mặc định chính sách xem bình chọn.'),
+        'caption' => pht('Default view policy for new polls.'),
         'template' => PhabricatorSlowvotePollPHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_VIEW,
       ),

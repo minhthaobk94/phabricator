@@ -68,7 +68,7 @@ final class PhabricatorOwnersApplication extends PhabricatorApplication {
         'capability' => PhabricatorPolicyCapability::CAN_VIEW,
       ),
       PhabricatorOwnersDefaultEditCapability::CAPABILITY => array(
-        'caption' => pht('Chính sách chỉnh sửa mặc đinh cho gói vừa tạo.'),
+        'caption' => pht('Chính sách sửa mặc đinh cho gói vừa tạo.'),
         'template' => PhabricatorOwnersPackagePHIDType::TYPECONST,
         'capability' => PhabricatorPolicyCapability::CAN_EDIT,
       ),

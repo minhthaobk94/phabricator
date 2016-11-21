@@ -281,8 +281,8 @@ final class LegalpadDocumentSignatureSearchEngine
 
     if (!$this->document) {
       $table->setNotice(
-        pht('Chú ý: Có thể bạn chỉ thấy chữ ký của mình trên tài liệu '.
-            'bạn cần có thêm quyền chỉnh sửa.'));
+        pht('NOTE: You can only see your own signatures and signatures on '.
+            'documents you have permission to edit.'));
     }
 
     $result = new PhabricatorApplicationSearchResultView();

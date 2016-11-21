@@ -8,7 +8,7 @@ final class NuanceSourceSearchEngine
   }
 
   public function getResultTypeDescription() {
-    return pht('Nuance Sources');
+    return pht('Mã nguồn');
   }
 
   public function newQuery() {
@@ -28,9 +28,9 @@ final class NuanceSourceSearchEngine
   protected function buildCustomSearchFields() {
     return array(
       id(new PhabricatorSearchTextField())
-        ->setLabel(pht('Name Contains'))
+        ->setLabel(pht('Tên'))
         ->setKey('match')
-        ->setDescription(pht('Search for sources by name substring.')),
+        ->setDescription(pht('Tìm mã nguồn theo tên.')),
     );
   }
 
@@ -40,7 +40,7 @@ final class NuanceSourceSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All Sources'),
+      'all' => pht('Tất cả mã nguồn'),
     );
 
     return $names;
@@ -70,7 +70,7 @@ final class NuanceSourceSearchEngine
     $list->setUser($viewer);
     foreach ($sources as $source) {
       $item = id(new PHUIObjectItemView())
-        ->setObjectName(pht('Source %d', $source->getID()))
+        ->setObjectName(pht('Mã nguồn %d', $source->getID()))
         ->setHeader($source->getName())
         ->setHref($source->getURI());
 
@@ -81,7 +81,7 @@ final class NuanceSourceSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No sources found.'));
+    $result->setNoDataString(pht('Không có mã nguồn nào được tìm thấy.'));
 
     return $result;
   }

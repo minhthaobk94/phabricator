@@ -8,7 +8,7 @@ final class NuanceItemSearchEngine
   }
 
   public function getResultTypeDescription() {
-    return pht('Nuance Items');
+    return pht('Chỉ mục');
   }
 
   public function newQuery() {
@@ -32,7 +32,7 @@ final class NuanceItemSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All Items'),
+      'all' => pht('Tất cả các mục'),
     );
 
     return $names;
@@ -64,7 +64,7 @@ final class NuanceItemSearchEngine
       $impl = $item->getImplementation();
 
       $view = id(new PHUIObjectItemView())
-        ->setObjectName(pht('Item %d', $item->getID()))
+        ->setObjectName(pht('Mục %d', $item->getID()))
         ->setHeader($item->getDisplayName())
         ->setHref($item->getURI());
 
@@ -77,7 +77,7 @@ final class NuanceItemSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('No items found.'));
+    $result->setNoDataString(pht('Không mục nào được tìm thấy.'));
 
     return $result;
   }

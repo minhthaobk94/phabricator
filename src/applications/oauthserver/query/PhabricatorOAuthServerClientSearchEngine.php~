@@ -95,7 +95,7 @@ final class PhabricatorOAuthServerClientSearchEngine
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('Không tìm thấy máy khách.'));
+    $result->setNoDataString(pht('No clients found.'));
 
     return $result;
   }

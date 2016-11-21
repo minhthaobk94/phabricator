@@ -1,6 +1,6 @@
 <?php
 
-final class NuanceQueueSearchEngine
+final class NuanceSourceSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getApplicationClassName() {
@@ -8,30 +8,39 @@ final class NuanceQueueSearchEngine
   }
 
   public function getResultTypeDescription() {
-    return pht('Queues');
+    return pht('Mã nguồn');
   }
 
   public function newQuery() {
-    return new NuanceQueueQuery();
+    return new NuanceSourceQuery();
   }
 
   protected function buildQueryFromParameters(array $map) {
     $query = $this->newQuery();
 
+    if ($map['match'] !== null) {
+      $query->withNameNgrams($map['match']);
+    }
+
     return $query;
   }
 
   protected function buildCustomSearchFields() {
-    return array();
+    return array(
+      id(new PhabricatorSearchTextField())
+        ->setLabel(pht('Tên'))
+        ->setKey('match')
+        ->setDescription(pht('Tìm mã nguồn theo tên.')),
+    );
   }
 
   protected function getURI($path) {
-    return '/nuance/queue/'.$path;
+    return '/nuance/source/'.$path;
   }
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('Tất cả Queues'),
+      'all' => pht('Tất cả mã nguồn'),
     );
 
     return $names;
@@ -50,26 +59,29 @@ final class NuanceQueueSearchEngine
   }
 
   protected function renderResultList(
-    array $queues,
+    array $sources,
     PhabricatorSavedQuery $query,
     array $handles) {
-    assert_instances_of($queues, 'NuanceQueue');
+    assert_instances_of($sources, 'NuanceSource');
 
     $viewer = $this->requireViewer();
 
     $list = new PHUIObjectItemListView();
     $list->setUser($viewer);
-    foreach ($queues as $queue) {
+    foreach ($sources as $source) {
       $item = id(new PHUIObjectItemView())
-        ->setObjectName(pht('Queue %d', $queue->getID()))
-        ->setHeader($queue->getName())
-        ->setHref($queue->getURI());
+        ->setObjectName(pht('Mã nguồn %d', $source->getID()))
+        ->setHeader($source->getName())
+        ->setHref($source->getURI());
+
+      $item->addIcon('none', $source->getType());
+
       $list->addItem($item);
     }
 
     $result = new PhabricatorApplicationSearchResultView();
     $result->setObjectList($list);
-    $result->setNoDataString(pht('Không queues nào được tìm thấy.'));
+    $result->setNoDataString(pht('No sources found.'));
 
     return $result;
   }
