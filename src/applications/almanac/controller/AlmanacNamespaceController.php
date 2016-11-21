@@ -6,7 +6,7 @@ abstract class AlmanacNamespaceController extends AlmanacController {
     $crumbs = parent::buildApplicationCrumbs();
 
     $list_uri = $this->getApplicationURI('namespace/');
-    $crumbs->addTextCrumb(pht('Namespaces'), $list_uri);
+    $crumbs->addTextCrumb(pht('Tên'), $list_uri);
 
     return $crumbs;
   }

@@ -23,15 +23,15 @@ abstract class AlmanacPropertyEditEngine
   }
 
   public function getEngineName() {
-    return pht('Almanac Properties');
+    return pht('Thuộc tính');
   }
 
   public function getSummaryHeader() {
-    return pht('Edit Almanac Property Configurations');
+    return pht('Chỉnh sủa cấu hình');
   }
 
   public function getSummaryText() {
-    return pht('This engine is used to edit Almanac properties.');
+    return pht('Tính năng để chỉnh sửa thuộc tính.');
   }
 
   public function getEngineApplicationClass() {
@@ -43,23 +43,23 @@ abstract class AlmanacPropertyEditEngine
   }
 
   protected function getObjectCreateTitleText($object) {
-    return pht('Create Property');
+    return pht('Tạo mới thuộc tính');
   }
 
   protected function getObjectCreateButtonText($object) {
-    return pht('Create Property');
+    return pht('Tạo mới thuộc tính');
   }
 
   protected function getObjectEditTitleText($object) {
-    return pht('Edit Property: %s', $object->getName());
+    return pht('Chỉnh sửa thuộc tính: %s', $object->getName());
   }
 
   protected function getObjectEditShortText($object) {
-    return pht('Edit Property');
+    return pht('Chỉnh sửa thuộc tính');
   }
 
   protected function getObjectCreateShortText() {
-    return pht('Create Property');
+    return pht('Tạo mới thuộc tính');
   }
 
   protected function buildCustomEditFields($object) {

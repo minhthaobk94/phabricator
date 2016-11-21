@@ -11,7 +11,7 @@ abstract class AlmanacDeviceController extends AlmanacController {
     $crumbs = parent::buildApplicationCrumbs();
 
     $list_uri = $this->getApplicationURI('device/');
-    $crumbs->addTextCrumb(pht('Devices'), $list_uri);
+    $crumbs->addTextCrumb(pht('Thiết bị'), $list_uri);
 
     return $crumbs;
   }

@@ -37,18 +37,18 @@ final class AlmanacServiceEditController
     $e_service = null;
     $errors = array();
     if ($request->isFormPost()) {
-      $e_service = pht('Required');
+      $e_service = pht('Bắt buộc');
       $errors[] = pht(
-        'To create a new service, you must select a service type.');
+        'Để tạo mới một dịch vụ, bạn phải chọn lọai dịch vụ.');
     }
 
     list($can_cluster, $cluster_link) = $this->explainApplicationCapability(
       AlmanacManageClusterServicesCapability::CAPABILITY,
-      pht('You have permission to create cluster services.'),
-      pht('You do not have permission to create new cluster services.'));
+      pht('Bạn có quyền tạo mới cụm dịch vụ.'),
+      pht('Bạn không có quyền tạo mới cụm dịch vụ.'));
 
     $type_control = id(new AphrontFormRadioButtonControl())
-      ->setLabel(pht('Service Type'))
+      ->setLabel(pht('Loại dịch vụ'))
       ->setName('serviceType')
       ->setError($e_service);
 
@@ -74,12 +74,12 @@ final class AlmanacServiceEditController
     }
 
     $crumbs = $this->buildApplicationCrumbs();
-    $crumbs->addTextCrumb(pht('Create Service'));
+    $crumbs->addTextCrumb(pht('Tạo mới dịch vụ'));
     $crumbs->setBorder(true);
 
-    $title = pht('Choose Service Type');
+    $title = pht('Chọn loại dịch vụ');
     $header = id(new PHUIHeaderView())
-      ->setHeader(pht('Create Service'))
+      ->setHeader(pht('Tạo mới'))
       ->setHeaderIcon('fa-plus-square');
 
     $form = id(new AphrontFormView())
@@ -87,12 +87,12 @@ final class AlmanacServiceEditController
       ->appendChild($type_control)
       ->appendChild(
           id(new AphrontFormSubmitControl())
-            ->setValue(pht('Continue'))
+            ->setValue(pht('Tiếp tục'))
             ->addCancelButton($cancel_uri));
 
     $box = id(new PHUIObjectBoxView())
       ->setFormErrors($errors)
-      ->setHeaderText(pht('Service'))
+      ->setHeaderText(pht('Dịch vụ'))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->setForm($form);
 

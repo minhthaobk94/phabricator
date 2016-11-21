@@ -4,7 +4,7 @@ final class AlmanacServiceEditor
   extends AlmanacEditor {
 
   public function getEditorObjectsDescription() {
-    return pht('Almanac Service');
+    return pht('Dịch vụ Sách lịch');
   }
 
   public function getTransactionTypes() {
@@ -82,8 +82,8 @@ final class AlmanacServiceEditor
         if ($missing) {
           $error = new PhabricatorApplicationTransactionValidationError(
             $type,
-            pht('Required'),
-            pht('Service name is required.'),
+            pht('Yêu cầu'),
+            pht('Bắt buộc.'),
             nonempty(last($xactions), null));
 
           $error->setIsMissingFieldError(true);
@@ -103,7 +103,7 @@ final class AlmanacServiceEditor
             if ($message !== null) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Invalid'),
+                pht('Không hợp lệ'),
                 $message,
                 $xaction);
               $errors[] = $error;
@@ -117,8 +117,8 @@ final class AlmanacServiceEditor
             if ($other && ($other->getID() != $object->getID())) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Not Unique'),
-                pht('Almanac services must have unique names.'),
+                pht('Trùng lặp'),
+                pht('Dịch vụ không được trùng lặp.'),
                 last($xactions));
               $errors[] = $error;
               continue;
@@ -134,10 +134,10 @@ final class AlmanacServiceEditor
             if ($namespace) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Restricted'),
+                pht('Hạn chế'),
                 pht(
-                  'You do not have permission to create Almanac services '.
-                  'within the "%s" namespace.',
+                  'Bạn không có quyền tạo mới dịch vụ '.
+                  ' "%s".',
                   $namespace->getName()),
                 $xaction);
               $errors[] = $error;
@@ -167,8 +167,8 @@ final class AlmanacServiceEditor
       if (!$can_manage) {
         $errors[] = new PhabricatorApplicationTransactionValidationError(
           null,
-          pht('Restricted'),
-          pht('You do not have permission to manage cluster services.'),
+          pht('Hạn chế'),
+          pht('Bạn không có quyền quản lý cụm dịch vụ.'),
           null);
       }
     }
