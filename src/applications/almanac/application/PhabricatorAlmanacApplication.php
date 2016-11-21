@@ -11,7 +11,7 @@ final class PhabricatorAlmanacApplication extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Hướng dẫn sử dụng dịch vụ');
+    return pht('Chỉ dẫn dịch vụ');
   }
 
   public function getIcon() {
@@ -29,7 +29,7 @@ final class PhabricatorAlmanacApplication extends PhabricatorApplication {
   public function getHelpDocumentationArticles(PhabricatorUser $viewer) {
     return array(
       array(
-        'name' => pht('Hướng dẫn người dùng'),
+        'name' => pht('Hướng dẫn sử dụng'),
         'href' => PhabricatorEnv::getDoclink('Almanac User Guide'),
       ),
     );
@@ -79,14 +79,14 @@ final class PhabricatorAlmanacApplication extends PhabricatorApplication {
 
   protected function getCustomCapabilities() {
     $cluster_caption = pht(
-      'Sự cho phép này là rất nguy hiểm. %s',
+      'Sự cho phép này rất nguy hiểm. %s',
       phutil_tag(
         'a',
         array(
           'href' => PhabricatorEnv::getDoclink('Clustering Introduction'),
           'target' => '_blank',
         ),
-        pht('Học thêm')));
+        pht('Learn More')));
 
     return array(
       AlmanacCreateServicesCapability::CAPABILITY => array(

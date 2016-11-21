@@ -24,8 +24,8 @@ final class AlmanacInterfaceEditController
       $device = $interface->getDevice();
 
       $is_new = false;
-      $title = pht('Edit Interface');
-      $save_button = pht('Save Changes');
+      $title = pht('Chỉnh sửa giao diện');
+      $save_button = pht('Lưu thay đổi');
     } else {
       $device = id(new AlmanacDeviceQuery())
         ->setViewer($viewer)
@@ -43,8 +43,8 @@ final class AlmanacInterfaceEditController
       $interface = AlmanacInterface::initializeNewInterface();
       $is_new = true;
 
-      $title = pht('Create Interface');
-      $save_button = pht('Create Interface');
+      $title = pht('Tạo mới giao diện');
+      $save_button = pht('Tạo mới');
     }
 
     $device_uri = $device->getURI();
@@ -108,19 +108,19 @@ final class AlmanacInterfaceEditController
       ->setUser($viewer)
       ->appendChild(
         id(new AphrontFormSelectControl())
-          ->setLabel(pht('Network'))
+          ->setLabel(pht('Mạng'))
           ->setName('networkPHID')
           ->setValue($v_network)
           ->setOptions(mpull($networks, 'getName', 'getPHID')))
       ->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel(pht('Address'))
+          ->setLabel(pht('Địa chỉ'))
           ->setName('address')
           ->setValue($v_address)
           ->setError($e_address))
       ->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel(pht('Port'))
+          ->setLabel(pht('Cổng'))
           ->setName('port')
           ->setValue($v_port)
           ->setError($e_address))
@@ -131,21 +131,21 @@ final class AlmanacInterfaceEditController
 
     $box = id(new PHUIObjectBoxView())
       ->setValidationException($validation_exception)
-      ->setHeaderText(pht('Interface'))
+      ->setHeaderText(pht('Giao diện'))
       ->setBackground(PHUIObjectBoxView::BLUE_PROPERTY)
       ->setForm($form);
 
     $crumbs = $this->buildApplicationCrumbs();
     $crumbs->addTextCrumb($device->getName(), $device_uri);
     if ($is_new) {
-      $crumbs->addTextCrumb(pht('Create Interface'));
+      $crumbs->addTextCrumb(pht('Tạo mới giao diện'));
       $header = id(new PHUIHeaderView())
-        ->setHeader(pht('Create Interface'))
+        ->setHeader(pht('Tạo mới giao diện'))
         ->setHeaderIcon('fa-plus-square');
     } else {
-      $crumbs->addTextCrumb(pht('Edit Interface'));
+      $crumbs->addTextCrumb(pht('Chỉnh sửa giao diện'));
       $header = id(new PHUIHeaderView())
-        ->setHeader(pht('Edit Interface'))
+        ->setHeader(pht('Chỉnh sửa giao diện'))
         ->setHeaderIcon('fa-pencil');
     }
     $crumbs->setBorder(true);

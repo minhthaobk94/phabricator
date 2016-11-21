@@ -116,7 +116,7 @@ abstract class AlmanacEditor
           if ($message !== null) {
             $error = new PhabricatorApplicationTransactionValidationError(
               $type,
-              pht('Invalid'),
+              pht('Không hợp lệ'),
               $message,
               $xaction);
             $errors[] = $error;
@@ -128,14 +128,14 @@ abstract class AlmanacEditor
             phutil_json_encode($new_value);
           } catch (Exception $ex) {
             $message = pht(
-              'Almanac property values must be representable in JSON. %s',
+              'Phải thể hiện thuộc tích bằng JSON. %s',
               $ex->getMessage());
           }
 
           if ($message !== null) {
             $error = new PhabricatorApplicationTransactionValidationError(
               $type,
-              pht('Invalid'),
+              pht('Không hợp lệ'),
               $message,
               $xaction);
             $errors[] = $error;

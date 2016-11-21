@@ -4,7 +4,7 @@ final class AlmanacDeviceEditor
   extends AlmanacEditor {
 
   public function getEditorObjectsDescription() {
-    return pht('Almanac Device');
+    return pht('Thiết bị Sách lịch');
   }
 
   public function getTransactionTypes() {
@@ -72,7 +72,7 @@ final class AlmanacDeviceEditor
             ->withIDs(array($old['id']))
             ->executeOne();
           if (!$interface) {
-            throw new Exception(pht('Unable to load interface!'));
+            throw new Exception(pht('Không tải được giao diện!'));
           }
         } else {
           $interface = AlmanacInterface::initializeNewInterface()
@@ -116,8 +116,8 @@ final class AlmanacDeviceEditor
         if ($missing) {
           $error = new PhabricatorApplicationTransactionValidationError(
             $type,
-            pht('Required'),
-            pht('Device name is required.'),
+            pht('Bắt buộc'),
+            pht('Tên thiết bị là bắt buộc.'),
             nonempty(last($xactions), null));
 
           $error->setIsMissingFieldError(true);
@@ -150,8 +150,8 @@ final class AlmanacDeviceEditor
             if ($other && ($other->getID() != $object->getID())) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Not Unique'),
-                pht('Almanac devices must have unique names.'),
+                pht('Trùng'),
+                pht('Thiết bị Sách lịch phải có tên riêng.'),
                 $xaction);
               $errors[] = $error;
               continue;
@@ -167,10 +167,10 @@ final class AlmanacDeviceEditor
             if ($namespace) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Restricted'),
+                pht('Hạn chế'),
                 pht(
-                  'You do not have permission to create Almanac devices '.
-                  'within the "%s" namespace.',
+                  'Bạn không có quyền tạo mới thiết bị '.
+                  'trong "%s".',
                   $namespace->getName()),
                 $xaction);
               $errors[] = $error;
@@ -199,8 +199,8 @@ final class AlmanacDeviceEditor
             if (!strlen($address)) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Invalid'),
-                pht('Interfaces must have an address.'),
+                pht('Không hợp lệ'),
+                pht('Giao diện phải là một địa chỉ.'),
                 $xaction);
               $errors[] = $error;
             } else {
@@ -212,16 +212,16 @@ final class AlmanacDeviceEditor
             if (!strlen($port)) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Invalid'),
-                pht('Interfaces must have a port.'),
+                pht('Không hợp lệ'),
+                pht('Giao diện phải có cổng.'),
                 $xaction);
               $errors[] = $error;
             } else if ((int)$port < 1 || (int)$port > 65535) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Invalid'),
+                pht('Không hợp lệ'),
                 pht(
-                  'Port numbers must be between 1 and 65535, inclusive.'),
+                  'Cổng từ 1 đến 65535.'),
                 $xaction);
               $errors[] = $error;
             }
@@ -232,9 +232,9 @@ final class AlmanacDeviceEditor
               if (phid_get_type($phid) !== $interface_phid_type) {
                 $error = new PhabricatorApplicationTransactionValidationError(
                   $type,
-                  pht('Invalid'),
+                  pht('Không hợp lệ'),
                   pht(
-                    'Precomputed interface PHIDs must be of type '.
+                    'PHIDs phải là một loại '.
                     'AlmanacInterfacePHIDType.'),
                   $xaction);
                 $errors[] = $error;
@@ -261,10 +261,9 @@ final class AlmanacDeviceEditor
             if (!$network) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Invalid'),
+                pht('Không hợp lệ'),
                 pht(
-                  'You can not edit an interface which belongs to a '.
-                  'nonexistent or restricted network.'),
+                  'Bạn không được sửa giao diện thuộc mạng không tồn tại hoặc hạn chế.'),
                 $xaction);
               $errors[] = $error;
             }
@@ -278,10 +277,10 @@ final class AlmanacDeviceEditor
             if (!$network) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Invalid'),
+                pht('Không hợp lệ'),
                 pht(
-                  'You can not add an interface on a nonexistent or '.
-                  'restricted network.'),
+                  'Không thể thêm '.
+                  'Mạng hạn chế hoặc không hợp lệ.'),
                 $xaction);
               $errors[] = $error;
             }
@@ -306,8 +305,8 @@ final class AlmanacDeviceEditor
             if (!$interface) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Invalid'),
-                pht('You can not edit an invalid or restricted interface.'),
+                pht('Không hợp lệ'),
+                pht('Giao diện không hợp lệ hoặc hạn chế'),
                 $xaction);
               $errors[] = $error;
               continue;
@@ -318,8 +317,8 @@ final class AlmanacDeviceEditor
               if ($interface->loadIsInUse()) {
                 $error = new PhabricatorApplicationTransactionValidationError(
                   $type,
-                  pht('In Use'),
-                  pht('You can not delete an interface which is still in use.'),
+                  pht('Đang sử dụng'),
+                  pht('Không thể xóa.'),
                   $xaction);
                 $errors[] = $error;
               }

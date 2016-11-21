@@ -19,7 +19,7 @@ final class AlmanacNamespaceViewController
       return new Aphront404Response();
     }
 
-    $title = pht('Namespace %s', $namespace->getName());
+    $title = pht('Tên %s', $namespace->getName());
 
     $curtain = $this->buildCurtain($namespace);
 
@@ -70,7 +70,7 @@ final class AlmanacNamespaceViewController
     $curtain->addAction(
       id(new PhabricatorActionView())
         ->setIcon('fa-pencil')
-        ->setName(pht('Edit Namespace'))
+        ->setName(pht('Chỉnh sửa tên'))
         ->setHref($edit_uri)
         ->setWorkflow(!$can_edit)
         ->setDisabled(!$can_edit));

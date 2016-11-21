@@ -4,7 +4,7 @@ final class PhabricatorAuthInviteSearchEngine
   extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
-    return pht('Email Invites');
+    return pht('Mời qua email');
   }
 
   public function getApplicationClassName() {
@@ -33,7 +33,7 @@ final class PhabricatorAuthInviteSearchEngine
 
   protected function getBuiltinQueryNames() {
     $names = array(
-      'all' => pht('All'),
+      'all' => pht('Tất cả'),
     );
 
     return $names;
@@ -89,10 +89,10 @@ final class PhabricatorAuthInviteSearchEngine
     $table = id(new AphrontTableView($rows))
       ->setHeaders(
         array(
-          pht('Email Address'),
-          pht('Sent By'),
-          pht('Accepted By'),
-          pht('Invited'),
+          pht('Địa chỉ email'),
+          pht('Gửi bởi'),
+          pht('Được chấp nhận bởi'),
+          pht('Đã mời'),
         ))
       ->setColumnClasses(
         array(

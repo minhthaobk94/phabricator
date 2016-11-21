@@ -6,7 +6,7 @@ final class AlmanacBindingEditor
   private $devicePHID;
 
   public function getEditorObjectsDescription() {
-    return pht('Almanac Binding');
+    return pht('Ràng buộc Sách lịch');
   }
 
   public function getTransactionTypes() {
@@ -123,8 +123,8 @@ final class AlmanacBindingEditor
         if ($missing) {
           $error = new PhabricatorApplicationTransactionValidationError(
             $type,
-            pht('Required'),
-            pht('Bindings must specify an interface.'),
+            pht('Bắt buộc'),
+            pht('Những ràng buộc phải đặc trưng cho giao diện.'),
             nonempty(last($xactions), null));
           $error->setIsMissingFieldError(true);
           $errors[] = $error;
@@ -137,10 +137,10 @@ final class AlmanacBindingEditor
             if (!$interfaces) {
               $error = new PhabricatorApplicationTransactionValidationError(
                 $type,
-                pht('Invalid'),
+                pht('Không hợp lệ'),
                 pht(
-                  'You can not bind a service to an invalid or restricted '.
-                  'interface.'),
+                  'Bạn không thể ràng buộc một dich vụ với một giao diện không hợp lệ'.
+                  'hoặc giao diện hạn chế.'),
                 $xaction);
               $errors[] = $error;
             }
@@ -156,10 +156,9 @@ final class AlmanacBindingEditor
           if ($binding && ($binding->getID() != $object->getID())) {
             $error = new PhabricatorApplicationTransactionValidationError(
               $type,
-              pht('Already Bound'),
+              pht('Đã được cung cấp'),
               pht(
-                'You can not bind a service to the same interface multiple '.
-                'times.'),
+                'Bạn không thể ràng buộc một dịch vụ với một giao diện tương tự trong nhiều lần.'),
               last($xactions));
             $errors[] = $error;
           }
